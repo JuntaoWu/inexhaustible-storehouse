@@ -1,0 +1,70 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,default_json,loading-background",
+			"name": "preload"
+		},
+		{
+			"keys": "progress-bg,progress,btn-wxlogin",
+			"name": "loading"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/default/default.json",
+			"type": "sheet",
+			"name": "default_json",
+			"subkeys": "border_png,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,handle_png,header_png,off_png,on_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,selected_png,thumb_pb_png,thumb_png,track_pb_png,track_png,track_sb_png,tracklight_png"
+		},
+		{
+			"url": "assets/loading/progress-bg.png",
+			"type": "image",
+			"name": "progress-bg"
+		},
+		{
+			"url": "assets/loading/progress.png",
+			"type": "image",
+			"name": "progress"
+		},
+		{
+			"url": "assets/button/btn-wxlogin.png",
+			"type": "image",
+			"name": "btn-wxlogin"
+		},
+		{
+			"url": "assets/background/loading-background.jpg",
+			"type": "image",
+			"name": "loading-background"
+		},
+		{
+			"url": "assets/background/1.jpg",
+			"type": "image",
+			"name": "1"
+		},
+		{
+			"url": "assets/background/2.jpg",
+			"type": "image",
+			"name": "2"
+		},
+		{
+			"url": "assets/background/3.jpg",
+			"type": "image",
+			"name": "3"
+		},
+		{
+			"url": "assets/background/4.jpg",
+			"type": "image",
+			"name": "4"
+		},
+		{
+			"url": "assets/background/blank.jpg",
+			"type": "image",
+			"name": "blank"
+		}
+	]
+}
