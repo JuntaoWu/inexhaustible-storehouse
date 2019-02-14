@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.AnswerWindow" width="1280" height="720" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
+    <e:Group id="container" width="80%" height="80%">
+        <e:Image source="loading-background" bottom="0" top="0" left="0" right="0"></e:Image>
+        <e:Group horizontalCenter="0" width="90%">
+            <e:Button id="btnTips1" label="提示1" width="180" height="120" left="30">
+            </e:Button>
+            <e:Button id="btnTips2" label="提示2" width="180" height="120" horizontalCenter="0">
+            </e:Button>
+            <e:Button id="btnTips3" label="提示3" width="180" height="120" right="30">
+            </e:Button>
+            <e:Group y="180">
+                <e:Label text="{tips}"/>
+            </e:Group>
+        </e:Group>
+        <e:Group bottom="0" width="90%" horizontalCenter="0">
+            <e:List id="textInputList">
+                <e:layout>
+                    <e:TileLayout orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="0" />
+                </e:layout>
+            </e:List>
+            <e:TextInput id="textInput" alpha="0" height="95" width="650"/>
+            
+            <e:Button id="btnConfirm" label="确定" width="200" height="150" right="0" verticalCenter="0">
+            </e:Button>
+        </e:Group>
+    </e:Group>
+    
+</e:Skin>

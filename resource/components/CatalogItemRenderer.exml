@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.CatalogItemRenderer" xmlns:e="http://ns.egret.com/eui">
+    <e:Label text="{data}" textColor="0x000000" verticalCenter="0" horizontalCenter="0"  size="50"/>
+</e:Skin>

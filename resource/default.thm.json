@@ -16,7 +16,12 @@
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
+		"resource/components/CatalogItemRenderer.exml",
 		"resource/components/ChapterItemRenderer.exml",
+		"resource/components/CollectItemRenderer.exml",
+		"resource/components/TextInputItemRenderer.exml",
+		"resource/containers/AnswerWindow.exml",
+		"resource/containers/CatalogWindow.exml",
 		"resource/containers/GameScreen.exml",
 		"resource/containers/LoadingUI.exml",
 		"resource/eui_skins/ButtonSkin.exml",
