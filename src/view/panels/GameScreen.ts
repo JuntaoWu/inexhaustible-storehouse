@@ -8,6 +8,8 @@ namespace ies {
         public btnPrevious: eui.Button;
         public btnNext: eui.Button;
 
+        public btnChapterTitle: eui.Label;
+
         private titles: string[] = ['无尽藏', '图片1', '图片2', '图片3', '图片4'];
 
         //bindings:

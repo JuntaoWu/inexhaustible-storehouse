@@ -17,6 +17,8 @@
 	"autoGenerateExmlsList": true,
 	"exmls": [
 		"resource/components/ChapterItemRenderer.exml",
+		"resource/components/Shade.exml",
+		"resource/containers/AnswerWindow.exml",
 		"resource/containers/GameScreen.exml",
 		"resource/containers/LoadingUI.exml",
 		"resource/eui_skins/ButtonSkin.exml",

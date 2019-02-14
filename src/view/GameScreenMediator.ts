@@ -16,6 +16,7 @@ namespace ies {
             this.gameScreen.scroller.addEventListener(eui.UIEvent.CHANGE_END, this.scrollChangeEnd, this);
             this.gameScreen.btnPrevious.addEventListener(egret.TouchEvent.TOUCH_TAP, this.previousPage, this);
             this.gameScreen.btnNext.addEventListener(egret.TouchEvent.TOUCH_TAP, this.nextPage, this);
+            this.gameScreen.btnChapterTitle.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAnswerWindow, this);
         }
 
         public async initData() {
@@ -79,6 +80,10 @@ namespace ies {
             const width = event.target.viewport.getChildAt(0).width;
             const index = Math.ceil(scrollH / width);
             this.gameScreen.chapterIndex = index;
+        }
+
+        public openAnswerWindow(event: egret.TouchEvent) {
+            this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW);
         }
 
         public get gameScreen(): GameScreen {

@@ -12,8 +12,8 @@
 		"libs/modules/lodash/lodash.js"
 	],
 	"game": [
-		"bin-debug/controller/ViewPrepCommand.js",
-		"bin-debug/AccountAdapter.js",
+		"bin-debug/view/panels/BasePanel.js",
+		"bin-debug/controller/commands/SceneCommand.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
@@ -25,9 +25,9 @@
 		"bin-debug/controller/ControllerPrepCommand.js",
 		"bin-debug/controller/ModelPrepCommand.js",
 		"bin-debug/controller/StartupCommand.js",
-		"bin-debug/ApplicationFacade.js",
+		"bin-debug/controller/ViewPrepCommand.js",
 		"bin-debug/controller/commands/GameCommand.js",
-		"bin-debug/controller/commands/SceneCommand.js",
+		"bin-debug/ApplicationFacade.js",
 		"bin-debug/model/AccountProxy.js",
 		"bin-debug/model/GameProxy.js",
 		"bin-debug/model/common/CommonData.js",
@@ -35,9 +35,13 @@
 		"bin-debug/model/common/Scene.js",
 		"bin-debug/model/common/UserInfo.js",
 		"bin-debug/utils/DragonBones.js",
+		"bin-debug/view/AnswerWindowMediator.js",
 		"bin-debug/view/ApplicationMediator.js",
 		"bin-debug/view/GameScreenMediator.js",
+		"bin-debug/view/panels/AnswerWindow.js",
+		"bin-debug/AccountAdapter.js",
 		"bin-debug/view/panels/ChapterItemRenderer.js",
-		"bin-debug/view/panels/GameScreen.js"
+		"bin-debug/view/panels/GameScreen.js",
+		"bin-debug/view/panels/Shade.js"
 	]
 }

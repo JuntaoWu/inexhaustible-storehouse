@@ -27,5 +27,21 @@ namespace ies {
             egret.Tween.get(this).to({ alpha: 1 }, 1500);
         }
 
+        private _answerWindow: AnswerWindow;
+        public get answerWindow(): AnswerWindow {
+            if (!this._answerWindow) {
+                this._answerWindow = new AnswerWindow();
+            }
+            return this._answerWindow;
+        }
+
+        /**
+         * 显示AnswerWindow
+         */
+        public showAnswerWindow(): void {
+            this.addChild(this.answerWindow);
+            this.answerWindow.show();
+        }
+
     }
 }
