@@ -39,6 +39,32 @@ namespace ies {
 		public static START_TOUPIAO_BUTTON: string = "start_toupiao_button";
 		public static ROLEING: string = "roleing";
 		public static AUTH_EDN: string = "auth_end";
+		
+		public static ANSWERED: string = "answered";
+		
+		private _questionMap: Map<string, Question>;
+		public get questionMap(): Map<string, Question> {
+			if (!this._questionMap) {
+				this._questionMap = new Map<string, Question>(Object.entries(RES.getRes("question_json")));
+			}
+			return this._questionMap;
+		}
 
+		public playerInfo = {
+			answeredList: [],
+		}
+
+		public isAnswered(qId) {
+			return this.playerInfo.answeredList.includes(qId);
+		}
+
+		public addAnswered(qId) {
+			if (!this.isAnswered(qId)) {
+				this.playerInfo.answeredList.push(qId);
+				console.log(this.playerInfo.answeredList);
+			}
+		}
 	}
+
+	
 }

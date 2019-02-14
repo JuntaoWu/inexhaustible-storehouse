@@ -14,13 +14,33 @@ namespace ies {
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
-            // this.poweredLabel.y = this.stage.stageHeight - this.poweredLabel.height - 30;
             this.removeEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
             ApplicationFacade.getInstance().registerMediator(new AnswerWindowMediator(this));
         }
+        
+        public question: Question;
+        public btnTips1: eui.Button;
+        public btnTips2: eui.Button;
+        public btnTips3: eui.Button;
+        public tips: string = '1';
 
-        public partAdded(partName: string, instance: any): void {
-            super.partAdded(partName, instance);
+        public textInput: egret.TextField;
+        public textInputList: eui.List;
+        public btnConfirm: eui.Button;
+
+        public textList: Array<string>;
+        public answerText: string;
+        public answerStartIndex: number;
+
+        public setQuestion(question) {
+            this.question = { ...question };
+            this.answerText = question.sentence.match(/【(.+?)】/)[1];
+            const replaceText = this.answerText.split('').map(i => ' ').join('');
+            this.textList = question.sentence.replace(/【(.+?)】/, replaceText).split('');
+            this.answerStartIndex = this.textList.findIndex(i => i == ' ');
+
+            this.textInputList.dataProvider = new eui.ArrayCollection(this.textList);
+            this.textInputList.itemRenderer = TextInputItemRenderer;
         }
     }
 }

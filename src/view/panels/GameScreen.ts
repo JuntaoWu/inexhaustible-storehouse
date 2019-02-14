@@ -7,22 +7,11 @@ namespace ies {
         public listChapter: eui.List;
         public btnPrevious: eui.Button;
         public btnNext: eui.Button;
-
-        public btnChapterTitle: eui.Label;
-
-        private titles: string[] = ['无尽藏', '图片1', '图片2', '图片3', '图片4'];
+        public titleGroup: eui.Group;
+        public btnCatalog: eui.Button;
 
         //bindings:
-        public chapterTitle: string = this.titles[0];
-
-        private _chapterIndex: number = 0;
-        public get chapterIndex(): number {
-            return this._chapterIndex;
-        }
-        public set chapterIndex(v: number) {
-            this._chapterIndex = v;
-            this.chapterTitle = this.titles[this._chapterIndex];
-        }
+        public chapterTitle: string;
 
         public constructor() {
             super();

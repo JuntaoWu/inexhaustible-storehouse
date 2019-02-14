@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,scroll-background",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background",
 			"name": "preload"
 		},
 		{
@@ -65,6 +65,11 @@
 			"url": "assets/background/blank.jpg",
 			"type": "image",
 			"name": "blank"
+		},
+		{
+			"name": "question_json",
+			"type": "json",
+			"url": "config/question.json"
 		},
 		{
 			"url": "assets/background/scroll-background.png",

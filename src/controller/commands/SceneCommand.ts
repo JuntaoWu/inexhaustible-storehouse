@@ -12,8 +12,9 @@ namespace ies {
          * 切换场景
          */
         public static CHANGE: string = "scene_change";
-
+        
         public static SHOW_ANSWER_WINDOW: string = "show_answer_window";
+        public static SHOW_CATALOG_WINDOW: string = "show_catalog_window";
 
         public static NAVIGATE_TO_CHILD_GAME: string = "navigate_to_child_game";
 
@@ -60,8 +61,7 @@ namespace ies {
             super.initializeNotifier(key);
             this.facade().registerCommand(SceneCommand.CHANGE, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_ANSWER_WINDOW, SceneCommand);
-
-            this.facade().registerCommand(SceneCommand.SHOW_JOIN_WINDOW, SceneCommand);
+            this.facade().registerCommand(SceneCommand.SHOW_CATALOG_WINDOW, SceneCommand);
 
             this.facade().registerCommand(SceneCommand.NAVIGATE_TO_CHILD_GAME, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_JOIN_WINDOW, SceneCommand);
@@ -111,7 +111,11 @@ namespace ies {
                     break;
                 }
                 case SceneCommand.SHOW_ANSWER_WINDOW: {
-                    appMediator.main.showAnswerWindow();
+                    appMediator.main.showAnswerWindow(data);
+                    break;
+                }
+                case SceneCommand.SHOW_CATALOG_WINDOW: {
+                    appMediator.main.showCatalogWindow();
                     break;
                 }
             }

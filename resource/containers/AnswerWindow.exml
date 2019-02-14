@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skins.ies.AnswerWindow" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
-        xmlns:ies="ies.*">
-    <ies:Shade></ies:Shade>
-    <e:Group id="container" width="800" height="600" horizontalCenter="0">
-        <e:Image source="loading-background" top="0" right="0" bottom="0" left="0"></e:Image>
-        <e:Group width="800" height="600" horizontalCenter="0" verticalCenter="0">
-            <e:Group horizontalCenter="0" y="73" width="500" height="60">
-                <e:Image source="text-area-background"></e:Image>
-                <e:Image source="lock"></e:Image>
-                <e:Label text="提示1" textColor="0x000000" horizontalCenter="0" verticalCenter="0"></e:Label>
-            </e:Group>
-            <e:Group horizontalCenter="0" y="160" width="500" height="60">
-                <e:Image source="text-area-background"></e:Image>
-                <e:Image source="lock"></e:Image>
-                <e:Label text="提示2" horizontalCenter="0" verticalCenter="0" textColor="0x000000"></e:Label>
-            </e:Group>
-            <e:Group horizontalCenter="0" y="250" width="500" height="60">
-                <e:Image source="text-area-background"></e:Image>
-                <e:Image source="lock"></e:Image>
-                <e:Label text="提示3" textColor="0x000000" horizontalCenter="0" verticalCenter="0"></e:Label>
+<e:Skin class="skins.ies.AnswerWindow" width="1280" height="720" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
+    <e:Group id="container" width="80%" height="80%">
+        <e:Image source="loading-background" bottom="0" top="0" left="0" right="0"></e:Image>
+        <e:Group horizontalCenter="0" width="90%">
+            <e:Button id="btnTips1" label="提示1" width="180" height="120" left="30">
+            </e:Button>
+            <e:Button id="btnTips2" label="提示2" width="180" height="120" horizontalCenter="0">
+            </e:Button>
+            <e:Button id="btnTips3" label="提示3" width="180" height="120" right="30">
+            </e:Button>
+            <e:Group y="180">
+                <e:Label text="{tips}"/>
             </e:Group>
         </e:Group>
-        <e:Group width="100%" height="110" bottom="0">
-            <e:Button id="closeButton" label="返回" verticalCenter="0" x="261"></e:Button>
-            <e:Button label="确认" verticalCenter="0" x="450"></e:Button>
+        <e:Group bottom="0" width="90%" horizontalCenter="0">
+            <e:List id="textInputList">
+                <e:layout>
+                    <e:TileLayout orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="0" />
+                </e:layout>
+            </e:List>
+            <e:TextInput id="textInput" alpha="0" height="95" width="650"/>
+            
+            <e:Button id="btnConfirm" label="确定" width="200" height="150" right="0" verticalCenter="0">
+            </e:Button>
         </e:Group>
     </e:Group>
+    
 </e:Skin>
