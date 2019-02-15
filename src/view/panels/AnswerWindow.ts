@@ -22,7 +22,7 @@ namespace ies {
         public btnTips1: eui.Button;
         public btnTips2: eui.Button;
         public btnTips3: eui.Button;
-        public tips: string = '1';
+        public tips: string;
 
         public textInput: egret.TextField;
         public textInputList: eui.List;

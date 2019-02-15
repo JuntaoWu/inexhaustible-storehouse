@@ -9,6 +9,9 @@ namespace ies {
 
         public catalogList: eui.List;
         public title: string = '目录';
+        public showCatalog: boolean = true;
+        public showCollect: boolean;
+        public showSetting: boolean;
 
         public constructor() {
             super();

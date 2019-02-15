@@ -32,6 +32,7 @@
 		"bin-debug/model/GameProxy.js",
 		"bin-debug/ApplicationFacade.js",
 		"bin-debug/model/common/Constants.js",
+		"bin-debug/ApplicationFacade.js",
 		"bin-debug/model/common/Question.js",
 		"bin-debug/model/common/Scene.js",
 		"bin-debug/model/common/UserInfo.js",
@@ -39,6 +40,11 @@
 		"bin-debug/view/AnswerWindowMediator.js",
 		"bin-debug/view/ApplicationMediator.js",
 		"bin-debug/view/CatalogWindowMediator.js",
+		"bin-debug/view/panels/BasePanel.js",
+		"bin-debug/view/AnswerWindowMediator.js",
+		"bin-debug/view/ApplicationMediator.js",
+		"bin-debug/view/CatalogWindowMediator.js",
+		"bin-debug/view/CollectWindowMediator.js",
 		"bin-debug/view/GameScreenMediator.js",
 		"bin-debug/view/panels/AnswerWindow.js",
 		"bin-debug/AccountAdapter.js",
@@ -48,6 +54,9 @@
 		"bin-debug/view/panels/CollectItemRenderer.js",
 		"bin-debug/view/panels/GameScreen.js",
 		"bin-debug/view/panels/Shade.js",
+		"bin-debug/view/panels/CollectWindow.js",
+		"bin-debug/view/panels/GameScreen.js",
+		"bin-debug/view/panels/SettingWindow.js",
 		"bin-debug/view/panels/TextInputItemRenderer.js"
 	]
 }
