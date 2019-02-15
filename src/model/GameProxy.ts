@@ -41,6 +41,7 @@ namespace ies {
 		public static AUTH_EDN: string = "auth_end";
 		
 		public static ANSWERED: string = "answered";
+		public static CHANGE_INDEX: string = "change_index";
 		
 		private _questionMap: Map<string, Question>;
 		public get questionMap(): Map<string, Question> {
@@ -55,7 +56,7 @@ namespace ies {
 		}
 
 		public isAnswered(qId) {
-			return this.playerInfo.answeredList.includes(qId);
+			return !qId || this.playerInfo.answeredList.includes(qId);
 		}
 
 		public addAnswered(qId) {

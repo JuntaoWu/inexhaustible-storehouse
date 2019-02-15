@@ -49,6 +49,8 @@ namespace ies {
         public static authorizeButtonImageUrl = `${Constants.ResourceEndpoint}resource/assets/Button/btn-wxlogin.png`;
         public static gameTitle = `古董局中局`;
         public static shareImageUrl = `${Constants.ResourceEndpoint}resource/assets/shared/share.png`;
+
+        public static listGap = 6;
     }
 
 }

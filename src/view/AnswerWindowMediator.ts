@@ -17,7 +17,7 @@ namespace ies {
             // this.pageView.textInputList.addEventListener(egret.TouchEvent.TOUCH_TAP, this.textInputClick, this);
             this.pageView.textInput.addEventListener(egret.Event.CHANGE, this.inputChange, this);
             this.pageView.textInput.addEventListener(egret.Event.FOCUS_OUT, this.inputFocusOut, this);
-            
+
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
         }
@@ -40,6 +40,7 @@ namespace ies {
 
         public textInputClick(event: egret.TouchEvent) {
             this.pageView.textInput.setFocus();
+            this.pageView.textInput.visible = false;
         }
 
         public inputChange(event: egret.Event) {
@@ -50,6 +51,7 @@ namespace ies {
             this.pageView.textInputList.itemRenderer = TextInputItemRenderer;
         }
         public inputFocusOut(e: egret.Event) {
+            this.pageView.textInput.visible = true;
             if (e.target.text.length > this.pageView.answerText.length) {
                 e.target.text = e.target.text.substr(0, this.pageView.answerText.length);
             }

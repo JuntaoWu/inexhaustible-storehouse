@@ -7,7 +7,7 @@
         <e:Group width="720" horizontalCenter="0" verticalCenter="0">
             <e:Button id="btnPrevious" label="上一页" verticalCenter="0"></e:Button>
             <e:Group id="titleGroup" verticalCenter="0" horizontalCenter="0">
-                <e:Label text="{chapterTitle}" textColor="0x000000" verticalCenter="0" horizontalCenter="0"></e:Label>
+                <e:Label text="{chapterTitle}" textColor="0x000000" horizontalCenter="0" verticalCenter="0" verticalAlign="bottom" visible="true"></e:Label>
             </e:Group>
             <e:Button id="btnNext" label="下一页" verticalCenter="0" right="0"></e:Button>
         </e:Group>
