@@ -6,8 +6,6 @@ namespace ies {
 
         private proxy: GameProxy;
 
-        private ybrskillHasBeenHandled: boolean[] = [false, false, false];
-
         public constructor(viewComponent: any) {
             super(GameScreenMediator.NAME, viewComponent);
             super.initializeNotifier("ApplicationFacade");

@@ -18,6 +18,7 @@
 	"exmls": [
 		"resource/components/CatalogItemRenderer.exml",
 		"resource/components/ChapterItemRenderer.exml",
+		"resource/components/CollectImageItemRenderer.exml",
 		"resource/components/CollectItemRenderer.exml",
 		"resource/components/Shade.exml",
 		"resource/components/TextInputItemRenderer.exml",

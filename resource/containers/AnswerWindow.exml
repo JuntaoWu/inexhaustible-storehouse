@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.ies.AnswerWindow" width="1280" height="720" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
-    <e:Group id="container" width="80%" height="80%">
+    <e:Group id="container" width="1000" height="600">
         <e:Image source="loading-background" bottom="0" top="0" left="0" right="0"></e:Image>
         <e:Group horizontalCenter="0" width="90%">
             <e:Button id="btnTips1" label="提示1" width="180" height="120" left="30">
