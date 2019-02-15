@@ -20,8 +20,15 @@ namespace ies {
                 collectList[v.id - 1] = v.res.toString();
             });
             console.log(collectList)
+            const list = [];
+            for (let i = 0; i < 3; i++) {
+                list[i] = {
+                    title: '列表' + i,
+                    imgList: collectList
+                }
+            }
             this.pageView.collectList.itemRenderer = CollectItemRenderer;
-            this.pageView.collectList.dataProvider = new eui.ArrayCollection(collectList);
+            this.pageView.collectList.dataProvider = new eui.ArrayCollection(list);
 
         }
 
