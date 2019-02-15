@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.SettingWindow" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
+    <e:Group horizontalCenter="0">
+        <e:Scroller scrollPolicyH="off" scrollPolicyV="on" height="500" verticalCenter="0" horizontalCenter="0">
+            <e:viewport>
+                <e:Group>
+                    <e:Label text="设置页" textColor="0x020202" size="50" y="110"/>
+                </e:Group>
+            </e:viewport>
+        </e:Scroller>
+    </e:Group>
+    
+</e:Skin>

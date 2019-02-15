@@ -10,8 +10,8 @@
             </e:Button>
             <e:Button id="btnTips3" label="提示3" width="180" height="120" right="30">
             </e:Button>
-            <e:Group y="180">
-                <e:Label text="{tips}"/>
+            <e:Group y="180" horizontalCenter="0">
+                <e:Label text="{tips}" size="50" textColor="0x020202" maxWidth="820"/>
             </e:Group>
         </e:Group>
         <e:Group bottom="0" width="90%" horizontalCenter="0">

@@ -9,13 +9,16 @@ namespace ies {
         public constructor(viewComponent: any) {
             super(CatalogWindowMediator.NAME, viewComponent);
             super.initializeNotifier("ApplicationFacade");
+            
+            this.pageView.btnCatalog.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(0), this);
+            this.pageView.btnCollect.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(1), this);
+            this.pageView.btnSetting.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(2), this);
 
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
         }
 
         public async initData() {
-            this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             const catalogList = [];
             this.proxy.questionMap.forEach(v => {
                 if (!this.proxy.isAnswered(v.id)) { 
@@ -33,6 +36,14 @@ namespace ies {
 
         }
 
+        public tabChange(index: number) {
+            const titles = ['目录', '收藏', '设置'];
+            const showType = ['showCatalog', 'showCollect', 'showSetting'];
+            this.pageView.title = titles[index];
+            showType.forEach((v, i) => {
+                this.pageView[v] = i == index ? true : false;
+            });
+        }
 
         public get pageView(): CatalogWindow {
             return this.viewComponent;
