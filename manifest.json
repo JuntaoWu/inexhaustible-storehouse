@@ -46,6 +46,7 @@
 		"bin-debug/view/panels/CatalogItemRenderer.js",
 		"bin-debug/view/panels/CatalogWindow.js",
 		"bin-debug/view/panels/ChapterItemRenderer.js",
+		"bin-debug/view/panels/CollectImageItemRenderer.js",
 		"bin-debug/view/panels/CollectItemRenderer.js",
 		"bin-debug/view/panels/CollectWindow.js",
 		"bin-debug/view/panels/GameScreen.js",
