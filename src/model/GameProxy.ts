@@ -62,7 +62,6 @@ namespace ies {
 		public addAnswered(qId) {
 			if (!this.isAnswered(qId)) {
 				this.playerInfo.answeredList.push(qId);
-				console.log(this.playerInfo.answeredList);
 			}
 		}
 	}

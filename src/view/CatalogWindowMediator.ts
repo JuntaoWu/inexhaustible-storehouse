@@ -24,12 +24,12 @@ namespace ies {
             const catalogList = [];
             this.proxy.questionMap.forEach(v => {
                 if (!this.proxy.isAnswered(v.id)) {
-                    const replaceText = v.sentence.match(/【(.+?)】/)[1].split('').map(i => '*').join('');
+                    const replaceText = v.sentence.match(/【(.+?)】/)[1].split('').map(i => '■').join('');
                     catalogList[v.id - 1] = v.sentence.replace(/【(.+?)】/, `【${replaceText}】`);
                 }
                 else {
                     // 已解答
-                    catalogList[v.id - 1] = v.sentence;
+                    catalogList[v.id - 1] = v.sentence.replace(/【|】/g, '');
                 }
             });
 

@@ -5,7 +5,32 @@
         <e:Scroller scrollPolicyH="off" scrollPolicyV="on" height="500" verticalCenter="0" horizontalCenter="0">
             <e:viewport>
                 <e:Group>
-                    <e:Label text="设置页" textColor="0x020202" size="50" y="110"/>
+                    <e:Group horizontalCenter="0" width="900">
+                        <e:Label text="音效音量" verticalCenter="0" textColor="0x000000"/>
+                        <e:Group id="volumeEffectGroup" x="160">
+                            <e:Image source="progress-bg" verticalCenter="0"/>
+                            <e:Image source="progress" width="{widthEffect}" verticalCenter="0"/>
+                        </e:Group>
+                        <e:Button id="btnVolumeEffect" x="860">
+                            <e:Skin>
+                                <e:Image source="thumb_png" height="70" width="37"/>
+                            </e:Skin>
+                        </e:Button>
+                    </e:Group>
+                    <e:Group y="80" width="900">
+                        <e:Label text="背景音乐" verticalCenter="0" textColor="0x000000"/>
+                        <e:Group id="volumeBGMGroup" x="160">
+                            <e:Image source="progress-bg" verticalCenter="0"/>
+                            <e:Image source="progress" width="{widthBGM}" verticalCenter="0"/>
+                        </e:Group>
+                        <e:Button id="btnVolumeBGM" x="860">
+                            <e:Skin>
+                                <e:Image source="thumb_png" height="70" width="37"/>
+                            </e:Skin>
+                        </e:Button>
+                    </e:Group>
+
+                    <e:Label text="设置页" textColor="0x020202" size="50" y="213" horizontalCenter="0"/>
                 </e:Group>
             </e:viewport>
         </e:Scroller>

@@ -19,7 +19,6 @@ namespace ies {
             this.proxy.questionMap.forEach(v => {
                 collectList[v.id - 1] = v.res.toString();
             });
-            console.log(collectList)
             const list = [];
             for (let i = 0; i < 3; i++) {
                 list[i] = {
