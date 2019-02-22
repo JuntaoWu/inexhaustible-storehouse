@@ -53,6 +53,8 @@ namespace ies {
 
 		public playerInfo = {
 			answeredList: [],
+			isSoundEffectOn: true,
+			isSoundBGMOn: true,
 		}
 
 		public isAnswered(qId) {

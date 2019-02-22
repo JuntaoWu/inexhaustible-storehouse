@@ -10,9 +10,9 @@ namespace ies {
             super(CatalogWindowMediator.NAME, viewComponent);
             super.initializeNotifier("ApplicationFacade");
             
-            this.pageView.btnCatalog.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(0), this);
-            this.pageView.btnCollect.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(1), this);
-            this.pageView.btnSetting.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(2), this);
+            this.pageView.btnCatalog.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 0), this);
+            this.pageView.btnCollect.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 1), this);
+            this.pageView.btnSetting.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 2), this);
 
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
@@ -43,10 +43,11 @@ namespace ies {
             this.sendNotification(GameProxy.CHANGE_INDEX, event.itemIndex);
         }
 
-        public tabChange(index: number) {
-            const titles = ['目录', '收藏', '设置'];
+        public tabChange(e: egret.TouchEvent, index: number) {
+            e.currentTarget.selected = true;
+            const titles = ['title-catalog', 'title-collect', 'title-setting'];
             const showType = ['showCatalog', 'showCollect', 'showSetting'];
-            this.pageView.title = titles[index];
+            this.pageView.titleRes = titles[index];
             showType.forEach((v, i) => {
                 this.pageView[v] = i == index ? true : false;
             });

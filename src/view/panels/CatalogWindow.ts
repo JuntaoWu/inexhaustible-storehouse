@@ -3,12 +3,12 @@ namespace ies {
 
     export class CatalogWindow extends BasePanel {
 
-        public btnCatalog: eui.Button;
-        public btnCollect: eui.Button;
-        public btnSetting: eui.Button;
+        public btnCatalog: eui.ToggleButton;
+        public btnCollect: eui.ToggleButton;
+        public btnSetting: eui.ToggleButton;
 
         public catalogList: eui.List;
-        public title: string = '目录';
+        public titleRes: string = 'title-catalog';
         public showCatalog: boolean = true;
         public showCollect: boolean;
         public showSetting: boolean;

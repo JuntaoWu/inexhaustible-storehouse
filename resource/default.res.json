@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,catalog-icon_json,setting-icon_json,catalog-word_json,sentence-title_json",
 			"name": "preload"
 		},
 		{
@@ -67,14 +67,59 @@
 			"name": "blank"
 		},
 		{
-			"name": "question_json",
+			"url": "config/question.json",
 			"type": "json",
-			"url": "config/question.json"
+			"name": "question_json"
 		},
 		{
 			"url": "assets/background/scroll-background.png",
 			"type": "image",
 			"name": "scroll-background"
+		},
+		{
+			"url": "assets/background/main-background.png",
+			"type": "image",
+			"name": "main-background"
+		},
+		{
+			"url": "assets/other/vertical-line.png",
+			"type": "image",
+			"name": "vertical-line"
+		},
+		{
+			"url": "assets/background/input-screen-bg.png",
+			"type": "image",
+			"name": "input-screen-bg"
+		},
+		{
+			"name": "btn-game-screen_json",
+			"type": "sheet",
+			"url": "assets/sprite/btn-game-screen.json",
+			"subkeys": "btn-course,btn-next,btn-previous,btn-catalog"
+		},
+		{
+			"name": "catalog-icon_json",
+			"type": "sheet",
+			"url": "assets/sprite/catalog-icon.json",
+			"subkeys": "menu-catalog-active,menu-catalog-default,menu-collect-active,menu-collect-default,menu-setting-active,menu-setting-default,title-catalog,title-setting,btn-back,menu-active-bg,title-collect"
+		},
+		{
+			"name": "setting-icon_json",
+			"type": "sheet",
+			"url": "assets/sprite/setting-icon.json",
+			"subkeys": "sound-bg,sound-effect,switch-off,switch-on,volume-line,volume-line-bg,btn-developer,btn-slider"
+		},
+		{
+			"name": "catalog-word_json",
+			"type": "sheet",
+			"url": "assets/sprite/catalog-word.json",
+			"subkeys": "catalog10,catalog11,catalog12,catalog13,catalog14,catalog15,catalog16,catalog17,catalog18,catalog19,catalog20,catalog21,catalog22,catalog01,catalog02,catalog03,catalog04,catalog05,catalog06,catalog07,catalog08,catalog09"
+		},
+		{
+			"name": "sentence-title_json",
+			"type": "sheet",
+			"url": "assets/sprite/sentence-title.json",
+			"subkeys": "sentence10,sentence11,sentence12,sentence13,sentence14,sentence15,sentence16,sentence17,sentence18,sentence19,sentence20,sentence21,sentence22,sentence01,sentence02,sentence03,sentence04,sentence05,sentence06,sentence07,sentence08,sentence09"
 		}
 	]
 }
