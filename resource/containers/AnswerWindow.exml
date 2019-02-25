@@ -3,28 +3,58 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
     <e:Group id="container" horizontalCenter="0">
         <e:Image source="input-screen-bg" verticalCenter="0" horizontalCenter="0"></e:Image>
-        <e:Group horizontalCenter="0" width="900">
-            <e:Button id="btnTips1" label="提示1" width="180" height="120" left="30">
-            </e:Button>
-            <e:Button id="btnTips2" label="提示2" width="180" height="120" horizontalCenter="0">
-            </e:Button>
-            <e:Button id="btnTips3" label="提示3" width="180" height="120" right="30">
-            </e:Button>
-            <e:Group y="180" horizontalCenter="0">
-                <e:Label text="{tips}" size="50" textColor="0x020202" maxWidth="820"/>
+        <e:Group horizontalCenter="0" width="900" y="130">
+            <e:Group horizontalCenter="0">
+                <e:Image source="tips-content-bg" />
+                <e:Label text="{tips}" size="50" textColor="0x020202" maxWidth="820" width="830" horizontalCenter="0" y="90"/>
+            </e:Group>
+            <e:Group horizontalCenter="0" width="848">
+                <e:ToggleButton id="btnTips1">
+                    <e:Skin states="up,upAndSelected">
+                        <e:Image source="tips-left" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips1" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips-left-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips1-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:ToggleButton>
+                <e:ToggleButton id="btnTips2" horizontalCenter="0">
+                    <e:Skin states="up,upAndSelected">
+                        <e:Image source="tips-center" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips2" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips-center-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips2-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:ToggleButton>
+                <e:ToggleButton id="btnTips3" selected="false" right="0">
+                    <e:Skin states="up,upAndSelected">
+                        <e:Image source="tips-right" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips3" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips-right-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                        <e:Image source="tips3-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:ToggleButton>
             </e:Group>
         </e:Group>
-        <e:Group bottom="0" width="900" horizontalCenter="0">
-            <e:List id="textInputList">
+        <e:Group width="900" horizontalCenter="0" bottom="-40">
+            <e:List id="textInputList" horizontalCenter="0">
                 <e:layout>
                     <e:TileLayout orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="0" />
                 </e:layout>
             </e:List>
-            <e:TextInput id="textInput" alpha="0" height="95" width="650"/>
+            <e:TextInput id="textInput" alpha="0" height="95" width="660" horizontalCenter="0"/>
             
-            <e:Button id="btnConfirm" label="确定" width="200" height="150" right="0" verticalCenter="0">
+            <e:Button id="btnConfirm" y="130" horizontalCenter="0">
+                <e:Skin>
+                    <e:Image source="btn-submit" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
             </e:Button>
         </e:Group>
+        
+        <e:Button id="closeButton" y="2" right="-20">
+            <e:Skin>
+                <e:Image source="btn-close" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
+        </e:Button>
     </e:Group>
     
 </e:Skin>

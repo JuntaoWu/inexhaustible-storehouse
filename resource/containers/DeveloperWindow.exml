@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.DeveloperWindow" xmlns:e="http://ns.egret.com/eui" xmlns:ies="ies.*">
+    <e:Scroller scrollPolicyH="off" id="scrollGroup" width="90%" horizontalCenter="0" top="0" bottom="20">
+        <e:viewport>
+            <e:Group horizontalCenter="0">
+                <e:Image anchorOffsetX="0" anchorOffsetY="0" source="logo" horizontalCenter="0"/>
+                <e:Label text="版本信息"  textColor="0x603811" size="35" horizontalCenter="0" y="540" fontFamily="Microsoft YaHei"/>
+                <e:Label text="{appVersion}"  textColor="0x603811" size="35" horizontalCenter="0" y="590" fontFamily="Microsoft YaHei"/>
+                <e:Image y="640" anchorOffsetX="0" anchorOffsetY="0"  source="company_logo" horizontalCenter="0"/>
+                <e:Group horizontalCenter="0" y="950">
+                    <e:Label text="联系我们"  textColor="0x603811" size="35" horizontalCenter="0" fontFamily="Microsoft YaHei"/>
+                    <e:Label text="13880988238"  textColor="0x603811" size="35" horizontalCenter="0" y="50" fontFamily="Microsoft YaHei"/>
+                    <e:Label text="office@hzsdgames.com"  textColor="0x603811" size="35" horizontalCenter="0" y="100" fontFamily="Microsoft YaHei"/>
+                </e:Group>			
+            </e:Group>
+        </e:viewport>
+    </e:Scroller>
+</e:Skin>

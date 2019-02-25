@@ -17,12 +17,13 @@ namespace ies {
         public async initData() {
             const collectList = [];
             this.proxy.questionMap.forEach(v => {
-                collectList[v.id - 1] = v.res.toString();
+                collectList[v.id - 1] = this.proxy.isAnswered(v.id) ? v.res.toString() : '';
             });
             const list = [];
+            const titleList = ['main-task', 'branch-task', 'crowdfunding-task'];
             for (let i = 0; i < 3; i++) {
                 list[i] = {
-                    title: '列表' + i,
+                    title: titleList[i],
                     imgList: collectList
                 }
             }

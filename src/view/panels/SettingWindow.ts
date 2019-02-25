@@ -16,6 +16,8 @@ namespace ies {
             ApplicationFacade.getInstance().registerMediator(new SettingWindowMediator(this));
         }
 
+        public showSetting: boolean = true;
+        public showDeveloper: boolean = false;
         public widthEffect: number = 720;
         public widthBGM: number = 720;
 
@@ -26,6 +28,6 @@ namespace ies {
         public btnDeveloper: eui.Button;
         public switchEffect: eui.ToggleButton;
         public switchBG: eui.ToggleButton;
-
+        public devWindow: DeveloperWindow;
     }
 }

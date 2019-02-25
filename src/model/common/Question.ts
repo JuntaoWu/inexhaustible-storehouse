@@ -8,5 +8,7 @@ namespace ies {
         public tips3?: string;
         public sentence?: string;
         public res?: string;
+        public sentenceRes?: string;
+        public catalogRes?: string;
     }
 }

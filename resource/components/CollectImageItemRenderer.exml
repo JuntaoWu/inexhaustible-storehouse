@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.ies.CollectImageItemRenderer" xmlns:e="http://ns.egret.com/eui">
-    <e:Image source="{data}" width="150" height="120"/>
+    <e:Image source="img-box" width="235" height="235"/>
+    <e:Image source="{data}" width="230" height="230" verticalCenter="0" horizontalCenter="0"/>
 </e:Skin>

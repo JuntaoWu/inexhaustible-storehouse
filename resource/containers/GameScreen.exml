@@ -2,20 +2,12 @@
 <e:Skin class="skins.ies.GameScreen" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
     <w:Config id="168e50516a2" />
-    <e:Image source="loading-background" bottom="0" top="0" left="0" right="0"></e:Image>
-    <e:Group width="100%" height="110">
-        <e:Group width="720" horizontalCenter="0" verticalCenter="0">
-            <e:Button id="btnPrevious" label="上一页" verticalCenter="0"></e:Button>
-            <e:Group id="titleGroup" verticalCenter="0" horizontalCenter="0">
-                <e:Label text="{chapterTitle}" textColor="0x000000" horizontalCenter="0" verticalCenter="0" verticalAlign="bottom" visible="true"></e:Label>
-            </e:Group>
-            <e:Button id="btnNext" label="下一页" verticalCenter="0" right="0"></e:Button>
-        </e:Group>
-    </e:Group>
-    <e:Group width="1200" height="500" horizontalCenter="0" verticalCenter="0">
-        <e:Image source="scroll-background" width="100%" height="100%"></e:Image>
-        <e:Scroller id="scroller" scrollPolicyH="on" scrollPolicyV="off" verticalCenter="0" width="1085" height="400"
-                    x="100">
+    <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
+    <e:Group verticalCenter="0" left="0" right="0" height="840">
+        <e:Image source="scroll-background" verticalCenter="0" right="0"></e:Image>
+        <e:Image source="scroll-bar" left="0" verticalCenter="0"></e:Image>
+        <e:Scroller id="scroller" scrollPolicyH="on" scrollPolicyV="off" verticalCenter="0"
+                    top="10" bottom="10" left="170" right="0">
             <e:viewport>
                 <e:List id="listChapter" verticalCenter="0">
                     <e:layout>
@@ -25,8 +17,35 @@
             </e:viewport>
         </e:Scroller>
     </e:Group>
-    <e:Group width="100%" height="110" bottom="0">
-        <e:Button id="btnCatalog" label="目录" x="900" verticalCenter="0"></e:Button>
-        <e:Button label="教程" x="1020" verticalCenter="0"></e:Button>
+    <e:Group width="100%" height="110">
+        <e:Group width="860" horizontalCenter="-28" verticalCenter="0">
+            <e:Button id="btnPrevious" verticalCenter="0">
+                <e:Skin>
+                    <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:Button>
+            <e:Group id="titleGroup" verticalCenter="0" horizontalCenter="0">
+                <!--<e:Label text="{chapterTitle}" textColor="0x000000" horizontalCenter="0" verticalCenter="0"></e:Label>-->
+                <e:Image source="{chapterTitle}" horizontalCenter="0" verticalCenter="0"/>
+                <e:Image source="{maskRes}" verticalCenter="0" x="{maskStart}"/>
+            </e:Group>
+            <e:Button id="btnNext" verticalCenter="0" right="0">
+                <e:Skin>
+                    <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:Button>
+        </e:Group>
+    </e:Group>
+    <e:Group bottom="25">
+        <e:Button id="btnCatalog" x="30" verticalCenter="0">
+            <e:Skin>
+                <e:Image source="btn-catalog" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
+        </e:Button>
+        <e:Button x="250" verticalCenter="0">
+            <e:Skin>
+                <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
+        </e:Button>
     </e:Group>
 </e:Skin>

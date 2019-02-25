@@ -22,16 +22,25 @@ namespace ies {
 
         public async initData() {
             const catalogList = [];
+            let showFinalTowSentence = true;
             this.proxy.questionMap.forEach(v => {
-                if (!this.proxy.isAnswered(v.id)) {
-                    const replaceText = v.sentence.match(/【(.+?)】/)[1].split('').map(i => '■').join('');
-                    catalogList[v.id - 1] = v.sentence.replace(/【(.+?)】/, `【${replaceText}】`);
-                }
-                else {
-                    // 已解答
-                    catalogList[v.id - 1] = v.sentence.replace(/【|】/g, '');
+                if (v.id <= 20 || showFinalTowSentence) {
+                    catalogList[v.id - 1] = {
+                        res: v.catalogRes,
+                        maskStart: v.sentence.indexOf('【'),
+                        maskLen: 0
+                    }
+                    if (v.sentence.indexOf('【') != -1 && !this.proxy.isAnswered(v.id)) {
+                        catalogList[v.id - 1].maskLen = v.sentence.match(/【(.+?)】/)[1].length;
+                        if (v.id < 20) {
+                            showFinalTowSentence = false;
+                        }
+                    }
                 }
             });
+            if (this.proxy.isAnswered(21) && this.proxy.isAnswered(22)) {
+                this.pageView.btnFinal.visible = true;
+            }
 
             this.pageView.catalogList.itemRenderer = CatalogItemRenderer;
             this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);

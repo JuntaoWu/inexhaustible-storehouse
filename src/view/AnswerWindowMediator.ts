@@ -23,11 +23,18 @@ namespace ies {
         }
 
         public async initData() {
-
+            this.pageView.textInput.text = "";
+            this.pageView.tips = "";
+            [1, 2, 3].forEach(v => {
+                this.pageView[`btnTips${v}`].selected = false;
+            });
         }
 
         public tipsClick(index: number) {
             this.pageView.tips = this.pageView.question[`tips${index}`];
+            [1, 2, 3].forEach(v => {
+                this.pageView[`btnTips${v}`].selected = v == index ? true : false;
+            });
         }
 
         public confirmClick(event: egret.TouchEvent) {

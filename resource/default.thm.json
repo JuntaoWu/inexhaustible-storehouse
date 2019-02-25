@@ -25,6 +25,7 @@
 		"resource/containers/AnswerWindow.exml",
 		"resource/containers/CatalogWindow.exml",
 		"resource/containers/CollectWindow.exml",
+		"resource/containers/DeveloperWindow.exml",
 		"resource/containers/GameScreen.exml",
 		"resource/containers/LoadingUI.exml",
 		"resource/containers/SettingWindow.exml",

@@ -12,6 +12,8 @@ namespace ies {
 
         //bindings:
         public chapterTitle: string;
+        public maskStart: number;
+        public maskRes: string;
 
         public constructor() {
             super();

@@ -23,24 +23,38 @@ namespace ies {
             
             this.pageView.switchEffect.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchEffectClick, this);
             this.pageView.switchBG.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchBGClick, this);
-            this.pageView.btnDeveloper.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {}, this);
+            this.pageView.btnDeveloper.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.showDeveloper(true), this);
+            
+            this.pageView.devWindow.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
+            this.pageView.devWindow.addEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
         }
 
         public async initData() {
             this.pageView.switchEffect.selected = this.proxy.playerInfo.isSoundEffectOn;
             this.pageView.switchBG.selected = this.proxy.playerInfo.isSoundBGMOn;
+            this.pageView.showSetting = true;
+            this.pageView.showDeveloper = false;
         }
 
+        private touchBeginTime: number;
         private offsetX: number;
         private touchBegin(e: egret.TouchEvent): void {
             e.stopImmediatePropagation();
             console.log("TOUCH_BEGIN");
+            this.touchBeginTime = new Date().getTime();
             this.offsetX = e.stageX - e.currentTarget.x;
         }
         private onMove(e: egret.TouchEvent, type?: string): void {
             e.stopImmediatePropagation();
             const currentX = Math.max(300, Math.min(1040, (e.stageX - this.offsetX)));
             this.setVolumeUI(currentX, type);
+        }
+        private touchEnd(e: egret.TouchEvent): void {
+            e.stopImmediatePropagation();
+            let touchEndTime: number = new Date().getTime();
+            if (touchEndTime - this.touchBeginTime < 200) {
+                this.showDeveloper(false);
+            }
         }
 
         private volumeClick(e: egret.TouchEvent, type?: string): void {
@@ -67,6 +81,11 @@ namespace ies {
 
         private switchBGClick(e: egret.TouchEvent) {
             this.proxy.playerInfo.isSoundBGMOn = this.pageView.switchBG.selected;
+        }
+
+        private showDeveloper(b: boolean) {
+            this.pageView.showSetting = !b;
+            this.pageView.showDeveloper = b;
         }
 
         public get pageView(): SettingWindow {

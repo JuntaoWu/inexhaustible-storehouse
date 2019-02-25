@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,catalog-icon_json,setting-icon_json,catalog-word_json,sentence-title_json",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,catalog-word_json,sentence-title_json,inkMark_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json",
 			"name": "preload"
 		},
 		{
@@ -92,34 +92,72 @@
 			"name": "input-screen-bg"
 		},
 		{
-			"name": "btn-game-screen_json",
-			"type": "sheet",
 			"url": "assets/sprite/btn-game-screen.json",
-			"subkeys": "btn-course,btn-next,btn-previous,btn-catalog"
+			"type": "sheet",
+			"name": "btn-game-screen_json",
+			"subkeys": "btn-catalog,btn-course,btn-next,btn-previous"
+		},
+		{
+			"url": "assets/sprite/setting-icon.json",
+			"type": "sheet",
+			"name": "setting-icon_json",
+			"subkeys": "btn-developer,btn-slider,sound-bg,sound-effect,switch-off,switch-on,volume-line,volume-line-bg"
+		},
+		{
+			"url": "assets/sprite/catalog-word.json",
+			"type": "sheet",
+			"name": "catalog-word_json",
+			"subkeys": "catalog01,catalog02,catalog03,catalog04,catalog05,catalog06,catalog07,catalog08,catalog09,catalog10,catalog11,catalog12,catalog13,catalog14,catalog15,catalog16,catalog17,catalog18,catalog19,catalog20,catalog21,catalog22"
+		},
+		{
+			"url": "assets/sprite/sentence-title.json",
+			"type": "sheet",
+			"name": "sentence-title_json",
+			"subkeys": "sentence01,sentence02,sentence03,sentence04,sentence05,sentence06,sentence07,sentence08,sentence09,sentence10,sentence11,sentence12,sentence13,sentence14,sentence15,sentence16,sentence17,sentence18,sentence19,sentence20,sentence21,sentence22"
+		},
+		{
+			"url": "assets/sprite/inkMark.json",
+			"type": "sheet",
+			"name": "inkMark_json",
+			"subkeys": "inkMark2,inkMark3,inkMark4,inkMark5,inkMark7"
+		},
+		{
+			"url": "assets/background/mask.png",
+			"type": "image",
+			"name": "mask"
+		},
+		{
+			"url": "assets/sprite/collect-title.json",
+			"type": "sheet",
+			"name": "collect-title_json",
+			"subkeys": "branch-task,collect-title-bg,crowdfunding-task,img-box,main-task"
+		},
+		{
+			"url": "assets/background/scroll-bar.png",
+			"type": "image",
+			"name": "scroll-bar"
+		},
+		{
+			"url": "assets/sprite/tips-input.json",
+			"type": "sheet",
+			"name": "tips-input_json",
+			"subkeys": "btn-close,btn-submit,input-box,tips-center,tips-center-active,tips-content-bg,tips-left,tips-left-active,tips-right,tips-right-active,tips1,tips1-active,tips2,tips2-active,tips3,tips3-active"
+		},
+		{
+			"url": "assets/background/company_logo.png",
+			"type": "image",
+			"name": "company_logo"
+		},
+		{
+			"url": "assets/background/logo.png",
+			"type": "image",
+			"name": "logo"
 		},
 		{
 			"name": "catalog-icon_json",
 			"type": "sheet",
 			"url": "assets/sprite/catalog-icon.json",
-			"subkeys": "menu-catalog-active,menu-catalog-default,menu-collect-active,menu-collect-default,menu-setting-active,menu-setting-default,title-catalog,title-setting,btn-back,menu-active-bg,title-collect"
-		},
-		{
-			"name": "setting-icon_json",
-			"type": "sheet",
-			"url": "assets/sprite/setting-icon.json",
-			"subkeys": "sound-bg,sound-effect,switch-off,switch-on,volume-line,volume-line-bg,btn-developer,btn-slider"
-		},
-		{
-			"name": "catalog-word_json",
-			"type": "sheet",
-			"url": "assets/sprite/catalog-word.json",
-			"subkeys": "catalog10,catalog11,catalog12,catalog13,catalog14,catalog15,catalog16,catalog17,catalog18,catalog19,catalog20,catalog21,catalog22,catalog01,catalog02,catalog03,catalog04,catalog05,catalog06,catalog07,catalog08,catalog09"
-		},
-		{
-			"name": "sentence-title_json",
-			"type": "sheet",
-			"url": "assets/sprite/sentence-title.json",
-			"subkeys": "sentence10,sentence11,sentence12,sentence13,sentence14,sentence15,sentence16,sentence17,sentence18,sentence19,sentence20,sentence21,sentence22,sentence01,sentence02,sentence03,sentence04,sentence05,sentence06,sentence07,sentence08,sentence09"
+			"subkeys": "menu-catalog-default,menu-collect-active,menu-collect-default,menu-setting-active,menu-setting-default,title-catalog,title-collect,title-setting,btn-back,btn-final,menu-active-bg,menu-catalog-active"
 		}
 	]
 }

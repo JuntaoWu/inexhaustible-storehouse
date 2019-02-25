@@ -38,16 +38,14 @@ namespace ies {
         }
         public set chapterIndex(v: number) {
             this._chapterIndex = v;
-            let title = this.proxy.questionMap.get((this._chapterIndex).toString()).sentence;
-            if (!this.proxy.isAnswered(this._chapterIndex)) {
-                const replaceText = title.match(/【(.+?)】/)[1].split('').map(i => '■').join('');
-                title = title.replace(/【(.+?)】/, replaceText);
+            console.log(this._chapterIndex);
+            this.gameScreen.chapterTitle = this.proxy.questionMap.get((this._chapterIndex).toString()).sentenceRes;
+            this.gameScreen.maskRes = "";
+            const sentence = this.proxy.questionMap.get((this._chapterIndex).toString()).sentence;
+            if (sentence.indexOf('【') != -1 && !this.proxy.isAnswered(this._chapterIndex)) {
+                this.gameScreen.maskRes = `inkMark${sentence.match(/【(.+?)】/)[1].length}`;
+                this.gameScreen.maskStart = sentence.indexOf('【') * 70;
             }
-            else {
-                // 已解答
-                title = title.replace(/【|】/g, '');
-            }
-            this.gameScreen.chapterTitle = title;
         }
 
         public listNotificationInterests(): Array<any> {

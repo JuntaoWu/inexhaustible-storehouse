@@ -6,6 +6,7 @@ namespace ies {
         public btnCatalog: eui.ToggleButton;
         public btnCollect: eui.ToggleButton;
         public btnSetting: eui.ToggleButton;
+        public btnFinal: eui.Button;
 
         public catalogList: eui.List;
         public titleRes: string = 'title-catalog';

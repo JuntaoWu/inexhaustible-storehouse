@@ -6,7 +6,7 @@
             <e:viewport>
                 <e:List id="collectList" width="100%">
                     <e:layout>
-                        <e:TileLayout orientation="columns" requestedColumnCount="1" verticalGap="30" paddingTop="20"/>
+                        <e:TileLayout orientation="columns" requestedColumnCount="1" verticalGap="50" paddingTop="20"/>
                     </e:layout>
                 </e:List>
             </e:viewport>
