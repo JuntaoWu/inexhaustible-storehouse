@@ -36,12 +36,12 @@
         </e:Group>
         <e:Image source="vertical-line"  y="150" x="315"/>
 		<e:Group visible="{showCatalog}" left="350" right="100" top="160" bottom="15">
-            <e:Scroller scrollPolicyH="off" scrollPolicyV="on" width="950" horizontalCenter="0" top="0" bottom="20">
+            <e:Scroller scrollPolicyH="off" scrollPolicyV="on" width="1040" horizontalCenter="0" top="0" bottom="20">
                 <e:viewport>
-                    <e:Group>
+                    <e:Group horizontalCenter="0">
                         <e:List id="catalogList" horizontalCenter="0">
                             <e:layout>
-                                <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="10" horizontalGap="20"  paddingTop="20"/>
+                                <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="0" horizontalGap="40"  paddingTop="20"/>
                             </e:layout>
                         </e:List>
                         <e:Button id="btnFinal" visible="false" horizontalCenter="0" bottom="20">
