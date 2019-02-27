@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,catalog-word_json,sentence-title_json,inkMark_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,catalog-word_json,sentence-title_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json",
 			"name": "preload"
 		},
 		{
@@ -116,12 +116,6 @@
 			"subkeys": "sentence01,sentence02,sentence03,sentence04,sentence05,sentence06,sentence07,sentence08,sentence09,sentence10,sentence11,sentence12,sentence13,sentence14,sentence15,sentence16,sentence17,sentence18,sentence19,sentence20,sentence21,sentence22"
 		},
 		{
-			"url": "assets/sprite/inkMark.json",
-			"type": "sheet",
-			"name": "inkMark_json",
-			"subkeys": "inkMark2,inkMark3,inkMark4,inkMark5,inkMark7"
-		},
-		{
 			"url": "assets/background/mask.png",
 			"type": "image",
 			"name": "mask"
@@ -158,6 +152,12 @@
 			"type": "sheet",
 			"url": "assets/sprite/catalog-icon.json",
 			"subkeys": "menu-catalog-default,menu-collect-active,menu-collect-default,menu-setting-active,menu-setting-default,title-catalog,title-collect,title-setting,btn-back,btn-final,menu-active-bg,menu-catalog-active"
+		},
+		{
+			"name": "inkMark_json",
+			"type": "sheet",
+			"url": "assets/sprite/inkMark.json",
+			"subkeys": "inkMark4,inkMark5,inkMark7,inkMark2,inkMark3,catalog-inkMark5,catalog-inkMark7,catalog-inkMark2,catalog-inkMark3,catalog-inkMark4"
 		}
 	]
 }

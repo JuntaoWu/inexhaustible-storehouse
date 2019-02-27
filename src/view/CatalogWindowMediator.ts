@@ -27,11 +27,13 @@ namespace ies {
                 if (v.id <= 20 || showFinalTowSentence) {
                     catalogList[v.id - 1] = {
                         res: v.catalogRes,
-                        maskStart: v.sentence.indexOf('【'),
-                        maskLen: 0
+                        maskOffsetX: 0,
+                        maskRes: ''
                     }
-                    if (v.sentence.indexOf('【') != -1 && !this.proxy.isAnswered(v.id)) {
-                        catalogList[v.id - 1].maskLen = v.sentence.match(/【(.+?)】/)[1].length;
+                    const maskStart = v.sentence.indexOf('【');
+                    if (maskStart != -1 && !this.proxy.isAnswered(v.id)) {
+                        catalogList[v.id - 1].maskRes = `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`;
+                        catalogList[v.id - 1].maskOffsetX = (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5;
                         if (v.id < 20) {
                             showFinalTowSentence = false;
                         }

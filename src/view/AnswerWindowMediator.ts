@@ -43,6 +43,12 @@ namespace ies {
                 this.sendNotification(GameProxy.ANSWERED);
                 this.pageView.close();
             }
+            else {
+                this.pageView.tips = "答案不对，再想想。。";
+                [1, 2, 3].forEach(v => {
+                    this.pageView[`btnTips${v}`].selected = false;
+                });
+            }
         }
 
         public textInputClick(event: egret.TouchEvent) {

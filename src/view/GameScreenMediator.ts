@@ -21,6 +21,7 @@ namespace ies {
         public async initData() {
             console.log("GameScreen initData");
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
+            await this.proxy.initGamesSetting();
             const sources = [];
             this.proxy.questionMap.forEach(v => {
                 sources[v.id] = v.res.toString();
@@ -44,7 +45,7 @@ namespace ies {
             const sentence = this.proxy.questionMap.get((this._chapterIndex).toString()).sentence;
             if (sentence.indexOf('【') != -1 && !this.proxy.isAnswered(this._chapterIndex)) {
                 this.gameScreen.maskRes = `inkMark${sentence.match(/【(.+?)】/)[1].length}`;
-                this.gameScreen.maskStart = sentence.indexOf('【') * 70;
+                this.gameScreen.maskStart = sentence.indexOf('【') * 70 || -15;
             }
         }
 
