@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.ies.DeveloperWindow" xmlns:e="http://ns.egret.com/eui" xmlns:ies="ies.*">
-    <e:Scroller scrollPolicyH="off" id="scrollGroup" width="90%" horizontalCenter="0" top="0" bottom="20">
+    <e:Button id="btnBack" alpha="0" top="0" bottom="0" left="0" right="0">
+    </e:Button>
+    <e:Scroller scrollPolicyH="off" id="scrollGroup" horizontalCenter="0" top="0" bottom="20">
         <e:viewport>
             <e:Group horizontalCenter="0">
                 <e:Image anchorOffsetX="0" anchorOffsetY="0" source="logo" horizontalCenter="0"/>

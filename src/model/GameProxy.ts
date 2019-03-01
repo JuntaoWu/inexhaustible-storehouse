@@ -16,6 +16,8 @@ namespace ies {
 			
 		}
 		
+		public static HIDE_DEV_WINDOW: string = "hide_developer";
+
 		public static ANSWERED: string = "answered";
 		public static CHANGE_INDEX: string = "change_index";
 		

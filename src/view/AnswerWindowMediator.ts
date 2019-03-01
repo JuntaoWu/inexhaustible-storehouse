@@ -14,7 +14,7 @@ namespace ies {
             this.pageView.btnTips2.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(2), this);
             this.pageView.btnTips3.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(3), this);
             this.pageView.btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, this.confirmClick, this);
-            // this.pageView.textInputList.addEventListener(egret.TouchEvent.TOUCH_TAP, this.textInputClick, this);
+
             this.pageView.textInput.addEventListener(egret.Event.CHANGE, this.inputChange, this);
             this.pageView.textInput.addEventListener(egret.Event.FOCUS_OUT, this.inputFocusOut, this);
 
@@ -51,11 +51,6 @@ namespace ies {
             }
         }
 
-        public textInputClick(event: egret.TouchEvent) {
-            this.pageView.textInput.setFocus();
-            this.pageView.textInput.visible = false;
-        }
-
         public inputChange(event: egret.Event) {
             this.pageView.answerText.split('').forEach((v, i) => {
                 this.pageView.textList[this.pageView.answerStartIndex + i] = event.target.text.substr(i, 1);
@@ -64,7 +59,6 @@ namespace ies {
             this.pageView.textInputList.itemRenderer = TextInputItemRenderer;
         }
         public inputFocusOut(e: egret.Event) {
-            this.pageView.textInput.visible = true;
             if (e.target.text.length > this.pageView.answerText.length) {
                 e.target.text = e.target.text.substr(0, this.pageView.answerText.length);
             }

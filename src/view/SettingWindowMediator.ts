@@ -25,10 +25,8 @@ namespace ies {
             
             this.pageView.switchEffect.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchEffectClick, this);
             this.pageView.switchBG.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchBGClick, this);
-            this.pageView.btnDeveloper.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.showDeveloper(true), this);
+            this.pageView.btnDeveloper.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showDeveloper, this);
             
-            this.pageView.devWindow.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
-            this.pageView.devWindow.addEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
         }
 
         public async initData() {
@@ -43,12 +41,10 @@ namespace ies {
             this.pageView.btnVolumeBGM.x = this.pageView.widthBGM + 300;
         }
 
-        private touchBeginTime: number;
         private offsetX: number;
         private touchBegin(e: egret.TouchEvent): void {
             e.stopImmediatePropagation();
             console.log("TOUCH_BEGIN");
-            this.touchBeginTime = new Date().getTime();
             this.offsetX = e.stageX - e.currentTarget.x;
         }
         private onMove(e: egret.TouchEvent, type?: string): void {
@@ -58,13 +54,7 @@ namespace ies {
         }
         private touchEnd(e: egret.TouchEvent, type?: string): void {
             e.stopImmediatePropagation();
-            let touchEndTime: number = new Date().getTime();
-            if (e.currentTarget.name != "developerWindow") {
-                this.setVolume(type);
-            }
-            else if (touchEndTime - this.touchBeginTime < 200) {
-                this.showDeveloper(false);
-            }
+            this.setVolume(type);
         }
 
         private volumeClick(e: egret.TouchEvent, type?: string): void {
@@ -103,9 +93,23 @@ namespace ies {
             this.proxy.savePlayerInfoToStorage();
         }
 
-        private showDeveloper(b: boolean) {
+        private showDeveloper(b: boolean = true) {
             this.pageView.showSetting = !b;
             this.pageView.showDeveloper = b;
+        }
+
+        public listNotificationInterests(): Array<any> {
+            return [GameProxy.HIDE_DEV_WINDOW];
+        }
+
+        public handleNotification(notification: puremvc.INotification): void {
+            var data: any = notification.getBody();
+            switch (notification.getName()) {
+                case GameProxy.HIDE_DEV_WINDOW: {
+                    this.showDeveloper(false);
+                    break;
+                }
+            }
         }
 
         public get pageView(): SettingWindow {
