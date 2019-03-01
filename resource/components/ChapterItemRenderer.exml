@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skins.ies.ChapterItemRenderer" width="550" height="400" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skins.ies.ChapterItemRenderer" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<w:Config id="168e5071570"/>
-    <e:Image source="{data}" width="550" height="820"></e:Image>
+    <e:Image source="{data.res}"></e:Image>
 </e:Skin>

@@ -2,7 +2,7 @@
   "0": {
     "id": 0,
     "sentence": "无尽藏",
-    "res": "logo"
+    "res": "logo-with-bg"
   },
   "1": {
     "id": 1,
@@ -12,7 +12,7 @@
     "tips2": "5在最中间",
     "tips3": "第一行为834，古诗里写的可是大写数字哦",
     "sentence": "【二十九】夜动兵刃",
-    "res": 1,
+    "res": "samwoe-01",
     "sentenceRes": "sentence08",
     "catalogRes": "catalog08"
   },
@@ -24,7 +24,7 @@
     "tips2": "四神兽中的某一个来对应这些符号",
     "tips3": "用转盘上青龙的箭头分别对应三个符号得到三个字",
     "sentence": "一计不成【一计生】",
-    "res": 2,
+    "res": "samwoe-02",
     "sentenceRes": "sentence14",
     "catalogRes": "catalog14"
   },
@@ -36,7 +36,7 @@
     "tips2": "光用肉眼可看不清哦",
     "tips3": "用放大镜查看日记末尾的“无尽”图，内藏玄机",
     "sentence": "偷马大盗【卢芹斋】",
-    "res": 3,
+    "res": "samwoe-03",
     "sentenceRes": "sentence03",
     "catalogRes": "catalog03"
   },
@@ -48,7 +48,7 @@
     "tips2": "找张薄一点的白纸把碑文拓下来",
     "tips3": "把白纸盖在碑文书签上，用铅笔轻轻涂抹",
     "sentence": "【骗宝进楼】假传旨",
-    "res": 4,
+    "res": "samwoe-04",
     "sentenceRes": "sentence05",
     "catalogRes": "catalog05"
   },
@@ -60,7 +60,7 @@
     "tips2": "通过折叠可以将墨迹叠到一起观察",
     "tips3": "红线处折叠，将纸叠成折扇形，从侧面察看叠一起的墨迹",
     "sentence": "【西安五脉】探口风",
-    "res": "blank",
+    "res": "samwoe-05",
     "sentenceRes": "sentence02",
     "catalogRes": "catalog02"
   },
@@ -72,7 +72,7 @@
     "tips2": "图案上好像有一些眼熟的符号",
     "tips3": "用转盘上玄武的箭头分别对应三个符号得到三个字",
     "sentence": "赵兄再把【真品奉】",
-    "res": 1,
+    "res": "samwoe-06",
     "sentenceRes": "sentence10",
     "catalogRes": "catalog10"
   },
@@ -84,7 +84,7 @@
     "tips2": "宣纸上也有四骏残缺图",
     "tips3": "用宣纸上的四骏残缺图拼日记上的图，拼凑完整时，会分别框出一个字",
     "sentence": "【太子换猫】好戏登",
-    "res": 2,
+    "res": "samwoe-07",
     "sentenceRes": "sentence12",
     "catalogRes": "catalog12"
   },
@@ -96,7 +96,7 @@
     "tips2": "将书倒转再看一次，还有别的内容",
     "tips3": "抬起书页平视杂乱的符号，可以看见其组成了七个完整的字。倒转一百八十度再看，又能看见一行七个字",
     "sentence": "【前脚明玉换画走】",
-    "res": 3,
+    "res": "samwoe-08",
     "sentenceRes": "sentence15",
     "catalogRes": "catalog15"
   },
@@ -108,7 +108,7 @@
     "tips2": "按照版式裁剪，可以重新拼凑",
     "tips3": "按照报纸上的版式裁剪报纸，将其拼成小一点的矩形，其中卢芹斋的那一版不使用",
     "sentence": "【妄想名画】出国门",
-    "res": 4,
+    "res": "samwoe-09",
     "sentenceRes": "sentence04",
     "catalogRes": "catalog04"
   },
@@ -120,7 +120,7 @@
     "tips2": "箭头的数量和排布与四句打油诗的分布相同，每个箭头对应一个文字",
     "tips3": "找到迷宫的正确出入路径，对应到诗的相同位置，得到文字",
     "sentence": "【一城笑谈转假凤】",
-    "res": "blank",
+    "res": "samwoe-10",
     "sentenceRes": "sentence20",
     "catalogRes": "catalog20"
   },
@@ -132,7 +132,7 @@
     "tips2": "文中既有诗圣也有诗仙",
     "tips3": "二是：从今若许闲乘月一是：一行白鹭上青天三是：锦城虽云乐。",
     "sentence": "北平师兄【许一城】",
-    "res": 1,
+    "res": "samwoe-11",
     "sentenceRes": "sentence01",
     "catalogRes": "catalog01"
   },
@@ -144,7 +144,7 @@
     "tips2": "墨渍刚好在红线上",
     "tips3": "将纸按红线折成纸扇形状，叠到一起后能看见文字",
     "sentence": "【三入北斗】争临摹",
-    "res": 2,
+    "res": "samwoe-12",
     "sentenceRes": "sentence07",
     "catalogRes": "catalog07"
   },
@@ -156,7 +156,7 @@
     "tips2": "文中提到了某些市坊，似乎有某种含义",
     "tips3": "文字和市坊一一对应，按照文中提到的几个市坊顺序去看其在地图的哪个位置，再找到文字内容中对应的字，即为答案",
     "sentence": "【收买内应】欺鬼神",
-    "res": 3,
+    "res": "samwoe-13",
     "sentenceRes": "sentence06",
     "catalogRes": "catalog06"
   },
@@ -168,7 +168,7 @@
     "tips2": "将簪子花纹和日记上的花纹重合，向簪子头看去",
     "tips3": "簪子头指示的花纹，圣兽转盘上也有",
     "sentence": "纳赝只为【引真出】",
-    "res": 4,
+    "res": "samwoe-14",
     "sentenceRes": "sentence17",
     "catalogRes": "catalog17"
   },
@@ -180,7 +180,7 @@
     "tips2": "找到中文解码表",
     "tips3": "横着不行竖着行",
     "sentence": "【两番换宝】心思深",
-    "res": "blank",
+    "res": "samwoe-15",
     "sentenceRes": "sentence18",
     "catalogRes": "catalog18"
   },
@@ -192,7 +192,7 @@
     "tips2": "棋格数量和文字数量一致",
     "tips3": "马初始位置对应的文字和行动后位置对应的文字",
     "sentence": "哪知【盗匪】并不笨",
-    "res": 1,
+    "res": "samwoe-16",
     "sentenceRes": "sentence13",
     "catalogRes": "catalog13"
   },
@@ -204,7 +204,7 @@
     "tips2": "似曾相似却又有不同的几点",
     "tips3": "找出两篇日记不一样的文字",
     "sentence": "【明玉易赝】送贼手",
-    "res": 2,
+    "res": "samwoe-17",
     "sentenceRes": "sentence11",
     "catalogRes": "catalog11"
   },
@@ -216,7 +216,7 @@
     "tips2": "找个热点的东西放在照片上",
     "tips3": "用手捂热底片",
     "sentence": "明玉惊呼【偷真龙】",
-    "res": 3,
+    "res": "samwoe-18",
     "sentenceRes": "sentence19",
     "catalogRes": "catalog19"
   },
@@ -228,7 +228,7 @@
     "tips2": "拿起簪子戳中穴位图",
     "tips3": "纸张背面对应文字",
     "sentence": "北斗【临摹卖贼人】",
-    "res": 4,
+    "res": "samwoe-19",
     "sentenceRes": "sentence09",
     "catalogRes": "catalog09"
   },
@@ -240,7 +240,7 @@
     "tips2": "",
     "tips3": "",
     "sentence": "【后脚贼人又上阵】",
-    "res": 1,
+    "res": "samwoe-20",
     "sentenceRes": "sentence16",
     "catalogRes": "catalog16"
   },
@@ -252,7 +252,7 @@
     "tips2": "",
     "tips3": "",
     "sentence": "【赵兄临摹明玉赝】",
-    "res": 2,
+    "res": "samwoe-21",
     "sentenceRes": "sentence21",
     "catalogRes": "catalog21"
   },
@@ -264,7 +264,7 @@
     "tips2": "",
     "tips3": "",
     "sentence": "【卖贼一真才险胜】",
-    "res": 3,
+    "res": "samwoe-22",
     "sentenceRes": "sentence22",
     "catalogRes": "catalog22"
   }

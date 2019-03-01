@@ -13,6 +13,7 @@ namespace ies {
          */
         public static CHANGE: string = "scene_change";
         
+        public static RESET_FILTER: string = "reset_filter";
         public static SHOW_ANSWER_WINDOW: string = "show_answer_window";
         public static SHOW_CATALOG_WINDOW: string = "show_catalog_window";
 
@@ -59,6 +60,7 @@ namespace ies {
 
         initializeNotifier(key: string) {
             super.initializeNotifier(key);
+            this.facade().registerCommand(SceneCommand.RESET_FILTER, SceneCommand);
             this.facade().registerCommand(SceneCommand.CHANGE, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_ANSWER_WINDOW, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_CATALOG_WINDOW, SceneCommand);
@@ -101,6 +103,10 @@ namespace ies {
 
             var gameProxy: GameProxy = <GameProxy><any>this.facade().retrieveProxy(GameProxy.NAME);
             switch (notification.getName()) {
+                case SceneCommand.RESET_FILTER: {
+                    appMediator.main.resetGameScreenFilter();
+                    break;
+                }
                 case SceneCommand.CHANGE: {
                     if (data == Scene.Start) {
                         appMediator.main.enterStartScreen();

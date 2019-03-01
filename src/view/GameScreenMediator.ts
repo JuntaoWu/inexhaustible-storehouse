@@ -24,16 +24,19 @@ namespace ies {
             await this.proxy.initGamesSetting();
             const sources = [];
             this.proxy.questionMap.forEach(v => {
-                sources[v.id] = v.res.toString();
+                let res = (v.id && this.proxy.isAnswered(v.id)) ? `${v.res}-revealed` : v.res.toString();
+                sources[v.id] = {
+                    res: res
+                };
             });
 
-            this.chapterIndex = 0;
             this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listChapter.dataProvider = new eui.ArrayCollection(sources);
+            this.chapterIndex = 1;
             console.log(this.gameScreen.listChapter.numElements);
         }
 
-        private _chapterIndex: number = 0;
+        private _chapterIndex: number = 1;
         public get chapterIndex(): number {
             return this._chapterIndex;
         }
@@ -46,6 +49,15 @@ namespace ies {
             if (sentence.indexOf('【') != -1 && !this.proxy.isAnswered(this._chapterIndex)) {
                 this.gameScreen.maskRes = `inkMark${sentence.match(/【(.+?)】/)[1].length}`;
                 this.gameScreen.maskStart = sentence.indexOf('【') * 70 || -15;
+            }
+
+            const originalRes = this.proxy.questionMap.get(v.toString()).res;
+            const res = this.proxy.isAnswered(v) ? `${originalRes}-revealed` : originalRes.toString();
+
+            if (this.gameScreen.listChapter.dataProvider) {
+                if(this.gameScreen.listChapter.dataProvider.getItemAt(v).res !== res) {
+                    this.gameScreen.listChapter.dataProvider.getItemAt(v).res = res;
+                }
             }
         }
 
@@ -84,8 +96,7 @@ namespace ies {
 
         public moveToTargetIndex(targetIndex: number) {
             const scrollH = this.gameScreen.listChapter.scrollH;
-            const width = this.gameScreen.listChapter.getChildAt(0).width;
-            const targetScrollH = (width + Constants.listGap) * targetIndex;
+            const targetScrollH = (Constants.contentWidth + Constants.listGap) * (targetIndex - 1);
 
             egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 200).call(() => {
                 this.chapterIndex = targetIndex;
@@ -113,10 +124,9 @@ namespace ies {
         public scrollChangeEnd(event: eui.UIEvent) {
             console.log(event);
             const scrollH = event.target.viewport.scrollH;
-            const width = event.target.viewport.getChildAt(0).width;
-            const lowerBound = Math.floor(scrollH / (width + Constants.listGap));
-            const higherBound = Math.floor((scrollH + 1085) / (width + Constants.listGap));
-            this.chapterIndex = higherBound - 1;
+            const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
+            const higherBound = Math.floor((scrollH + 1750 - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            this.chapterIndex = higherBound;
         }
 
         public openAnswerWindow(event: egret.TouchEvent) {

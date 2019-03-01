@@ -50,7 +50,9 @@ namespace ies {
         public static gameTitle = `古董局中局`;
         public static shareImageUrl = `${Constants.ResourceEndpoint}resource/assets/shared/share.png`;
 
-        public static listGap = 6;
+        public static listGap = 0;
+        public static coverWidth = 234;
+        public static contentWidth = 1223;
     }
 
 }

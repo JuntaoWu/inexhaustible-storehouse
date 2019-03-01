@@ -41,7 +41,7 @@
                     <e:TileLayout orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="0" />
                 </e:layout>
             </e:List>
-            <e:TextInput id="textInput" alpha="0" height="95" width="660" horizontalCenter="0"/>
+            <e:TextInput id="textInput" alpha="0" height="95" width="660" horizontalCenter="5"/>
             
             <e:Button id="btnConfirm" y="130" horizontalCenter="0">
                 <e:Skin>

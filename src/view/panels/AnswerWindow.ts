@@ -42,5 +42,10 @@ namespace ies {
             this.textInputList.dataProvider = new eui.ArrayCollection(this.textList);
             this.textInputList.itemRenderer = TextInputItemRenderer;
         }
+
+        public close() {
+            super.close();
+            ApplicationFacade.getInstance().sendNotification(SceneCommand.RESET_FILTER);
+        }
     }
 }

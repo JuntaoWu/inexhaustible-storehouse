@@ -11,6 +11,14 @@ namespace ies {
             this.alpha = 0;
         }
 
+        public applyGameScreenFilter() {
+            this.gameScreen.filters = [new egret.BlurFilter(3, 3, 0)];
+        }
+
+        public resetGameScreenFilter() {
+            this.gameScreen.filters = [];
+        }
+
         /**
          * 进入开始页面
          */
@@ -35,8 +43,9 @@ namespace ies {
             this.addChild(this.answerWindow);
             this.answerWindow.setQuestion(data);
             this.answerWindow.show();
+            this.applyGameScreenFilter();
         }
-        
+
         public catalogWindow: CatalogWindow;
         public showCatalogWindow(): void {
             if (!this.catalogWindow) {

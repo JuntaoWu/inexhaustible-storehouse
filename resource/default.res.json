@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,catalog-word_json,sentence-title_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,catalog-word_json,sentence-title_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-09-revealed,samwoe-10-revealed,samwoe-11-revealed,samwoe-12-revealed,samwoe-13-revealed,samwoe-14-revealed,samwoe-15-revealed,samwoe-16-revealed,samwoe-17-revealed,samwoe-18-revealed,samwoe-19-revealed,samwoe-20-revealed,samwoe-21-revealed,samwoe-22-revealed,logo-with-bg",
 			"name": "preload"
 		},
 		{
@@ -148,16 +148,241 @@
 			"name": "logo"
 		},
 		{
-			"name": "catalog-icon_json",
-			"type": "sheet",
 			"url": "assets/sprite/catalog-icon.json",
-			"subkeys": "menu-catalog-default,menu-collect-active,menu-collect-default,menu-setting-active,menu-setting-default,title-catalog,title-collect,title-setting,btn-back,btn-final,menu-active-bg,menu-catalog-active"
+			"type": "sheet",
+			"name": "catalog-icon_json",
+			"subkeys": "btn-back,btn-final,menu-active-bg,menu-catalog-active,menu-catalog-default,menu-collect-active,menu-collect-default,menu-setting-active,menu-setting-default,title-catalog,title-collect,title-setting"
 		},
 		{
-			"name": "inkMark_json",
-			"type": "sheet",
 			"url": "assets/sprite/inkMark.json",
-			"subkeys": "inkMark4,inkMark5,inkMark7,inkMark2,inkMark3,catalog-inkMark5,catalog-inkMark7,catalog-inkMark2,catalog-inkMark3,catalog-inkMark4"
+			"type": "sheet",
+			"name": "inkMark_json",
+			"subkeys": "catalog-inkMark2,catalog-inkMark3,catalog-inkMark4,catalog-inkMark5,catalog-inkMark7,inkMark2,inkMark3,inkMark4,inkMark5,inkMark7"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-01-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-01-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-02-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-02-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-03-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-03-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-04-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-04-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-05-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-05-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-06-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-06-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-07-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-07-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-08-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-08-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-09-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-09-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-10-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-10-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-11-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-11-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-12-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-12-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-13-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-13-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-14-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-14-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-15-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-15-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-16-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-16-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-17-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-17-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-18-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-18-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-19-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-19-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-20-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-20-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-21-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-21-revealed"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-22-revealed.jpg",
+			"type": "image",
+			"name": "samwoe-22-revealed"
+		},
+		{
+			"url": "assets/background/logo-with-bg.png",
+			"type": "image",
+			"name": "logo-with-bg"
+		},
+		{
+			"url": "assets/content-temp/samwoe-01.jpg",
+			"type": "image",
+			"name": "samwoe-01"
+		},
+		{
+			"url": "assets/content-temp/samwoe-02.jpg",
+			"type": "image",
+			"name": "samwoe-02"
+		},
+		{
+			"url": "assets/content-temp/samwoe-03.jpg",
+			"type": "image",
+			"name": "samwoe-03"
+		},
+		{
+			"url": "assets/content-temp/samwoe-04.jpg",
+			"type": "image",
+			"name": "samwoe-04"
+		},
+		{
+			"url": "assets/content-temp/samwoe-05.jpg",
+			"type": "image",
+			"name": "samwoe-05"
+		},
+		{
+			"url": "assets/content-temp/samwoe-06.jpg",
+			"type": "image",
+			"name": "samwoe-06"
+		},
+		{
+			"url": "assets/content-temp/samwoe-07.jpg",
+			"type": "image",
+			"name": "samwoe-07"
+		},
+		{
+			"url": "assets/content-temp/samwoe-08.jpg",
+			"type": "image",
+			"name": "samwoe-08"
+		},
+		{
+			"url": "assets/content-temp/samwoe-09.jpg",
+			"type": "image",
+			"name": "samwoe-09"
+		},
+		{
+			"url": "assets/content-temp/samwoe-10.jpg",
+			"type": "image",
+			"name": "samwoe-10"
+		},
+		{
+			"url": "assets/content-temp/samwoe-11.jpg",
+			"type": "image",
+			"name": "samwoe-11"
+		},
+		{
+			"url": "assets/content-temp/samwoe-12.jpg",
+			"type": "image",
+			"name": "samwoe-12"
+		},
+		{
+			"url": "assets/content-temp/samwoe-13.jpg",
+			"type": "image",
+			"name": "samwoe-13"
+		},
+		{
+			"url": "assets/content-temp/samwoe-14.jpg",
+			"type": "image",
+			"name": "samwoe-14"
+		},
+		{
+			"url": "assets/content-temp/samwoe-15.jpg",
+			"type": "image",
+			"name": "samwoe-15"
+		},
+		{
+			"url": "assets/content-temp/samwoe-16.jpg",
+			"type": "image",
+			"name": "samwoe-16"
+		},
+		{
+			"url": "assets/content-temp/samwoe-17.jpg",
+			"type": "image",
+			"name": "samwoe-17"
+		},
+		{
+			"url": "assets/content-temp/samwoe-18.jpg",
+			"type": "image",
+			"name": "samwoe-18"
+		},
+		{
+			"url": "assets/content-temp/samwoe-19.jpg",
+			"type": "image",
+			"name": "samwoe-19"
+		},
+		{
+			"url": "assets/content-temp/samwoe-20.jpg",
+			"type": "image",
+			"name": "samwoe-20"
+		},
+		{
+			"url": "assets/content-temp/samwoe-21.jpg",
+			"type": "image",
+			"name": "samwoe-21"
+		},
+		{
+			"url": "assets/content-temp/samwoe-22.jpg",
+			"type": "image",
+			"name": "samwoe-22"
 		}
 	]
 }
