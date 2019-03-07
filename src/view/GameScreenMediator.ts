@@ -29,6 +29,9 @@ namespace ies {
                     res: res
                 };
             });
+            if (!this.proxy.isShowFinalTowQuestion()) {
+                sources.splice(20, 2);
+            }
 
             this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listChapter.dataProvider = new eui.ArrayCollection(sources);
@@ -42,14 +45,17 @@ namespace ies {
         }
         public set chapterIndex(v: number) {
             this._chapterIndex = v;
-            console.log(this._chapterIndex);
-            this.gameScreen.chapterTitle = this.proxy.questionMap.get((this._chapterIndex).toString()).sentenceRes;
-            this.gameScreen.maskRes = "";
-            const sentence = this.proxy.questionMap.get((this._chapterIndex).toString()).sentence;
-            if (sentence.indexOf('【') != -1 && !this.proxy.isAnswered(this._chapterIndex)) {
-                this.gameScreen.maskRes = `inkMark${sentence.match(/【(.+?)】/)[1].length}`;
-                this.gameScreen.maskStart = sentence.indexOf('【') * 70 || -15;
+            // console.log(this._chapterIndex);
+            this.gameScreen.titleX = 0;
+            this.gameScreen.titleSideIcon = this.gameScreen.maskRes = "";
+            const question = this.proxy.questionMap.get((this._chapterIndex).toString());
+            if (question.sentence.indexOf('【') != -1 && !this.proxy.isAnswered(this._chapterIndex)) {
+                this.gameScreen.titleX = 90;
+                this.gameScreen.titleSideIcon = question.sideRes;
+                this.gameScreen.maskRes = `inkMark${question.sentence.match(/【(.+?)】/)[1].length}`;
+                this.gameScreen.maskStart = (question.sentence.indexOf('【') * 70 || -15) + 90;
             }
+            this.gameScreen.chapterTitle = question.sentenceRes;
 
             const originalRes = this.proxy.questionMap.get(v.toString()).res;
             const res = this.proxy.isAnswered(v) ? `${originalRes}-revealed` : originalRes.toString();
@@ -72,6 +78,10 @@ namespace ies {
             var data: any = notification.getBody();
             switch (notification.getName()) {
                 case GameProxy.ANSWERED: {
+                    if (this.proxy.playerInfo.answeredList.length == 20) {
+                        this.initData();
+                        this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW, true);
+                    }
                     this.chapterIndex = this.chapterIndex;
                     break;
                 }
@@ -125,7 +135,8 @@ namespace ies {
             console.log(event);
             const scrollH = event.target.viewport.scrollH;
             const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
-            const higherBound = Math.floor((scrollH + 1750 - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            const higherBound = Math.floor((scrollH + 1850 - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            console.log(scrollH, lowerBound, higherBound)
             this.chapterIndex = higherBound;
         }
 

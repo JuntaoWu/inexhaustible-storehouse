@@ -47,12 +47,35 @@ namespace ies {
         }
 
         public catalogWindow: CatalogWindow;
-        public showCatalogWindow(): void {
+        public showCatalogWindow(data): void {
             if (!this.catalogWindow) {
                 this.catalogWindow = new CatalogWindow();
             }
+            if (data) {
+                this.catalogWindow.showFinalTowQuestion();
+            }
             this.addChild(this.catalogWindow);
             this.catalogWindow.show();
+        }
+
+        public alertWindow: AlertWindow;
+        public showAlertWindow(data): void {
+            if (!this.alertWindow) {
+                this.alertWindow = new AlertWindow();
+            }
+            this.addChild(this.alertWindow);
+            this.alertWindow.setWindowMsg(data);
+            this.alertWindow.show();
+        }
+
+        public imagePreviewWindow: ImagePreviewWindow;
+        public showImagePreviewWindow(data): void {
+            if (!this.imagePreviewWindow) {
+                this.imagePreviewWindow = new ImagePreviewWindow();
+            }
+            this.addChild(this.imagePreviewWindow);
+            this.imagePreviewWindow.setImageRes(data);
+            this.imagePreviewWindow.show();
         }
     }
 }

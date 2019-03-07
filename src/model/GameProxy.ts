@@ -37,6 +37,10 @@ namespace ies {
 			volumeBGM: 1,
 		}
 
+		public isShowFinalTowQuestion() {
+			return this.playerInfo.answeredList.length >= 20;
+		}
+
 		public isAnswered(qId) {
 			return !qId || this.playerInfo.answeredList.includes(qId);
 		}

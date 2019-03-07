@@ -25,8 +25,8 @@
                 </e:Skin>
             </e:Button>
             <e:Group id="titleGroup" verticalCenter="0" horizontalCenter="0">
-                <!--<e:Label text="{chapterTitle}" textColor="0x000000" horizontalCenter="0" verticalCenter="0"></e:Label>-->
-                <e:Image source="{chapterTitle}" horizontalCenter="0" verticalCenter="0"/>
+                <e:Image source="{titleSideIcon}" verticalCenter="0" width="70" height="70"/>
+                <e:Image source="{chapterTitle}" x="{titleX}" verticalCenter="0"/>
                 <e:Image source="{maskRes}" verticalCenter="0" x="{maskStart}"/>
             </e:Group>
             <e:Button id="btnNext" verticalCenter="0" right="0">

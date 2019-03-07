@@ -38,6 +38,7 @@ namespace ies {
             const replaceText = this.answerText.split('').map(i => ' ').join('');
             this.textList = question.sentence.replace(/【(.+?)】/, replaceText).split('');
             this.answerStartIndex = this.textList.findIndex(i => i == ' ');
+            this.textInput.maxChars = this.answerText.length;
 
             this.textInputList.dataProvider = new eui.ArrayCollection(this.textList);
             this.textInputList.itemRenderer = TextInputItemRenderer;

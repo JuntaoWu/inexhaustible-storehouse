@@ -12,7 +12,20 @@ namespace ies {
 
             this.pageView.btnTips1.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(1), this);
             this.pageView.btnTips2.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(2), this);
-            this.pageView.btnTips3.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(3), this);
+            this.pageView.btnTips3.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
+                if (!this.isShowTips3) {
+                    this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
+                        msg: "最后提示接近于直接告诉答案，确定查看提示？", 
+                        cbk: () => {
+                            this.isShowTips3 = true;
+                            this.tipsClick(3);
+                        }
+                    })
+                }
+                else {
+                    this.tipsClick(3);
+                }
+            }, this);
             this.pageView.btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, this.confirmClick, this);
 
             this.pageView.textInput.addEventListener(egret.Event.CHANGE, this.inputChange, this);
@@ -22,9 +35,12 @@ namespace ies {
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
         }
 
+        private isShowTips3: boolean;
+
         public async initData() {
             this.pageView.textInput.text = "";
             this.pageView.tips = "";
+            this.isShowTips3 = false;
             [1, 2, 3].forEach(v => {
                 this.pageView[`btnTips${v}`].selected = false;
             });

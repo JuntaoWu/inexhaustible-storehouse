@@ -11,8 +11,10 @@ namespace ies {
         public btnCatalog: eui.Button;
 
         //bindings:
+        public titleSideIcon: string;
         public chapterTitle: string;
         public maskStart: number;
+        public titleX: number;
         public maskRes: string;
 
         public constructor() {

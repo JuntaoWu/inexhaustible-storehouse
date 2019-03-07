@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.AlertWindow" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
+    <e:Group id="container" horizontalCenter="0">
+        <e:Group horizontalCenter="0" width="900" y="130">
+            <e:Group horizontalCenter="0">
+                <e:Image source="tips-content-bg" />
+                <e:Label size="50" textColor="0x020202" maxWidth="820" width="830" horizontalCenter="0" y="90" text="{msg}"/>
+            </e:Group>
+        </e:Group>
+        <e:Group horizontalCenter="0" y="378">
+            <e:Button id="closeButton" label="取消" width="160" height="70">
+            </e:Button>
+            <e:Button id="btnConfirm" label="确定" x="300" width="160" height="70">
+            </e:Button>
+        </e:Group>
+    </e:Group>
+    
+</e:Skin>

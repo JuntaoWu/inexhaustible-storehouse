@@ -16,6 +16,9 @@ namespace ies {
         public static RESET_FILTER: string = "reset_filter";
         public static SHOW_ANSWER_WINDOW: string = "show_answer_window";
         public static SHOW_CATALOG_WINDOW: string = "show_catalog_window";
+        public static SHOW_ALERT_WINDOW: string = "show_alert_window";
+        public static SHOW_IMGPRE_WINDOW: string = "show_imgpre_window";
+
 
         public static NAVIGATE_TO_CHILD_GAME: string = "navigate_to_child_game";
 
@@ -64,6 +67,8 @@ namespace ies {
             this.facade().registerCommand(SceneCommand.CHANGE, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_ANSWER_WINDOW, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_CATALOG_WINDOW, SceneCommand);
+            this.facade().registerCommand(SceneCommand.SHOW_ALERT_WINDOW, SceneCommand);
+            this.facade().registerCommand(SceneCommand.SHOW_IMGPRE_WINDOW, SceneCommand);
 
             this.facade().registerCommand(SceneCommand.NAVIGATE_TO_CHILD_GAME, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_JOIN_WINDOW, SceneCommand);
@@ -121,7 +126,15 @@ namespace ies {
                     break;
                 }
                 case SceneCommand.SHOW_CATALOG_WINDOW: {
-                    appMediator.main.showCatalogWindow();
+                    appMediator.main.showCatalogWindow(data);
+                    break;
+                }
+                case SceneCommand.SHOW_ALERT_WINDOW: {
+                    appMediator.main.showAlertWindow(data);
+                    break;
+                }
+                case SceneCommand.SHOW_IMGPRE_WINDOW: {
+                    appMediator.main.showImagePreviewWindow(data);
                     break;
                 }
             }

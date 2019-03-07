@@ -7,8 +7,9 @@ namespace ies {
         public btnCollect: eui.ToggleButton;
         public btnSetting: eui.ToggleButton;
         public btnFinal: eui.Button;
-
         public catalogList: eui.List;
+        public catalogScroller: eui.Scroller;
+
         public titleRes: string = 'title-catalog';
         public showCatalog: boolean = true;
         public showCollect: boolean;
@@ -27,5 +28,8 @@ namespace ies {
             ApplicationFacade.getInstance().registerMediator(new CatalogWindowMediator(this));
         }
 
+        public showFinalTowQuestion() {
+            // 
+        }
     }
 }
