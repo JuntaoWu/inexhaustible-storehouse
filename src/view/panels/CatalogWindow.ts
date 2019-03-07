@@ -28,8 +28,6 @@ namespace ies {
             ApplicationFacade.getInstance().registerMediator(new CatalogWindowMediator(this));
         }
 
-        public showFinalTowQuestion() {
-            // 
-        }
+        public showFinalTow: boolean;
     }
 }

@@ -22,31 +22,42 @@ namespace ies {
 
         public async initData() {
             const catalogList = [];
-            let showFinalTowSentence = true;
-            this.proxy.questionMap.forEach(v => {
-                if (v.id <= 20 || showFinalTowSentence) {
+            for (let i = 1; i <= 20; i++) {
+                const v = this.proxy.questionMap.get(i.toString());
+                catalogList[v.id - 1] = {
+                    res: v.catalogRes,
+                    maskOffsetX: 0,
+                    maskRes: ''
+                }
+                if (!this.proxy.isAnswered(v.id)) {
+                    const maskStart = v.sentence.indexOf('【');
+                    catalogList[v.id - 1].maskOffsetX = (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5;
+                    catalogList[v.id - 1].maskRes = `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`;
+                }
+            }
+            if (this.proxy.isShowFinalTowQuestion()) {
+                let showFinalButton = true;
+                this.pageView.showFinalTow = false;
+                [21, 22].forEach(i => {
+                    const v = this.proxy.questionMap.get(i.toString());
                     catalogList[v.id - 1] = {
                         res: v.catalogRes,
                         maskOffsetX: 0,
                         maskRes: ''
                     }
-                    const maskStart = v.sentence.indexOf('【');
-                    if (maskStart != -1 && !this.proxy.isAnswered(v.id)) {
-                        catalogList[v.id - 1].maskRes = `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`;
+                    if (!this.proxy.isAnswered(v.id)) {
+                        const maskStart = v.sentence.indexOf('【');
                         catalogList[v.id - 1].maskOffsetX = (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5;
-                        if (v.id < 20) {
-                            showFinalTowSentence = false;
-                        }
+                        catalogList[v.id - 1].maskRes = `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`;
+                        showFinalButton = false;
                     }
-                }
-            });
-            if (this.proxy.isAnswered(21) && this.proxy.isAnswered(22)) {
-                this.pageView.btnFinal.visible = true;
+                });
+                this.pageView.btnFinal.visible = showFinalButton;
+                this.pageView.showFinalTow = !showFinalButton;
             }
 
             this.pageView.catalogList.itemRenderer = CatalogItemRenderer;
             this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);
-
         }
 
         public changeIndex(event: eui.ItemTapEvent) {

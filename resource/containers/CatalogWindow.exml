@@ -38,13 +38,14 @@
 		<e:Group visible="{showCatalog}" left="350" right="100" top="160" bottom="10">
             <e:Scroller id="catalogScroller" scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0" top="0" bottom="100">
                 <e:viewport>
-                    <e:List id="catalogList" horizontalCenter="0">
+                    <e:List id="catalogList" minWidth="1100" horizontalCenter="0">
                         <e:layout>
                             <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="20" horizontalGap="20" paddingBottom="50" paddingTop="20"/>
                         </e:layout>
                     </e:List>
                 </e:viewport>
             </e:Scroller>
+            <e:Label visible="{showFinalTow}" text="现在解开这最后两道谜题，你就会知道最终真相。。" textColor="0x020202" size="46" horizontalCenter="0" bottom="40"/>
             <e:Button id="btnFinal" visible="false" horizontalCenter="0" bottom="0">
                 <e:Skin>
                     <e:Image source="btn-final" horizontalCenter="0" verticalCenter="0" />

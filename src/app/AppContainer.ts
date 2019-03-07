@@ -52,12 +52,9 @@ namespace ies {
         }
 
         public catalogWindow: CatalogWindow;
-        public showCatalogWindow(data): void {
+        public showCatalogWindow(): void {
             if (!this.catalogWindow) {
                 this.catalogWindow = new CatalogWindow();
-            }
-            if (data) {
-                this.catalogWindow.showFinalTowQuestion();
             }
             this.addChild(this.catalogWindow);
             this.catalogWindow.show();
