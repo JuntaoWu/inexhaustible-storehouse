@@ -9,6 +9,10 @@ namespace ies {
         public btnNext: eui.Button;
         public titleGroup: eui.Group;
         public btnCatalog: eui.Button;
+        
+        public blurFilter1: eui.Group;
+        public blurFilter2: eui.Group;
+        public blurFilter3: eui.Group;
 
         //bindings:
         public titleSideIcon: string;

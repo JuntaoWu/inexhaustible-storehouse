@@ -12,11 +12,16 @@ namespace ies {
         }
 
         public applyGameScreenFilter() {
-            this.gameScreen.filters = [new egret.BlurFilter(3, 3, 0)];
+            const filter = new egret.BlurFilter(6, 6, 0);
+            [1, 2, 3].forEach(v => {
+                this.gameScreen[`blurFilter${v}`].filters = [filter];
+            });
         }
 
         public resetGameScreenFilter() {
-            this.gameScreen.filters = [];
+            [1, 2, 3].forEach(v => {
+                this.gameScreen[`blurFilter${v}`].filters = [];
+            });
         }
 
         /**
