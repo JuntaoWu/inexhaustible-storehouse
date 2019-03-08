@@ -10,38 +10,30 @@ namespace ies {
         public static get Endpoints() {
             if (platform.env == "local") {
                 return {
-                    service: "http://localhost:8090/",
+                    service: "http://localhost/",
                     localResource: "",
-                    remoteResource: "http://localhost:8090/miniGame/",
-                    ws: "ws://192.168.2.117:9090",
-                    wss: "wss://192.168.2.117:19090",
+                    remoteResource: "http://localhost/miniGame/",
                 };
             }
             if (platform.env == "dev") {
                 return {
-                    service: "http://gdjzj.hzsdgames.com:8090/",
+                    service: "http://ies.hzsdgames.com/api/",
                     localResource: "",
-                    remoteResource: "http://gdjzj.hzsdgames.com:8090/miniGame/",
-                    ws: "ws://192.168.2.202:9092",
-                    wss: "wss://192.168.2.202:19092",
+                    remoteResource: "http://ies.hzsdgames.com/miniGame/",
                 };
             }
             if (platform.env == "prod") {
                 return {
-                    service: "https://gdjzj.hzsdgames.com:8100/",
+                    service: "https://ies.hzsdgames.com/api/",
                     localResource: "",
-                    remoteResource: "https://gdjzj.hzsdgames.com:8100/miniGame/",
-                    ws: "ws://photon.hzsdgames.com:9092",
-                    wss: "wss://photon.hzsdgames.com:19092",
+                    remoteResource: "https://ies.hzsdgames.com/miniGame/",
                 };
             }
             if (platform.env == "test") {
                 return {
-                    service: "http://gdjzj.hzsdgames.com:8090/",
+                    service: "http://ies.hzsdgames.com/api/",
                     localResource: "",
-                    remoteResource: "http://gdjzj.hzsdgames.com:8090/miniGame/",
-                    ws: "ws://photon.hzsdgames.com:9092",
-                    wss: "wss://photon.hzsdgames.com:19092",
+                    remoteResource: "http://ies.hzsdgames.com/miniGame/",
                 };
             }
         }

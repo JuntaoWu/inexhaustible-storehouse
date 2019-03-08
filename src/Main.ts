@@ -98,7 +98,8 @@ namespace ies {
 
             if (platform.name == "wxgame") {
                 await AccountAdapter.login();
-                await this.tryAuthorize();
+                this.createGameScene();
+                // await this.tryAuthorize();
             }
             else if (platform.name == "DebugPlatform") {
                 let anonymousToken = platform.getStorage("anonymoustoken");
