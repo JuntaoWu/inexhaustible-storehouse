@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,catalog-word_json,sentence-title_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-09-revealed,samwoe-10-revealed,samwoe-11-revealed,samwoe-12-revealed,samwoe-13-revealed,samwoe-14-revealed,samwoe-15-revealed,samwoe-16-revealed,samwoe-17-revealed,samwoe-18-revealed,samwoe-19-revealed,samwoe-20-revealed,samwoe-21-revealed,samwoe-22-revealed,logo-with-bg,title-side-icon_json",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-09-revealed,samwoe-10-revealed,samwoe-11-revealed,samwoe-12-revealed,samwoe-13-revealed,samwoe-14-revealed,samwoe-15-revealed,samwoe-16-revealed,samwoe-17-revealed,samwoe-18-revealed,samwoe-19-revealed,samwoe-20-revealed,samwoe-21-revealed,samwoe-22-revealed,logo-with-bg,title-side-icon_json,catalog-word_json,sentence-title_json",
 			"name": "preload"
 		},
 		{
@@ -102,18 +102,6 @@
 			"type": "sheet",
 			"name": "setting-icon_json",
 			"subkeys": "btn-developer,btn-slider,sound-bg,sound-effect,switch-off,switch-on,volume-line,volume-line-bg"
-		},
-		{
-			"url": "assets/sprite/catalog-word.json",
-			"type": "sheet",
-			"name": "catalog-word_json",
-			"subkeys": "catalog01,catalog02,catalog03,catalog04,catalog05,catalog06,catalog07,catalog08,catalog09,catalog10,catalog11,catalog12,catalog13,catalog14,catalog15,catalog16,catalog17,catalog18,catalog19,catalog20,catalog21,catalog22"
-		},
-		{
-			"url": "assets/sprite/sentence-title.json",
-			"type": "sheet",
-			"name": "sentence-title_json",
-			"subkeys": "sentence01,sentence02,sentence03,sentence04,sentence05,sentence06,sentence07,sentence08,sentence09,sentence10,sentence11,sentence12,sentence13,sentence14,sentence15,sentence16,sentence17,sentence18,sentence19,sentence20,sentence21,sentence22"
 		},
 		{
 			"url": "assets/background/mask.png",
@@ -389,6 +377,18 @@
 			"type": "sheet",
 			"url": "assets/sprite/title-side-icon.json",
 			"subkeys": "side-icon-05,side-icon-06,side-icon-07,side-icon-08,side-icon-09,side-icon-10,side-icon-11,side-icon-12,side-icon-13,side-icon-14,side-icon-15-16,side-icon-17,side-icon-18,side-icon-19,side-icon-20,side-icon-02,side-icon-01,side-icon-03,side-icon-04"
+		},
+		{
+			"name": "catalog-word_json",
+			"type": "sheet",
+			"url": "assets/sprite/catalog-word.json",
+			"subkeys": "catalog13,catalog14,catalog15,catalog16,catalog17,catalog18,catalog19,catalog20,catalog21,catalog22,catalog01,catalog02,catalog03,catalog04,catalog05,catalog06,catalog07,catalog08,catalog09,catalog10,catalog11,catalog12"
+		},
+		{
+			"name": "sentence-title_json",
+			"type": "sheet",
+			"url": "assets/sprite/sentence-title.json",
+			"subkeys": "sentence05,sentence06,sentence07,sentence08,sentence09,sentence10,sentence11,sentence12,sentence13,sentence14,sentence15,sentence16,sentence17,sentence18,sentence19,sentence20,sentence21,sentence22,sentence01,sentence02,sentence03,sentence04"
 		}
 	]
 }
