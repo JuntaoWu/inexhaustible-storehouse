@@ -94,7 +94,6 @@ namespace ies {
                 case GameProxy.ANSWERED: {
                     if (this.proxy.playerInfo.answeredList.length == 20) {
                         this.initData();
-                        this.chapterIndex = 21;
                         this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW);
                     }
                     this.chapterIndex = this.chapterIndex;
