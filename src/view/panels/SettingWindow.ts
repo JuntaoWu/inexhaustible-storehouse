@@ -18,13 +18,9 @@ namespace ies {
 
         public showSetting: boolean = true;
         public showDeveloper: boolean = false;
-        public widthEffect: number = 720;
-        public widthBGM: number = 720;
 
-        public volumeEffectGroup: eui.Group;
-        public volumeBGMGroup: eui.Group;
-        public btnVolumeEffect: eui.Button;
-        public btnVolumeBGM: eui.Button;
+        public btnVolumeEffect: eui.HSlider;
+        public btnVolumeBGM: eui.HSlider;
         public btnDeveloper: eui.Button;
         public switchEffect: eui.ToggleButton;
         public switchBG: eui.ToggleButton;
