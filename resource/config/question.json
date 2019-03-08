@@ -233,7 +233,7 @@
     "res": "samwoe-21",
     "sentenceRes": "sentence21",
     "catalogRes": "catalog21",
-    "sideRes": ""
+    "sideRes": "08,14,03,05,02,10,12"
   },
   "22": {
     "id": 22,
@@ -244,6 +244,6 @@
     "res": "samwoe-22",
     "sentenceRes": "sentence22",
     "catalogRes": "catalog22",
-    "sideRes": ""
+    "sideRes": "15-16,04,20,07,18,19,09"
   }
 }

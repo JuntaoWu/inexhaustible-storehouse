@@ -27,12 +27,14 @@ namespace ies {
                 catalogList[v.id - 1] = {
                     res: v.catalogRes,
                     maskOffsetX: 0,
-                    maskRes: ''
+                    maskRes: '',
+                    sideIcon: ''
                 }
                 if (!this.proxy.isAnswered(v.id)) {
                     const maskStart = v.sentence.indexOf('【');
                     catalogList[v.id - 1].maskOffsetX = (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5;
                     catalogList[v.id - 1].maskRes = `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`;
+                    catalogList[v.id - 1].sideIcon = v.sideRes;
                 }
             }
             if (this.proxy.isShowFinalTowQuestion()) {
@@ -43,19 +45,20 @@ namespace ies {
                     catalogList[v.id - 1] = {
                         res: v.catalogRes,
                         maskOffsetX: 0,
-                        maskRes: ''
+                        maskRes: '',
+                        sideRes: ''
                     }
                     if (!this.proxy.isAnswered(v.id)) {
                         const maskStart = v.sentence.indexOf('【');
                         catalogList[v.id - 1].maskOffsetX = (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5;
                         catalogList[v.id - 1].maskRes = `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`;
+                        catalogList[v.id - 1].sideRes = v.sideRes;
                         showFinalButton = false;
                     }
                 });
                 this.pageView.btnFinal.visible = showFinalButton;
                 this.pageView.showFinalTow = !showFinalButton;
             }
-
             this.pageView.catalogList.itemRenderer = CatalogItemRenderer;
             this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);
         }

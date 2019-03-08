@@ -30,6 +30,14 @@
                 <e:Image source="{titleSideIcon}" verticalCenter="0" width="70" height="70"/>
                 <e:Image source="{chapterTitle}" x="{titleX}" verticalCenter="0"/>
                 <e:Image source="{maskRes}" verticalCenter="0" x="{maskStart}"/>
+
+                <e:Group visible="{showFinal}" verticalCenter="0" horizontalCenter="0">
+                    <e:List id="listFinalQuestion" horizontalCenter="0">
+                        <e:layout>
+                            <e:HorizontalLayout gap="0"></e:HorizontalLayout>
+                        </e:layout>
+                    </e:List>
+                </e:Group>
             </e:Group>
             <e:Button id="btnNext" verticalCenter="0" right="0">
                 <e:Skin>

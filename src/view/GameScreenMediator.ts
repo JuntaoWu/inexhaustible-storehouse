@@ -47,15 +47,29 @@ namespace ies {
             this._chapterIndex = v;
             // console.log(this._chapterIndex);
             this.gameScreen.titleX = 0;
-            this.gameScreen.titleSideIcon = this.gameScreen.maskRes = "";
+            this.gameScreen.showFinal = false;
+            this.gameScreen.titleSideIcon = this.gameScreen.maskRes = this.gameScreen.chapterTitle = "";
             const question = this.proxy.questionMap.get((this._chapterIndex).toString());
-            if (question.sentence.indexOf('【') != -1 && !this.proxy.isAnswered(this._chapterIndex)) {
-                this.gameScreen.titleX = 90;
-                this.gameScreen.titleSideIcon = question.sideRes;
-                this.gameScreen.maskRes = `inkMark${question.sentence.match(/【(.+?)】/)[1].length}`;
-                this.gameScreen.maskStart = (question.sentence.indexOf('【') * 70 || -15) + 90;
+            if (!this.proxy.isAnswered(this._chapterIndex)) {
+                if (this._chapterIndex > 20) {
+                    this.gameScreen.showFinal = true;
+                    const iconList = question.sideRes.split(",").map(v => {
+                        return `side-icon-${v}`;
+                    })
+                    this.gameScreen.listFinalQuestion.itemRenderer = SideIconItemRenderer;
+                    this.gameScreen.listFinalQuestion.dataProvider = new eui.ArrayCollection(iconList);
+                }
+                else {
+                    this.gameScreen.titleX = 90;
+                    this.gameScreen.titleSideIcon = question.sideRes;
+                    this.gameScreen.maskRes = `inkMark${question.sentence.match(/【(.+?)】/)[1].length}`;
+                    this.gameScreen.maskStart = (question.sentence.indexOf('【') * 70 || -15) + 90;
+                    this.gameScreen.chapterTitle = question.sentenceRes;
+                }
             }
-            this.gameScreen.chapterTitle = question.sentenceRes;
+            else {
+                this.gameScreen.chapterTitle = question.sentenceRes;
+            }
 
             const originalRes = this.proxy.questionMap.get(v.toString()).res;
             const res = this.proxy.isAnswered(v) ? `${originalRes}-revealed` : originalRes.toString();
@@ -80,7 +94,8 @@ namespace ies {
                 case GameProxy.ANSWERED: {
                     if (this.proxy.playerInfo.answeredList.length == 20) {
                         this.initData();
-                        this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW, true);
+                        this.chapterIndex = 21;
+                        this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW);
                     }
                     this.chapterIndex = this.chapterIndex;
                     break;
@@ -106,7 +121,10 @@ namespace ies {
 
         public moveToTargetIndex(targetIndex: number) {
             const scrollH = this.gameScreen.listChapter.scrollH;
-            const targetScrollH = (Constants.contentWidth + Constants.listGap) * (targetIndex - 1);
+            let targetScrollH = (Constants.contentWidth + Constants.listGap) * (targetIndex - 1);
+            if(targetIndex + 1 == this.gameScreen.listChapter.numElements) {
+                targetScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
+            }
 
             egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 200).call(() => {
                 this.chapterIndex = targetIndex;
@@ -132,11 +150,10 @@ namespace ies {
         }
 
         public scrollChangeEnd(event: eui.UIEvent) {
-            console.log(event);
+            // console.log(event);
             const scrollH = event.target.viewport.scrollH;
             const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
             const higherBound = Math.floor((scrollH + 1850 - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
-            console.log(scrollH, lowerBound, higherBound)
             this.chapterIndex = higherBound;
         }
 

@@ -9,6 +9,7 @@ namespace ies {
         public btnNext: eui.Button;
         public titleGroup: eui.Group;
         public btnCatalog: eui.Button;
+        public listFinalQuestion: eui.List;
         
         public blurFilter1: eui.Group;
         public blurFilter2: eui.Group;
@@ -20,6 +21,7 @@ namespace ies {
         public maskStart: number;
         public titleX: number;
         public maskRes: string;
+        public showFinal: boolean;
 
         public constructor() {
             super();

@@ -21,6 +21,7 @@
 		"resource/components/CollectImageItemRenderer.exml",
 		"resource/components/CollectItemRenderer.exml",
 		"resource/components/Shade.exml",
+		"resource/components/SideIconItemRenderer.exml",
 		"resource/components/TextInputItemRenderer.exml",
 		"resource/containers/AlertWindow.exml",
 		"resource/containers/AnswerWindow.exml",

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skins.ies.CatalogItemRenderer" minWidth="520" height="80" xmlns:e="http://ns.egret.com/eui">
-    <e:Image source="{data.res}" verticalCenter="0" horizontalCenter="0"/>
-    <e:Image source="{data.maskRes}" x="{data.maskOffsetX}" verticalCenter="0"/>
+<e:Skin class="skins.ies.CatalogItemRenderer" minWidth="620" height="80" xmlns:e="http://ns.egret.com/eui">
+    <e:Image x="{sideIconX}" source="{data.sideIcon}" verticalCenter="0"/>
+    <e:Group x="{sentenceX}" minWidth="520" verticalCenter="0">
+        <e:Image verticalCenter="0" horizontalCenter="0" source="{data.res}"/>
+        <e:Image x="{data.maskOffsetX}" verticalCenter="0" source="{data.maskRes}"/>
+    </e:Group>
+    <e:List id="listFinalQuestion" y="80" x="{sentenceX}">
+        <e:layout>
+            <e:HorizontalLayout gap="0"></e:HorizontalLayout>
+        </e:layout>
+    </e:List>
 </e:Skin>

@@ -388,7 +388,7 @@
 			"name": "title-side-icon_json",
 			"type": "sheet",
 			"url": "assets/sprite/title-side-icon.json",
-			"subkeys": "side-icon-12,side-icon-13,side-icon-14,side-icon-15-16,side-icon-17,side-icon-18,side-icon-19,side-icon-20,side-icon-21,side-icon-01,side-icon-02,side-icon-03,side-icon-04,side-icon-05,side-icon-06,side-icon-07,side-icon-08,side-icon-09,side-icon-10,side-icon-11"
+			"subkeys": "side-icon-05,side-icon-06,side-icon-07,side-icon-08,side-icon-09,side-icon-10,side-icon-11,side-icon-12,side-icon-13,side-icon-14,side-icon-15-16,side-icon-17,side-icon-18,side-icon-19,side-icon-20,side-icon-02,side-icon-01,side-icon-03,side-icon-04"
 		}
 	]
 }

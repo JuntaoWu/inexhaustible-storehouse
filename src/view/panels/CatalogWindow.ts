@@ -14,6 +14,7 @@ namespace ies {
         public showCatalog: boolean = true;
         public showCollect: boolean;
         public showSetting: boolean;
+        public showFinalTow: boolean;
 
         public constructor() {
             super();
@@ -28,6 +29,5 @@ namespace ies {
             ApplicationFacade.getInstance().registerMediator(new CatalogWindowMediator(this));
         }
 
-        public showFinalTow: boolean;
     }
 }
