@@ -16,6 +16,7 @@ namespace ies {
             this.gameScreen.btnNext.addEventListener(egret.TouchEvent.TOUCH_TAP, this.nextPage, this);
             this.gameScreen.titleGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.titleClick, this);
             this.gameScreen.btnCatalog.addEventListener(egret.TouchEvent.TOUCH_TAP, this.catalogClick, this);
+            this.gameScreen.btnTutorial.addEventListener(egret.TouchEvent.TOUCH_TAP, this.tutorialClick, this);
         }
 
         public async initData() {
@@ -37,6 +38,11 @@ namespace ies {
             this.gameScreen.listChapter.dataProvider = new eui.ArrayCollection(sources);
             this.chapterIndex = 1;
             console.log(this.gameScreen.listChapter.numElements);
+            if (this.proxy.playerInfo.firstShowTutorial) {
+                egret.setTimeout(() => {
+                    this.tutorialClick();
+                }, this, 1000);
+            }
         }
 
         private _chapterIndex: number = 1;
@@ -54,7 +60,7 @@ namespace ies {
                 if (this._chapterIndex > 20) {
                     this.gameScreen.showFinal = true;
                     const iconList = question.sideRes.split(",").map(v => {
-                        return `side-icon-${v}`;
+                        return `stamps_${v}`;
                     })
                     this.gameScreen.listFinalQuestion.itemRenderer = SideIconItemRenderer;
                     this.gameScreen.listFinalQuestion.dataProvider = new eui.ArrayCollection(iconList);
@@ -109,6 +115,10 @@ namespace ies {
 
         public catalogClick(event: egret.TouchEvent) {
             this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW);
+        }
+
+        public tutorialClick(event?: egret.TouchEvent) {
+            this.sendNotification(SceneCommand.SHOW_TUTORIAL_WINDOW);
         }
 
         public titleClick(event: egret.TouchEvent) {

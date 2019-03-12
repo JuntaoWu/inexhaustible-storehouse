@@ -52,7 +52,7 @@
                 <e:Image source="btn-catalog" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
-        <e:Button x="250" verticalCenter="0">
+        <e:Button id="btnTutorial" x="250" verticalCenter="0">
             <e:Skin>
                 <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>

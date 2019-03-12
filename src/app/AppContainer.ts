@@ -79,5 +79,15 @@ namespace ies {
             this.imagePreviewWindow.setImageRes(data);
             this.imagePreviewWindow.show();
         }
+        
+        public tutorialWindow: TutorialWindow;
+        public showTutorialWindow(): void {
+            if (!this.tutorialWindow) {
+                this.tutorialWindow = new TutorialWindow();
+            }
+            this.addChild(this.tutorialWindow);
+            this.tutorialWindow.show();
+        }
+
     }
 }

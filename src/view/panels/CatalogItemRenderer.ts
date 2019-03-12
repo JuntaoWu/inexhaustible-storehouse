@@ -27,7 +27,7 @@ namespace ies {
             if (this.data.sideRes) {
                 this.listFinalQuestion.visible = true;
                 const iconList = this.data.sideRes.split(",").map(v => {
-                    return `side-icon-${v}`;
+                    return `stamps_${v}`;
                 })
                 this.listFinalQuestion.itemRenderer = SideIconItemRenderer;
                 this.listFinalQuestion.dataProvider = new eui.ArrayCollection(iconList);

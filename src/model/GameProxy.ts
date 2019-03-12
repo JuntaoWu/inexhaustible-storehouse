@@ -35,6 +35,7 @@ namespace ies {
 			volumeEffect: 1,
 			isSoundBGMOn: true,
 			volumeBGM: 1,
+			firstShowTutorial: true,
 		}
 
 		public isShowFinalTowQuestion() {
@@ -56,7 +57,7 @@ namespace ies {
 			try {
                  let playerInfo = JSON.parse(await platform.getStorageAsync("playerInfo"));
                  if (playerInfo) {
-                     this.playerInfo = playerInfo;
+					 this.playerInfo = Object.assign(this.playerInfo, playerInfo);
                  }
             }
             catch (error) {

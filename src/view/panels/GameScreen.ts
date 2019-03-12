@@ -9,6 +9,7 @@ namespace ies {
         public btnNext: eui.Button;
         public titleGroup: eui.Group;
         public btnCatalog: eui.Button;
+        public btnTutorial: eui.Button;
         public listFinalQuestion: eui.List;
         
         public blurFilter1: eui.Group;

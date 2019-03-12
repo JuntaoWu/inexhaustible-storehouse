@@ -32,6 +32,7 @@
 		"resource/containers/ImagePreviewWindow.exml",
 		"resource/containers/LoadingUI.exml",
 		"resource/containers/SettingWindow.exml",
+		"resource/containers/TutorialWindow.exml",
 		"resource/eui_skins/ButtonSkin.exml",
 		"resource/eui_skins/CheckBoxSkin.exml",
 		"resource/eui_skins/HScrollBarSkin.exml",

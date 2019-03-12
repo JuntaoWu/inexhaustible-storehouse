@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.TutorialWindow" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*" >
+    <e:Group id="container" horizontalCenter="0">
+
+        <e:Group horizontalCenter="0">
+            <e:Label id="tipsLabel" width="1000" verticalCenter="0" horizontalCenter="0" />
+        </e:Group>
+    </e:Group>
+    
+</e:Skin>
