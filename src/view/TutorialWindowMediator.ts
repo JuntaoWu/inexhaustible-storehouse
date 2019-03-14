@@ -5,8 +5,27 @@ namespace ies {
         public static NAME: string = "TutorialWindowMediator";
 
         private proxy: GameProxy;
+        private dragonBoneGroup: eui.Group = new eui.Group();
+        private _dragonBone: dragonBones.EgretArmatureDisplay;
+        public get dragonBone(): dragonBones.EgretArmatureDisplay {
+            if (!this._dragonBone) {
+                this._dragonBone = DragonBones.createDragonBone("hand", "touch");
+                this.dragonBoneGroup.verticalCenter = 0;
+                this.dragonBoneGroup.horizontalCenter = 0;
+                this.dragonBoneGroup.addChild(this.dragonBone);
+            }
+            return this._dragonBone;
+        }
+        private _tutorialJson: Array<any>;
+        public get tutorialJson(): Array<any> {
+            if (!this._tutorialJson) {
+                this._tutorialJson = RES.getRes("tutorial_json") as Array<any>;
+            }
+            return this._tutorialJson;
+        }
 
         private nowIndex: number;
+        private tipsText: string;
 
         public constructor(viewComponent: any) {
             super(TutorialWindowMediator.NAME, viewComponent);
@@ -15,37 +34,117 @@ namespace ies {
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
 
-
+            this.pageView.titleGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
+                if (this.tutorialJson[this.nowIndex].action == "wait") {
+                    this.reSetUI();
+                    this.pageView.answerGroup.visible = true;
+                    this.nextOne();
+                }
+            }, this);
+            this.pageView.closeAnswerGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
+                if (this.tutorialJson[this.nowIndex].action == "wait") {
+                    this.reSetUI();
+                    this.nextOne();
+                }
+            }, this);
+            this.pageView.btnCatalogGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
+                if (this.tutorialJson[this.nowIndex].action == "wait") {
+                    this.reSetUI();
+                    this.pageView.catalogGroup.visible = true;
+                    this.nextOne();
+                }
+            }, this);
         }
 
         public async initData() {
+            const catalogList = [];
+            for (let i = 1; i <= 20; i++) {
+                const v = this.proxy.questionMap.get(i.toString());
+                const maskStart = v.sentence.indexOf('【');
+                catalogList[v.id - 1] = {
+                    res: v.catalogRes,
+                    maskOffsetX: (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5,
+                    maskRes: `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`,
+                    sideIcon: v.sideRes
+                }
+            }
+            this.pageView.catalogList.itemRenderer = CatalogItemRenderer;
+            this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);
+
+            this.reSetUI();
             this.nowIndex = 0;
             this.showTips();
         }
 
-        public showTips() {
-            if (!this.tutorialTips[this.nowIndex]) {
-                this.proxy.playerInfo.firstShowTutorial = false;
-                this.pageView.close();
-                return;
-            }
-            const nowTips = this.tutorialTips[this.nowIndex];
-            const textElements = new egret.HtmlTextParser().parser(nowTips);
-            this.pageView.tipsLabel.textFlow = textElements;
-            egret.setTimeout(() => {
-                this.nowIndex++;
-                this.showTips();
-            }, this, 2500);
+        public reSetUI() {
+            this.tipsText = "";
+            const effectUIPool = [
+                this.pageView.titleGroup, this.pageView.btnNext, 
+                this.pageView.scrollerGroup, this.pageView.btnCatalogGroup,
+                this.pageView.btnTips1, this.pageView.btnTips2, 
+                this.pageView.btnTips3, this.pageView.inputGroup, 
+                this.pageView.submitAnswerGroup, this.pageView.closeAnswerGroup,
+                this.pageView.btnCatalog, this.pageView.btnCollect,
+                this.pageView.btnSetting, this.pageView.sentenceGroup,
+                this.pageView.answerGroup, this.pageView.catalogGroup
+            ]
+            effectUIPool.forEach(i => i.visible = false);
         }
 
-        public get tutorialTips() {
-            return [
-                "【】画卷上方标题是解谜书中的打油诗，点击右箭头按钮【】或向左滑动画卷【】可以跳转到下一句诗句，请根据<font color=\"0xff0000\">印章</font>找到<font color=\"0xff0000\">对应的诗句，</font>并点击<font color=\"0xff0000\">涂抹处</font>填写答案。",
-                "【】点击空格处输入正确答案。对谜题没有解答思路的话可以点击<font color=\"0xff0000\">提示按键</font>提示关键信息。【】输入答案后可点击提交按键检阅对错。【】点击窗口右上角X号按键可以返回上级界面。",
-                "【】如果想要查阅整首诗句或者调整音量请点击目录图标。",
-                "【】点击目录界面的任意诗句可以直接<font color=\"0xff0000\">跳转到对应画卷</font>【】，收藏界面可查看已解画卷配图，设置界面可以调整音量大小。",
-                "教程结束"
-            ];
+        public showTips() {
+            const nowItem = this.tutorialJson[this.nowIndex];
+            if (!nowItem) return;
+
+            this.tipsText += nowItem.tips || "";
+            const textElements = new egret.HtmlTextParser().parser(this.tipsText);
+            this.pageView.tipsLabel.textFlow = textElements;
+            this.showEffect(nowItem);
+
+            if (nowItem.action == "next") {
+                egret.setTimeout(() => {
+                    this.nextOne();
+                }, this, 2500);
+            }
+            else if (nowItem.action == "end") {
+                this.endTutorial();
+            }
+        }
+
+        public showEffect(nowItem) {
+            this.dragonBoneGroup.parent && this.dragonBoneGroup.parent.removeChild(this.dragonBoneGroup);
+            if (this.pageView[nowItem.target]) {
+                this.pageView[nowItem.target].visible = true;
+                if (nowItem.effect == "play") {
+                    this.pageView[nowItem.target].addChild(this.dragonBoneGroup);
+                    this.dragonBone.animation.play("hand_touch", 0);
+                }
+                else if (nowItem.effect == "play-hold") {
+                    this.pageView[nowItem.target].addChild(this.dragonBoneGroup);
+                    this.dragonBone.animation.play("hand_hold", 0);
+                }
+            }
+            else {
+                nowItem.target.split(",").forEach((item, index) => {
+                    if (this.pageView[item]) {
+                        egret.setTimeout(() => {
+                            this.pageView[item].visible = true;
+                        }, this, index * 1000);
+                    }
+                });
+            }
+        }
+
+        public endTutorial() {
+            if (this.proxy.playerInfo.firstShowTutorial) {
+                this.proxy.playerInfo.firstShowTutorial = false;
+                this.proxy.savePlayerInfoToStorage();
+            }
+            this.pageView.close();
+        }
+
+        public nextOne() {
+            this.nowIndex++;
+            this.showTips();
         }
 
         public get pageView(): TutorialWindow {

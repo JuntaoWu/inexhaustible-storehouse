@@ -86,7 +86,6 @@ namespace ies {
                 this.tutorialWindow = new TutorialWindow();
             }
             this.addChild(this.tutorialWindow);
-            this.tutorialWindow.show();
         }
 
     }

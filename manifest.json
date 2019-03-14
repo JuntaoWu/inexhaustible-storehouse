@@ -57,7 +57,6 @@
 		"bin-debug/view/panels/GameScreen.js",
 		"bin-debug/view/panels/ImagePreviewWindow.js",
 		"bin-debug/view/panels/SettingWindow.js",
-		"bin-debug/view/panels/Shade.js",
 		"bin-debug/view/panels/SideIconItemRenderer.js",
 		"bin-debug/view/panels/TextInputItemRenderer.js",
 		"bin-debug/view/panels/TutorialWindow.js"
