@@ -33,7 +33,8 @@ namespace ies {
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
-            // this.poweredLabel.y = this.stage.stageHeight - this.poweredLabel.height - 30;
+            this.width = this.stage.stageWidth;
+
             this.removeEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
             ApplicationFacade.getInstance().registerMediator(new GameScreenMediator(this));
         }

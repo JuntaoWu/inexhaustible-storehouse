@@ -134,6 +134,9 @@ namespace ies {
             if(targetIndex + 1 == this.gameScreen.listChapter.numElements) {
                 targetScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
             }
+            else if(targetScrollH > 0) {
+                targetScrollH = targetScrollH - ((this.gameScreen.width - 1920) / 2);
+            }
 
             egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 200).call(() => {
                 this.chapterIndex = targetIndex;
@@ -162,7 +165,7 @@ namespace ies {
             // console.log(event);
             const scrollH = event.target.viewport.scrollH;
             const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
-            const higherBound = Math.floor((scrollH + 1850 - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            const higherBound = Math.floor((scrollH + this.gameScreen.width - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
             this.chapterIndex = higherBound;
         }
 

@@ -36,6 +36,8 @@ namespace ies {
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
+            this.width = this.stage.stageWidth;
+
             const textList = "北平砚兄   ".split("");
             this.textInputList.dataProvider = new eui.ArrayCollection(textList);
             this.textInputList.itemRenderer = TextInputItemRenderer;

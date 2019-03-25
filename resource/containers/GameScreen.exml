@@ -4,12 +4,12 @@
     <w:Config id="168e50516a2" />
     <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
     <e:Group verticalCenter="0" left="0" right="0" height="840">
-        <e:Image source="scroll-background" verticalCenter="0" right="0"></e:Image>
+        <e:Image source="scroll-background" verticalCenter="0" right="0" left="132"></e:Image>
         <e:Group id="blurFilter1" left="0" verticalCenter="0">
             <e:Image source="scroll-bar"></e:Image>
         </e:Group>
         <e:Scroller id="scroller" scrollPolicyH="on" scrollPolicyV="off"
-                    left="170" right="0" height="830" y="5">
+                    left="170" right="0" height="830" y="2">
             <e:viewport>
                 <e:List id="listChapter" verticalCenter="0">
                     <e:layout>
