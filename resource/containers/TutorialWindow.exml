@@ -50,28 +50,46 @@
         </e:Button>
         <e:Image horizontalCenter="0" y="30" source="title-setting"/>
         <e:Group left="53" y="243" width="255">
-            <e:Button horizontalCenter="0">
-                <e:Skin>
-                    <e:Image source="menu-active-bg" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-catalog-active" horizontalCenter="0" verticalCenter="0" />
+            <e:ToggleButton id="btnCatalog" horizontalCenter="0">
+                <e:Skin states="up,upAndSelected">
+                    <e:Image source="menu-catalog-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-catalog-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
-            </e:Button>
-            <e:Button horizontalCenter="0" y="158">
-                <e:Skin>
-                    <e:Image source="menu-collect-default" horizontalCenter="0" verticalCenter="0" />
+            </e:ToggleButton>
+            <e:ToggleButton id="btnCollect" horizontalCenter="0" y="158">
+                <e:Skin states="up,upAndSelected">
+                    <e:Image source="menu-collect-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-collect-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
-            </e:Button>
-            <e:Button y="320" horizontalCenter="0">
-                <e:Skin>
-                    <e:Image source="menu-setting-default" horizontalCenter="0" verticalCenter="0" />
+            </e:ToggleButton>
+            <e:ToggleButton id="btnSetting" y="320" horizontalCenter="0">
+                <e:Skin states="up,upAndSelected">
+                    <e:Image source="menu-setting-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-setting-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
-            </e:Button>
+            </e:ToggleButton>
         </e:Group>
         <e:Image source="vertical-line"  y="150" x="315"/>
+        <e:Group id="sentenceGroup" touchChildren="false" left="350" right="100" top="160" bottom="10">
+            <e:Scroller scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0" top="0" bottom="100">
+                <e:viewport>
+                    <e:List id="catalogList" minWidth="1300" horizontalCenter="0">
+                        <e:layout>
+                            <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="40" horizontalGap="10" paddingBottom="80" paddingTop="20"/>
+                        </e:layout>
+                    </e:List>
+                </e:viewport>
+            </e:Scroller>
+        </e:Group>
+        <ies:CollectWindow id="collectWindow" visible="false" left="350" right="100" top="160" bottom="15"/>
+		<ies:SettingWindow id="settingWindow" visible="false" left="350" right="100" top="160" bottom="15"/>
     </e:Group>
     <e:Rect top="0" bottom="0" left="0" right="0" alpha="0.4"/>
 
-    <e:Group left="0" right="0" top="0" bottom="0">
+    <e:Group id="tutorialGroup" left="0" right="0" top="0" bottom="0">
         <!-- 首页教程 -->
         <e:Group width="860" horizontalCenter="-28" y="16.5">
             <e:Group id="titleGroup" visible="false" verticalCenter="0" horizontalCenter="0">
@@ -79,11 +97,13 @@
                 <e:Image source="sentence01" x="90" verticalCenter="0"/>
                 <e:Image source="inkMark3" verticalCenter="0" x="370"/>
             </e:Group>
-            <e:Button id="btnNext" visible="false" verticalCenter="0" right="0">
-                <e:Skin>
-                    <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:Button>
+            <e:Group id="btnNextGroup" visible="false" verticalCenter="0" right="0">
+                <e:Button>
+                    <e:Skin>
+                        <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:Button>
+            </e:Group>
         </e:Group>
         <e:Group id="scrollerGroup" verticalCenter="0" height="400" width="500" horizontalCenter="0">
         </e:Group>
@@ -141,44 +161,16 @@
             </e:Group>
         </e:Group>
         <!-- 目录教程 -->
-        <e:Group left="53" y="243" width="255">
-            <e:ToggleButton id="btnCatalog" selected="true" horizontalCenter="0">
-                <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-catalog-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-catalog-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:ToggleButton>
-            <e:ToggleButton id="btnCollect" selected="true" horizontalCenter="0" y="158">
-                <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-collect-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-collect-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:ToggleButton>
-            <e:ToggleButton id="btnSetting" selected="true" y="320" horizontalCenter="0">
-                <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-setting-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-setting-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:ToggleButton>
-        </e:Group>
-        <e:Group id="sentenceGroup" touchChildren="false" left="350" right="100" top="160" bottom="10">
-            <e:Scroller scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0" top="0" bottom="100">
-                <e:viewport>
-                    <e:List id="catalogList" minWidth="1300" horizontalCenter="0">
-                        <e:layout>
-                            <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="40" horizontalGap="10" paddingBottom="80" paddingTop="20"/>
-                        </e:layout>
-                    </e:List>
-                </e:viewport>
-            </e:Scroller>
-        </e:Group>
 
         <e:Group right="50" y="400">
             <e:Label id="tipsLabel" width="400" size="45" lineSpacing="15" verticalCenter="0" horizontalCenter="0" />
         </e:Group>
+        
+        <e:Button id="btnSkip" right="40" bottom="60" label="跳过" width="156">
+            <!--<e:Skin>
+                <e:Image source="tips2" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>-->
+        </e:Button>
     </e:Group>
     
 </e:Skin>

@@ -4,9 +4,11 @@ namespace ies {
     export class TutorialWindow extends eui.Panel {
         
         public tipsLabel: eui.Label;
+        public btnSkip: eui.Button;
+        public tutorialGroup: eui.Group;
 
         public titleGroup: eui.Group;
-        public btnNext: eui.Button;
+        public btnNextGroup: eui.Group;
         public scrollerGroup: eui.Group;
         public btnCatalogGroup: eui.Group;
 
@@ -17,15 +19,17 @@ namespace ies {
         public submitAnswerGroup: eui.Group;
         public closeAnswerGroup: eui.Group;
 
-        public btnCatalog: eui.Button;
-        public btnCollect: eui.Button;
-        public btnSetting: eui.Button;
+        public btnCatalog: eui.ToggleButton;
+        public btnCollect: eui.ToggleButton;
+        public btnSetting: eui.ToggleButton;
         public sentenceGroup: eui.Group;
 
         public answerGroup: eui.Group;
         public textInputList: eui.List;
         public catalogGroup: eui.Group;
         public catalogList: eui.List;
+        public collectWindow: CollectWindow;
+        public settingWindow: SettingWindow;
 
         public constructor() {
             super();

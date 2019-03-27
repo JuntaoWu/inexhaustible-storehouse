@@ -26,6 +26,8 @@ namespace ies {
 
         private nowIndex: number;
         private tipsText: string;
+        private canGoNext: boolean;
+        private timeoutIds: Array<number>;
 
         public constructor(viewComponent: any) {
             super(TutorialWindowMediator.NAME, viewComponent);
@@ -33,6 +35,10 @@ namespace ies {
         
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
+            this.pageView.btnSkip.addEventListener(egret.TouchEvent.TOUCH_TAP, this.endTutorial, this);
+            this.pageView.tutorialGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
+                this.canGoNext && this.nextOne();
+            }, this);
 
             this.pageView.titleGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
                 if (this.tutorialJson[this.nowIndex].action == "wait") {
@@ -71,6 +77,8 @@ namespace ies {
             this.pageView.catalogList.itemRenderer = CatalogItemRenderer;
             this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);
 
+            this.canGoNext = true;
+            this.timeoutIds = [];
             this.reSetUI();
             this.nowIndex = 0;
             this.showTips();
@@ -78,14 +86,14 @@ namespace ies {
 
         public reSetUI() {
             this.tipsText = "";
+            this.timeoutIds.forEach(i => egret.clearTimeout(i));
+            this.timeoutIds = [];
             const effectUIPool = [
-                this.pageView.titleGroup, this.pageView.btnNext, 
+                this.pageView.titleGroup, this.pageView.btnNextGroup, 
                 this.pageView.scrollerGroup, this.pageView.btnCatalogGroup,
                 this.pageView.btnTips1, this.pageView.btnTips2, 
                 this.pageView.btnTips3, this.pageView.inputGroup, 
                 this.pageView.submitAnswerGroup, this.pageView.closeAnswerGroup,
-                this.pageView.btnCatalog, this.pageView.btnCollect,
-                this.pageView.btnSetting, this.pageView.sentenceGroup,
                 this.pageView.answerGroup, this.pageView.catalogGroup
             ]
             effectUIPool.forEach(i => i.visible = false);
@@ -93,21 +101,28 @@ namespace ies {
 
         public showTips() {
             const nowItem = this.tutorialJson[this.nowIndex];
-            if (!nowItem) return;
+            if (!nowItem) {
+                this.endTutorial();
+                return;
+            }
 
             this.tipsText += nowItem.tips || "";
             const textElements = new egret.HtmlTextParser().parser(this.tipsText);
             this.pageView.tipsLabel.textFlow = textElements;
             this.showEffect(nowItem);
-
-            if (nowItem.action == "next") {
-                egret.setTimeout(() => {
-                    this.nextOne();
-                }, this, 2500);
+            
+            this.canGoNext = !(nowItem.action == "wait");
+            if (nowItem.action == "meanwhile") {
+                this.nextOne();
             }
-            else if (nowItem.action == "end") {
-                this.endTutorial();
-            }
+            // if (nowItem.action == "next") {
+            //     egret.setTimeout(() => {
+            //         this.nextOne();
+            //     }, this, 2500);
+            // }
+            // else if (nowItem.action == "end") {
+            //     this.endTutorial();
+            // }
         }
 
         public showEffect(nowItem) {
@@ -122,13 +137,18 @@ namespace ies {
                     this.pageView[nowItem.target].addChild(this.dragonBoneGroup);
                     this.dragonBone.animation.play("hand_hold", 0);
                 }
+                else if (nowItem.effect == "switch") {
+                    ["btnCatalog", "btnCollect", "btnSetting"].forEach(i => this.pageView[i].selected = false);
+                    ["sentenceGroup", "collectWindow", "settingWindow"].forEach(i => this.pageView[i].visible = false);
+                    this.pageView[nowItem.target].selected = true;
+                }
             }
             else {
                 nowItem.target.split(",").forEach((item, index) => {
                     if (this.pageView[item]) {
-                        egret.setTimeout(() => {
+                        this.timeoutIds[index] = egret.setTimeout(() => {
                             this.pageView[item].visible = true;
-                        }, this, index * 1000);
+                        }, this, index * 600);
                     }
                 });
             }

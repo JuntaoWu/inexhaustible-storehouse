@@ -64,7 +64,7 @@ namespace ies {
                 this.groupLoading.visible = false;
                 platform.showLoading("加载中");
             }
-
+            this.progressBg.width = this.width;
             this.progressBg.y = this.stage.stageHeight - 30;
             this.progressBar.y = this.stage.stageHeight - 30;
             this.loadingLabel.y = this.stage.stageHeight - 60;
@@ -74,7 +74,7 @@ namespace ies {
 
         public onProgress(current: number, total: number): void {
             this.labelText.text = `${current}/${total}`;
-            this.progressBar.width = this.stage.width * current / total;
+            this.progressBar.width = this.width * current / total;
         }
 
         public showInformation(message) {
