@@ -24,6 +24,7 @@
 		"resource/components/TextInputItemRenderer.exml",
 		"resource/containers/AlertWindow.exml",
 		"resource/containers/AnswerWindow.exml",
+		"resource/containers/CardsGameWindow.exml",
 		"resource/containers/CatalogWindow.exml",
 		"resource/containers/CollectWindow.exml",
 		"resource/containers/DeveloperWindow.exml",

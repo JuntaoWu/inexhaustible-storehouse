@@ -18,6 +18,19 @@
                 </e:List>
             </e:viewport>
         </e:Scroller>
+        <e:Scroller id="scrollerCrowd" visible="false" scrollPolicyH="on" scrollPolicyV="off"
+                    left="300" right="0" height="830" y="2">
+            <e:viewport>
+                <e:List id="listCrowd" verticalCenter="0">
+                    <e:layout>
+                        <e:HorizontalLayout gap="0"></e:HorizontalLayout>
+                    </e:layout>
+                </e:List>
+            </e:viewport>
+        </e:Scroller>
+        <e:Group id="scrollBarRight" x="130" verticalCenter="0">
+            <e:Image source="scroll-bar"></e:Image>
+        </e:Group>
     </e:Group>
     <e:Group id="blurFilter2" width="100%" height="110">
         <e:Group width="860" horizontalCenter="-28" verticalCenter="0">
@@ -46,13 +59,18 @@
             </e:Button>
         </e:Group>
     </e:Group>
-    <e:Group id="blurFilter3" bottom="25">
+    <e:Group id="blurFilter3" bottom="25" left="0" right="0">
         <e:Button id="btnCatalog" x="30" verticalCenter="0">
             <e:Skin>
                 <e:Image source="btn-catalog" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
         <e:Button id="btnTutorial" x="250" verticalCenter="0">
+            <e:Skin>
+                <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
+        </e:Button>
+        <e:Button id="btnCardsGame" verticalCenter="0" right="80">
             <e:Skin>
                 <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>

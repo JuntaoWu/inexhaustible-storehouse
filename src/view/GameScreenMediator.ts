@@ -12,11 +12,14 @@ namespace ies {
 
             this.gameScreen.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
             this.gameScreen.scroller.addEventListener(eui.UIEvent.CHANGE_END, this.scrollChangeEnd, this);
+            this.gameScreen.scroller.addEventListener(eui.UIEvent.CHANGE, this.scrollChange, this);
+            this.gameScreen.scrollerCrowd.addEventListener(eui.UIEvent.CHANGE, this.scrollCrowdChange, this);
             this.gameScreen.btnPrevious.addEventListener(egret.TouchEvent.TOUCH_TAP, this.previousPage, this);
             this.gameScreen.btnNext.addEventListener(egret.TouchEvent.TOUCH_TAP, this.nextPage, this);
             this.gameScreen.titleGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.titleClick, this);
             this.gameScreen.btnCatalog.addEventListener(egret.TouchEvent.TOUCH_TAP, this.catalogClick, this);
             this.gameScreen.btnTutorial.addEventListener(egret.TouchEvent.TOUCH_TAP, this.tutorialClick, this);
+            this.gameScreen.btnCardsGame.addEventListener(egret.TouchEvent.TOUCH_TAP, this.cardsGameClick, this);
         }
 
         public async initData() {
@@ -33,6 +36,9 @@ namespace ies {
             if (!this.proxy.isShowFinalTowQuestion()) {
                 sources.splice(20, 2);
             }
+
+            this.gameScreen.listCrowd.itemRenderer = ChapterItemRenderer;
+            this.gameScreen.listCrowd.dataProvider = new eui.ArrayCollection(sources);
 
             this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listChapter.dataProvider = new eui.ArrayCollection(sources);
@@ -121,6 +127,10 @@ namespace ies {
             this.sendNotification(SceneCommand.SHOW_TUTORIAL_WINDOW);
         }
 
+        public cardsGameClick(event?: egret.TouchEvent) {
+            this.sendNotification(SceneCommand.SHOW_CARDSGAME_WINDOW);
+        }
+
         public titleClick(event: egret.TouchEvent) {
             if (!this.proxy.isAnswered(this._chapterIndex)) {
                 const question = this.proxy.questionMap.get((this._chapterIndex).toString());
@@ -161,12 +171,73 @@ namespace ies {
             this.moveToTargetIndex(targetIndex);
         }
 
-        public scrollChangeEnd(event: eui.UIEvent) {
+        public scrollChange(event: eui.UIEvent) {
             // console.log(event);
             const scrollH = event.target.viewport.scrollH;
             const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
-            const higherBound = Math.floor((scrollH + this.gameScreen.width - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            let higherBound = Math.floor((scrollH + this.gameScreen.width - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            if (higherBound + 1 > this.gameScreen.listChapter.numElements) {
+                higherBound = this.gameScreen.listChapter.numElements - 1;
+            }
+            else if (higherBound < 1) {
+                higherBound = 1;
+            }
             this.chapterIndex = higherBound;
+            
+            if ((this.chapterIndex + 1) >= this.gameScreen.listChapter.numElements
+            && event.target.viewport.scrollH + 1100 > this.gameScreen.scroller.viewport.contentWidth) {
+                console.log(111, event.target.viewport.scrollH);
+                this.showCrowdfunding();
+            }
+        }
+
+        public scrollCrowdChange(event: eui.UIEvent) {
+            // console.log(event);
+            const scrollH = event.target.viewport.scrollH;
+            const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
+            let higherBound = Math.floor((scrollH + this.gameScreen.width - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            if (higherBound + 1 > this.gameScreen.listChapter.numElements) {
+                higherBound = this.gameScreen.listChapter.numElements - 1;
+            }
+            else if (higherBound < 1) {
+                higherBound = 1;
+            }
+            this.chapterIndex = higherBound;
+
+            if (event.target.viewport.scrollH < -800) {
+                console.log(222, event.target.viewport.scrollH);
+                this.showCrowdfunding(false);
+            }
+        }
+
+        public scrollChangeEnd(event: eui.UIEvent) {
+            console.log(event.target.viewport.scrollH, this.gameScreen.scroller.viewport.contentWidth);       
+        }
+
+        public showCrowdfunding(b: boolean = true) {
+            if (b && !this.gameScreen.scrollerCrowd.visible) {
+                this.gameScreen.scrollerCrowd.visible = true;
+                this.gameScreen.scrollBarRight.visible = true;
+                this.gameScreen.scrollerCrowd.viewport.scrollH = -2000;
+                const scrollH = this.gameScreen.scroller.viewport.contentWidth;
+                egret.Tween.get(this.gameScreen.scrollBarRight).to({ x: 130 }, 1000);
+                egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 1000);
+                egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: 0 }, 1000).call(() => {
+                    this.gameScreen.scroller.visible = false;
+                    console.log(3333);
+                });
+            }
+            else if (!b && !this.gameScreen.scroller.visible) {
+                this.gameScreen.scroller.visible = true;
+                this.gameScreen.scroller.viewport.scrollH = this.gameScreen.scroller.viewport.contentWidth;
+                const scrollH = this.gameScreen.scroller.viewport.contentWidth - 1890;
+                egret.Tween.get(this.gameScreen.scrollBarRight).to({ x: this.gameScreen.width }, 1000);
+                egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 1000);
+                egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: -2000 }, 1000).call(() => {
+                    this.gameScreen.scrollBarRight.visible = false;
+                    this.gameScreen.scrollerCrowd.visible = false;
+                });
+            }
         }
 
         public openAnswerWindow(event: egret.TouchEvent) {

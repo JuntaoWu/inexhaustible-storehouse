@@ -19,6 +19,7 @@ namespace ies {
         public static SHOW_ALERT_WINDOW: string = "show_alert_window";
         public static SHOW_IMGPRE_WINDOW: string = "show_imgpre_window";
         public static SHOW_TUTORIAL_WINDOW: string = "show_tutorial_window";
+        public static SHOW_CARDSGAME_WINDOW: string = "show_cardsgame_window";
 
 
         public static NAVIGATE_TO_CHILD_GAME: string = "navigate_to_child_game";
@@ -71,6 +72,7 @@ namespace ies {
             this.facade().registerCommand(SceneCommand.SHOW_ALERT_WINDOW, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_IMGPRE_WINDOW, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_TUTORIAL_WINDOW, SceneCommand);
+            this.facade().registerCommand(SceneCommand.SHOW_CARDSGAME_WINDOW, SceneCommand);
 
             this.facade().registerCommand(SceneCommand.NAVIGATE_TO_CHILD_GAME, SceneCommand);
             this.facade().registerCommand(SceneCommand.SHOW_JOIN_WINDOW, SceneCommand);
@@ -141,6 +143,10 @@ namespace ies {
                 }
                 case SceneCommand.SHOW_TUTORIAL_WINDOW: {
                     appMediator.main.showTutorialWindow();
+                    break;
+                }
+                case SceneCommand.SHOW_CARDSGAME_WINDOW: {
+                    appMediator.main.showCardsGameWindow();
                     break;
                 }
             }

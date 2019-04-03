@@ -88,5 +88,14 @@ namespace ies {
             this.addChild(this.tutorialWindow);
         }
 
+        public cardsGameWindow: CardsGameWindow;
+        public showCardsGameWindow(): void {
+            if (!this.cardsGameWindow) {
+                this.cardsGameWindow = new CardsGameWindow();
+            }
+            this.addChild(this.cardsGameWindow);
+            this.cardsGameWindow.show();
+        }
+
     }
 }
