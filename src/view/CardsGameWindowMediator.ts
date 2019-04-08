@@ -65,8 +65,9 @@ namespace ies {
                 }
                 this.cardsList.push(o);
             }
+            this.showCardsList = [ ...this.cardsList ];
             this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
-            this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.cardsList);
+            this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
             this.pageView.cardsList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.selectCard, this);
             this.pageView.btnConfirm.visible = true;
             this.pageView.tips = "请项子远玩家从九张标记卡中随机抽一张查看并暗置一旁，然后从下方选出与抽到的标记卡同组的画卷卡，此卡在游戏中代表真品";
@@ -76,44 +77,55 @@ namespace ies {
         private selectedItem: any;
         selectCard(event: eui.ItemTapEvent) {
             this.selectedItem = event.item;
-            console.log(this.pageView.cardsList.selectedItem);
+            this.showCardsList.forEach(i => {
+                if (i.text == event.item.text) {
+                    i.isSelected = true;
+                }
+                else {
+                    i.isSelected = false;
+                }
+            });
+            this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
+            this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
         }
 
         public confirmSelected() {
             if (!this.selectedItem) return;
             if (this.pageView.cardsList.numElements == this.cardsList.length) { //选择真品
                 this.cardsList.forEach(i => {
+                    i.isSelected = false;
                     if (i.text == this.selectedItem.text) {
                         i.type = "真"
                     }
                 });
-                const list = [];
+                this.showCardsList = [];
                 this.cardsList.forEach(i => {
                     i.isBack = true;
                     if (!i.type) {
-                        list.push(i);
+                        this.showCardsList.push(i);
                     }
                 });
                 this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
-                this.pageView.cardsList.dataProvider = new eui.ArrayCollection(list);
+                this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
                 this.pageView.tips = "请许一城玩家从下方选一张独自查看，此卡在游戏中代表赝品";
             }
             else { //选择赝品
                 this.pageView.tips = "";
-                const list = [];
+                this.showCardsList = [];
                 this.cardsList.forEach(i => {
+                    i.isSelected = false;
                     if (i.text == this.selectedItem.text) {
                         i.type = "赝";
                         i.isBack = false;
                     }
                     if (i.type != "真") {
-                        list.push(i);
+                        this.showCardsList.push(i);
                     }
                 });
                 this.cardsList.find(i => !i.type).type = "仿";
                 this.pageView.cardsList.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.selectCard, this);
                 this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
-                this.pageView.cardsList.dataProvider = new eui.ArrayCollection(list);
+                this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
 
                 egret.setTimeout(() => {
                     this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
