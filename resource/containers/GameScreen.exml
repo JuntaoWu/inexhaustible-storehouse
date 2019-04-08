@@ -70,10 +70,10 @@
                 <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
-        <e:Button id="btnCardsGame" verticalCenter="0" right="80">
-            <e:Skin>
+        <e:Button id="btnCardsGame" label="乱真" width="200" height="80" verticalCenter="0" right="80">
+            <!--<e:Skin>
                 <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
-            </e:Skin>
+            </e:Skin>-->
         </e:Button>
     </e:Group>
 </e:Skin>
