@@ -72,6 +72,7 @@ namespace ies {
             this.pageView.btnConfirm.visible = true;
             this.pageView.tips = "请项子远玩家从九张标记卡中随机抽一张查看并暗置一旁，然后从下方选出与抽到的标记卡同组的画卷卡，此卡在游戏中代表真品";
             this.shouldReset = false;
+            this.isLastConfirm = false;
         }
 
         private selectedItem: any;
@@ -89,7 +90,14 @@ namespace ies {
             this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
         }
 
+        private isLastConfirm: boolean;
         public confirmSelected() {
+            if (this.isLastConfirm) {
+                this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
+                this.pageView.cardsList.dataProvider = new eui.ArrayCollection([]);
+                this.pageView.btnConfirm.visible = false;
+                this.pageView.btnResult.visible = true;
+            }
             if (!this.selectedItem) return;
             if (this.pageView.cardsList.numElements == this.cardsList.length) { //选择真品
                 this.cardsList.forEach(i => {
@@ -126,13 +134,7 @@ namespace ies {
                 this.pageView.cardsList.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.selectCard, this);
                 this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
                 this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
-
-                egret.setTimeout(() => {
-                    this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
-                    this.pageView.cardsList.dataProvider = new eui.ArrayCollection([]);
-                    this.pageView.btnConfirm.visible = false;
-                    this.pageView.btnResult.visible = true;
-                }, this, 2000)
+                this.isLastConfirm = true;
             }
             this.selectedItem = null;
         }
