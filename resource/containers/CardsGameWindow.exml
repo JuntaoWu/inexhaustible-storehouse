@@ -9,7 +9,57 @@
                 <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
+        <e:Label text="众筹专属卡牌游戏" size="55" horizontalCenter="0" y="30"/>
+        <e:Group id="buttonGroup" horizontalCenter="0">
+            <e:Button id="btnRule" label="规则说明" horizontalCenter="0" y="300" width="300" height="150">
+                <!--<e:Skin>
+                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>-->
+            </e:Button>
+            <e:Button id="btnGame" label="运行游戏" horizontalCenter="0" y="600" width="300" height="150">
+                <!--<e:Skin>
+                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>-->
+            </e:Button>
+        </e:Group>
+        <e:Group id="gameGroup" visible="false" y="150" horizontalCenter="0">
+            
+            <e:List id="cardsList" horizontalCenter="0" y="200">
+                <e:layout>
+                    <e:TileLayout orientation="columns" requestedColumnCount="3" verticalGap="50" paddingTop="20"/>
+                </e:layout>
+            </e:List>
+            <e:Label text="{tips}" size="50" textColor="0x050505" horizontalCenter="0" width="1200" textAlign="center"/>
+            <e:Button id="btnConfirm" label="确定" horizontalCenter="0" y="600" width="300" height="150">
+                <!--<e:Skin>
+                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>-->
+            </e:Button>
+            <e:Button id="btnResult" visible="false" label="揭示真相" horizontalCenter="0" y="600" width="300" height="150">
+                <!--<e:Skin>
+                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>-->
+            </e:Button>
+        </e:Group>
 
+        <e:Group id="ruleGroup" top="0" bottom="0" left="0" right="0">
+            <e:Rect id="overlay" top="0" bottom="0" left="0" right="0" alpha="0.4"/>
+            <e:Group horizontalCenter="0" verticalCenter="0">
+                <e:Image source="tips-content-bg"  height="950" width="1500"/>
+                <e:Label text="规则" horizontalCenter="0" y="40"  textColor="0x020202" size="60"/>
+                <e:Label text="{pageLabel}" horizontalCenter="0" bottom="40"  textColor="0x020202" size="50"/>
+                <e:Button id="btnPrev" bottom="20" left="20">
+                    <e:Skin>
+                        <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:Button>
+                <e:Button id="btnNext" bottom="20" right="20">
+                    <e:Skin>
+                        <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:Button>
+            </e:Group>
+        </e:Group>
     </e:Group>
     
 </e:Skin>

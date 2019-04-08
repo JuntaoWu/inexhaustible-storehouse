@@ -3,7 +3,20 @@ namespace ies {
 
     export class CardsGameWindow extends BasePanel {
 
+        public btnGame: eui.Button;
+        public gameGroup: eui.Group;
+        public cardsList: eui.List;
+        public buttonGroup: eui.Group;
+        public btnResult: eui.Button;
+        public btnConfirm: eui.Button;
 
+        public btnRule: eui.Button;
+        public ruleGroup: eui.Group;
+        public btnPrev: eui.Button;
+        public btnNext: eui.Button;
+        public overlay: eui.Rect;
+        public pageLabel: string = "1/8";
+        public tips: string;
 
         public constructor() {
             super();

@@ -128,7 +128,27 @@ namespace ies {
         }
 
         public cardsGameClick(event?: egret.TouchEvent) {
-            this.sendNotification(SceneCommand.SHOW_CARDSGAME_WINDOW);
+            if (!this.proxy.playerInfo.showEntryCardsGameTips) {
+                this.sendNotification(SceneCommand.SHOW_CARDSGAME_WINDOW);
+                return;
+            }
+            this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
+                msg: "注意：以下内容将引起剧透，为了您良好的游戏体验，建议通关后再来哦。", 
+                confirmLabel: "我意已决",
+                cancelLabel: "先行告退",
+                cbk: () => {
+                    this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
+                        msg: "您真的确定现在就要开始吗？通关后进行此游戏体验更好哦。", 
+                        confirmLabel: "无需多言",
+                        cancelLabel: "浪子回头",
+                        cbk: () => {
+                            this.sendNotification(SceneCommand.SHOW_CARDSGAME_WINDOW);
+                            this.proxy.playerInfo.showEntryCardsGameTips = false;
+                            this.proxy.savePlayerInfoToStorage();
+                        }
+                    });
+                }
+            });
         }
 
         public titleClick(event: egret.TouchEvent) {

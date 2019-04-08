@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-09-revealed,samwoe-10-revealed,samwoe-11-revealed,samwoe-12-revealed,samwoe-13-revealed,samwoe-14-revealed,samwoe-15-revealed,samwoe-16-revealed,samwoe-17-revealed,samwoe-18-revealed,samwoe-19-revealed,samwoe-20-revealed,samwoe-21-revealed,samwoe-22-revealed,logo-with-bg,title-side-icon_json,catalog-word_json,sentence-title_json,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,tutorial_json",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-09-revealed,samwoe-10-revealed,samwoe-11-revealed,samwoe-12-revealed,samwoe-13-revealed,samwoe-14-revealed,samwoe-15-revealed,samwoe-16-revealed,samwoe-17-revealed,samwoe-18-revealed,samwoe-19-revealed,samwoe-20-revealed,samwoe-21-revealed,samwoe-22-revealed,logo-with-bg,title-side-icon_json,catalog-word_json,sentence-title_json,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,tutorial_json,card-back,card-front",
 			"name": "preload"
 		},
 		{
@@ -373,48 +373,58 @@
 			"name": "samwoe-22"
 		},
 		{
-			"name": "title-side-icon_json",
-			"type": "sheet",
 			"url": "assets/sprite/title-side-icon.json",
-			"subkeys": "side-icon-05,side-icon-06,side-icon-07,side-icon-08,side-icon-09,side-icon-10,side-icon-11,side-icon-12,side-icon-13,side-icon-14,side-icon-15-16,side-icon-17,side-icon-18,side-icon-19,side-icon-20,side-icon-02,side-icon-01,side-icon-03,side-icon-04"
+			"type": "sheet",
+			"name": "title-side-icon_json",
+			"subkeys": "side-icon-01,side-icon-02,side-icon-03,side-icon-04,side-icon-05,side-icon-06,side-icon-07,side-icon-08,side-icon-09,side-icon-10,side-icon-11,side-icon-12,side-icon-13,side-icon-14,side-icon-15-16,side-icon-17,side-icon-18,side-icon-19,side-icon-20"
 		},
 		{
-			"name": "catalog-word_json",
-			"type": "sheet",
 			"url": "assets/sprite/catalog-word.json",
-			"subkeys": "catalog13,catalog14,catalog15,catalog16,catalog17,catalog18,catalog19,catalog20,catalog21,catalog22,catalog01,catalog02,catalog03,catalog04,catalog05,catalog06,catalog07,catalog08,catalog09,catalog10,catalog11,catalog12"
+			"type": "sheet",
+			"name": "catalog-word_json",
+			"subkeys": "catalog01,catalog02,catalog03,catalog04,catalog05,catalog06,catalog07,catalog08,catalog09,catalog10,catalog11,catalog12,catalog13,catalog14,catalog15,catalog16,catalog17,catalog18,catalog19,catalog20,catalog21,catalog22"
 		},
 		{
-			"name": "sentence-title_json",
-			"type": "sheet",
 			"url": "assets/sprite/sentence-title.json",
-			"subkeys": "sentence05,sentence06,sentence07,sentence08,sentence09,sentence10,sentence11,sentence12,sentence13,sentence14,sentence15,sentence16,sentence17,sentence18,sentence19,sentence20,sentence21,sentence22,sentence01,sentence02,sentence03,sentence04"
-		},
-		{
-			"name": "final-sentence-stamps_json",
 			"type": "sheet",
+			"name": "sentence-title_json",
+			"subkeys": "sentence01,sentence02,sentence03,sentence04,sentence05,sentence06,sentence07,sentence08,sentence09,sentence10,sentence11,sentence12,sentence13,sentence14,sentence15,sentence16,sentence17,sentence18,sentence19,sentence20,sentence21,sentence22"
+		},
+		{
 			"url": "assets/sprite/final-sentence-stamps.json",
-			"subkeys": "stamps_8,stamps_9,stamps_10,stamps_11,stamps_12,stamps_13,stamps_14,stamps_1,stamps_2,stamps_3,stamps_4,stamps_5,stamps_6,stamps_7"
+			"type": "sheet",
+			"name": "final-sentence-stamps_json",
+			"subkeys": "stamps_1,stamps_10,stamps_11,stamps_12,stamps_13,stamps_14,stamps_2,stamps_3,stamps_4,stamps_5,stamps_6,stamps_7,stamps_8,stamps_9"
 		},
 		{
-			"name": "hand_ske_json",
+			"url": "assets/hand_animation/hand_ske.json",
 			"type": "json",
-			"url": "assets/hand_animation/hand_ske.json"
+			"name": "hand_ske_json"
 		},
 		{
-			"name": "hand_tex_json",
+			"url": "assets/hand_animation/hand_tex.json",
 			"type": "json",
-			"url": "assets/hand_animation/hand_tex.json"
+			"name": "hand_tex_json"
 		},
 		{
-			"name": "hand_tex_png",
+			"url": "assets/hand_animation/hand_tex.png",
 			"type": "image",
-			"url": "assets/hand_animation/hand_tex.png"
+			"name": "hand_tex_png"
 		},
 		{
-			"name": "tutorial_json",
+			"url": "config/tutorial.json",
 			"type": "json",
-			"url": "config/tutorial.json"
+			"name": "tutorial_json"
+		},
+		{
+			"url": "assets/cards-game/card-back.png",
+			"type": "image",
+			"name": "card-back"
+		},
+		{
+			"url": "assets/cards-game/card-front.png",
+			"type": "image",
+			"name": "card-front"
 		}
 	]
 }

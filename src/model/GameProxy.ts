@@ -36,6 +36,7 @@ namespace ies {
 			isSoundBGMOn: true,
 			volumeBGM: 1,
 			firstShowTutorial: true,
+			showEntryCardsGameTips: true,
 		}
 
 		public isShowFinalTowQuestion() {
