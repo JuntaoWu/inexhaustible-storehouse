@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-09-revealed,samwoe-10-revealed,samwoe-11-revealed,samwoe-12-revealed,samwoe-13-revealed,samwoe-14-revealed,samwoe-15-revealed,samwoe-16-revealed,samwoe-17-revealed,samwoe-18-revealed,samwoe-19-revealed,samwoe-20-revealed,samwoe-21-revealed,samwoe-22-revealed,logo-with-bg,title-side-icon_json,catalog-word_json,sentence-title_json,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,tutorial_json,card-back,card-front",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,vertical-line,input-screen-bg,btn-game-screen_json,setting-icon_json,mask,collect-title_json,scroll-bar,tips-input_json,company_logo,logo,catalog-icon_json,inkMark_json,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-09-revealed,samwoe-10-revealed,samwoe-11-revealed,samwoe-12-revealed,samwoe-13-revealed,samwoe-14-revealed,samwoe-15-revealed,samwoe-16-revealed,samwoe-17-revealed,samwoe-18-revealed,samwoe-19-revealed,samwoe-20-revealed,samwoe-21-revealed,samwoe-22-revealed,logo-with-bg,title-side-icon_json,catalog-word_json,sentence-title_json,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2",
 			"name": "preload"
 		},
 		{
@@ -425,6 +425,36 @@
 			"url": "assets/cards-game/card-front.png",
 			"type": "image",
 			"name": "card-front"
+		},
+		{
+			"url": "assets/cards-game/exclusive-4.png",
+			"type": "image",
+			"name": "exclusive-4"
+		},
+		{
+			"url": "assets/cards-game/exclusive-5.png",
+			"type": "image",
+			"name": "exclusive-5"
+		},
+		{
+			"url": "assets/cards-game/exclusive-6.png",
+			"type": "image",
+			"name": "exclusive-6"
+		},
+		{
+			"url": "assets/cards-game/exclusive-3.png",
+			"type": "image",
+			"name": "exclusive-3"
+		},
+		{
+			"url": "assets/cards-game/exclusive-7.png",
+			"type": "image",
+			"name": "exclusive-7"
+		},
+		{
+			"url": "assets/cards-game/exclusive-2.png",
+			"type": "image",
+			"name": "exclusive-2"
 		}
 	]
 }

@@ -27,21 +27,27 @@ namespace ies {
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             await this.proxy.initGamesSetting();
             const sources = [];
+            const exclusiveList = [];
             this.proxy.questionMap.forEach(v => {
-                let res = (v.id && this.proxy.isAnswered(v.id)) ? `${v.res}-revealed` : v.res.toString();
-                sources[v.id] = {
-                    res: res
-                };
+                const res = (v.id && this.proxy.isAnswered(v.id)) ? `${v.res}-revealed` : v.res.toString();
+                if (v.type == "common") {
+                    sources[v.id] = {
+                        res: res
+                    };
+                }
+                else {
+                    exclusiveList.push({res: res});
+                }
             });
             if (!this.proxy.isShowFinalTowQuestion()) {
                 sources.splice(20, 2);
             }
-
-            this.gameScreen.listCrowd.itemRenderer = ChapterItemRenderer;
-            this.gameScreen.listCrowd.dataProvider = new eui.ArrayCollection(sources);
-
+            console.log(sources, exclusiveList)
             this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listChapter.dataProvider = new eui.ArrayCollection(sources);
+            
+            this.gameScreen.listCrowd.itemRenderer = ChapterItemRenderer;
+            this.gameScreen.listCrowd.dataProvider = new eui.ArrayCollection(exclusiveList);
             this.chapterIndex = 1;
             console.log(this.gameScreen.listChapter.numElements);
             if (this.proxy.playerInfo.firstShowTutorial) {
@@ -91,6 +97,14 @@ namespace ies {
                     this.gameScreen.listChapter.dataProvider.getItemAt(v).res = res;
                 }
             }
+        }
+
+        private _chapterCrowdIndex: number = 1;
+        public get chapterCrowdIndex(): number {
+            return this._chapterCrowdIndex;
+        }
+        public set chapterCrowdIndex(v: number) {
+            this._chapterCrowdIndex = v;
         }
 
         public listNotificationInterests(): Array<any> {
@@ -168,9 +182,16 @@ namespace ies {
                 targetScrollH = targetScrollH - ((this.gameScreen.width - 1920) / 2);
             }
 
-            egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 200).call(() => {
-                this.chapterIndex = targetIndex;
-            });
+            if (this.gameScreen.scrollerCrowd.visible) {
+                egret.Tween.get(this.gameScreen.listCrowd).to({ scrollH: targetScrollH }, 200).call(() => {
+                    this.chapterCrowdIndex = targetIndex + 23;
+                });
+            }
+            else {
+                egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 200).call(() => {
+                    this.chapterIndex = targetIndex;
+                });
+            }
         }
 
         public previousPage(event: egret.TouchEvent) {
@@ -216,13 +237,13 @@ namespace ies {
             const scrollH = event.target.viewport.scrollH;
             const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
             let higherBound = Math.floor((scrollH + this.gameScreen.width - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
-            if (higherBound + 1 > this.gameScreen.listChapter.numElements) {
-                higherBound = this.gameScreen.listChapter.numElements - 1;
+            if (higherBound + 1 > this.gameScreen.listCrowd.numElements) {
+                higherBound = this.gameScreen.listCrowd.numElements - 1;
             }
             else if (higherBound < 1) {
                 higherBound = 1;
             }
-            this.chapterIndex = higherBound;
+            this.chapterCrowdIndex = higherBound + 23;
 
             if (event.target.viewport.scrollH < -800) {
                 console.log(222, event.target.viewport.scrollH);
@@ -250,7 +271,7 @@ namespace ies {
             else if (!b && !this.gameScreen.scroller.visible) {
                 this.gameScreen.scroller.visible = true;
                 this.gameScreen.scroller.viewport.scrollH = this.gameScreen.scroller.viewport.contentWidth;
-                const scrollH = this.gameScreen.scroller.viewport.contentWidth - 1890;
+                const scrollH = this.gameScreen.scroller.viewport.contentWidth - 2137;
                 egret.Tween.get(this.gameScreen.scrollBarRight).to({ x: this.gameScreen.width }, 1000);
                 egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 1000);
                 egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: -2000 }, 1000).call(() => {

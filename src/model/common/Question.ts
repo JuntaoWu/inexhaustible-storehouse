@@ -11,5 +11,6 @@ namespace ies {
         public sentenceRes?: string;
         public catalogRes?: string;
         public sideRes?: string;
+        public type?: string;
     }
 }

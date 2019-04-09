@@ -1,11 +1,13 @@
 {
   "0": {
     "id": 0,
+    "type": "common",
     "sentence": "无尽藏",
     "res": "logo-with-bg"
   },
   "1": {
     "id": 1,
+    "type": "common",
     "tips1": "一：一行白鹭上青天",
     "tips2": "二：从今若许闲乘月",
     "tips3": "三：锦城虽云乐",
@@ -17,6 +19,7 @@
   },
   "2": {
     "id": 2,
+    "type": "common",
     "tips1": "沿痕向内",
     "tips2": "折连不折断",
     "tips3": "按照折线向内折叠，依次折连通的线，正面得到图画，背面即为答案",
@@ -28,6 +31,7 @@
   },
   "3": {
     "id": 3,
+    "type": "common",
     "tips1": "无尽，图",
     "tips2": "放大可见",
     "tips3": "用放大镜查看日记末尾的“无尽”图，找出不同的三个字",
@@ -39,6 +43,7 @@
   },
   "4": {
     "id": 4,
+    "type": "common",
     "tips1": "报纸可剪",
     "tips2": "重新拼凑",
     "tips3": "按照报纸上的版式裁剪报纸，将其拼成小一点的矩形，其中卢芹斋的那一版不使用，看接缝得答案",
@@ -50,6 +55,7 @@
   },
   "5": {
     "id": 5,
+    "type": "common",
     "tips1": "凹凸不平",
     "tips2": "铅笔拓印",
     "tips3": "把白纸盖在碑文书签上，用铅笔轻轻涂抹，答案痕迹会显现在纸上",
@@ -61,6 +67,7 @@
   },
   "6": {
     "id": 6,
+    "type": "common",
     "tips1": "图文合一",
     "tips2": "按序寻坊",
     "tips3": "文字和市坊一一对应，按照文中提到的市坊顺序去文中找字，即为答案",
@@ -72,6 +79,7 @@
   },
   "7": {
     "id": 7,
+    "type": "common",
     "tips1": "字间有墨",
     "tips2": "聚墨成字",
     "tips3": "将纸按蓝线折成纸扇形状，叠到一起后侧面即可见答案",
@@ -83,6 +91,7 @@
   },
   "8": {
     "id": 8,
+    "type": "common",
     "tips1": "和为十五",
     "tips2": "五在中间",
     "tips3": "首行为八三四",
@@ -94,6 +103,7 @@
   },
   "9": {
     "id": 9,
+    "type": "common",
     "tips1": "图纸可戳",
     "tips2": "谨遵医嘱",
     "tips3": "拿起穴位图检查文中提示穴位，戳中穴位，背面对应文字即为答案",
@@ -105,6 +115,7 @@
   },
   "10": {
     "id": 10,
+    "type": "common",
     "tips1": "遇水显圣",
     "tips2": "水显照片，暗藏“玄”机",
     "tips3": "用水冲洗照片，在显现的图中找到三个符号，用转盘上玄武的箭头分别对应三个符号得到三个字",
@@ -116,6 +127,7 @@
   },
   "11": {
     "id": 11,
+    "type": "common",
     "tips1": "似曾相识",
     "tips2": "不同之处",
     "tips3": "找出两篇对应日记中不一样的文字，即为答案",
@@ -127,6 +139,7 @@
   },
   "12": {
     "id": 12,
+    "type": "common",
     "tips1": "残缺不齐",
     "tips2": "拼残为整",
     "tips3": "用宣纸上的四骏残缺图拼日记上的图，拼凑完整时，会分别框出一个字，连起即为答案",
@@ -138,6 +151,7 @@
   },
   "13": {
     "id": 13,
+    "type": "common",
     "tips1": "文谱合一",
     "tips2": "马走日",
     "tips3": "马初始位置对应的文字和行动后位置对应的文字加起来即为答案",
@@ -149,6 +163,7 @@
   },
   "14": {
     "id": 14,
+    "type": "common",
     "tips1": "何方神兽",
     "tips2": "木制铅笔，“青”字门赠",
     "tips3": "用转盘上青龙的箭头分别对应三个符号得到三个字",
@@ -160,6 +175,7 @@
   },
   "15": {
     "id": 15,
+    "type": "common",
     "tips1": "横看成岭",
     "tips2": "侧成峰",
     "tips3": "抬起书页平视甲骨插图，可见七字。旋转九十度再看，又得七字",
@@ -171,6 +187,7 @@
   },
   "16": {
     "id": 16,
+    "type": "common",
     "tips1": "横看成岭",
     "tips2": "侧成峰",
     "tips3": "抬起书页平视甲骨插图，可见七字。旋转九十度再看，又得七字",
@@ -182,6 +199,7 @@
   },
   "17": {
     "id": 17,
+    "type": "common",
     "tips1": "簪尖所指",
     "tips2": "金属发簪，真相大“白”",
     "tips3": "找有簪子纹样的书页，用簪子对齐指向三个符号，用转盘上白虎的箭头分别对应三个符号得到三个字",
@@ -193,6 +211,7 @@
   },
   "18": {
     "id": 18,
+    "type": "common",
     "tips1": "去左看右",
     "tips2": "对表解码",
     "tips3": "看一半得数字，按列对应解码表得四字答案",
@@ -204,6 +223,7 @@
   },
   "19": {
     "id": 19,
+    "type": "common",
     "tips1": "遇热显圣",
     "tips2": "热感底片，看破“红”尘",
     "tips3": "焐热底片，拼接显现的三幅图得到三个符号，用转盘上朱雀的箭头分别对应三个符号得到三个字",
@@ -215,6 +235,7 @@
   },
   "20": {
     "id": 20,
+    "type": "common",
     "tips1": "诗画合一",
     "tips2": "七步成诗",
     "tips3": "找到迷宫的出入路径，对应到诗的相同位置，七字路径即为答案",
@@ -226,6 +247,7 @@
   },
   "21": {
     "id": 21,
+    "type": "common",
     "tips1": "",
     "tips2": "",
     "tips3": "",
@@ -237,6 +259,7 @@
   },
   "22": {
     "id": 22,
+    "type": "common",
     "tips1": "",
     "tips2": "",
     "tips3": "",
@@ -245,5 +268,101 @@
     "sentenceRes": "sentence22",
     "catalogRes": "catalog22",
     "sideRes": "8,9,10,11,12,13,14"
+  },
+  "23": {
+    "id": 23,
+    "type": "exclusive",
+    "tips1": "",
+    "tips2": "",
+    "tips3": "",
+    "sentence": "无尽藏",
+    "res": "logo-with-bg",
+    "sentenceRes": "",
+    "catalogRes": "",
+    "sideRes": ""
+  },
+  "24": {
+    "id": 24,
+    "type": "exclusive",
+    "tips1": "",
+    "tips2": "",
+    "tips3": "",
+    "sentence": "开窗纸",
+    "res": "exclusive-1",
+    "sentenceRes": "",
+    "catalogRes": "",
+    "sideRes": ""
+  },
+  "25": {
+    "id": 25,
+    "type": "exclusive",
+    "tips1": "",
+    "tips2": "",
+    "tips3": "",
+    "sentence": "字谜1",
+    "res": "exclusive-2",
+    "sentenceRes": "",
+    "catalogRes": "",
+    "sideRes": ""
+  },
+  "26": {
+    "id": 26,
+    "type": "exclusive",
+    "tips1": "",
+    "tips2": "",
+    "tips3": "",
+    "sentence": "字谜2",
+    "res": "exclusive-3",
+    "sentenceRes": "",
+    "catalogRes": "",
+    "sideRes": ""
+  },
+  "27": {
+    "id": 27,
+    "type": "exclusive",
+    "tips1": "",
+    "tips2": "",
+    "tips3": "",
+    "sentence": "字谜3",
+    "res": "exclusive-4",
+    "sentenceRes": "",
+    "catalogRes": "",
+    "sideRes": ""
+  },
+  "28": {
+    "id": 28,
+    "type": "exclusive",
+    "tips1": "",
+    "tips2": "",
+    "tips3": "",
+    "sentence": "卜阴晴",
+    "res": "exclusive-5",
+    "sentenceRes": "",
+    "catalogRes": "",
+    "sideRes": ""
+  },
+  "29": {
+    "id": 29,
+    "type": "exclusive",
+    "tips1": "",
+    "tips2": "",
+    "tips3": "",
+    "sentence": "画中意",
+    "res": "exclusive-6",
+    "sentenceRes": "",
+    "catalogRes": "",
+    "sideRes": ""
+  },
+  "30": {
+    "id": 30,
+    "type": "exclusive",
+    "tips1": "",
+    "tips2": "",
+    "tips3": "",
+    "sentence": "皮影戏",
+    "res": "exclusive-7",
+    "sentenceRes": "",
+    "catalogRes": "",
+    "sideRes": ""
   }
 }
