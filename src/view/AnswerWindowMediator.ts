@@ -13,7 +13,8 @@ namespace ies {
             this.pageView.btnTips1.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(1), this);
             this.pageView.btnTips2.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(2), this);
             this.pageView.btnTips3.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-                if (!this.isShowTips3) {
+                if (!this.isShowTips3 && this.pageView.question.tips3) {
+                    this.pageView.btnTips3.selected = false;
                     this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
                         msg: "最后提示接近于直接告诉答案，确定查看提示？", 
                         cbk: () => {

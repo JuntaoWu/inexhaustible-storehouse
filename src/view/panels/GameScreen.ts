@@ -27,6 +27,7 @@ namespace ies {
         public titleX: number;
         public maskRes: string;
         public showFinal: boolean;
+        public titleText: string;
 
         public constructor() {
             super();

@@ -66,7 +66,8 @@ namespace ies {
             // console.log(this._chapterIndex);
             this.gameScreen.titleX = 0;
             this.gameScreen.showFinal = false;
-            this.gameScreen.titleSideIcon = this.gameScreen.maskRes = this.gameScreen.chapterTitle = "";
+            this.gameScreen.titleSideIcon = this.gameScreen.maskRes 
+            = this.gameScreen.titleText = this.gameScreen.chapterTitle = "";
             const question = this.proxy.questionMap.get((this._chapterIndex).toString());
             if (!this.proxy.isAnswered(this._chapterIndex)) {
                 if (this._chapterIndex > 20) {
@@ -105,6 +106,11 @@ namespace ies {
         }
         public set chapterCrowdIndex(v: number) {
             this._chapterCrowdIndex = v;
+            this.gameScreen.showFinal = false;
+            this.gameScreen.titleSideIcon = this.gameScreen.maskRes = this.gameScreen.chapterTitle = "";
+            const question = this.proxy.questionMap.get((this._chapterCrowdIndex).toString());
+            
+            this.gameScreen.titleText = question.sentence;
         }
 
         public listNotificationInterests(): Array<any> {
@@ -166,10 +172,16 @@ namespace ies {
         }
 
         public titleClick(event: egret.TouchEvent) {
-            if (!this.proxy.isAnswered(this._chapterIndex)) {
-                const question = this.proxy.questionMap.get((this._chapterIndex).toString());
-                this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
-            }
+            // if (!this.gameScreen.scrollerCrowd.visible) {
+                if (!this.proxy.isAnswered(this._chapterIndex)) {
+                    const question = this.proxy.questionMap.get((this._chapterIndex).toString());
+                    this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
+                }
+            // }
+            // else {
+            //     const question = this.proxy.questionMap.get((this._chapterCrowdIndex).toString());
+            //     this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
+            // }
         }
 
         public moveToTargetIndex(targetIndex: number) {
@@ -223,7 +235,9 @@ namespace ies {
             else if (higherBound < 1) {
                 higherBound = 1;
             }
-            this.chapterIndex = higherBound;
+            if (this.gameScreen.scroller.visible) {
+                this.chapterIndex = higherBound;
+            }
             
             if ((this.chapterIndex + 1) >= this.gameScreen.listChapter.numElements
             && event.target.viewport.scrollH + 1100 > this.gameScreen.scroller.viewport.contentWidth) {
@@ -243,7 +257,9 @@ namespace ies {
             else if (higherBound < 1) {
                 higherBound = 1;
             }
-            this.chapterCrowdIndex = higherBound + 23;
+            if (this.gameScreen.scrollerCrowd.visible) {
+                this.chapterCrowdIndex = higherBound + 23;
+            }
 
             if (event.target.viewport.scrollH < -800) {
                 console.log(222, event.target.viewport.scrollH);
@@ -265,7 +281,7 @@ namespace ies {
                 egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 1000);
                 egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: 0 }, 1000).call(() => {
                     this.gameScreen.scroller.visible = false;
-                    console.log(3333);
+                    this.chapterCrowdIndex = 24;
                 });
             }
             else if (!b && !this.gameScreen.scroller.visible) {
@@ -277,6 +293,7 @@ namespace ies {
                 egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: -2000 }, 1000).call(() => {
                     this.gameScreen.scrollBarRight.visible = false;
                     this.gameScreen.scrollerCrowd.visible = false;
+                    this.chapterIndex = this.gameScreen.listChapter.numElements - 1;
                 });
             }
         }

@@ -21,9 +21,9 @@ namespace ies {
         }
         
         public question: Question;
-        public btnTips1: eui.Button;
-        public btnTips2: eui.Button;
-        public btnTips3: eui.Button;
+        public btnTips1: eui.ToggleButton;
+        public btnTips2: eui.ToggleButton;
+        public btnTips3: eui.ToggleButton;
         public tips: string;
 
         public textInput: egret.TextField;
