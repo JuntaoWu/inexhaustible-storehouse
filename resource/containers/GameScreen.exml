@@ -44,7 +44,7 @@
                 <e:Image source="{chapterTitle}" x="{titleX}" verticalCenter="0"/>
                 <e:Image source="{maskRes}" verticalCenter="0" x="{maskStart}"/>
 
-                <e:Label text="{titleText}" verticalCenter="0" horizontalCenter="0" size="60"/>
+                <e:Label text="{titleText}" verticalCenter="0" horizontalCenter="5" size="55"/>
                 <e:Group visible="{showFinal}" verticalCenter="0" horizontalCenter="0">
                     <e:List id="listFinalQuestion" horizontalCenter="0">
                         <e:layout>

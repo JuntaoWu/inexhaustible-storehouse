@@ -15,17 +15,25 @@ namespace ies {
         }
 
         public async initData() {
-            const collectList = [];
+            const titleList = [
+                'main-task', 
+                // 'branch-task', 
+                'crowdfunding-task'
+            ];
+            const collectMainList = [];
+            let collectCrowdList = [];
             this.proxy.questionMap.forEach(v => {
-                collectList[v.id - 1] = this.proxy.isAnswered(v.id) ? `${v.res}-revealed` : '';
+                collectMainList[v.id - 1] = this.proxy.isAnswered(v.id) ? `${v.res}-revealed` : '';
             });
+            collectCrowdList = collectMainList.slice(0, 6);
             const list = [];
-            const titleList = ['main-task', 'branch-task', 'crowdfunding-task'];
-            for (let i = 0; i < 3; i++) {
-                list[i] = {
-                    title: titleList[i],
-                    imgList: collectList
-                }
+            list[0] = {
+                title: titleList[0],
+                imgList: collectMainList
+            }
+            list[1] = {
+                title: titleList[1],
+                imgList: collectCrowdList
             }
             this.pageView.collectList.itemRenderer = CollectItemRenderer;
             this.pageView.collectList.dataProvider = new eui.ArrayCollection(list);

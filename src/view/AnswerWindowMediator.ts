@@ -48,7 +48,7 @@ namespace ies {
         }
 
         public tipsClick(index: number) {
-            this.pageView.tips = this.pageView.question[`tips${index}`];
+            this.pageView.tips = this.pageView.question[`tips${index}`] || "";
             [1, 2, 3].forEach(v => {
                 this.pageView[`btnTips${v}`].selected = v == index ? true : false;
             });

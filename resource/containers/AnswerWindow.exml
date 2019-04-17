@@ -35,15 +35,15 @@
                 </e:ToggleButton>
             </e:Group>
         </e:Group>
-        <e:Group width="900" horizontalCenter="0" bottom="-40">
-            <e:List id="textInputList" horizontalCenter="0">
+        <e:Group horizontalCenter="0" bottom="-40">
+            <e:List id="textInputList" horizontalCenter="0" bottom="150">
                 <e:layout>
-                    <e:TileLayout orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="0" />
+                    <e:TileLayout id="listTileLayout" orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="0" />
                 </e:layout>
             </e:List>
-            <e:TextInput id="textInput" alpha="0" height="110" width="680" horizontalCenter="5"/>
+            <e:TextInput id="textInput" alpha="0" height="110" width="100%" horizontalCenter="5" bottom="150"/>
             
-            <e:Button id="btnConfirm" y="130" horizontalCenter="0">
+            <e:Button id="btnConfirm" bottom="0" horizontalCenter="0">
                 <e:Skin>
                     <e:Image source="btn-submit" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>

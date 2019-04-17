@@ -29,6 +29,7 @@ namespace ies {
         public textInput: egret.TextField;
         public textInputList: eui.List;
         public btnConfirm: eui.Button;
+        public listTileLayout: eui.TileLayout;
 
         public textList: Array<string>;
         public answerText: string;
@@ -36,12 +37,18 @@ namespace ies {
 
         public setQuestion(question) {
             this.question = { ...question };
+            console.log(this.question);
             this.answerText = question.sentence.match(/【(.+?)】/)[1];
             const replaceText = this.answerText.split('').map(i => ' ').join('');
             this.textList = question.sentence.replace(/【(.+?)】/, replaceText).split('');
             this.answerStartIndex = this.textList.findIndex(i => i == ' ');
             this.textInput.maxChars = this.answerText.length;
-
+            if (this.textList.length < 7) {
+                this.listTileLayout.requestedColumnCount = this.textList.length;
+            }
+            else {
+                this.listTileLayout.requestedColumnCount = 7;
+            }
             this.textInputList.dataProvider = new eui.ArrayCollection(this.textList);
             this.textInputList.itemRenderer = TextInputItemRenderer;
         }

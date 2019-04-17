@@ -110,7 +110,7 @@ namespace ies {
             this.gameScreen.titleSideIcon = this.gameScreen.maskRes = this.gameScreen.chapterTitle = "";
             const question = this.proxy.questionMap.get((this._chapterCrowdIndex).toString());
             
-            this.gameScreen.titleText = question.sentence;
+            this.gameScreen.titleText = question.sentenceRes;
         }
 
         public listNotificationInterests(): Array<any> {
@@ -172,16 +172,16 @@ namespace ies {
         }
 
         public titleClick(event: egret.TouchEvent) {
-            // if (!this.gameScreen.scrollerCrowd.visible) {
+            if (!this.gameScreen.scrollerCrowd.visible) {
                 if (!this.proxy.isAnswered(this._chapterIndex)) {
                     const question = this.proxy.questionMap.get((this._chapterIndex).toString());
                     this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
                 }
-            // }
-            // else {
-            //     const question = this.proxy.questionMap.get((this._chapterCrowdIndex).toString());
-            //     this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
-            // }
+            }
+            else {
+                const question = this.proxy.questionMap.get((this._chapterCrowdIndex).toString());
+                this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
+            }
         }
 
         public moveToTargetIndex(targetIndex: number) {
@@ -207,21 +207,37 @@ namespace ies {
         }
 
         public previousPage(event: egret.TouchEvent) {
-            const currentIndex = this.chapterIndex;
-            if (currentIndex <= 1) {
-                return;
+            if (!this.gameScreen.scrollerCrowd.visible) {
+                const currentIndex = this.chapterIndex;
+                if (currentIndex <= 1) {
+                    return;
+                }
+                this.moveToTargetIndex(currentIndex - 1);
             }
-            const targetIndex = currentIndex - 1;
-            this.moveToTargetIndex(targetIndex);
+            else {
+                const currentIndex = this.chapterCrowdIndex - 23;
+                if (currentIndex <= 1) {
+                    return;
+                }
+                this.moveToTargetIndex(currentIndex - 1);
+            }
         }
 
         public nextPage(event: egret.TouchEvent) {
-            const currentIndex = this.chapterIndex;
-            if ((currentIndex + 1) >= this.gameScreen.listChapter.numElements) {
-                return;
+            if (!this.gameScreen.scrollerCrowd.visible) {
+                const currentIndex = this.chapterIndex;
+                if ((currentIndex + 1) >= this.gameScreen.listChapter.numElements) {
+                    return;
+                }
+                this.moveToTargetIndex(currentIndex + 1);
             }
-            const targetIndex = currentIndex + 1;
-            this.moveToTargetIndex(targetIndex);
+            else {
+                const currentIndex = this.chapterCrowdIndex -23;
+                if ((currentIndex + 1) >= this.gameScreen.listCrowd.numElements) {
+                    return;
+                }
+                this.moveToTargetIndex(currentIndex + 1);
+            }
         }
 
         public scrollChange(event: eui.UIEvent) {
