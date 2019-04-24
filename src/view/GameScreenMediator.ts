@@ -20,6 +20,14 @@ namespace ies {
             this.gameScreen.btnCatalog.addEventListener(egret.TouchEvent.TOUCH_TAP, this.catalogClick, this);
             this.gameScreen.btnTutorial.addEventListener(egret.TouchEvent.TOUCH_TAP, this.tutorialClick, this);
             this.gameScreen.btnCardsGame.addEventListener(egret.TouchEvent.TOUCH_TAP, this.cardsGameClick, this);
+            
+            this.gameScreen.listChapter.addEventListener(eui.ItemTapEvent.ITEM_TAP, (event: eui.ItemTapEvent) => {
+                console.log(event.itemIndex);
+                if (!event.itemIndex) {
+                    this.proxy.testDeletePlayerInfo();
+                    this.initData();
+                }
+            }, this);
         }
 
         public async initData() {
@@ -289,6 +297,8 @@ namespace ies {
 
         public showCrowdfunding(b: boolean = true) {
             if (b && !this.gameScreen.scrollerCrowd.visible) {
+                this.gameScreen.scroller.stopAnimation();
+                this.gameScreen.scrollerCrowd.stopAnimation();
                 this.gameScreen.scrollerCrowd.visible = true;
                 this.gameScreen.scrollBarRight.visible = true;
                 this.gameScreen.scrollerCrowd.viewport.scrollH = -2000;
@@ -301,6 +311,8 @@ namespace ies {
                 });
             }
             else if (!b && !this.gameScreen.scroller.visible) {
+                this.gameScreen.scroller.stopAnimation();
+                this.gameScreen.scrollerCrowd.stopAnimation();
                 this.gameScreen.scroller.visible = true;
                 this.gameScreen.scroller.viewport.scrollH = this.gameScreen.scroller.viewport.contentWidth;
                 const scrollH = this.gameScreen.scroller.viewport.contentWidth - 2137;

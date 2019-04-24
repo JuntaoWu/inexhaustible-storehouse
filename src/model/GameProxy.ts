@@ -75,6 +75,11 @@ namespace ies {
             }
 		}
 
+		public testDeletePlayerInfo() {
+			this.playerInfo.answeredList = [];
+			this.savePlayerInfoToStorage();
+		}
+
 		public async initGamesSetting() {
 			await this.getPlayerInfoFromStorage();
 			SoundPool.volumeEffect = this.playerInfo.volumeEffect;
