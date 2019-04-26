@@ -2,13 +2,56 @@
 <e:Skin class="skins.ies.CollectWindow" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
     <e:Group horizontalCenter="0" width="100%" height="100%">
-        <e:Scroller scrollPolicyH="off" scrollPolicyV="on" width="90%" horizontalCenter="0" top="0" bottom="20">
+        <e:Group y="10" horizontalCenter="0">
+            <e:Image source="volume-line-bg" width="900" verticalCenter="0" />
+            <e:Image source="volume-line" width="{progressWidth}" verticalCenter="0" />
+            <e:Label text="{progressTitle}" textColor="0x050505" size="50" horizontalCenter="0" verticalCenter="0" bold="true"/>
+        </e:Group>
+        <e:Scroller scrollPolicyH="off" scrollPolicyV="on" width="90%" horizontalCenter="0" top="80" bottom="20">
             <e:viewport>
-                <e:List id="collectList" width="100%">
+                <!--<e:List id="collectList" width="100%">
                     <e:layout>
                         <e:TileLayout orientation="columns" requestedColumnCount="1" verticalGap="50" paddingTop="20"/>
                     </e:layout>
-                </e:List>
+                </e:List>-->
+                <e:Group width="100%">
+                    <e:Group width="100%">
+                        <e:Group>
+                            <e:Image source="collect-title-bg" verticalCenter="0"/>
+                            <e:Image x="25" source="{titleRes1}"/>
+                            <e:Label text="{collectRate1}" verticalCenter="0" x="300" fontFamily="Georgia" size="40"/>
+                        </e:Group>
+                        <e:List id="listImage1" width="100%" y="80">
+                            <e:layout>
+                                <e:TileLayout orientation="rows" requestedColumnCount="5" verticalGap="30" horizontalGap="40" paddingTop="20"/>
+                            </e:layout>
+                        </e:List>
+                    </e:Group>
+                    <e:Group width="100%" y="1700">
+                        <e:Group>
+                            <e:Image source="collect-title-bg" verticalCenter="0"/>
+                            <e:Image x="25" source="{titleRes2}"/>
+                            <e:Label text="{collectRate2}" verticalCenter="0" x="300" fontFamily="Georgia" size="40"/>
+                        </e:Group>
+                        <e:List id="listImage2" width="100%" y="80">
+                            <e:layout>
+                                <e:TileLayout orientation="rows" requestedColumnCount="5" verticalGap="30" horizontalGap="40" paddingTop="20"/>
+                            </e:layout>
+                        </e:List>
+                    </e:Group>
+                    <e:Group width="100%" y="2340">
+                        <e:Group>
+                            <e:Image source="collect-title-bg" verticalCenter="0"/>
+                            <e:Image x="25" source="{titleRes3}"/>
+                            <e:Label text="{collectRate3}" verticalCenter="0" x="300" fontFamily="Georgia" size="40"/>
+                        </e:Group>
+                        <e:List id="listImage3" width="100%" y="80">
+                            <e:layout>
+                                <e:TileLayout orientation="rows" requestedColumnCount="5" verticalGap="30" horizontalGap="40" paddingTop="20"/>
+                            </e:layout>
+                        </e:List>
+                    </e:Group>
+                </e:Group>
             </e:viewport>
         </e:Scroller>
     </e:Group>

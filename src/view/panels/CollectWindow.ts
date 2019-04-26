@@ -3,8 +3,20 @@ namespace ies {
 
     export class CollectWindow extends eui.Component {
 
-        public collectList: eui.List;
+        // public collectList: eui.List;
         public title: string = '目录';
+        public progressTitle: string;
+        public progressWidth: number;
+
+        public titleRes1: string;
+        public collectRate1: string;
+        public listImage1: eui.List;
+        public titleRes2: string;
+        public collectRate2: string;
+        public listImage2: eui.List;
+        public titleRes3: string;
+        public collectRate3: string;
+        public listImage3: eui.List;
 
         public constructor() {
             super();

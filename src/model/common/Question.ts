@@ -12,5 +12,6 @@ namespace ies {
         public catalogRes?: string;
         public sideRes?: string;
         public type?: string;
+        public isAnswered?: boolean;
     }
 }

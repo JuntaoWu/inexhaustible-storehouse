@@ -13,7 +13,7 @@ namespace ies {
             this.pageView.btnTips1.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(1), this);
             this.pageView.btnTips2.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.tipsClick(2), this);
             this.pageView.btnTips3.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-                if (!this.isShowTips3 && this.pageView.question.tips3) {
+                if (!this.isShowTips3 && !this.pageView.question.isAnswered && this.pageView.question.tips3) {
                     this.pageView.btnTips3.selected = false;
                     this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
                         msg: "最后提示接近于直接告诉答案，确定查看提示？", 
@@ -54,6 +54,7 @@ namespace ies {
             });
         }
 
+        private isConfirm: boolean;
         public confirmClick(event: egret.TouchEvent) {
             if (this.pageView.textInput.text == this.pageView.answerText) {
                 this.proxy.addAnswered(this.pageView.question.id);
@@ -61,7 +62,13 @@ namespace ies {
                 this.pageView.close();
             }
             else {
-                this.pageView.tips = "答案不对，再想想。。";
+                if (!this.isConfirm) {
+                    this.pageView.tips = "答案不对，再想想。。";
+                }
+                else {
+                    this.pageView.tips = "请再认真考虑下,或者点击提示寻求帮助。";
+                }
+                this.isConfirm = !this.isConfirm;
                 [1, 2, 3].forEach(v => {
                     this.pageView[`btnTips${v}`].selected = false;
                 });

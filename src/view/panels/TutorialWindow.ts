@@ -50,5 +50,9 @@ namespace ies {
             ApplicationFacade.getInstance().registerMediator(new TutorialWindowMediator(this));
         }
 
+        public close() {
+            super.close();
+            ApplicationFacade.getInstance().sendNotification(SceneCommand.RESET_FILTER);
+        }
     }
 }

@@ -271,7 +271,7 @@
   },
   "23": {
     "id": 23,
-    "type": "exclusive",
+    "type": "common",
     "tips1": "",
     "tips2": "",
     "tips3": "",

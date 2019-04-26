@@ -31,5 +31,9 @@ namespace ies {
             ApplicationFacade.getInstance().registerMediator(new CatalogWindowMediator(this));
         }
 
+        public close() {
+            super.close();
+            ApplicationFacade.getInstance().sendNotification(SceneCommand.RESET_FILTER);
+        }
     }
 }

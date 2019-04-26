@@ -13,13 +13,13 @@ namespace ies {
 
         public applyGameScreenFilter() {
             const filter = new egret.BlurFilter(6, 6, 0);
-            [1, 2, 3].forEach(v => {
+            [1, 2, 3, 4].forEach(v => {
                 this.gameScreen[`blurFilter${v}`].filters = [filter];
             });
         }
 
         public resetGameScreenFilter() {
-            [1, 2, 3].forEach(v => {
+            [1, 2, 3, 4].forEach(v => {
                 this.gameScreen[`blurFilter${v}`].filters = [];
             });
         }
@@ -58,6 +58,7 @@ namespace ies {
             }
             this.addChild(this.catalogWindow);
             this.catalogWindow.show();
+            this.applyGameScreenFilter();
         }
 
         public alertWindow: AlertWindow;
@@ -86,6 +87,7 @@ namespace ies {
                 this.tutorialWindow = new TutorialWindow();
             }
             this.addChild(this.tutorialWindow);
+            this.applyGameScreenFilter();
         }
 
         public cardsGameWindow: CardsGameWindow;

@@ -13,12 +13,13 @@ namespace ies {
         public btnCatalog: eui.Button;
         public btnTutorial: eui.Button;
         public btnCardsGame: eui.Button;
-        public listFinalQuestion: eui.List;
-        public scrollBarRight: eui.Group;
+        // public listFinalQuestion: eui.List;
+        public titleList: eui.List;
         
         public blurFilter1: eui.Group;
         public blurFilter2: eui.Group;
         public blurFilter3: eui.Group;
+        public blurFilter4: eui.Group;
 
         //bindings:
         public titleSideIcon: string;
@@ -26,7 +27,7 @@ namespace ies {
         public maskStart: number;
         public titleX: number;
         public maskRes: string;
-        public showFinal: boolean;
+        // public showFinal: boolean;
         public titleText: string;
 
         public constructor() {
@@ -40,8 +41,8 @@ namespace ies {
         public createCompleteEvent(event: eui.UIEvent): void {
             this.width = this.stage.stageWidth;
 
-            this.scrollBarRight.visible = false;
-            this.scrollBarRight.x = this.width;
+            this.blurFilter4.visible = false;
+            this.blurFilter4.x = this.width;
             this.scrollerCrowd.visible = false;
 
             this.removeEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);

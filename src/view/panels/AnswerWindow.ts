@@ -38,9 +38,17 @@ namespace ies {
         public setQuestion(question) {
             this.question = { ...question };
             console.log(this.question);
+            
             this.answerText = question.sentence.match(/【(.+?)】/)[1];
             const replaceText = this.answerText.split('').map(i => ' ').join('');
-            this.textList = question.sentence.replace(/【(.+?)】/, replaceText).split('');
+            if (question.isAnswered) {
+                this.btnConfirm.visible = this.textInput.visible = false;
+                this.textList = question.sentence.replace(/[【】]/g, '').split('');
+            }
+            else {
+                this.btnConfirm.visible = this.textInput.visible = true;
+                this.textList = question.sentence.replace(/【(.+?)】/, replaceText).split('');
+            }
             this.answerStartIndex = this.textList.findIndex(i => i == ' ');
             this.textInput.maxChars = this.answerText.length;
             if (this.textList.length < 7) {

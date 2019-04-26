@@ -13,10 +13,16 @@ namespace ies {
 
         protected async dataChanged() {
             super.dataChanged();
-            this.listImage.dataProvider = new eui.ArrayCollection(this.data.imgList);
-            this.listImage.itemRenderer = CollectImageItemRenderer;
-            this.collectRate = `(${this.data.imgList.filter(i => i).length}/${this.data.imgList.length})`;
-        }
+            if (this.data.imgList.length) {
+                this.listImage.dataProvider = new eui.ArrayCollection(this.data.imgList);
+                this.listImage.itemRenderer = CollectImageItemRenderer;
+                this.collectRate = `(${this.data.imgList.filter(i => i).length}/${this.data.imgList.length})`;
+            }
+            egret.setTimeout(() => {
+                this.height = this.listImage.height + 80;
+                console.log(this.height, this.listImage.height)
+            }, this, 100);
+       }
 
         public tapItem() {
             if (this.listImage.selectedItem) {
