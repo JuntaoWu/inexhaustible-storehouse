@@ -29,6 +29,7 @@ namespace ies {
         public maskRes: string;
         // public showFinal: boolean;
         public titleText: string;
+        public showCrowd: boolean;
 
         public constructor() {
             super();

@@ -11,7 +11,7 @@ namespace ies {
             super.initializeNotifier("ApplicationFacade");
 
             this.gameScreen.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
-            // this.gameScreen.scroller.addEventListener(eui.UIEvent.CHANGE_END, this.scrollChangeEnd, this);
+            this.gameScreen.scroller.addEventListener(eui.UIEvent.CHANGE_END, this.scrollChangeEnd, this);
             this.gameScreen.scroller.addEventListener(eui.UIEvent.CHANGE, this.scrollChange, this);
             this.gameScreen.scrollerCrowd.addEventListener(eui.UIEvent.CHANGE, this.scrollCrowdChange, this);
             this.gameScreen.btnPrevious.addEventListener(egret.TouchEvent.TOUCH_TAP, this.previousPage, this);
@@ -324,7 +324,7 @@ namespace ies {
                 this.chapterIndex = higherBound;
             }
             if (this.chapterIndex >= (this.gameScreen.listChapter.numElements - 2)
-            && event.target.viewport.scrollH + 1200 > this.gameScreen.scroller.viewport.contentWidth) {
+            && event.target.viewport.scrollH + 1500 > this.gameScreen.scroller.viewport.contentWidth) {
                 this.showCrowdfunding();
             }
         }
@@ -358,7 +358,7 @@ namespace ies {
                 this.gameScreen.scroller.stopAnimation();
                 this.gameScreen.scrollerCrowd.stopAnimation();
                 this.gameScreen.scrollerCrowd.visible = true;
-                this.gameScreen.blurFilter4.visible = true;
+                this.gameScreen.showCrowd = true;
                 // this.gameScreen.scrollerCrowd.viewport.scrollH = -2000;
                 this.gameScreen.scrollerCrowd.alpha = 0;
                 const scrollH = this.gameScreen.scroller.viewport.contentWidth;
@@ -380,7 +380,7 @@ namespace ies {
                 egret.Tween.get(this.gameScreen.blurFilter4).to({ x: this.gameScreen.width }, 700);
                 egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 700);
                 egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: -2000 }, 700).call(() => {
-                    this.gameScreen.blurFilter4.visible = false;
+                    this.gameScreen.showCrowd = false;
                     this.gameScreen.scrollerCrowd.visible = false;
                     this.gameScreen.scrollerCrowd.viewport.scrollH = 0;
                     this.chapterIndex = this.gameScreen.listChapter.numElements - 2;

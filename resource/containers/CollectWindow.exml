@@ -27,7 +27,7 @@
                             </e:layout>
                         </e:List>
                     </e:Group>
-                    <e:Group width="100%" y="1700">
+                    <e:Group width="100%" y="1170">
                         <e:Group>
                             <e:Image source="collect-title-bg" verticalCenter="0"/>
                             <e:Image x="25" source="{titleRes2}"/>
@@ -39,7 +39,7 @@
                             </e:layout>
                         </e:List>
                     </e:Group>
-                    <e:Group width="100%" y="2340">
+                    <e:Group width="100%" y="1810">
                         <e:Group>
                             <e:Image source="collect-title-bg" verticalCenter="0"/>
                             <e:Image x="25" source="{titleRes3}"/>
