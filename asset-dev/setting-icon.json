@@ -1,9 +1,0 @@
-{"file":"setting-icon.png","frames":{
-"sound-bg":{"x":638,"y":0,"w":250,"h":117,"offX":0,"offY":0,"sourceW":250,"sourceH":117},
-"sound-effect":{"x":386,"y":0,"w":250,"h":117,"offX":0,"offY":0,"sourceW":250,"sourceH":117},
-"switch-off":{"x":618,"y":119,"w":230,"h":101,"offX":0,"offY":0,"sourceW":230,"sourceH":101},
-"switch-on":{"x":386,"y":119,"w":230,"h":101,"offX":0,"offY":0,"sourceW":230,"sourceH":101},
-"volume-line":{"x":0,"y":239,"w":774,"h":15,"offX":0,"offY":0,"sourceW":774,"sourceH":15},
-"volume-line-bg":{"x":0,"y":222,"w":774,"h":15,"offX":0,"offY":0,"sourceW":774,"sourceH":15},
-"btn-developer":{"x":0,"y":0,"w":384,"h":130,"offX":0,"offY":0,"sourceW":384,"sourceH":130},
-"btn-slider":{"x":890,"y":0,"w":64,"h":64,"offX":0,"offY":0,"sourceW":64,"sourceH":64}}}
