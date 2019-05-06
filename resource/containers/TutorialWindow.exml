@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.ies.TutorialWindow" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*" >
+    <e:Image source="mask" top="0" bottom="0" left="0" right="0"></e:Image>
     <e:Group id="answerGroup" verticalCenter="0" horizontalCenter="0">
         <e:Image source="input-screen-bg" verticalCenter="0" horizontalCenter="0"></e:Image>
         <e:Group horizontalCenter="0" width="900" y="130">
@@ -72,7 +73,6 @@
                 </e:Skin>
             </e:ToggleButton>
         </e:Group>
-        <e:Image source="vertical-line"  y="150" x="315"/>
         <e:Group id="sentenceGroup" touchChildren="false" left="350" right="100" top="160" bottom="10">
             <e:Scroller scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0" top="0" bottom="100">
                 <e:viewport>
@@ -166,10 +166,10 @@
             <e:Label id="tipsLabel" width="400" size="45" lineSpacing="15" verticalCenter="0" horizontalCenter="0" />
         </e:Group>
         
-        <e:Button id="btnSkip" right="40" bottom="60" label="跳过" width="156">
-            <!--<e:Skin>
-                <e:Image source="tips2" horizontalCenter="0" verticalCenter="0" />
-            </e:Skin>-->
+        <e:Button id="btnSkip" right="50" bottom="25">
+            <e:Skin>
+                <e:Image source="btn-skip" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
         </e:Button>
     </e:Group>
     

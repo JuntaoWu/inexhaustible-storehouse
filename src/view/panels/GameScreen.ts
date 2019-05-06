@@ -9,12 +9,15 @@ namespace ies {
         public listCrowd: eui.List;
         public btnPrevious: eui.Button;
         public btnNext: eui.Button;
+        public btnPrevious2: eui.Button;
+        public btnNext2: eui.Button;
         public titleGroup: eui.Group;
         public btnCatalog: eui.Button;
         public btnTutorial: eui.Button;
         public btnCardsGame: eui.Button;
         // public listFinalQuestion: eui.List;
         public titleList: eui.List;
+        public scrollBg: eui.Image;
         
         public blurFilter1: eui.Group;
         public blurFilter2: eui.Group;
@@ -30,6 +33,7 @@ namespace ies {
         // public showFinal: boolean;
         public titleText: string;
         public showCrowd: boolean;
+        public showChapter: boolean = true;
 
         public constructor() {
             super();
@@ -42,7 +46,6 @@ namespace ies {
         public createCompleteEvent(event: eui.UIEvent): void {
             this.width = this.stage.stageWidth;
 
-            this.blurFilter4.visible = false;
             this.blurFilter4.x = this.width;
             this.scrollerCrowd.visible = false;
 

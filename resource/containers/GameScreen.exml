@@ -4,12 +4,12 @@
     <w:Config id="168e50516a2" />
     <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
     <e:Group verticalCenter="0" left="0" right="0" height="840">
-        <e:Image visible="{showCrowd}" source="scroll-background" verticalCenter="0" right="0" left="132"></e:Image>
-        <e:Group id="blurFilter1" left="0" verticalCenter="0">
+        <e:Image id="scrollBg" visible="{showChapter}" source="scroll-background" verticalCenter="0" right="0" left="160"></e:Image>
+        <e:Group id="blurFilter1" left="20" verticalCenter="0">
             <e:Image source="scroll-bar"></e:Image>
         </e:Group>
         <e:Scroller id="scroller" scrollPolicyH="on" scrollPolicyV="off"
-                    left="170" right="0" height="830" y="2">
+                    left="160" right="0" height="680" verticalCenter="0">
             <e:viewport>
                 <e:List id="listChapter" useVirtualLayout="false" verticalCenter="0">
                     <e:layout>
@@ -19,7 +19,7 @@
             </e:viewport>
         </e:Scroller>
         <e:Scroller id="scrollerCrowd" visible="false" scrollPolicyH="on" scrollPolicyV="off"
-                    left="300" right="0" height="830" verticalCenter="0">
+                    left="330" right="0" height="680" verticalCenter="0">
             <e:viewport>
                 <e:List id="listCrowd" verticalCenter="0">
                     <e:layout>
@@ -28,26 +28,23 @@
                 </e:List>
             </e:viewport>
         </e:Scroller>
-        <e:Group id="blurFilter4" visible="{showCrowd}" x="130" verticalCenter="0">
+        <e:Group id="blurFilter4" x="170" verticalCenter="0">
             <e:Image source="scroll-bar"></e:Image>
         </e:Group>
     </e:Group>
     <e:Group id="blurFilter2" width="100%" height="110">
-        <e:Group width="1416" horizontalCenter="-28" verticalCenter="0">
+        <e:Group visible="{showChapter}" horizontalCenter="0" verticalCenter="0">
             <e:Button id="btnPrevious" verticalCenter="0">
                 <e:Skin>
                     <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:Button>
-            <e:Group verticalCenter="0" horizontalCenter="0">
+            <e:Group verticalCenter="0" left="120" right="120">
                 <e:List id="titleList" verticalCenter="0">
                     <e:layout>
-                        <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="10"/>
+                        <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="70"/>
                     </e:layout>
                 </e:List>
-                <e:Group id="titleGroup" verticalCenter="0" horizontalCenter="0">
-                    <e:Label text="{titleText}" verticalCenter="0" horizontalCenter="5" size="55"/>
-                </e:Group>
                 <!--<e:Group visible="{showFinal}" verticalCenter="0" horizontalCenter="0">
                     <e:List id="listFinalQuestion" horizontalCenter="0">
                         <e:layout>
@@ -62,22 +59,37 @@
                 </e:Skin>
             </e:Button>
         </e:Group>
+        <e:Group visible="{showCrowd}" horizontalCenter="0" verticalCenter="0">
+            <e:Button id="btnPrevious2" verticalCenter="0">
+                <e:Skin>
+                    <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:Button>
+            <e:Group id="titleGroup" verticalCenter="0" left="120" right="120">
+                <e:Label text="{titleText}" verticalCenter="0" horizontalCenter="5" size="55"/>
+            </e:Group>
+            <e:Button id="btnNext2" verticalCenter="0" right="0">
+                <e:Skin>
+                    <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:Button>
+        </e:Group>
     </e:Group>
-    <e:Group id="blurFilter3" bottom="25" left="0" right="0">
-        <e:Button id="btnCatalog" x="30" verticalCenter="0">
+    <e:Group id="blurFilter3" bottom="25" left="160" right="-3">
+        <e:Button id="btnCatalog" verticalCenter="0">
             <e:Skin>
                 <e:Image source="btn-catalog" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
-        <e:Button id="btnTutorial" x="250" verticalCenter="0">
+        <e:Button id="btnTutorial" x="350" verticalCenter="0">
             <e:Skin>
                 <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
-        <e:Button id="btnCardsGame" label="乱真" width="200" height="80" verticalCenter="0" right="80">
-            <!--<e:Skin>
-                <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
-            </e:Skin>-->
+        <e:Button id="btnCardsGame" verticalCenter="0" right="50">
+            <e:Skin>
+                <e:Image source="btn-card-game" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
         </e:Button>
     </e:Group>
 </e:Skin>

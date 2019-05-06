@@ -11,15 +11,15 @@
         </e:Button>
         <e:Label text="众筹专属卡牌游戏" size="55" horizontalCenter="0" y="30"/>
         <e:Group id="buttonGroup" horizontalCenter="0">
-            <e:Button id="btnRule" label="规则说明" horizontalCenter="0" y="300" width="300" height="150">
-                <!--<e:Skin>
-                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>-->
+            <e:Button id="btnRule" horizontalCenter="0" y="300" width="300" height="150">
+                <e:Skin>
+                    <e:Image source="btn-rule" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
             </e:Button>
-            <e:Button id="btnGame" label="运行游戏" horizontalCenter="0" y="600" width="300" height="150">
-                <!--<e:Skin>
-                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>-->
+            <e:Button id="btnGame" horizontalCenter="0" y="600" width="300" height="150">
+                <e:Skin>
+                    <e:Image source="btn-run" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
             </e:Button>
         </e:Group>
         <e:Group id="gameGroup" visible="false" y="150" horizontalCenter="0">
@@ -30,10 +30,10 @@
                 </e:layout>
             </e:List>
             <e:Label text="{tips}" size="50" textColor="0x050505" horizontalCenter="0" width="1200" textAlign="center"/>
-            <e:Button id="btnConfirm" label="确定" horizontalCenter="0" y="600" width="300" height="150">
-                <!--<e:Skin>
-                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>-->
+            <e:Button id="btnConfirm" horizontalCenter="0" y="600" width="300" height="150">
+                <e:Skin>
+                    <e:Image source="btn-confirm" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
             </e:Button>
             <e:Button id="btnResult" visible="false" label="揭示真相" horizontalCenter="0" y="600" width="300" height="150">
                 <!--<e:Skin>

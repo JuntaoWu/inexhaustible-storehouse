@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.ies.TextInputItemRenderer" width="90" height="90" xmlns:e="http://ns.egret.com/eui">
-    <e:Image source="input-box" width="100%" height="100%" y="-5"/>
-    <e:Label text="{data}" textColor="0x000000" verticalCenter="0" horizontalCenter="0"  size="60"/>
+    <e:Image source="{bgRes}" width="100%" height="100%"/>
+    <e:Label visible="{showLabel}" text="{data}" textColor="0xffffff" verticalCenter="0" horizontalCenter="0" size="60"/>
+    <e:BitmapLabel visible="{showBitmapLabel}" text="{data}" horizontalCenter="0" verticalCenter="0"
+        font="sentence_fnt" textAlign="center" verticalAlign="middle"/>
 </e:Skin>

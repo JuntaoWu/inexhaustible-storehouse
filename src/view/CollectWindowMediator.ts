@@ -29,32 +29,24 @@ namespace ies {
                 collectList[0][v.id - 1] = this.proxy.isAnswered(v.id) ? `${v.res}-revealed` : '';
             }
             collectList[1] = collectList[0].slice(0, 6);
-            const list = [];
             let totalCollect = 0, collected = 0;
             for (let i = 0; i < 3; i++) {
-                list[i] = {
-                    title: titleList[i],
-                    imgList: collectList[i]
-                }
                 totalCollect += collectList[i].length;
                 collected += collectList[i].filter(i => i).length;
                 
                 this.pageView[`listImage${i+1}`].dataProvider = new eui.ArrayCollection(collectList[i]);
                 this.pageView[`listImage${i+1}`].itemRenderer = CollectImageItemRenderer;
-                this.pageView[`titleRes${i+1}`] = titleList[i];
-                this.pageView[`collectRate${i+1}`] = collectList[i].length ? `(${collectList[i].filter(i => i).length}/${collectList[i].length})` : '';
+                this.pageView[`collectRate${i+1}`].text = collectList[i].length ? `${collectList[i].filter(i => i).length}/${collectList[i].length}` : '';
             }
             const capsNums = ['十', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
             const percent = Math.floor((collected / (totalCollect + 4)) * 100);
             const num1 = Math.floor(percent / 10);
             const num2 = percent % 10;
-            this.pageView.progressTitle = `百分之零`;
-            this.pageView.progressWidth = 900 * percent / 100;
+            this.pageView.progressTitle.text = `零`;
+            this.pageView.progressWidth = 1260 * percent / 100 * 0.9;
             if (num1 || num2) {
-                this.pageView.progressTitle = `百分之${!num1 ? '' : capsNums[num1] + '十'}${!num2 ? '' : capsNums[num2]}`;
+                this.pageView.progressTitle.text = `${!num1 ? '' : capsNums[num1] + '十'}${!num2 ? '' : capsNums[num2]}`;
             }
-            // this.pageView.collectList.itemRenderer = CollectItemRenderer;
-            // this.pageView.collectList.dataProvider = new eui.ArrayCollection(list);
 
         }
 

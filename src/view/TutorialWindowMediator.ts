@@ -64,17 +64,16 @@ namespace ies {
 
         public async initData() {
             const catalogList = [];
-            for (let i = 1; i <= 20; i++) {
-                const v = this.proxy.questionMap.get(i.toString());
-                const maskStart = v.sentence.indexOf('【');
-                catalogList[v.id - 1] = {
-                    res: v.catalogRes,
-                    maskOffsetX: (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5,
-                    maskRes: `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`,
-                    sideIcon: v.sideRes
+            for (let i = 0; i < 20; i++) {
+                const v = this.proxy.questionMap.get((i+1).toString());
+                const replaceText = v.sentence.match(/【(.+?)】/)[1];
+                catalogList[i] = {
+                    sentence: v.sentence.replace(/【(.+?)】/, replaceText),
+                    sideIcon: v.sideRes,
+                    index: i
                 }
             }
-            this.pageView.catalogList.itemRenderer = CatalogItemRenderer;
+            this.pageView.catalogList.itemRenderer = SentenceRenderer;
             this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);
 
             this.canGoNext = true;

@@ -22,44 +22,43 @@ namespace ies {
 
         public async initData() {
             const catalogList = [];
-            for (let i = 1; i <= 20; i++) {
-                const v = this.proxy.questionMap.get(i.toString());
-                catalogList[v.id - 1] = {
-                    res: v.catalogRes,
-                    maskOffsetX: 0,
-                    maskRes: '',
-                    sideIcon: ''
+            for (let i = 0; i < 20; i++) {
+                const v = this.proxy.questionMap.get((i+1).toString());
+                const replaceText = v.sentence.match(/【(.+?)】/)[1];
+                catalogList[i] = {
+                    sentence: v.sentence.replace(/【(.+?)】/, replaceText),
+                    sideIcon: '',
+                    index: i
                 }
                 if (!this.proxy.isAnswered(v.id)) {
-                    const maskStart = v.sentence.indexOf('【');
-                    catalogList[v.id - 1].maskOffsetX = (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5;
-                    catalogList[v.id - 1].maskRes = `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`;
-                    catalogList[v.id - 1].sideIcon = v.sideRes;
+                    const emptyText = replaceText.split('').map(i => ' ').join('');
+                    catalogList[i].sentence = v.sentence.replace(/【(.+?)】/, emptyText);
+                    catalogList[i].sideIcon = v.sideRes;
                 }
             }
             if (this.proxy.isShowFinalTowQuestion()) {
+                
+                    console.log(catalogList);
                 let showFinalButton = true;
                 this.pageView.showFinalTow = false;
-                [21, 22].forEach(i => {
-                    const v = this.proxy.questionMap.get(i.toString());
-                    catalogList[v.id - 1] = {
-                        res: v.catalogRes,
-                        maskOffsetX: 0,
-                        maskRes: '',
-                        sideRes: ''
+                [20, 21].forEach(i => {
+                    const v = this.proxy.questionMap.get((i+1).toString());
+                    const replaceText = v.sentence.match(/【(.+?)】/)[1];
+                    catalogList[i] = {
+                        sentence: v.sentence.replace(/【(.+?)】/, replaceText),
+                        sideRes: '',
+                        index: i
                     }
                     if (!this.proxy.isAnswered(v.id)) {
-                        const maskStart = v.sentence.indexOf('【');
-                        catalogList[v.id - 1].maskOffsetX = (maskStart == 2 ? maskStart * 85 : maskStart * 75) || 5;
-                        catalogList[v.id - 1].maskRes = `catalog-inkMark${v.sentence.match(/【(.+?)】/)[1].length}`;
-                        catalogList[v.id - 1].sideRes = v.sideRes;
+                        catalogList[i].sideRes = v.sideRes;
                         showFinalButton = false;
                     }
+                    console.log(catalogList);
                 });
                 this.pageView.btnFinal.visible = showFinalButton;
                 this.pageView.showFinalTow = !showFinalButton;
             }
-            this.pageView.catalogList.itemRenderer = CatalogItemRenderer;
+            this.pageView.catalogList.itemRenderer = SentenceRenderer;
             this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);
         }
 

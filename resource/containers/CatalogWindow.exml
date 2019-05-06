@@ -9,38 +9,37 @@
                 <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
-        <e:Image horizontalCenter="0" y="30" source="{titleRes}"/>
+        <!--<e:Image horizontalCenter="0" y="30" source="{titleRes}"/>-->
 
-        <e:Group left="53" y="243" width="255">
-            <e:ToggleButton id="btnCatalog" selected="{showCatalog}" horizontalCenter="0">
+        <e:Group y="240" left="20" height="540" width="430">
+            <e:ToggleButton id="btnCatalog" selected="{showCatalog}" top="0" horizontalCenter="0">
                 <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-catalog-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-catalog" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                    <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
                     <e:Image source="menu-catalog-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:ToggleButton>
-            <e:ToggleButton id="btnCollect" selected="{showCollect}" horizontalCenter="0" y="158">
+            <e:ToggleButton id="btnCollect" selected="{showCollect}" verticalCenter="0" horizontalCenter="0">
                 <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-collect-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-collect" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                    <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
                     <e:Image source="menu-collect-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:ToggleButton>
-            <e:ToggleButton id="btnSetting" selected="{showSetting}" y="320" horizontalCenter="0">
+            <e:ToggleButton id="btnSetting" selected="{showSetting}" bottom="0" horizontalCenter="0">
                 <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-setting-default" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    <e:Image source="menu-setting" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                    <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
                     <e:Image source="menu-setting-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:ToggleButton>
         </e:Group>
-        <e:Image source="vertical-line"  y="150" x="315"/>
-		<e:Group visible="{showCatalog}" left="350" right="100" top="160" bottom="10">
+		<e:Group visible="{showCatalog}" left="450" right="50" top="120" bottom="20">
             <e:Scroller id="catalogScroller" scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0" top="0" bottom="100">
                 <e:viewport>
-                    <e:List id="catalogList" minWidth="1300" horizontalCenter="0">
+                    <e:List id="catalogList" useVirtualLayout="false" minWidth="1300" horizontalCenter="0">
                         <e:layout>
-                            <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="40" horizontalGap="10" paddingBottom="80" paddingTop="20"/>
+                            <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="40" horizontalGap="80" paddingBottom="80" paddingTop="20"/>
                         </e:layout>
                     </e:List>
                 </e:viewport>
@@ -53,8 +52,8 @@
                 </e:Skin>
             </e:Button>
         </e:Group>
-        <ies:CollectWindow visible="{showCollect}" left="350" right="100" top="160" bottom="15"/>
-		<ies:SettingWindow visible="{showSetting}" left="350" right="100" top="160" bottom="15"/>
+        <ies:CollectWindow visible="{showCollect}" left="450" right="50" top="120" bottom="20"/>
+		<ies:SettingWindow visible="{showSetting}" left="450" right="50" top="120" bottom="20"/>
 
     </e:Group>
     

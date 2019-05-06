@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.SentenceRenderer" minWidth="620" height="80" xmlns:e="http://ns.egret.com/eui">
+    <e:Group id="question" verticalCenter="0">
+        <e:Image id="sideIcon" source="{data.sideIcon}" scaleX="0.8" scaleY="0.8" verticalCenter="0"/>
+        <e:List id="wordList" verticalCenter="0" x="{sentenceX}">
+            <e:layout>
+                <e:TileLayout orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="0" />
+            </e:layout>
+        </e:List>
+    </e:Group>
+    <e:List id="listFinalQuestion" visible="false" verticalCenter="0" x="{sentenceX}">
+        <e:layout>
+            <e:HorizontalLayout gap="15"></e:HorizontalLayout>
+        </e:layout>
+    </e:List>
+</e:Skin>

@@ -77,4 +77,4 @@ bin-debug/
 bin-release/
 .wing/
 .vscode/
-assets-dev/
+asset-dev/

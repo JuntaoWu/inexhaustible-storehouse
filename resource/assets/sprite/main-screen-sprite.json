@@ -1,0 +1,10 @@
+{"file":"main-screen-sprite.png","frames":{
+"btn-skip":{"x":0,"y":168,"w":373,"h":166,"offX":0,"offY":0,"sourceW":373,"sourceH":166},
+"btn-course":{"x":375,"y":0,"w":373,"h":166,"offX":0,"offY":0,"sourceW":373,"sourceH":166},
+"btn-course-active":{"x":696,"y":288,"w":325,"h":118,"offX":0,"offY":0,"sourceW":325,"sourceH":118},
+"btn-next":{"x":750,"y":0,"w":105,"h":119,"offX":0,"offY":0,"sourceW":105,"sourceH":119},
+"btn-previous":{"x":857,"y":0,"w":105,"h":119,"offX":0,"offY":0,"sourceW":105,"sourceH":119},
+"btn-card-game":{"x":375,"y":168,"w":319,"h":128,"offX":0,"offY":0,"sourceW":319,"sourceH":128},
+"btn-catalog":{"x":0,"y":0,"w":373,"h":166,"offX":0,"offY":0,"sourceW":373,"sourceH":166},
+"btn-catalog-active":{"x":696,"y":168,"w":325,"h":118,"offX":0,"offY":0,"sourceW":325,"sourceH":118},
+"word-bg":{"x":375,"y":298,"w":68,"h":66,"offX":0,"offY":0,"sourceW":68,"sourceH":66}}}
