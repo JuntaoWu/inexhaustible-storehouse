@@ -17,7 +17,7 @@ namespace ies {
             super.dataChanged();
             const list = this.data.sentence.split('');
             this.wordList.dataProvider = new eui.ArrayCollection(list);
-            this.wordList.itemRenderer = TextInputItemRenderer;
+            this.wordList.itemRenderer = WordItemRenderer;
             if(!(this.data.index % 2)) {
                 this.sideIcon.x = 0;
                 this.sentenceX = 100;

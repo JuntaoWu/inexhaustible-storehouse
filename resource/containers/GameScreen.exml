@@ -4,7 +4,7 @@
     <w:Config id="168e50516a2" />
     <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
     <e:Group verticalCenter="0" left="0" right="0" height="840">
-        <e:Image id="scrollBg" visible="{showChapter}" source="scroll-background" verticalCenter="0" right="0" left="160"></e:Image>
+        <e:Image id="scrollBg" source="scroll-background" verticalCenter="0" right="0" left="160"></e:Image>
         <e:Group id="blurFilter1" left="20" verticalCenter="0">
             <e:Image source="scroll-bar"></e:Image>
         </e:Group>

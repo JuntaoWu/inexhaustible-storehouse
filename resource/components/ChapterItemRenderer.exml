@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.ies.ChapterItemRenderer" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<w:Config id="168e5071570"/>
-    <e:Image source="{data.res}"></e:Image>
+    <e:Image source="{data.res}" width="1880" height="660"></e:Image>
+    <e:Group id="dragonBoneGroup" verticalCenter="0" horizontalCenter="0">
+    </e:Group>
+    <e:Group id="cloudGroup" verticalCenter="0" horizontalCenter="0">
+    </e:Group>
 </e:Skin>

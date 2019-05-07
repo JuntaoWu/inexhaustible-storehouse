@@ -44,7 +44,7 @@ namespace ies {
 
             const textList = "北平砚兄   ".split("");
             this.textInputList.dataProvider = new eui.ArrayCollection(textList);
-            this.textInputList.itemRenderer = TextInputItemRenderer;
+            this.textInputList.itemRenderer = WordItemRenderer;
 
             this.removeEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
             ApplicationFacade.getInstance().registerMediator(new TutorialWindowMediator(this));

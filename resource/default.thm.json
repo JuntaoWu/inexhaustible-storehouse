@@ -22,6 +22,7 @@
 		"resource/components/SentenceRenderer.exml",
 		"resource/components/SideIconItemRenderer.exml",
 		"resource/components/TextInputItemRenderer.exml",
+		"resource/components/WordItemRenderer.exml",
 		"resource/containers/AlertWindow.exml",
 		"resource/containers/AnswerWindow.exml",
 		"resource/containers/CardsGameWindow.exml",

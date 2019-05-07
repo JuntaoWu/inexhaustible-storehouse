@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,input-screen-bg,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,hand_ske_json,hand_tex_json,hand_tex_png,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,lazy-load-sprite_json,percent_png,percent_fnt,final-sentence-stamps_json,volume-line_png,samwoe-10,samwoe-02,samwoe-03,samwoe-04,samwoe-05,samwoe-06,samwoe-07,samwoe-08,samwoe-09,samwoe-09-revealed,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-10-revealed,samwoe-01",
+			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,volume-line_png,samwoe-10,samwoe-02,samwoe-03,samwoe-04,samwoe-05,samwoe-06,samwoe-07,samwoe-08,samwoe-09,samwoe-09-revealed,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-10-revealed,samwoe-01,samwoe-11,samwoe-11-revealed,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,lazy-load-sprite_json,bgs_ske_json,bgs_tex_json,bgs_tex_png,cj01_ske_ske_json,cj01_ske_tex_json,cj01_ske_tex_png",
 			"name": "preload"
 		},
 		{
@@ -86,11 +86,6 @@
 			"name": "main-background"
 		},
 		{
-			"url": "assets/background/input-screen-bg.png",
-			"type": "image",
-			"name": "input-screen-bg"
-		},
-		{
 			"url": "assets/background/mask.png",
 			"type": "image",
 			"name": "mask"
@@ -120,21 +115,6 @@
 			"type": "sheet",
 			"name": "title-side-icon_json",
 			"subkeys": "side-icon-01,side-icon-02,side-icon-03,side-icon-04,side-icon-05,side-icon-06,side-icon-07,side-icon-08,side-icon-09,side-icon-10,side-icon-11,side-icon-12,side-icon-13,side-icon-14,side-icon-15-16,side-icon-17,side-icon-18,side-icon-19,side-icon-20"
-		},
-		{
-			"url": "assets/hand_animation/hand_ske.json",
-			"type": "json",
-			"name": "hand_ske_json"
-		},
-		{
-			"url": "assets/hand_animation/hand_tex.json",
-			"type": "json",
-			"name": "hand_tex_json"
-		},
-		{
-			"url": "assets/hand_animation/hand_tex.png",
-			"type": "image",
-			"name": "hand_tex_png"
 		},
 		{
 			"url": "config/tutorial.json",
@@ -201,22 +181,6 @@
 			"url": "assets/sprite/sentence.png",
 			"type": "image",
 			"name": "sentence_png"
-		},
-		{
-			"url": "assets/sprite/lazy-load-sprite.json",
-			"type": "sheet",
-			"name": "lazy-load-sprite_json",
-			"subkeys": "answer-title,btn-back,btn-confirm,btn-developer,btn-rule,btn-run,btn-slider,btn-submit,crowdfunding-task,hidden-task,img-box,main-task,menu-catalog,menu-catalog-active,menu-collect,menu-collect-active,menu-setting,menu-setting-active,percent,sound-bg,sound-effect,switch-off,switch-on,tips1,tips1-bg,tips1-bg-active,tips2,tips2-bg,tips2-bg-active,tips3,tips3-bg,tips3-bg-active,volume-line,volume-line-bg"
-		},
-		{
-			"url": "assets/sprite/percent.png",
-			"type": "image",
-			"name": "percent_png"
-		},
-		{
-			"url": "assets/sprite/percent.fnt",
-			"type": "font",
-			"name": "percent_fnt"
 		},
 		{
 			"url": "assets/sprite/final-sentence-stamps.json",
@@ -328,6 +292,92 @@
 			"url": "assets/content/samwoe-01.png",
 			"type": "image",
 			"name": "samwoe-01"
+		},
+		{
+			"url": "assets/content/samwoe-11.png",
+			"type": "image",
+			"name": "samwoe-11"
+		},
+		{
+			"url": "assets/content-revealed/samwoe-11-revealed.png",
+			"type": "image",
+			"name": "samwoe-11-revealed"
+		},
+		{
+			"url": "assets/dragon-bones/hand_ske.json",
+			"type": "json",
+			"name": "hand_ske_json"
+		},
+		{
+			"url": "assets/dragon-bones/hand_tex.json",
+			"type": "json",
+			"name": "hand_tex_json"
+		},
+		{
+			"url": "assets/dragon-bones/hand_tex.png",
+			"type": "image",
+			"name": "hand_tex_png"
+		},
+		{
+			"url": "assets/dragon-bones/masks_tex.png",
+			"type": "image",
+			"name": "masks_tex_png"
+		},
+		{
+			"url": "assets/dragon-bones/masks_ske.json",
+			"type": "json",
+			"name": "masks_ske_json"
+		},
+		{
+			"url": "assets/dragon-bones/masks_tex.json",
+			"type": "json",
+			"name": "masks_tex_json"
+		},
+		{
+			"url": "assets/sprite/percent.png",
+			"type": "image",
+			"name": "percent_png"
+		},
+		{
+			"url": "assets/sprite/percent.fnt",
+			"type": "font",
+			"name": "percent_fnt"
+		},
+		{
+			"url": "assets/sprite/lazy-load-sprite.json",
+			"type": "sheet",
+			"name": "lazy-load-sprite_json",
+			"subkeys": "answer-title,btn-back,btn-close,btn-confirm,btn-developer,btn-rule,btn-run,btn-slider,btn-submit,crowdfunding-task,hidden-task,img-box,input-box,input-screen-bg,main-task,menu-catalog,menu-catalog-active,menu-collect,menu-collect-active,menu-setting,menu-setting-active,percent,sound-bg,sound-effect,switch-off,switch-on,tips1,tips1-bg,tips1-bg-active,tips2,tips2-bg,tips2-bg-active,tips3,tips3-bg,tips3-bg-active,volume-line,volume-line-bg"
+		},
+		{
+			"name": "bgs_ske_json",
+			"type": "json",
+			"url": "assets/dragon-bones/bgs_ske.json"
+		},
+		{
+			"name": "bgs_tex_json",
+			"type": "json",
+			"url": "assets/dragon-bones/bgs_tex.json"
+		},
+		{
+			"name": "bgs_tex_png",
+			"type": "image",
+			"url": "assets/dragon-bones/bgs_tex.png"
+		},
+		{
+			"name": "cj01_ske_ske_json",
+			"type": "json",
+			"url": "assets/dragon-bones/cj01_ske_ske.json"
+		},
+		{
+			"name": "cj01_ske_tex_json",
+			"type": "json",
+			"url": "assets/dragon-bones/cj01_ske_tex.json"
+		},
+		{
+			"name": "cj01_ske_tex_png",
+			"type": "image",
+			"url": "assets/dragon-bones/cj01_ske_tex.png"
 		}
 	]
 }

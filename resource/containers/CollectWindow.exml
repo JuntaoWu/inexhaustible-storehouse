@@ -5,11 +5,11 @@
         <e:Group y="10" horizontalCenter="0">
             <e:Group horizontalCenter="0">
                 <e:Image source="progress-bg" width="1300" verticalCenter="0" />
-                <e:Image source="progress" width="{progressWidth}" verticalCenter="0"  x="20"/>
+                <e:Image source="progress" width="{progressWidth}" verticalCenter="0"  x="40"/>
             </e:Group>
             <e:Group horizontalCenter="0" y="60">
                 <e:Image source="percent" verticalCenter="0" />
-                <e:BitmapLabel id="progressTitle" text="十" verticalCenter="0" font="percent_fnt" x="110"/>
+                <e:BitmapLabel id="progressTitle" text="十" verticalCenter="0" font="percent_fnt" x="125"/>
             </e:Group>
         </e:Group>
         <e:Scroller scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0" top="165" bottom="20">
@@ -42,7 +42,7 @@
                             </e:layout>
                         </e:List>
                     </e:Group>
-                    <e:Group y="1810" horizontalCenter="0">
+                    <e:Group y="1810" id="hiddenCollect" visible="false" horizontalCenter="0">
                         <e:Group horizontalCenter="0">
                             <e:Image source="hidden-task" verticalCenter="0"/>
                             <e:BitmapLabel id="collectRate3" text="0/4" verticalCenter="0" font="percent_fnt" horizontalCenter="100"/>

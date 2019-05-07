@@ -43,7 +43,7 @@ namespace ies {
             const num1 = Math.floor(percent / 10);
             const num2 = percent % 10;
             this.pageView.progressTitle.text = `零`;
-            this.pageView.progressWidth = 1260 * percent / 100 * 0.9;
+            this.pageView.progressWidth = 1240 * percent / 100 * 0.9;
             if (num1 || num2) {
                 this.pageView.progressTitle.text = `${!num1 ? '' : capsNums[num1] + '十'}${!num2 ? '' : capsNums[num2]}`;
             }

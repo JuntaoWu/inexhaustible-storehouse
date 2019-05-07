@@ -58,7 +58,7 @@ namespace ies {
         public confirmClick(event: egret.TouchEvent) {
             if (this.pageView.textInput.text == this.pageView.answerText) {
                 this.proxy.addAnswered(this.pageView.question.id);
-                this.sendNotification(GameProxy.ANSWERED);
+                this.sendNotification(GameProxy.ANSWERED, this.pageView.question.id);
                 this.pageView.close();
             }
             else {

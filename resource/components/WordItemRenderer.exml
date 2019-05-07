@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.WordItemRenderer" width="90" height="90" xmlns:e="http://ns.egret.com/eui">
+    <e:Image source="word-bg" width="100%" height="100%"/>
+    <e:BitmapLabel id="bitmapLabel" text="" horizontalCenter="0" verticalCenter="0"
+        font="sentence_fnt" textAlign="center" verticalAlign="middle"/>
+</e:Skin>

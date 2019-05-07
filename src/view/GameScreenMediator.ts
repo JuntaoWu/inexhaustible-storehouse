@@ -40,52 +40,55 @@ namespace ies {
             }, this);
         }
 
+        private arrCollection: eui.ArrayCollection;
         public async initData() {
-
-            // var colorMatrix = [
-            //     0.3,0.6,0,0,0,
-            //     0.3,0.6,0,0,0,
-            //     0.3,0.6,0,0,0,
-            //     0,0,0,1,0
-            // ];
-            // var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
-            // this.gameScreen.filters = [colorFlilter];
-
             console.log("GameScreen initData");
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             await this.proxy.initGamesSetting();
             const sources = [];
             const exclusiveList = [];
+            this.gameScreen.showChapter = false;
             this.proxy.questionMap.forEach(v => {
-                const res = (v.id && this.proxy.isAnswered(v.id)) ? `${v.res}-revealed` : v.res.toString();
+                // const res = (v.id && this.proxy.isAnswered(v.id)) ? `${v.res}-revealed` : v.res.toString();
                 if (v.type == "common") {
-                    // sources[v.id] = {
-                    //     res: res
-                    // };
+                    if (v.id == 0) {
+                        sources[0] = {
+                            res: v.res
+                        };
+                    }
+                    else if (v.id == 2) {
+                        const answeredNum = (this.proxy.isAnswered(v.id) ? 1 : 0) + (this.proxy.isAnswered(+v.id - 1) ? 1 : 0);
+                        sources[v.id / 2] = {
+                            // res: v.res,
+                            isDragonBone: true,
+                            dragonBoneName: "cj01",
+                            answeredNum: answeredNum
+                        };
+                    }
+                    else if (v.id % 2 == 0) {
+                        const res = `${v.res}-revealed`;
+                        const answeredNum = (this.proxy.isAnswered(v.id) ? 1 : 0) + (this.proxy.isAnswered(+v.id - 1) ? 1 : 0);
+                        sources[v.id / 2] = {
+                            res: res,
+                            answeredNum: answeredNum
+                        };
+                    }
                 }
                 else {
-                    exclusiveList.push({res: res});
+                    exclusiveList.push({res: v.res});
                 }
             });
-            for (let i = 0; i < 12; i++) {
-                const v = this.proxy.questionMap.get(i.toString());
-                const res = (v.id && this.proxy.isAnswered(v.id * 2)) ? `${v.res}-revealed` : v.res.toString();
-                sources[v.id] = {
-                    res: res
-                };
-                
-            }
             if (!this.proxy.isShowFinalTowQuestion()) {
                 sources.splice(11, 1);
             }
-            sources.push({ ...sources[0] });
+            this.arrCollection = new eui.ArrayCollection(sources);
             this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
-            this.gameScreen.listChapter.dataProvider = new eui.ArrayCollection(sources);
+            this.gameScreen.listChapter.dataProvider = this.arrCollection;
             
             this.gameScreen.listCrowd.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listCrowd.dataProvider = new eui.ArrayCollection(exclusiveList);
             this.chapterIndex = 1;
-            console.log(this.gameScreen.listChapter.numElements);
+            console.log(this.arrCollection, this.gameScreen.listChapter.numElements);
             if (this.proxy.playerInfo.firstShowTutorial) {
                 egret.setTimeout(() => {
                     this.tutorialClick();
@@ -99,7 +102,6 @@ namespace ies {
         }
         public set chapterIndex(v: number) {
             this._chapterIndex = v;
-            this.gameScreen.showChapter = true;
             const chapterIndex = this._chapterIndex * 2;
             const titleList = [];
             for (let i = 0; i < 2; i++) {
@@ -125,17 +127,18 @@ namespace ies {
             this.gameScreen.titleList.itemRenderer = SentenceRenderer;
             this.gameScreen.titleList.dataProvider = new eui.ArrayCollection(titleList);
 
-            let qId = '';
-            if (this.proxy.isAnswered(chapterIndex) || this.proxy.isAnswered(chapterIndex - 1)) {
-                qId = this.proxy.isAnswered(chapterIndex) ? `${chapterIndex}` : `${chapterIndex - 1}`;
-            }
+            const answeredNum = (this.proxy.isAnswered(chapterIndex) ? 1 : 0) + (this.proxy.isAnswered(chapterIndex - 1) ? 1 : 0);
             const originalRes = this.proxy.questionMap.get(chapterIndex.toString()).res;
-            const res = qId ? `${this.proxy.questionMap.get(qId).res}-revealed` : originalRes.toString();
-
+            const res = answeredNum ? `${originalRes}-revealed` : originalRes.toString();
             if (this.gameScreen.listChapter.dataProvider) {
-                if(this.gameScreen.listChapter.dataProvider.getItemAt(v).res !== res) {
-                    this.gameScreen.listChapter.dataProvider.getItemAt(v).res = res;
+                const item = this.gameScreen.listChapter.dataProvider.getItemAt(v);
+                // if(this.gameScreen.listChapter.dataProvider.getItemAt(v).res !== res) {
+                //     this.gameScreen.listChapter.dataProvider.getItemAt(v).res = res;
+                // }
+                if (item) {
+                    item.answeredNum = answeredNum;
                 }
+                this.arrCollection.itemUpdated(item);
             }
         }
 
@@ -145,9 +148,7 @@ namespace ies {
         }
         public set chapterCrowdIndex(v: number) {
             this._chapterCrowdIndex = v;
-            this.gameScreen.showChapter = false;
             const question = this.proxy.questionMap.get((this._chapterCrowdIndex).toString());
-            
             this.gameScreen.titleText = question.sentenceRes;
         }
 
@@ -237,7 +238,7 @@ namespace ies {
 
         public moveToTargetIndex(targetIndex: number) {
             const scrollH = this.gameScreen.listChapter.scrollH;
-            let targetScrollH = (Constants.contentWidth + Constants.listGap) * (targetIndex - 1);
+            let targetScrollH = (Constants.contentWidth + Constants.listGap) * targetIndex + 50;
             console.log(targetIndex, targetScrollH, this.gameScreen.scroller.viewport.contentWidth);
             if(targetIndex == this.gameScreen.listChapter.numElements - 2) {
                 targetScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
@@ -248,7 +249,7 @@ namespace ies {
 
             if (this.gameScreen.scrollerCrowd.visible) {
                 egret.Tween.get(this.gameScreen.listCrowd).to({ scrollH: targetScrollH }, 200).call(() => {
-                    this.chapterCrowdIndex = targetIndex + 23;
+                    this.chapterCrowdIndex = targetIndex + 22;
                 });
             }
             else {
@@ -267,7 +268,7 @@ namespace ies {
                 this.moveToTargetIndex(currentIndex - 1);
             }
             else {
-                const currentIndex = this.chapterCrowdIndex - 23;
+                const currentIndex = this.chapterCrowdIndex - 22;
                 if (currentIndex <= 1) {
                     return;
                 }
@@ -284,7 +285,7 @@ namespace ies {
                 this.moveToTargetIndex(currentIndex + 1);
             }
             else {
-                const currentIndex = this.chapterCrowdIndex -23;
+                const currentIndex = this.chapterCrowdIndex -22;
                 if ((currentIndex + 1) >= this.gameScreen.listCrowd.numElements) {
                     return;
                 }
@@ -294,15 +295,20 @@ namespace ies {
 
         public scrollChange(event: eui.UIEvent) {
             const scrollH = event.target.viewport.scrollH;
-            const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
-            let higherBound = Math.floor((scrollH + this.gameScreen.width - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            let higherBound = Math.floor((scrollH + this.gameScreen.width * 0.5 + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
             if (higherBound > this.gameScreen.listChapter.numElements - 2) {
                 higherBound = this.gameScreen.listChapter.numElements - 2;
             }
             else if (higherBound < 1) {
-                higherBound = 1;
+                this.gameScreen.showChapter = false;
+                return;
+                // higherBound = 1;
             }
-            if (this.gameScreen.scroller.visible) {
+            else {
+                this.gameScreen.showChapter = true;
+            }
+            
+            if (this.chapterIndex != higherBound && this.gameScreen.scroller.visible) {
                 this.chapterIndex = higherBound;
             }
             if (this.chapterIndex >= (this.gameScreen.listChapter.numElements - 2)
@@ -321,8 +327,8 @@ namespace ies {
             else if (higherBound < 1) {
                 higherBound = 1;
             }
-            if (this.gameScreen.scrollerCrowd.visible) {
-                this.chapterCrowdIndex = higherBound + 23;
+            if (this.chapterCrowdIndex != higherBound + 22 && this.gameScreen.scrollerCrowd.visible) {
+                this.chapterCrowdIndex = higherBound + 22;
             }
 
             if (event.target.viewport.scrollH < -600) {
@@ -344,9 +350,10 @@ namespace ies {
                 const scrollH = this.gameScreen.scroller.viewport.contentWidth;
                 egret.Tween.get(this.gameScreen.blurFilter3).to({ left: 300 }, 1000);
                 egret.Tween.get(this.gameScreen.blurFilter4).to({ x: 170 }, 1000);
-                egret.Tween.get(this.gameScreen.scrollBg).to({ right: this.gameScreen.width - 200 }, 1000);
+                egret.Tween.get(this.gameScreen.scrollBg).to({ right: this.gameScreen.width - 160 }, 1000);
                 egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 1000).call(() => {                
                     this.gameScreen.showCrowd = true;
+                    this.gameScreen.showChapter = false;
                     this.gameScreen.scroller.visible = false;
                     this.chapterCrowdIndex = 24;
                     egret.Tween.get(this.gameScreen.scrollerCrowd).to({ alpha: 1 }, 1000);
@@ -366,6 +373,7 @@ namespace ies {
                 egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 700);
                 egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: -2000 }, 700).call(() => {
                     this.gameScreen.showCrowd = false;
+                    this.gameScreen.showChapter = true;
                     this.gameScreen.scrollerCrowd.visible = false;
                     this.gameScreen.scrollerCrowd.viewport.scrollH = 0;
                     this.chapterIndex = this.gameScreen.listChapter.numElements - 2;
