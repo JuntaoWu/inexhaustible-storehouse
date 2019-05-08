@@ -254,7 +254,7 @@ namespace ies {
         }
 
         public moveToTargetIndex(targetIndex: number) {
-            let targetScrollH = (Constants.contentWidth + Constants.listGap) * targetIndex - ((this.gameScreen.width - 1920) / 2) + 50;
+            let targetScrollH = (Constants.contentWidth + Constants.listGap) * targetIndex ;
             targetScrollH = Math.max(0, targetScrollH);
             
             if (this.gameScreen.scrollerCrowd.visible) {
@@ -328,7 +328,7 @@ namespace ies {
         public scrollCrowdChange(event: eui.UIEvent) {
             const scrollH = event.target.viewport.scrollH;
             const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
-            let higherBound = Math.floor((scrollH + this.gameScreen.width - Constants.coverWidth + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            let higherBound = Math.floor((scrollH + Constants.contentWidth * 1.5 + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
             higherBound = Math.max(1, Math.min(this.gameScreen.listCrowd.numElements, higherBound));
             if (this.chapterCrowdIndex != higherBound + 22 && this.gameScreen.scrollerCrowd.visible) {
                 this.chapterCrowdIndex = higherBound + 22;
