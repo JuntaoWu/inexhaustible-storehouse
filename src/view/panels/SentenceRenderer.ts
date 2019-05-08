@@ -20,10 +20,10 @@ namespace ies {
             this.wordList.itemRenderer = WordItemRenderer;
             if(!(this.data.index % 2)) {
                 this.sideIcon.x = 0;
-                this.sentenceX = 100;
+                this.sentenceX = 90;
             }
             else {
-                this.sideIcon.x = 650;
+                this.sideIcon.x = 640;
                 this.sentenceX = 0;
             }
             if (this.data.sideRes) {

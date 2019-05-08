@@ -10,8 +10,10 @@ namespace ies {
             this.addEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
         }
 
+        private proxy: GameProxy;
         public createCompleteEvent(event: eui.UIEvent): void {
             this.removeEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
+            this.proxy = ApplicationFacade.getInstance().retrieveProxy(GameProxy.NAME) as GameProxy;
         }
 
         public partAdded(partName: string, instance: any): void {
@@ -30,7 +32,7 @@ namespace ies {
             super.dataChanged();
             if (this.data.isDragonBone) {
                 if (!this.dragonBone) {
-                    this.dragonBone = DragonBones.createDragonBone("cj01_ske", "s1");
+                    this.dragonBone = DragonBones.createDragonBone("senceA", this.data.armature);
                     this.dragonBone && this.dragonBoneGroup.addChild(this.dragonBone);
                 }
                 if (this.data.answeredNum == 0) {
@@ -46,6 +48,7 @@ namespace ies {
                         this.isPlayedCloud = true;
                     }
                     if (!this.isPlayed1) {
+                        this.proxy.playEffect("change12_mp3");
                         this.dragonBone.animation.play("012", 1);
                         this.isPlayed1 = true;
                     }
@@ -55,6 +58,7 @@ namespace ies {
                 }
                 else {
                     if (!this.isPlayed2) {
+                        this.proxy.playEffect("change23_mp3");
                         this.dragonBone.animation.play("014", 1);
                         this.isPlayed2 = true;
                     }
@@ -62,24 +66,6 @@ namespace ies {
                         this.dragonBone.animation.play("015", 0);
                     }, this, 1500);
                 }
-            }
-            else if (this.data.answeredNum == 0) {
-                this.filters = [ColorFilter.grey];
-                if (!this.cloud) {
-                    this.cloud = DragonBones.createDragonBone("masks", "cloude");
-                    this.cloud && this.cloudGroup.addChild(this.cloud);
-                }
-            }
-            else if (this.data.answeredNum == 1) {
-                this.filters = [ColorFilter.grey];
-                if (this.cloud && !this.isPlayedCloud) {
-                    this.cloud.animation.play("move", 1);
-                    this.isPlayedCloud = true;
-                }
-            }
-            else {
-                egret.Tween.get(this).to({ filters: [] }, 1500);
-                // this.filters = [];
             }
         }
     }

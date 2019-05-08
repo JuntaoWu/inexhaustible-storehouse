@@ -18,6 +18,7 @@ namespace ies {
         // public listFinalQuestion: eui.List;
         public titleList: eui.List;
         public scrollBg: eui.Image;
+        public bgDragonBoneGroup: eui.Group;
         
         public blurFilter1: eui.Group;
         public blurFilter2: eui.Group;

@@ -1,16 +1,16 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,loading-background,question_json,scroll-background,main-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,volume-line_png,samwoe-10,samwoe-02,samwoe-03,samwoe-04,samwoe-05,samwoe-06,samwoe-07,samwoe-08,samwoe-09,samwoe-09-revealed,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-10-revealed,samwoe-01,samwoe-11,samwoe-11-revealed,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,lazy-load-sprite_json,bgs_ske_json,bgs_tex_json,bgs_tex_png,cj01_ske_ske_json,cj01_ske_tex_json,cj01_ske_tex_png",
+			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,samwoe-10,samwoe-02,samwoe-03,samwoe-04,samwoe-05,samwoe-06,samwoe-07,samwoe-08,samwoe-09,samwoe-09-revealed,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-10-revealed,samwoe-01,samwoe-11,samwoe-11-revealed,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,lazy-load-sprite_json,cj01_ske_ske_json,cj01_ske_tex_json,cj01_ske_tex_png,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,senceA_tex_json,senceA_tex_png,senceA_ske_json,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3",
 			"name": "preload"
 		},
 		{
-			"keys": "progress-bg,progress,btn-wxlogin",
+			"keys": "btn-wxlogin,loading-background,loading_ske_json,loading_tex_png,loading_tex_json,progress,progress-bg",
 			"name": "loading"
 		},
 		{
 			"keys": "",
-			"name": "lazy"
+			"name": "lazyload"
 		}
 	],
 	"resources": [
@@ -79,11 +79,6 @@
 			"url": "assets/background/scroll-background.png",
 			"type": "image",
 			"name": "scroll-background"
-		},
-		{
-			"url": "assets/background/main-background.png",
-			"type": "image",
-			"name": "main-background"
 		},
 		{
 			"url": "assets/background/mask.png",
@@ -187,11 +182,6 @@
 			"type": "sheet",
 			"name": "final-sentence-stamps_json",
 			"subkeys": "stamps_01,stamps_02,stamps_03,stamps_04,stamps_05,stamps_06,stamps_07,stamps_08,stamps_09,stamps_10,stamps_11,stamps_12,stamps_13,stamps_14"
-		},
-		{
-			"url": "assets/loading/volume-line.png",
-			"type": "image",
-			"name": "volume-line_png"
 		},
 		{
 			"url": "assets/content/samwoe-10.png",
@@ -350,34 +340,149 @@
 			"subkeys": "answer-title,btn-back,btn-close,btn-confirm,btn-developer,btn-rule,btn-run,btn-slider,btn-submit,crowdfunding-task,hidden-task,img-box,input-box,input-screen-bg,main-task,menu-catalog,menu-catalog-active,menu-collect,menu-collect-active,menu-setting,menu-setting-active,percent,sound-bg,sound-effect,switch-off,switch-on,tips1,tips1-bg,tips1-bg-active,tips2,tips2-bg,tips2-bg-active,tips3,tips3-bg,tips3-bg-active,volume-line,volume-line-bg"
 		},
 		{
-			"name": "bgs_ske_json",
+			"url": "assets/dragon-bones/cj01_ske_ske.json",
 			"type": "json",
-			"url": "assets/dragon-bones/bgs_ske.json"
+			"name": "cj01_ske_ske_json"
 		},
 		{
-			"name": "bgs_tex_json",
+			"url": "assets/dragon-bones/cj01_ske_tex.json",
 			"type": "json",
-			"url": "assets/dragon-bones/bgs_tex.json"
+			"name": "cj01_ske_tex_json"
 		},
 		{
-			"name": "bgs_tex_png",
+			"url": "assets/dragon-bones/cj01_ske_tex.png",
 			"type": "image",
-			"url": "assets/dragon-bones/bgs_tex.png"
+			"name": "cj01_ske_tex_png"
 		},
 		{
-			"name": "cj01_ske_ske_json",
-			"type": "json",
-			"url": "assets/dragon-bones/cj01_ske_ske.json"
-		},
-		{
-			"name": "cj01_ske_tex_json",
-			"type": "json",
-			"url": "assets/dragon-bones/cj01_ske_tex.json"
-		},
-		{
-			"name": "cj01_ske_tex_png",
+			"url": "assets/dragon-bones/loading_tex.png",
 			"type": "image",
-			"url": "assets/dragon-bones/cj01_ske_tex.png"
+			"name": "loading_tex_png"
+		},
+		{
+			"url": "assets/dragon-bones/loading_ske.json",
+			"type": "json",
+			"name": "loading_ske_json"
+		},
+		{
+			"url": "assets/dragon-bones/loading_tex.json",
+			"type": "json",
+			"name": "loading_tex_json"
+		},
+		{
+			"url": "assets/background/word-box.png",
+			"type": "image",
+			"name": "word-box"
+		},
+		{
+			"url": "assets/dragon-bones/scroll_bg_tex.png",
+			"type": "image",
+			"name": "scroll_bg_tex_png"
+		},
+		{
+			"url": "assets/dragon-bones/scroll_bg_ske.json",
+			"type": "json",
+			"name": "scroll_bg_ske_json"
+		},
+		{
+			"url": "assets/dragon-bones/scroll_bg_tex.json",
+			"type": "json",
+			"name": "scroll_bg_tex_json"
+		},
+		{
+			"url": "assets/background/main-background.jpg",
+			"type": "image",
+			"name": "main-background"
+		},
+		{
+			"url": "assets/dragon-bones/senceA_tex.json",
+			"type": "json",
+			"name": "senceA_tex_json"
+		},
+		{
+			"url": "assets/dragon-bones/senceA_tex.png",
+			"type": "image",
+			"name": "senceA_tex_png"
+		},
+		{
+			"url": "assets/dragon-bones/senceA_ske.json",
+			"type": "json",
+			"name": "senceA_ske_json"
+		},
+		{
+			"url": "assets/sound/BGM.mp3",
+			"type": "sound",
+			"name": "BGM"
+		},
+		{
+			"name": "btn-catalog_mp3",
+			"type": "sound",
+			"url": "assets/sound/btn-catalog.mp3"
+		},
+		{
+			"name": "btn-right_mp3",
+			"type": "sound",
+			"url": "assets/sound/btn-right.mp3"
+		},
+		{
+			"name": "btn-left_mp3",
+			"type": "sound",
+			"url": "assets/sound/btn-left.mp3"
+		},
+		{
+			"name": "btn-back_mp3",
+			"type": "sound",
+			"url": "assets/sound/btn-back.mp3"
+		},
+		{
+			"name": "btn-card_mp3",
+			"type": "sound",
+			"url": "assets/sound/btn-card.mp3"
+		},
+		{
+			"name": "scroller-change_mp3",
+			"type": "sound",
+			"url": "assets/sound/scroller-change.mp3"
+		},
+		{
+			"name": "scroller-close_mp3",
+			"type": "sound",
+			"url": "assets/sound/scroller-close.mp3"
+		},
+		{
+			"name": "scroller-open_mp3",
+			"type": "sound",
+			"url": "assets/sound/scroller-open.mp3"
+		},
+		{
+			"name": "crowd-change_mp3",
+			"type": "sound",
+			"url": "assets/sound/crowd-change.mp3"
+		},
+		{
+			"name": "change12_mp3",
+			"type": "sound",
+			"url": "assets/sound/change12.mp3"
+		},
+		{
+			"name": "change23_mp3",
+			"type": "sound",
+			"url": "assets/sound/change23.mp3"
+		},
+		{
+			"name": "common-click_mp3",
+			"type": "sound",
+			"url": "assets/sound/common-click.mp3"
+		},
+		{
+			"name": "btn-confirm_mp3",
+			"type": "sound",
+			"url": "assets/sound/btn-confirm.mp3"
+		},
+		{
+			"name": "btn-final_mp3",
+			"type": "sound",
+			"url": "assets/sound/btn-final.mp3"
 		}
 	]
 }

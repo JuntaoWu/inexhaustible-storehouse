@@ -10,14 +10,14 @@ namespace ies {
             super(CatalogWindowMediator.NAME, viewComponent);
             super.initializeNotifier("ApplicationFacade");
             
-            this.pageView.btnCatalog.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 0), this);
-            this.pageView.btnCollect.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 1), this);
-            this.pageView.btnSetting.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 2), this);
-
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
 
+            this.pageView.btnCatalog.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 0), this);
+            this.pageView.btnCollect.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 1), this);
+            this.pageView.btnSetting.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => this.tabChange(e, 2), this);
             this.pageView.catalogList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.changeIndex, this);
+            this.pageView.btnFinal.addEventListener(egret.TouchEvent.TOUCH_TAP, this.finalClick, this);
         }
 
         public async initData() {
@@ -68,6 +68,7 @@ namespace ies {
         }
 
         public tabChange(e: egret.TouchEvent, index: number) {
+            this.proxy.playEffect("common-click_mp3");
             e.currentTarget.selected = true;
             const titles = ['title-catalog', 'title-collect', 'title-setting'];
             const showType = ['showCatalog', 'showCollect', 'showSetting'];
@@ -75,6 +76,10 @@ namespace ies {
             showType.forEach((v, i) => {
                 this.pageView[v] = i == index ? true : false;
             });
+        }
+
+        public finalClick(e: egret.TouchEvent) {
+            this.proxy.playEffect("btn-final_mp3");
         }
 
         public get pageView(): CatalogWindow {

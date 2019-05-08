@@ -37,19 +37,17 @@ namespace ies {
                 SoundPool.volumeBGM = this.proxy.playerInfo.volumeBGM = this.pageView.btnVolumeBGM.pendingValue / 10;
             }
             else {
-                SoundPool.volumeEffect = this.proxy.playerInfo.volumeEffect = this.pageView.btnVolumeEffect.pendingValue / 10;
+                this.proxy.playerInfo.volumeEffect = this.pageView.btnVolumeEffect.pendingValue / 10;
             }
             this.proxy.savePlayerInfoToStorage();
         }
 
         private switchEffectClick(e: egret.TouchEvent) {
-            this.proxy.playerInfo.isSoundEffectOn = this.pageView.switchEffect.selected;
-            this.proxy.savePlayerInfoToStorage();
+            this.proxy.switchEffect(this.pageView.switchEffect.selected);
         }
 
         private switchBGClick(e: egret.TouchEvent) {
-            this.proxy.playerInfo.isSoundBGMOn = this.pageView.switchBG.selected;
-            this.proxy.savePlayerInfoToStorage();
+            this.proxy.switchBGM(this.pageView.switchBG.selected);
         }
 
         private showDeveloper(b: boolean = true) {

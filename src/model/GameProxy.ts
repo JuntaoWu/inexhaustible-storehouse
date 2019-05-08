@@ -82,10 +82,32 @@ namespace ies {
 
 		public async initGamesSetting() {
 			await this.getPlayerInfoFromStorage();
-			SoundPool.volumeEffect = this.playerInfo.volumeEffect;
 			SoundPool.volumeBGM = this.playerInfo.volumeBGM;
 			if (this.playerInfo.isSoundBGMOn) {
-				// SoundPool.playBGM("");
+				SoundPool.playBGM("BGM");
+			}
+		}
+
+		public switchBGM(b: boolean) {
+			if (b) {
+				SoundPool.playBGM("BGM");
+			}
+			else {
+				SoundPool.stopBGM();
+			}
+			this.playerInfo.isSoundBGMOn = b;
+            this.savePlayerInfoToStorage();
+		}
+
+		public switchEffect(b: boolean) {
+            this.playerInfo.isSoundEffectOn = b;
+            this.savePlayerInfoToStorage();
+		}
+
+		public playEffect(soundName: string) {
+			if (this.playerInfo.isSoundEffectOn) {
+				const soundChannel = SoundPool.playSoundEffect(soundName);
+            	soundChannel.volume = this.playerInfo.volumeEffect;
 			}
 		}
 	}

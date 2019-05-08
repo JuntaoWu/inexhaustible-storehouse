@@ -37,6 +37,8 @@ namespace ies {
         private progressBg: egret.Bitmap;
         private progressBar: egret.Bitmap;
         private loadingLabel: egret.DisplayObject;
+        private dragonBoneGroup: eui.Group;
+        private dragonBone: dragonBones.EgretArmatureDisplay;
 
         public groupLoading: eui.Group;
         // public btnAnonymousLogin: eui.Button;
@@ -64,6 +66,12 @@ namespace ies {
                 this.groupLoading.visible = false;
                 platform.showLoading("加载中");
             }
+            
+            if (!this.dragonBone) {
+                this.dragonBone = DragonBones.createDragonBone("loading", "loading");
+                this.dragonBone && this.dragonBoneGroup.addChild(this.dragonBone);
+                this.dragonBone.animation.play("loadingA");
+            }
             this.progressBg.width = this.width;
             this.progressBg.y = this.stage.stageHeight - 30;
             this.progressBar.y = this.stage.stageHeight - 30;
@@ -75,6 +83,10 @@ namespace ies {
         public onProgress(current: number, total: number): void {
             this.labelText.text = `${current}/${total}`;
             this.progressBar.width = this.width * current / total;
+            if (current == total) {
+                this.dragonBone && this.dragonBoneGroup.removeChild(this.dragonBone);
+                this.dragonBone = null;
+            }
         }
 
         public showInformation(message) {

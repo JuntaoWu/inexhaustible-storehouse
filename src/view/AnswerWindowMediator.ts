@@ -48,6 +48,7 @@ namespace ies {
         }
 
         public tipsClick(index: number) {
+            this.proxy.playEffect("common-click_mp3");
             this.pageView.tips = this.pageView.question[`tips${index}`] || "";
             [1, 2, 3].forEach(v => {
                 this.pageView[`btnTips${v}`].selected = v == index ? true : false;
@@ -56,6 +57,7 @@ namespace ies {
 
         private isConfirm: boolean;
         public confirmClick(event: egret.TouchEvent) {
+            this.proxy.playEffect("btn-confirm_mp3");
             if (this.pageView.textInput.text == this.pageView.answerText) {
                 this.proxy.addAnswered(this.pageView.question.id);
                 this.sendNotification(GameProxy.ANSWERED, this.pageView.question.id);

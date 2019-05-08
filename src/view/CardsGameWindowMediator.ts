@@ -92,6 +92,7 @@ namespace ies {
 
         private isLastConfirm: boolean;
         public confirmSelected() {
+            this.proxy.playEffect("btn-confirm_mp3");
             if (this.isLastConfirm) {
                 this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
                 this.pageView.cardsList.dataProvider = new eui.ArrayCollection([]);
