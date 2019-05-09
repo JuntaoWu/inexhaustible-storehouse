@@ -44,7 +44,8 @@ namespace ies {
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
-            this.width = this.stage.stageWidth;
+            // this.width = this.stage.stageWidth;
+            this.scaleX = this.stage.stageWidth / 1920;
 
             this.blurFilter4.x = this.width;
             this.scrollerCrowd.visible = false;

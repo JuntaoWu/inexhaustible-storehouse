@@ -17,6 +17,7 @@ namespace ies {
 
         public createCompleteEvent(event: eui.UIEvent): void {
             this.width = this.stage.stageWidth;
+            // this.scaleX = this.stage.stageWidth / 1920;
 
             this.removeEventListener(eui.UIEvent.CREATION_COMPLETE, this.createCompleteEvent, this);
         }

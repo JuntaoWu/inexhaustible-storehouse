@@ -35,17 +35,17 @@
             <e:Image source="scroll-bar"></e:Image>
         </e:Group>
     </e:Group>
-    <e:Group id="blurFilter2" width="100%" height="110">
-        <e:Group visible="{showChapter}" horizontalCenter="0" verticalCenter="0">
+    <e:Group id="blurFilter2" width="100%" height="180">
+        <e:Group visible="{showChapter}" horizontalCenter="-40" verticalCenter="0">
             <e:Button id="btnPrevious" verticalCenter="0">
                 <e:Skin>
                     <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:Button>
             <e:Group verticalCenter="0" left="100" right="100">
-                <e:List id="titleList" verticalCenter="0">
+                <e:List id="titleList" verticalCenter="0" scaleX="0.8" scaleY="0.8">
                     <e:layout>
-                        <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="50"/>
+                        <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="40"/>
                     </e:layout>
                 </e:List>
                 <!--<e:Group visible="{showFinal}" verticalCenter="0" horizontalCenter="0">

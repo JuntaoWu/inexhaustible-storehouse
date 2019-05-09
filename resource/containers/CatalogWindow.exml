@@ -4,14 +4,14 @@
     <e:Group id="container" width="100%" height="100%">
         <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
 
-        <e:Button id="closeButton" left="22" y="2">
+        <e:Button id="closeButton" y="2">
             <e:Skin>
                 <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
         <!--<e:Image horizontalCenter="0" y="30" source="{titleRes}"/>-->
 
-        <e:Group y="240" left="20" height="540" width="430">
+        <e:Group y="240" height="540" width="430">
             <e:ToggleButton id="btnCatalog" selected="{showCatalog}" top="0" horizontalCenter="0">
                 <e:Skin states="up,upAndSelected">
                     <e:Image source="menu-catalog" includeIn="up" horizontalCenter="0" verticalCenter="0" />
@@ -34,7 +34,7 @@
                 </e:Skin>
             </e:ToggleButton>
         </e:Group>
-		<e:Group visible="{showCatalog}" left="450" right="50" top="120" bottom="20">
+		<e:Group visible="{showCatalog}" left="440" right="40" top="120" bottom="20">
             <e:Scroller id="catalogScroller" scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0" top="0" bottom="100">
                 <e:viewport>
                     <e:List id="catalogList" useVirtualLayout="false" minWidth="1300" horizontalCenter="0">

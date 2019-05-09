@@ -63,6 +63,9 @@ namespace ies {
         }
 
         public async initData() {
+            if (this.timeoutIds) {
+                this.timeoutIds.forEach(i => egret.clearTimeout(i));
+            }
             const catalogList = [];
             for (let i = 0; i < 20; i++) {
                 const v = this.proxy.questionMap.get((i+1).toString());

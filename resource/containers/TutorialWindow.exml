@@ -80,10 +80,10 @@
 
     <e:Group id="tutorialGroup" left="0" right="0" top="0" bottom="0">
         <!-- 首页教程 -->
-        <e:Group width="100%" height="110">
-            <e:Group horizontalCenter="0" verticalCenter="0">
-                <e:Group id="titleGroup" verticalCenter="0" left="120" right="120">
-                    <e:List id="titleList" verticalCenter="0">
+        <e:Group width="100%" height="180">
+            <e:Group horizontalCenter="-40" verticalCenter="0">
+                <e:Group id="titleGroup" left="120" right="120" height="180">
+                    <e:List id="titleList" verticalCenter="0" scaleX="0.8" scaleY="0.8">
                         <e:layout>
                             <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="50"/>
                         </e:layout>
