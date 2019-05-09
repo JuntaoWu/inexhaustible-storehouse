@@ -23,12 +23,10 @@ namespace ies {
             this.gameScreen.btnTutorial.addEventListener(egret.TouchEvent.TOUCH_TAP, this.tutorialClick, this);
             this.gameScreen.btnCardsGame.addEventListener(egret.TouchEvent.TOUCH_TAP, this.cardsGameClick, this);
             
-            // this.gameScreen.listChapter.addEventListener(eui.ItemTapEvent.ITEM_TAP, (event: eui.ItemTapEvent) => {
-            //     if (!event.itemIndex) {
-            //         this.proxy.testDeletePlayerInfo();
-            //         this.initData();
-            //     }
-            // }, this);
+            this.gameScreen.blurFilter1.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {    
+                this.proxy.testDeletePlayerInfo();
+                this.initData();
+            }, this);
             this.gameScreen.titleList.addEventListener(eui.ItemTapEvent.ITEM_TAP, (event: eui.ItemTapEvent) => {
                 let chapterIndex = this._chapterIndex * 2;
                 if (!event.itemIndex) {
@@ -129,6 +127,7 @@ namespace ies {
                 this.bgColorChange(0);
                 return;
             }
+            this.gameScreen.showChapter = true;
             const chapterIndex = this._chapterIndex * 2;
             const titleList = [];
             for (let i = 0; i < 2; i++) {
@@ -315,7 +314,7 @@ namespace ies {
             let higherBound = Math.floor((scrollH + this.gameScreen.width * 0.5 + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
             higherBound = Math.max(0, Math.min(this.gameScreen.listChapter.numElements - 1, higherBound));
             this.gameScreen.showChapter = !!higherBound;
-            
+                        
             if (this.chapterIndex != higherBound && this.gameScreen.scroller.visible) {
                 this.chapterIndex = higherBound;
             }
@@ -379,7 +378,6 @@ namespace ies {
                 egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 700);
                 egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: -2000 }, 700).call(() => {
                     this.gameScreen.showCrowd = false;
-                    this.gameScreen.showChapter = true;
                     this.gameScreen.scrollerCrowd.visible = false;
                     this.gameScreen.scrollerCrowd.viewport.scrollH = 0;
                     this.chapterIndex = this.gameScreen.listChapter.numElements - 2;

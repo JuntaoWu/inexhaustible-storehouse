@@ -8,7 +8,7 @@ class WxgamePlatform {
 
   env = 'prod';
   name = 'wxgame';
-  appVersion = '0.1.5';
+  appVersion = '0.1.8';
   isConnected = true;
   os = 'wxgame';
 
@@ -150,6 +150,22 @@ class WxgamePlatform {
       fail: function(res) {},
       complete: function(res) {},
     })
+  }
+
+  createInnerAudio(src, volume) {
+    var sound = wx.createInnerAudioContext();
+    sound.src = src;
+    sound.volume = volume;
+    sound.play();
+    sound.onPlay(() => {
+      console.log('sound volume.', sound.volume)
+    });
+    sound.onEnded(() => {
+      sound.destroy();
+    });
+    sound.onError(() => {
+      sound.destroy();
+    });
   }
 
   onNetworkStatusChange(callback) {

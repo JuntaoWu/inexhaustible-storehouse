@@ -59,6 +59,8 @@ namespace ies {
 
         showPreImage(data: any, index?: any);
 
+        createInnerAudio(src: string, volume?: number);
+
         createBannerAd(name: string, adUnitId: string, style: any);
 
         showBannerAd(name: string);
@@ -221,7 +223,11 @@ namespace ies {
         }
 
         public showPreImage(data, index?) {
+            
+        }
 
+        public createInnerAudio(soundName: string, volume?: number){
+            SoundPool.playSoundEffect(soundName, volume);
         }
 
         public async showModal(message: string, confirmText?: string, cancelText?: string): Promise<any> {

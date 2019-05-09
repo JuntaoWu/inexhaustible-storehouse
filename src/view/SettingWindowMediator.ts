@@ -13,8 +13,8 @@ namespace ies {
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
 
-            this.pageView.btnVolumeEffect.addEventListener(eui.UIEvent.CHANGE_END, this.setVolumeBGM, this);
-            this.pageView.btnVolumeBGM.addEventListener(eui.UIEvent.CHANGE_END, this.setVolumeEffect, this);
+            this.pageView.btnVolumeEffect.addEventListener(eui.UIEvent.CHANGE_END, this.setVolume, this);
+            this.pageView.btnVolumeBGM.addEventListener(eui.UIEvent.CHANGE_END, (e) => this.setVolume(e, "bgm"), this);
             
             this.pageView.switchEffect.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchEffectClick, this);
             this.pageView.switchBG.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchBGClick, this);
@@ -32,14 +32,9 @@ namespace ies {
             this.pageView.btnVolumeBGM.value = this.proxy.playerInfo.volumeBGM * 10;
         }
 
-        private setVolumeBGM() {
-            const value = this.pageView.btnVolumeBGM.pendingValue / 10;
-            this.proxy.setVolume(value, "bgm");
-        }
-
-        private setVolumeEffect() {
-            const value = this.pageView.btnVolumeEffect.pendingValue / 10;
-            this.proxy.setVolume(value, "effect");
+        private setVolume(event: eui.UIEvent, type?: string) {
+            const value = event.target.value / 10;
+            this.proxy.setVolume(value, type);
         }
 
         private switchEffectClick(e: egret.TouchEvent) {

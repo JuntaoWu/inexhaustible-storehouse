@@ -4,7 +4,6 @@ namespace ies {
     export class SoundPool {
 
         public static musicClips: {} = {};
-        public static volumeEffect: number = 1;
         private static _volumeBGM: number = 1;
         public static get volumeBGM() {
             return SoundPool._volumeBGM;
@@ -16,7 +15,7 @@ namespace ies {
             }
         }
 
-        public static playSoundEffect(soundName: string): egret.SoundChannel {
+        public static playSoundEffect(soundName: string, volume: number): egret.SoundChannel {
             let sound: egret.Sound = RES.getRes(soundName);
             if (!sound) {
                 console.error(`playSoundEffect: Unable to load sound: ${soundName}`);
@@ -24,7 +23,7 @@ namespace ies {
             }
 
             let soundChannel: egret.SoundChannel = sound.play(0, 1);
-            soundChannel.volume = SoundPool.volumeEffect;
+            soundChannel.volume = volume;
 
             return soundChannel;
         }

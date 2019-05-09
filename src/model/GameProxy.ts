@@ -82,7 +82,6 @@ namespace ies {
 
 		public async initGamesSetting() {
 			await this.getPlayerInfoFromStorage();
-			SoundPool.volumeEffect = this.playerInfo.volumeEffect;
 			SoundPool.volumeBGM = this.playerInfo.volumeBGM;
 			if (this.playerInfo.isSoundBGMOn) {
 				SoundPool.playBGM("BGM");
@@ -94,7 +93,7 @@ namespace ies {
                 SoundPool.volumeBGM = this.playerInfo.volumeBGM = value;
             }
             else {
-                SoundPool.volumeEffect = this.playerInfo.volumeEffect = value;
+                this.playerInfo.volumeEffect = value;
             }
             this.savePlayerInfoToStorage();
         }
@@ -117,7 +116,11 @@ namespace ies {
 
 		public playEffect(soundName: string) {
 			if (this.playerInfo.isSoundEffectOn) {
-				const soundChannel = SoundPool.playSoundEffect(soundName);
+				let src = soundName;
+				if (platform.os == "wxgame") {
+					src = `${Constants.ResourceEndpoint}resource/assets/sound/${soundName.replace('_mp3', '')}.mp3`;
+				}			
+				platform.createInnerAudio(src, this.playerInfo.volumeEffect);
 			}
 		}
 	}
