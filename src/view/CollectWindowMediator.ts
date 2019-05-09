@@ -24,9 +24,9 @@ namespace ies {
                 ''
             ];
             const collectList = [[],[],[]];
-            for (let i = 1; i <= 20; i++) {
-                const v = this.proxy.questionMap.get(i.toString());
-                collectList[0][v.id - 1] = this.proxy.isAnswered(v.id) ? `${v.res}-revealed` : '';
+            for (let i = 1; i <= 22; i++) {
+                // const v = this.proxy.questionMap.get(i.toString());
+                collectList[0][i - 1] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
             }
             collectList[1] = collectList[0].slice(0, 6);
             let totalCollect = 0, collected = 0;
@@ -52,7 +52,7 @@ namespace ies {
 
         public tapItem(e: eui.ItemTapEvent) {
             if (e.item) {
-                this.sendNotification(SceneCommand.SHOW_IMGPRE_WINDOW, e.item);
+                this.sendNotification(SceneCommand.SHOW_IMGPRE_WINDOW, e.item.replace('-min', ''));
             }
         }
 

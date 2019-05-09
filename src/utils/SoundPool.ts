@@ -4,6 +4,7 @@ namespace ies {
     export class SoundPool {
 
         public static musicClips: {} = {};
+        public static volumeEffect: number = 1;
         private static _volumeBGM: number = 1;
         public static get volumeBGM() {
             return SoundPool._volumeBGM;
@@ -23,6 +24,7 @@ namespace ies {
             }
 
             let soundChannel: egret.SoundChannel = sound.play(0, 1);
+            soundChannel.volume = SoundPool.volumeEffect;
 
             return soundChannel;
         }

@@ -82,11 +82,22 @@ namespace ies {
 
 		public async initGamesSetting() {
 			await this.getPlayerInfoFromStorage();
+			SoundPool.volumeEffect = this.playerInfo.volumeEffect;
 			SoundPool.volumeBGM = this.playerInfo.volumeBGM;
 			if (this.playerInfo.isSoundBGMOn) {
 				SoundPool.playBGM("BGM");
 			}
 		}
+
+        public setVolume(value: number, type?: string) {
+            if (type == "bgm") {
+                SoundPool.volumeBGM = this.playerInfo.volumeBGM = value;
+            }
+            else {
+                SoundPool.volumeEffect = this.playerInfo.volumeEffect = value;
+            }
+            this.savePlayerInfoToStorage();
+        }
 
 		public switchBGM(b: boolean) {
 			if (b) {
@@ -107,7 +118,6 @@ namespace ies {
 		public playEffect(soundName: string) {
 			if (this.playerInfo.isSoundEffectOn) {
 				const soundChannel = SoundPool.playSoundEffect(soundName);
-            	soundChannel.volume = this.playerInfo.volumeEffect;
 			}
 		}
 	}

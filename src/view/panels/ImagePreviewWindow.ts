@@ -13,7 +13,7 @@ namespace ies {
 
         public createCompleteEvent(event: eui.UIEvent): void {
             this.width = this.stage.stageWidth;
-
+            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.close, this);
             this.removeEventListener(eui.UIEvent.CREATION_COMPLETE, this.createCompleteEvent, this);
         }
 
@@ -21,6 +21,7 @@ namespace ies {
 
         public setImageRes(res: string) {
             this.imgRes = res;
+            console.log(res);
         } 
     }
 }

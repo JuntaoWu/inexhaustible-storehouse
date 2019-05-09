@@ -39,7 +39,7 @@
                 <e:viewport>
                     <e:List id="catalogList" useVirtualLayout="false" minWidth="1300" horizontalCenter="0">
                         <e:layout>
-                            <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="40" horizontalGap="80" paddingBottom="80" paddingTop="20"/>
+                            <e:TileLayout orientation="rows" requestedColumnCount="2" verticalGap="40" horizontalGap="40" paddingBottom="80" paddingTop="20"/>
                         </e:layout>
                     </e:List>
                 </e:viewport>

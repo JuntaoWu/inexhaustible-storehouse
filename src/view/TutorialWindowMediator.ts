@@ -76,6 +76,20 @@ namespace ies {
             this.pageView.catalogList.itemRenderer = SentenceRenderer;
             this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);
 
+            const titleList = [];
+            for (let i = 0; i < 2; i++) {
+                const v = this.proxy.questionMap.get((1 + i).toString());
+                const replaceText = v.sentence.match(/【(.+?)】/)[1];
+                const emptyText = replaceText.split('').map(i => ' ').join('');
+                titleList[i] = {
+                    sentence: v.sentence.replace(/【(.+?)】/, emptyText),
+                    sideIcon: v.sideRes,
+                    index: i
+                }
+            }
+            this.pageView.titleList.itemRenderer = SentenceRenderer;
+            this.pageView.titleList.dataProvider = new eui.ArrayCollection(titleList);
+
             this.canGoNext = true;
             this.timeoutIds = [];
             this.reSetUI();

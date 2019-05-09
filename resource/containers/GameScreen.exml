@@ -42,7 +42,7 @@
                     <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:Button>
-            <e:Group verticalCenter="0" left="120" right="120">
+            <e:Group verticalCenter="0" left="100" right="100">
                 <e:List id="titleList" verticalCenter="0">
                     <e:layout>
                         <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="50"/>
@@ -62,13 +62,13 @@
                 </e:Skin>
             </e:Button>
         </e:Group>
-        <e:Group visible="{showCrowd}" horizontalCenter="0" verticalCenter="0">
+        <e:Group visible="{showCrowd}" horizontalCenter="0" verticalCenter="0" width="850">
             <e:Button id="btnPrevious2" verticalCenter="0">
                 <e:Skin>
                     <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:Button>
-            <e:Group id="titleGroup" verticalCenter="0" left="120" right="120">
+            <e:Group id="titleGroup" verticalCenter="0" horizontalCenter="0">
                 <e:Label text="{titleText}" verticalCenter="0" horizontalCenter="5" size="55"/>
             </e:Group>
             <e:Button id="btnNext2" verticalCenter="0" right="0">

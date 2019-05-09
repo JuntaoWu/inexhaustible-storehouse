@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.ies.ImagePreviewWindow" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*">
+    <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
     <e:Group id="container" horizontalCenter="0">
         <e:Image source="{imgRes}" verticalCenter="0" horizontalCenter="0"></e:Image>
     </e:Group>
-    
+    <e:Label text=""/>
 </e:Skin>

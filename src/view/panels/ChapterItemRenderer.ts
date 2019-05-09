@@ -32,7 +32,9 @@ namespace ies {
             super.dataChanged();
             if (this.data.isDragonBone) {
                 if (!this.dragonBone) {
-                    this.dragonBone = DragonBones.createDragonBone("senceA", this.data.armature);
+                    this.dragonBone = DragonBones.createDragonBone("senceAll", this.data.armature);
+                    this.dragonBone.scaleX = 2;
+                    this.dragonBone.scaleY = 2;
                     this.dragonBone && this.dragonBoneGroup.addChild(this.dragonBone);
                 }
                 if (this.data.answeredNum == 0) {

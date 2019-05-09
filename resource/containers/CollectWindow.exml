@@ -31,7 +31,7 @@
                             </e:layout>
                         </e:List>
                     </e:Group>
-                    <e:Group y="1170" horizontalCenter="0">
+                    <e:Group y="1360" horizontalCenter="0">
                         <e:Group horizontalCenter="0">
                             <e:Image source="crowdfunding-task" verticalCenter="0"/>
                             <e:BitmapLabel id="collectRate2" text="0/6" font="percent_fnt" verticalCenter="0" horizontalCenter="100"/>
@@ -42,7 +42,7 @@
                             </e:layout>
                         </e:List>
                     </e:Group>
-                    <e:Group y="1810" id="hiddenCollect" visible="false" horizontalCenter="0">
+                    <e:Group y="2000" id="hiddenCollect" visible="false" horizontalCenter="0">
                         <e:Group horizontalCenter="0">
                             <e:Image source="hidden-task" verticalCenter="0"/>
                             <e:BitmapLabel id="collectRate3" text="0/4" verticalCenter="0" font="percent_fnt" horizontalCenter="100"/>

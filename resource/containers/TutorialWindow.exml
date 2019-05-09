@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.ies.TutorialWindow" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*" >
-    <e:Image source="mask" top="0" bottom="0" left="0" right="0"></e:Image>
-    <e:Group id="answerGroup" verticalCenter="0" horizontalCenter="0">
-        <e:Image source="input-screen-bg" verticalCenter="0" horizontalCenter="0"></e:Image>
-        <e:Group horizontalCenter="0" width="900" y="130">
+    <!--<e:Image source="mask" top="0" bottom="0" left="0" right="0"></e:Image>-->
+    <e:Group id="answerGroup" width="100%" height="100%" visible="false">
+        <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
+        <e:Group verticalCenter="0" horizontalCenter="0">
             <e:Group horizontalCenter="0">
-                <e:Image source="tips-content-bg" />
-            </e:Group>
-            <e:Group horizontalCenter="0" width="848">
-                <e:Button>
-                    <e:Skin>
-                        <e:Image source="tips-left" horizontalCenter="0" verticalCenter="0" />
-                        <e:Image source="tips1" horizontalCenter="0" verticalCenter="0" />
-                    </e:Skin>
-                </e:Button>
-                <e:Button horizontalCenter="0">
-                    <e:Skin>
-                        <e:Image source="tips-center" horizontalCenter="0" verticalCenter="0" />
-                        <e:Image source="tips2" horizontalCenter="0" verticalCenter="0" />
-                    </e:Skin>
-                </e:Button>
-                <e:Button right="0">
-                    <e:Skin>
-                        <e:Image source="tips-right" horizontalCenter="0" verticalCenter="0" />
-                        <e:Image source="tips3" horizontalCenter="0" verticalCenter="0" />
-                    </e:Skin>
-                </e:Button>
+                <e:Image source="answer-title" horizontalCenter="0"></e:Image>
+                <e:Image horizontalCenter="0" y="149" source="input-screen-bg"></e:Image>
+                <e:Group horizontalCenter="-4" width="1280" y="80">
+                    <e:Button>
+                        <e:Skin>
+                            <e:Image source="tips1-bg" horizontalCenter="0" verticalCenter="0" />
+                            <e:Image source="tips1" horizontalCenter="0" verticalCenter="0" />
+                        </e:Skin>
+                    </e:Button>
+                    <e:Button horizontalCenter="-5">
+                        <e:Skin>
+                            <e:Image source="tips2-bg" horizontalCenter="0" verticalCenter="0" />
+                            <e:Image source="tips2" horizontalCenter="0" verticalCenter="0" />
+                        </e:Skin>
+                    </e:Button>
+                    <e:Button right="0">
+                        <e:Skin>
+                            <e:Image source="tips3-bg" horizontalCenter="0" verticalCenter="0" />
+                            <e:Image source="tips3" horizontalCenter="0" verticalCenter="0" />
+                        </e:Skin>
+                    </e:Button>
+                </e:Group>
             </e:Group>
         </e:Group>
-        <e:Group width="900" horizontalCenter="0" bottom="-40">
-            <e:Button y="130" horizontalCenter="0">
-                <e:Skin>
-                    <e:Image source="btn-submit" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:Button>
-        </e:Group>
-        <e:Button y="2" right="-20">
-            <e:Skin>
-                <e:Image source="btn-close" horizontalCenter="0" verticalCenter="0" />
-            </e:Skin>
-        </e:Button>
     </e:Group>
     <e:Group id="catalogGroup" left="0" right="0" top="0" bottom="0">
         <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
@@ -91,23 +80,28 @@
 
     <e:Group id="tutorialGroup" left="0" right="0" top="0" bottom="0">
         <!-- 首页教程 -->
-        <e:Group width="860" horizontalCenter="-28" y="16.5">
-            <e:Group id="titleGroup" visible="false" verticalCenter="0" horizontalCenter="0">
-                <e:Image source="side-icon-01" verticalCenter="0" width="70" height="70"/>
-                <e:Image source="sentence01" x="90" verticalCenter="0"/>
-                <e:Image source="inkMark3" verticalCenter="0" x="370"/>
-            </e:Group>
-            <e:Group id="btnNextGroup" visible="false" verticalCenter="0" right="0">
-                <e:Button>
-                    <e:Skin>
-                        <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
-                    </e:Skin>
-                </e:Button>
+        <e:Group width="100%" height="110">
+            <e:Group horizontalCenter="0" verticalCenter="0">
+                <e:Group id="titleGroup" verticalCenter="0" left="120" right="120">
+                    <e:List id="titleList" verticalCenter="0">
+                        <e:layout>
+                            <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="50"/>
+                        </e:layout>
+                    </e:List>
+                </e:Group>
+                
+                <e:Group id="btnNextGroup" visible="false" verticalCenter="0" right="0">
+                    <e:Button>
+                        <e:Skin>
+                            <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
+                        </e:Skin>
+                    </e:Button>
+                </e:Group>
             </e:Group>
         </e:Group>
         <e:Group id="scrollerGroup" verticalCenter="0" height="400" width="500" horizontalCenter="0">
         </e:Group>
-        <e:Group id="btnCatalogGroup" x="30" bottom="25">
+        <e:Group id="btnCatalogGroup" left="160" bottom="25">
             <e:Button>
                 <e:Skin>
                     <e:Image source="btn-catalog" horizontalCenter="0" verticalCenter="0" />
@@ -115,36 +109,36 @@
             </e:Button>
         </e:Group>
         <!-- 答题教程 -->
-        <e:Group verticalCenter="0" horizontalCenter="0" width="1028" height="626">
-            <e:Group horizontalCenter="0" width="848" y="130">
-                <e:Button id="btnTips1">
-                    <e:Skin>
-                        <e:Image source="tips-left" horizontalCenter="0" verticalCenter="0" />
-                        <e:Image source="tips1" horizontalCenter="0" verticalCenter="0" />
-                    </e:Skin>
-                </e:Button>
-                <e:Button id="btnTips2" horizontalCenter="0">
-                    <e:Skin>
-                        <e:Image source="tips-center" horizontalCenter="0" verticalCenter="0" />
-                        <e:Image source="tips2" horizontalCenter="0" verticalCenter="0" />
-                    </e:Skin>
-                </e:Button>
-                <e:Button id="btnTips3" right="0">
-                    <e:Skin>
-                        <e:Image source="tips-right" horizontalCenter="0" verticalCenter="0" />
-                        <e:Image source="tips3" horizontalCenter="0" verticalCenter="0" />
-                    </e:Skin>
-                </e:Button>
-            </e:Group>
-            <e:Group width="900" horizontalCenter="0" bottom="-40">
-                <e:Group id="inputGroup" height="110" width="680" horizontalCenter="0">
-                    <e:List id="textInputList" horizontalCenter="0">
+        <e:Group verticalCenter="0" horizontalCenter="0">
+            <e:Group horizontalCenter="0" top="160">
+                <e:Group horizontalCenter="-4" width="1280" y="80">
+                    <e:Button id="btnTips1">
+                        <e:Skin>
+                            <e:Image source="tips1-bg" horizontalCenter="0" verticalCenter="0" />
+                            <e:Image source="tips1" horizontalCenter="0" verticalCenter="0" />
+                        </e:Skin>
+                    </e:Button>
+                    <e:Button id="btnTips2" horizontalCenter="-5">
+                        <e:Skin>
+                            <e:Image source="tips2-bg" horizontalCenter="0" verticalCenter="0" />
+                            <e:Image source="tips2" horizontalCenter="0" verticalCenter="0" />
+                        </e:Skin>
+                    </e:Button>
+                    <e:Button id="btnTips3" right="0">
+                        <e:Skin>
+                            <e:Image source="tips3-bg" horizontalCenter="0" verticalCenter="0" />
+                            <e:Image source="tips3" horizontalCenter="0" verticalCenter="0" />
+                        </e:Skin>
+                    </e:Button>
+                </e:Group>
+                <e:Group id="inputGroup" y="475" horizontalCenter="0">
+                    <e:List id="textInputList" horizontalCenter="0" verticalCenter="0">
                         <e:layout>
-                            <e:TileLayout orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="0" />
+                            <e:TileLayout id="listTileLayout" orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="55" />
                         </e:layout>
                     </e:List>
                 </e:Group>
-                <e:Group id="submitAnswerGroup" y="130" horizontalCenter="0">
+                <e:Group id="submitAnswerGroup" horizontalCenter="0" y="680">
                     <e:Button>
                         <e:Skin>
                             <e:Image source="btn-submit" horizontalCenter="0" verticalCenter="0" />
@@ -152,7 +146,7 @@
                     </e:Button>
                 </e:Group>
             </e:Group>
-            <e:Group id="closeAnswerGroup" y="2" right="-20">
+            <e:Group id="closeAnswerGroup" right="-150">
                 <e:Button>
                     <e:Skin>
                         <e:Image source="btn-close" horizontalCenter="0" verticalCenter="0" />

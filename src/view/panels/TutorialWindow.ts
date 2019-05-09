@@ -3,6 +3,7 @@ namespace ies {
 
     export class TutorialWindow extends eui.Panel {
         
+        public titleList: eui.List;
         public tipsLabel: eui.Label;
         public btnSkip: eui.Button;
         public tutorialGroup: eui.Group;
@@ -44,7 +45,7 @@ namespace ies {
 
             const textList = "北平砚兄   ".split("");
             this.textInputList.dataProvider = new eui.ArrayCollection(textList);
-            this.textInputList.itemRenderer = WordItemRenderer;
+            this.textInputList.itemRenderer = TextInputItemRenderer;
 
             this.removeEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
             ApplicationFacade.getInstance().registerMediator(new TutorialWindowMediator(this));

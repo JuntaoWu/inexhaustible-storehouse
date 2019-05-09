@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,samwoe-10,samwoe-02,samwoe-03,samwoe-04,samwoe-05,samwoe-06,samwoe-07,samwoe-08,samwoe-09,samwoe-09-revealed,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-10-revealed,samwoe-01,samwoe-11,samwoe-11-revealed,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,lazy-load-sprite_json,cj01_ske_ske_json,cj01_ske_tex_json,cj01_ske_tex_png,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,senceA_tex_json,senceA_tex_png,senceA_ske_json,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3",
+			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,samwoe-10,samwoe-02,samwoe-03,samwoe-04,samwoe-05,samwoe-06,samwoe-07,samwoe-08,samwoe-09,samwoe-09-revealed,samwoe-01-revealed,samwoe-02-revealed,samwoe-03-revealed,samwoe-04-revealed,samwoe-05-revealed,samwoe-06-revealed,samwoe-07-revealed,samwoe-08-revealed,samwoe-10-revealed,samwoe-01,samwoe-11,samwoe-11-revealed,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,lazy-load-sprite_json,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,senceAll_tex_png,senceAll_ske_json,senceAll_tex_json,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,collect-min_json",
 			"name": "preload"
 		},
 		{
@@ -44,31 +44,6 @@
 			"url": "assets/background/loading-background.jpg",
 			"type": "image",
 			"name": "loading-background"
-		},
-		{
-			"url": "assets/background/1.jpg",
-			"type": "image",
-			"name": "1"
-		},
-		{
-			"url": "assets/background/2.jpg",
-			"type": "image",
-			"name": "2"
-		},
-		{
-			"url": "assets/background/3.jpg",
-			"type": "image",
-			"name": "3"
-		},
-		{
-			"url": "assets/background/4.jpg",
-			"type": "image",
-			"name": "4"
-		},
-		{
-			"url": "assets/background/blank.jpg",
-			"type": "image",
-			"name": "blank"
 		},
 		{
 			"url": "config/question.json",
@@ -340,21 +315,6 @@
 			"subkeys": "answer-title,btn-back,btn-close,btn-confirm,btn-developer,btn-rule,btn-run,btn-slider,btn-submit,crowdfunding-task,hidden-task,img-box,input-box,input-screen-bg,main-task,menu-catalog,menu-catalog-active,menu-collect,menu-collect-active,menu-setting,menu-setting-active,percent,sound-bg,sound-effect,switch-off,switch-on,tips1,tips1-bg,tips1-bg-active,tips2,tips2-bg,tips2-bg-active,tips3,tips3-bg,tips3-bg-active,volume-line,volume-line-bg"
 		},
 		{
-			"url": "assets/dragon-bones/cj01_ske_ske.json",
-			"type": "json",
-			"name": "cj01_ske_ske_json"
-		},
-		{
-			"url": "assets/dragon-bones/cj01_ske_tex.json",
-			"type": "json",
-			"name": "cj01_ske_tex_json"
-		},
-		{
-			"url": "assets/dragon-bones/cj01_ske_tex.png",
-			"type": "image",
-			"name": "cj01_ske_tex_png"
-		},
-		{
 			"url": "assets/dragon-bones/loading_tex.png",
 			"type": "image",
 			"name": "loading_tex_png"
@@ -395,94 +355,225 @@
 			"name": "main-background"
 		},
 		{
-			"url": "assets/dragon-bones/senceA_tex.json",
-			"type": "json",
-			"name": "senceA_tex_json"
-		},
-		{
-			"url": "assets/dragon-bones/senceA_tex.png",
-			"type": "image",
-			"name": "senceA_tex_png"
-		},
-		{
-			"url": "assets/dragon-bones/senceA_ske.json",
-			"type": "json",
-			"name": "senceA_ske_json"
-		},
-		{
 			"url": "assets/sound/BGM.mp3",
 			"type": "sound",
 			"name": "BGM"
 		},
 		{
-			"name": "btn-catalog_mp3",
+			"url": "assets/sound/btn-catalog.mp3",
 			"type": "sound",
-			"url": "assets/sound/btn-catalog.mp3"
+			"name": "btn-catalog_mp3"
 		},
 		{
-			"name": "btn-right_mp3",
+			"url": "assets/sound/btn-right.mp3",
 			"type": "sound",
-			"url": "assets/sound/btn-right.mp3"
+			"name": "btn-right_mp3"
 		},
 		{
-			"name": "btn-left_mp3",
+			"url": "assets/sound/btn-left.mp3",
 			"type": "sound",
-			"url": "assets/sound/btn-left.mp3"
+			"name": "btn-left_mp3"
 		},
 		{
-			"name": "btn-back_mp3",
+			"url": "assets/sound/btn-back.mp3",
 			"type": "sound",
-			"url": "assets/sound/btn-back.mp3"
+			"name": "btn-back_mp3"
 		},
 		{
-			"name": "btn-card_mp3",
+			"url": "assets/sound/btn-card.mp3",
 			"type": "sound",
-			"url": "assets/sound/btn-card.mp3"
+			"name": "btn-card_mp3"
 		},
 		{
-			"name": "scroller-change_mp3",
+			"url": "assets/sound/scroller-change.mp3",
 			"type": "sound",
-			"url": "assets/sound/scroller-change.mp3"
+			"name": "scroller-change_mp3"
 		},
 		{
-			"name": "scroller-close_mp3",
+			"url": "assets/sound/scroller-close.mp3",
 			"type": "sound",
-			"url": "assets/sound/scroller-close.mp3"
+			"name": "scroller-close_mp3"
 		},
 		{
-			"name": "scroller-open_mp3",
+			"url": "assets/sound/scroller-open.mp3",
 			"type": "sound",
-			"url": "assets/sound/scroller-open.mp3"
+			"name": "scroller-open_mp3"
 		},
 		{
-			"name": "crowd-change_mp3",
+			"url": "assets/sound/crowd-change.mp3",
 			"type": "sound",
-			"url": "assets/sound/crowd-change.mp3"
+			"name": "crowd-change_mp3"
 		},
 		{
-			"name": "change12_mp3",
+			"url": "assets/sound/change12.mp3",
 			"type": "sound",
-			"url": "assets/sound/change12.mp3"
+			"name": "change12_mp3"
 		},
 		{
-			"name": "change23_mp3",
+			"url": "assets/sound/change23.mp3",
 			"type": "sound",
-			"url": "assets/sound/change23.mp3"
+			"name": "change23_mp3"
 		},
 		{
-			"name": "common-click_mp3",
+			"url": "assets/sound/common-click.mp3",
 			"type": "sound",
-			"url": "assets/sound/common-click.mp3"
+			"name": "common-click_mp3"
 		},
 		{
-			"name": "btn-confirm_mp3",
+			"url": "assets/sound/btn-confirm.mp3",
 			"type": "sound",
-			"url": "assets/sound/btn-confirm.mp3"
+			"name": "btn-confirm_mp3"
 		},
 		{
-			"name": "btn-final_mp3",
+			"url": "assets/sound/btn-final.mp3",
 			"type": "sound",
-			"url": "assets/sound/btn-final.mp3"
+			"name": "btn-final_mp3"
+		},
+		{
+			"url": "assets/dragon-bones/senceAll_tex.png",
+			"type": "image",
+			"name": "senceAll_tex_png"
+		},
+		{
+			"url": "assets/dragon-bones/senceAll_ske.json",
+			"type": "json",
+			"name": "senceAll_ske_json"
+		},
+		{
+			"url": "assets/dragon-bones/senceAll_tex.json",
+			"type": "json",
+			"name": "senceAll_tex_json"
+		},
+		{
+			"url": "assets/collect/collect-10.png",
+			"type": "image",
+			"name": "collect-10"
+		},
+		{
+			"url": "assets/collect/collect-11.png",
+			"type": "image",
+			"name": "collect-11"
+		},
+		{
+			"url": "assets/collect/collect-12.png",
+			"type": "image",
+			"name": "collect-12"
+		},
+		{
+			"url": "assets/collect/collect-13.png",
+			"type": "image",
+			"name": "collect-13"
+		},
+		{
+			"url": "assets/collect/collect-14.png",
+			"type": "image",
+			"name": "collect-14"
+		},
+		{
+			"url": "assets/collect/collect-15.png",
+			"type": "image",
+			"name": "collect-15"
+		},
+		{
+			"url": "assets/collect/collect-16.png",
+			"type": "image",
+			"name": "collect-16"
+		},
+		{
+			"url": "assets/collect/collect-17.png",
+			"type": "image",
+			"name": "collect-17"
+		},
+		{
+			"url": "assets/collect/collect-18.png",
+			"type": "image",
+			"name": "collect-18"
+		},
+		{
+			"url": "assets/collect/collect-19.png",
+			"type": "image",
+			"name": "collect-19"
+		},
+		{
+			"url": "assets/collect/collect-20.png",
+			"type": "image",
+			"name": "collect-20"
+		},
+		{
+			"url": "assets/collect/collect-21.png",
+			"type": "image",
+			"name": "collect-21"
+		},
+		{
+			"url": "assets/collect/collect-22.png",
+			"type": "image",
+			"name": "collect-22"
+		},
+		{
+			"url": "assets/collect/collect-1.png",
+			"type": "image",
+			"name": "collect-1"
+		},
+		{
+			"url": "assets/collect/collect-2.png",
+			"type": "image",
+			"name": "collect-2"
+		},
+		{
+			"url": "assets/collect/collect-3.png",
+			"type": "image",
+			"name": "collect-3"
+		},
+		{
+			"url": "assets/collect/collect-4.png",
+			"type": "image",
+			"name": "collect-4"
+		},
+		{
+			"url": "assets/collect/collect-5.png",
+			"type": "image",
+			"name": "collect-5"
+		},
+		{
+			"url": "assets/collect/collect-6.png",
+			"type": "image",
+			"name": "collect-6"
+		},
+		{
+			"url": "assets/collect/collect-7.png",
+			"type": "image",
+			"name": "collect-7"
+		},
+		{
+			"url": "assets/collect/collect-8.png",
+			"type": "image",
+			"name": "collect-8"
+		},
+		{
+			"url": "assets/collect/collect-9.png",
+			"type": "image",
+			"name": "collect-9"
+		},
+		{
+			"url": "assets/background/alert-bg.png",
+			"type": "image",
+			"name": "alert-bg"
+		},
+		{
+			"url": "assets/button/alert-title.png",
+			"type": "image",
+			"name": "alert-title"
+		},
+		{
+			"url": "assets/button/btn-alert-confirm.png",
+			"type": "image",
+			"name": "btn-alert-confirm"
+		},
+		{
+			"name": "collect-min_json",
+			"type": "sheet",
+			"url": "assets/collect/min/collect-min.json",
+			"subkeys": "collect-min-1,collect-min-2,collect-min-3,collect-min-4,collect-min-5,collect-min-6,collect-min-7,collect-min-8,collect-min-9,collect-min-10,collect-min-11,collect-min-12,collect-min-13,collect-min-14,collect-min-15,collect-min-16,collect-min-17,collect-min-18,collect-min-19,collect-min-20,collect-min-21,collect-min-22"
 		}
 	]
 }
