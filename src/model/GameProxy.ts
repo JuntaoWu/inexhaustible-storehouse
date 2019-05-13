@@ -115,6 +115,7 @@ namespace ies {
 
 		public playBGM() {
 			if (this.playerInfo.isSoundBGMOn) {
+				SoundPool.stopBGM();
 				this.bgm = SoundPool.playBGM("BGM", this.bgmPosition);
 			}
 			else {

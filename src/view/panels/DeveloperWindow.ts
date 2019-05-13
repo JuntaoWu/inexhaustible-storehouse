@@ -22,8 +22,7 @@ namespace ies {
         public btnBack: eui.Button;
 
         public backClick() {
-            this.visible = false;
-            this.proxy.sendNotification(GameProxy.HIDE_DEV_WINDOW, false);
+            this.proxy.sendNotification(GameProxy.HIDE_DEV_WINDOW);
         }
         
         private btnExtra: eui.Image;

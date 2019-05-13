@@ -22,6 +22,9 @@ namespace ies {
             this.removeEventListener(eui.UIEvent.CREATION_COMPLETE, this.createCompleteEvent, this);
         }
 
+        public btnCommon: eui.Group;
+        public btnLabel: eui.Group;
+
         public btnConfirm: eui.Button;
         public msg: string;
         public confirmLabel: string;
@@ -34,6 +37,14 @@ namespace ies {
             this.cbk = data.cbk;
             this.confirmLabel = data.confirmLabel || "确认";
             this.cancelLabel = data.cancelLabel || "取消";
+            if (!data.confirmLabel) {
+                this.btnLabel.visible = false;
+                this.btnCommon.visible = true;
+            }
+            else {
+                this.btnLabel.visible = true;
+                this.btnCommon.visible = false;
+            }
         } 
     }
 }

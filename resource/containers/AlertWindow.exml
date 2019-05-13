@@ -7,7 +7,7 @@
             <e:Image source="alert-title" horizontalCenter="0" y="90"/>
             <e:Label size="45" textColor="0xFFFFFF" maxWidth="820" width="830" horizontalCenter="0" y="160" text="{msg}" height="240"/>
         </e:Group>
-        <e:Group horizontalCenter="0" y="400">
+        <e:Group id="btnCommon" horizontalCenter="0" y="400">
             <e:Button id="closeButton" label="{cancelLabel}">
                 <e:Skin>
                     <e:Image source="btn-cancel" horizontalCenter="0" verticalCenter="0" />
@@ -17,6 +17,18 @@
                 <e:Skin>
                     <e:Image source="btn-alert-confirm" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
+            </e:Button>
+        </e:Group>
+        <e:Group id="btnLabel" horizontalCenter="0" y="400">
+            <e:Button id="closeButton" label="{cancelLabel}">
+                <!--<e:Skin>
+                    <e:Image source="btn-cancel" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>-->
+            </e:Button>
+            <e:Button id="btnConfirm" x="360" label="{confirmLabel}">
+                <!--<e:Skin>
+                    <e:Image source="btn-alert-confirm" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>-->
             </e:Button>
         </e:Group>
     </e:Group>

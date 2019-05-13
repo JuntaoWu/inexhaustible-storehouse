@@ -18,7 +18,7 @@ namespace ies {
             
             this.pageView.switchEffect.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchEffectClick, this);
             this.pageView.switchBG.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchBGClick, this);
-            this.pageView.btnDeveloper.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showDeveloper, this);
+            this.pageView.btnDeveloper.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.toggleView(), this);
             
         }
 
@@ -45,9 +45,10 @@ namespace ies {
             this.proxy.switchBGM(this.pageView.switchBG.selected);
         }
 
-        private showDeveloper(b: boolean = true) {
-            this.pageView.showSetting = !b;
-            this.pageView.showDeveloper = b;
+        private toggleView(b: boolean = false) {
+            this.pageView.showSetting = b || false;
+            this.pageView.showDeveloper = !b;
+            console.log("showSetting", this.pageView.showSetting);
         }
 
         public listNotificationInterests(): Array<any> {
@@ -58,7 +59,7 @@ namespace ies {
             var data: any = notification.getBody();
             switch (notification.getName()) {
                 case GameProxy.HIDE_DEV_WINDOW: {
-                    this.showDeveloper(false);
+                    this.toggleView(true);
                     break;
                 }
             }
