@@ -11,16 +11,40 @@ namespace ies {
             this.addEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
         }
 
+        private proxy: GameProxy;
         public createCompleteEvent(event: eui.UIEvent): void {
+            this.proxy = ApplicationFacade.getInstance().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.removeEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
             this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backClick, this);
+            this.btnExtra.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnExtraClick, this);
         }
 
         public btnBack: eui.Button;
 
         public backClick() {
             this.visible = false;
-            ApplicationFacade.getInstance().sendNotification(GameProxy.HIDE_DEV_WINDOW, false);
+            this.proxy.sendNotification(GameProxy.HIDE_DEV_WINDOW, false);
+        }
+        
+        private btnExtra: eui.Image;
+        private tapTime: number;
+        private tapStartTime: number;
+        private btnExtraClick(event: egret.TouchEvent) {
+            console.log(this.tapTime);
+            if (!this.tapStartTime) {
+                this.tapStartTime = new Date().getTime();
+                this.tapTime = 0;
+                egret.setTimeout(() => {
+                    this.tapStartTime = null;
+                }, this, 1000);
+            }
+            this.tapTime += 1;
+            if (this.tapTime >= 5) {
+                const question = { ...this.proxy.questionMap.get((0).toString()) };
+                question.isAnswered = this.proxy.isAnswered(0);
+                this.proxy.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
+                this.proxy.showHiddenCollect();
+            }
         }
     }
 }

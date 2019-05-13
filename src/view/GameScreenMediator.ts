@@ -28,7 +28,7 @@ namespace ies {
                 this.initData();
             }, this);
             this.gameScreen.titleList.addEventListener(eui.ItemTapEvent.ITEM_TAP, (event: eui.ItemTapEvent) => {
-                let chapterIndex = this._chapterIndex * 2;
+                let chapterIndex = this._chapterIndex * 2 || 22;
                 if (!event.itemIndex) {
                     chapterIndex -= 1; 
                 }
@@ -52,13 +52,14 @@ namespace ies {
             }
             const sources = [];
             const exclusiveList = [];
-            this.gameScreen.showChapter = false;
+            this.chapterIndex = 0;
             this.proxy.questionMap.forEach(v => {
                 // const res = (v.id && this.proxy.isAnswered(v.id)) ? `${v.res}-revealed` : v.res.toString();
                 if (v.type == "common") {
                     if (v.id == 0) {
                         sources[0] = {
-                            res: v.res
+                            res: v.res,
+                            showExtra: true
                         };
                     }
                     else if (v.id % 2 == 0) {
@@ -75,9 +76,9 @@ namespace ies {
                     exclusiveList.push({res: v.res});
                 }
             });
-            if (!this.proxy.isShowFinalTowQuestion()) {
+            // if (!this.proxy.isShowFinalTowQuestion()) {
                 sources.splice(11, 1);
-            }
+            // }
             this.arrCollection = new eui.ArrayCollection(sources);
             this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listChapter.dataProvider = this.arrCollection;
@@ -122,13 +123,17 @@ namespace ies {
         }
         public set chapterIndex(v: number) {
             this._chapterIndex = v;
-            this.proxy.playEffect("scroller-change_mp3");
-            if (v < 1) {
-                this.bgColorChange(0);
-                return;
+            let chapterIndex = this._chapterIndex * 2;
+            this.gameScreen.showChapter = !!v || this.proxy.isShowFinalTowQuestion();
+            if (!v) {
+                if (this.proxy.isShowFinalTowQuestion()) {
+                    chapterIndex = 22;
+                }
+                else {
+                    this.bgColorChange(0);
+                    return;
+                }
             }
-            this.gameScreen.showChapter = true;
-            const chapterIndex = this._chapterIndex * 2;
             const titleList = [];
             for (let i = 0; i < 2; i++) {
                 const v = this.proxy.questionMap.get((chapterIndex - 1 + i).toString());
@@ -153,8 +158,6 @@ namespace ies {
             this.gameScreen.titleList.itemRenderer = SentenceRenderer;
             this.gameScreen.titleList.dataProvider = new eui.ArrayCollection(titleList);
             const answeredNum = (this.proxy.isAnswered(chapterIndex) ? 1 : 0) + (this.proxy.isAnswered(chapterIndex - 1) ? 1 : 0);
-            const originalRes = this.proxy.questionMap.get(chapterIndex.toString()).res;
-            const res = answeredNum ? `${originalRes}-revealed` : originalRes.toString();
             if (this.gameScreen.listChapter.dataProvider) {
                 const item = this.gameScreen.listChapter.dataProvider.getItemAt(v);
                 if (item) {
@@ -171,7 +174,6 @@ namespace ies {
         }
         public set chapterCrowdIndex(v: number) {
             this._chapterCrowdIndex = v;
-            this.proxy.playEffect("crowd-change_mp3");
             const question = this.proxy.questionMap.get((this._chapterCrowdIndex).toString());
             this.gameScreen.titleText = question.sentenceRes;
         }
@@ -187,24 +189,26 @@ namespace ies {
             var data: any = notification.getBody();
             switch (notification.getName()) {
                 case GameProxy.ANSWERED: {
-                    if (this.proxy.playerInfo.answeredList.length == 20) {
-                        this.initData();
-                        this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW);
+                    if (this.gameScreen.scroller.visible) {
+                        if (this.proxy.playerInfo.answeredList.length == 20) {
+                            this.initData();
+                            this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW);
+                        }
+                        this.chapterIndex = this.chapterIndex;
                     }
-                    this.chapterIndex = this.chapterIndex;
                     break;
                 }
                 case GameProxy.CHANGE_INDEX: {
+                    const index = Math.floor(data / 2) + 1;
+                    const chapterIndex = index == 11 ? 0 : index;
                     if (this.gameScreen.scrollerCrowd.visible) {
                         this.showCrowdfunding(false);
                         egret.setTimeout(() => {
-                            this.chapterIndex = Math.floor(data / 2) + 1;
-                            this.moveToTargetIndex(this.chapterIndex);
+                            this.moveToTargetIndex(chapterIndex);
                         }, this, 750);
                     }
                     else {
-                        this.chapterIndex = Math.floor(data / 2) + 1;
-                        this.moveToTargetIndex(this.chapterIndex);
+                        this.moveToTargetIndex(chapterIndex);
                     }
                     break;
                 }
@@ -247,8 +251,8 @@ namespace ies {
         }
 
         public titleClick(event: egret.TouchEvent) {
-            const question = { ...this.proxy.questionMap.get((this._chapterCrowdIndex).toString()) };
-            question.isAnswered = this.proxy.isAnswered(this._chapterIndex);
+            const question = { ...this.proxy.questionMap.get((this.chapterCrowdIndex).toString()) };
+            question.isAnswered = this.proxy.isAnswered(this.chapterCrowdIndex);
             this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
         }
 
@@ -262,6 +266,7 @@ namespace ies {
                 targetScrollH = Math.min(maxScrollH, targetScrollH);
                 egret.Tween.get(this.gameScreen.listCrowd).to({ scrollH: targetScrollH }, 200).call(() => {
                     this.chapterCrowdIndex = targetIndex + 22;
+                    this.proxy.playEffect("crowd-change_mp3");
                 });
             }
             else {
@@ -269,6 +274,7 @@ namespace ies {
                 targetScrollH = Math.min(maxScrollH, targetScrollH);
                 egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 200).call(() => {
                     this.chapterIndex = targetIndex;
+                    this.proxy.playEffect("scroller-change_mp3");
                 });
             }
         }
@@ -277,7 +283,7 @@ namespace ies {
             this.proxy.playEffect("btn-left_mp3");
             if (!this.gameScreen.scrollerCrowd.visible) {
                 const currentIndex = this.chapterIndex;
-                if (currentIndex <= 1) {
+                if (currentIndex < 1) {
                     return;
                 }
                 this.moveToTargetIndex(currentIndex - 1);
@@ -312,14 +318,13 @@ namespace ies {
         public scrollChange(event: eui.UIEvent) {
             const scrollH = event.target.viewport.scrollH;
             let higherBound = Math.floor((scrollH + this.gameScreen.width * 0.5 + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
-            higherBound = Math.max(0, Math.min(this.gameScreen.listChapter.numElements - 1, higherBound));
-            this.gameScreen.showChapter = !!higherBound;
-                        
+            higherBound = Math.max(0, Math.min(this.gameScreen.listChapter.numElements - 1, higherBound));      
             if (this.chapterIndex != higherBound && this.gameScreen.scroller.visible) {
                 this.chapterIndex = higherBound;
+                this.proxy.playEffect("scroller-change_mp3");
             }
             if (this.chapterIndex >= (this.gameScreen.listChapter.numElements - 2)
-            && event.target.viewport.scrollH + 1500 > this.gameScreen.scroller.viewport.contentWidth) {
+            && event.target.viewport.scrollH + 1600 > this.gameScreen.scroller.viewport.contentWidth) {
                 this.showCrowdfunding();
             }
         }
@@ -331,9 +336,9 @@ namespace ies {
             higherBound = Math.max(1, Math.min(this.gameScreen.listCrowd.numElements, higherBound));
             if (this.chapterCrowdIndex != higherBound + 22 && this.gameScreen.scrollerCrowd.visible) {
                 this.chapterCrowdIndex = higherBound + 22;
+                this.proxy.playEffect("crowd-change_mp3");
             }
-
-            if (event.target.viewport.scrollH < -600) {
+            if (event.target.viewport.scrollH < -300) {
                 this.showCrowdfunding(false);
             }
         }
@@ -354,6 +359,7 @@ namespace ies {
                 this.proxy.playEffect("scroller-close_mp3");
                 egret.Tween.get(this.gameScreen.blurFilter3).to({ left: 300 }, 1000);
                 egret.Tween.get(this.gameScreen.blurFilter4).to({ x: 170 }, 1000);
+                egret.Tween.get(this.gameScreen.scrollBg).to({ right: this.gameScreen.width - 160 }, 1000);
                 egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 1000).call(() => {                
                     this.gameScreen.showCrowd = true;
                     this.gameScreen.showChapter = false;
@@ -368,17 +374,18 @@ namespace ies {
                 this.gameScreen.scroller.stopAnimation();
                 this.gameScreen.scrollerCrowd.stopAnimation();
                 this.gameScreen.scroller.visible = true;
-                this.gameScreen.bgDragonBoneGroup.visible = true;
                 this.gameScreen.scroller.viewport.scrollH = this.gameScreen.scroller.viewport.contentWidth;
                 const scrollH = this.gameScreen.scroller.viewport.contentWidth - 2137;
 
                 this.proxy.playEffect("scroller-open_mp3");
                 egret.Tween.get(this.gameScreen.blurFilter3).to({ left: 160 }, 700);
                 egret.Tween.get(this.gameScreen.blurFilter4).to({ x: this.gameScreen.width }, 700);
+                egret.Tween.get(this.gameScreen.scrollBg).to({ right: 0 }, 700);
                 egret.Tween.get(this.gameScreen.scroller.viewport).to({ scrollH: scrollH }, 700);
                 egret.Tween.get(this.gameScreen.scrollerCrowd.viewport).to({ scrollH: -2000 }, 700).call(() => {
                     this.gameScreen.showCrowd = false;
                     this.gameScreen.scrollerCrowd.visible = false;
+                    this.gameScreen.bgDragonBoneGroup.visible = true;
                     this.gameScreen.scrollerCrowd.viewport.scrollH = 0;
                     this.chapterIndex = this.gameScreen.listChapter.numElements - 2;
                 });

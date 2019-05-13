@@ -7,6 +7,8 @@ namespace ies {
 
 		private lastSeenErrorAt = 0;
 		private imLoggedIn = false;
+		private bgm: egret.SoundChannel = null;
+		private bgmPosition = 0;
 
 		public constructor() {
 			super(GameProxy.NAME);
@@ -32,11 +34,12 @@ namespace ies {
 		public playerInfo = {
 			answeredList: [],
 			isSoundEffectOn: true,
-			volumeEffect: 1,
+			volumeEffect: 0.5,
 			isSoundBGMOn: true,
-			volumeBGM: 1,
+			volumeBGM: 0.5,
 			firstShowTutorial: true,
 			showEntryCardsGameTips: true,
+			showHiddenCollect: false,
 		}
 
 		public isShowFinalTowQuestion() {
@@ -44,7 +47,7 @@ namespace ies {
 		}
 
 		public isAnswered(qId) {
-			return !qId || this.playerInfo.answeredList.includes(qId);
+			return this.playerInfo.answeredList.includes(qId);
 		}
 
 		public addAnswered(qId) {
@@ -77,15 +80,16 @@ namespace ies {
 
 		public testDeletePlayerInfo() {
 			this.playerInfo.answeredList = [];
+			this.playerInfo.volumeBGM = 0.5;
+			this.playerInfo.volumeEffect = 0.5;
+			this.playerInfo.showEntryCardsGameTips = true;
 			this.savePlayerInfoToStorage();
 		}
 
 		public async initGamesSetting() {
 			await this.getPlayerInfoFromStorage();
 			SoundPool.volumeBGM = this.playerInfo.volumeBGM;
-			if (this.playerInfo.isSoundBGMOn) {
-				SoundPool.playBGM("BGM");
-			}
+			this.playBGM();
 		}
 
         public setVolume(value: number, type?: string) {
@@ -99,19 +103,31 @@ namespace ies {
         }
 
 		public switchBGM(b: boolean) {
-			if (b) {
-				SoundPool.playBGM("BGM");
-			}
-			else {
-				SoundPool.stopBGM();
-			}
 			this.playerInfo.isSoundBGMOn = b;
+			this.playBGM();
             this.savePlayerInfoToStorage();
 		}
 
 		public switchEffect(b: boolean) {
             this.playerInfo.isSoundEffectOn = b;
             this.savePlayerInfoToStorage();
+		}
+
+		public playBGM() {
+			if (this.playerInfo.isSoundBGMOn) {
+				this.bgm = SoundPool.playBGM("BGM", this.bgmPosition);
+			}
+			else {
+				SoundPool.stopBGM();
+				this.bgm = null;
+				this.bgmPosition = 0;
+			}
+		}
+
+		public getBGMPosition() {
+			if (this.bgm) {
+				this.bgmPosition = this.bgm.position;
+			}
 		}
 
 		public playEffect(soundName: string) {
@@ -121,6 +137,13 @@ namespace ies {
 					src = `${Constants.ResourceEndpoint}resource/assets/sound/${soundName.replace('_mp3', '')}.mp3`;
 				}			
 				platform.createInnerAudio(src, this.playerInfo.volumeEffect);
+			}
+		}
+
+		public showHiddenCollect() {
+			if (!this.playerInfo.showHiddenCollect) {
+				this.playerInfo.showHiddenCollect = true;
+				this.savePlayerInfoToStorage();
 			}
 		}
 	}

@@ -13,5 +13,6 @@ namespace ies {
         public sideRes?: string;
         public type?: string;
         public isAnswered?: boolean;
+        public extra?: string;
     }
 }

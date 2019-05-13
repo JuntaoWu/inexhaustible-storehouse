@@ -4,7 +4,7 @@
     <w:Config id="168e50516a2" />
     <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
     <e:Group verticalCenter="0" left="0" right="0" height="840">
-        <!--<e:Image id="scrollBg" source="scroll-background" verticalCenter="0" right="0" left="160"></e:Image>-->
+        <e:Image id="scrollBg" source="scroll-background" verticalCenter="0" right="0" left="160"></e:Image>
         
         <e:Group id="bgDragonBoneGroup" verticalCenter="0" right="0" left="160">
         </e:Group>
@@ -35,7 +35,7 @@
             <e:Image source="scroll-bar"></e:Image>
         </e:Group>
     </e:Group>
-    <e:Group id="blurFilter2" width="100%" height="180">
+    <e:Group id="blurFilter2" scaleX="{viewScaleX}" width="100%" height="180">
         <e:Group visible="{showChapter}" horizontalCenter="-40" verticalCenter="0">
             <e:Button id="btnPrevious" verticalCenter="0">
                 <e:Skin>

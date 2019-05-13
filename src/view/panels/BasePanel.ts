@@ -51,7 +51,7 @@ namespace ies {
         close() {
             this.parent && this.parent.removeChild(this);
             const proxy = ApplicationFacade.getInstance().retrieveProxy(GameProxy.NAME) as GameProxy;
-            proxy.playEffect("btn-back_mp3");
+            proxy.playEffect("crowd-change_mp3");
         }
     }
 }

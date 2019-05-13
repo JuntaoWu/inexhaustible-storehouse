@@ -2,7 +2,7 @@
 <e:Skin class="skins.ies.SettingWindow" currentState="up" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*" states="up,down" >
     <e:Group visible="{showSetting}" horizontalCenter="0" y="100">
-        <e:Group horizontalCenter="0">
+        <e:Group horizontalCenter="0" height="150" width="1300">
             <e:Image source="sound-effect" verticalCenter="0" />
             <e:HSlider id="btnVolumeEffect" verticalCenter="0" x="300">
                 <e:Skin>
@@ -18,7 +18,7 @@
                 </e:Skin>
             </e:ToggleButton>
         </e:Group>
-        <e:Group y="220">
+        <e:Group y="220" height="150" width="1300">
             <e:Image source="sound-bg" verticalCenter="0"/>
             <e:HSlider id="btnVolumeBGM" verticalCenter="0" x="300">
                 <e:Skin>

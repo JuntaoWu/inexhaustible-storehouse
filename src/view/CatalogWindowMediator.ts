@@ -68,14 +68,15 @@ namespace ies {
         }
 
         public tabChange(e: egret.TouchEvent, index: number) {
-            this.proxy.playEffect("common-click_mp3");
             e.currentTarget.selected = true;
             const titles = ['title-catalog', 'title-collect', 'title-setting'];
             const showType = ['showCatalog', 'showCollect', 'showSetting'];
+            const effectSound = ['btn-left_mp3', 'btn-right_mp3', 'btn-card_mp3'];
             this.pageView.titleRes = titles[index];
             showType.forEach((v, i) => {
                 this.pageView[v] = i == index ? true : false;
             });
+            this.proxy.playEffect(effectSound[index]);
         }
 
         public finalClick(e: egret.TouchEvent) {

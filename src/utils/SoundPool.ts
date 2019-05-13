@@ -37,7 +37,7 @@ namespace ies {
             }
         }
 
-        public static playBGM(soundName: string): egret.SoundChannel {
+        public static playBGM(soundName: string, startTime: number = 0): egret.SoundChannel {
 
             SoundPool.stopBGM();
 
@@ -48,7 +48,7 @@ namespace ies {
                 return;
             }
 
-            SoundPool.musicClips[soundName] = music.play();
+            SoundPool.musicClips[soundName] = music.play(startTime);
             SoundPool.musicClips[soundName].volume = SoundPool.volumeBGM;
 
             return SoundPool.musicClips[soundName];

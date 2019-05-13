@@ -1,11 +1,11 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,lazy-load-sprite_json,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,senceAll_tex_png,senceAll_ske_json,senceAll_tex_json,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,collect-min_json",
+			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,senceAll_tex_png,senceAll_ske_json,senceAll_tex_json,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,collect-min_json,lazy-load-sprite_json,btn-cancel",
 			"name": "preload"
 		},
 		{
-			"keys": "btn-wxlogin,loading-background,loading_ske_json,loading_tex_png,loading_tex_json,progress,progress-bg",
+			"keys": "btn-wxlogin,loading-background,loading_ske_json,loading_tex_png,loading_tex_json,progress,progress-bg,loading",
 			"name": "loading"
 		},
 		{
@@ -197,12 +197,6 @@
 			"url": "assets/sprite/percent.fnt",
 			"type": "font",
 			"name": "percent_fnt"
-		},
-		{
-			"url": "assets/sprite/lazy-load-sprite.json",
-			"type": "sheet",
-			"name": "lazy-load-sprite_json",
-			"subkeys": "answer-title,btn-back,btn-close,btn-confirm,btn-developer,btn-rule,btn-run,btn-slider,btn-submit,crowdfunding-task,hidden-task,img-box,input-box,input-screen-bg,main-task,menu-catalog,menu-catalog-active,menu-collect,menu-collect-active,menu-setting,menu-setting-active,percent,sound-bg,sound-effect,switch-off,switch-on,tips1,tips1-bg,tips1-bg-active,tips2,tips2-bg,tips2-bg-active,tips3,tips3-bg,tips3-bg-active,volume-line,volume-line-bg"
 		},
 		{
 			"url": "assets/dragon-bones/loading_tex.png",
@@ -460,10 +454,26 @@
 			"name": "btn-alert-confirm"
 		},
 		{
-			"name": "collect-min_json",
-			"type": "sheet",
 			"url": "assets/collect/min/collect-min.json",
-			"subkeys": "collect-min-1,collect-min-2,collect-min-3,collect-min-4,collect-min-5,collect-min-6,collect-min-7,collect-min-8,collect-min-9,collect-min-10,collect-min-11,collect-min-12,collect-min-13,collect-min-14,collect-min-15,collect-min-16,collect-min-17,collect-min-18,collect-min-19,collect-min-20,collect-min-21,collect-min-22"
+			"type": "sheet",
+			"name": "collect-min_json",
+			"subkeys": "collect-min-1,collect-min-10,collect-min-11,collect-min-12,collect-min-13,collect-min-14,collect-min-15,collect-min-16,collect-min-17,collect-min-18,collect-min-19,collect-min-2,collect-min-20,collect-min-21,collect-min-22,collect-min-3,collect-min-4,collect-min-5,collect-min-6,collect-min-7,collect-min-8,collect-min-9"
+		},
+		{
+			"url": "assets/background/loading.png",
+			"type": "image",
+			"name": "loading"
+		},
+		{
+			"url": "assets/sprite/lazy-load-sprite.json",
+			"type": "sheet",
+			"name": "lazy-load-sprite_json",
+			"subkeys": "answer-title,btn-back,btn-close,btn-confirm,btn-developer,btn-rule,btn-run,btn-slider,btn-submit,crowdfunding-task,hidden-task,hidden-task-bg,img-box,input-box,input-screen-bg,main-task,menu-catalog,menu-catalog-active,menu-collect,menu-collect-active,menu-setting,menu-setting-active,percent,sound-bg,sound-effect,switch-off,switch-on,tips1,tips1-bg,tips1-bg-active,tips2,tips2-bg,tips2-bg-active,tips3,tips3-bg,tips3-bg-active,volume-line,volume-line-bg"
+		},
+		{
+			"url": "assets/button/btn-cancel.png",
+			"type": "image",
+			"name": "btn-cancel"
 		}
 	]
 }

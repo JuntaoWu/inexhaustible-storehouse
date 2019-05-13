@@ -29,6 +29,8 @@ namespace ies {
                 collectList[0][i - 1] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
             }
             collectList[1] = collectList[0].slice(0, 6);
+
+            this.pageView.showHiddenCollect = this.proxy.playerInfo.showHiddenCollect; //显示隐藏收藏
             let totalCollect = 0, collected = 0;
             for (let i = 0; i < 3; i++) {
                 totalCollect += collectList[i].length;
@@ -52,6 +54,7 @@ namespace ies {
 
         public tapItem(e: eui.ItemTapEvent) {
             if (e.item) {
+                this.proxy.playEffect("crowd-change_mp3");
                 this.sendNotification(SceneCommand.SHOW_IMGPRE_WINDOW, e.item.replace('-min', ''));
             }
         }

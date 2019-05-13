@@ -34,6 +34,7 @@ namespace ies {
         public titleText: string;
         public showCrowd: boolean;
         public showChapter: boolean = true;
+        public viewScaleX: number;
 
         public constructor() {
             super();
@@ -44,8 +45,8 @@ namespace ies {
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
-            // this.width = this.stage.stageWidth;
-            this.scaleX = this.stage.stageWidth / 1920;
+            this.width = this.stage.stageWidth;
+            this.viewScaleX = this.stage.stageWidth / 1920;
 
             this.blurFilter4.x = this.width;
             this.scrollerCrowd.visible = false;

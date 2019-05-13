@@ -47,12 +47,20 @@ namespace ies {
 
             egret.lifecycle.onPause = () => {
                 egret.ticker.pause();
+                const proxy = ApplicationFacade.getInstance().retrieveProxy(GameProxy.NAME) as GameProxy;
+                if (proxy) {
+                    proxy.getBGMPosition();
+                }
             }
 
             egret.lifecycle.onResume = () => {
                 egret.ticker.resume();
                 console.log("egret onResume");
                 // platform.resume();
+                const proxy = ApplicationFacade.getInstance().retrieveProxy(GameProxy.NAME) as GameProxy;
+                if (proxy) {
+                    proxy.playBGM();
+                }
             }
 
             //inject the custom material parser

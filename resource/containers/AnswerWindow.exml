@@ -5,9 +5,9 @@
     <e:Group id="container" horizontalCenter="0">
         <e:Group horizontalCenter="0" top="80">
             <e:Image source="answer-title" horizontalCenter="0"></e:Image>
-            <e:Image horizontalCenter="0" y="149" source="input-screen-bg"></e:Image>
+            <e:Image horizontalCenter="0" y="149" source="input-screen-bg" height="550"></e:Image>
             <e:Group horizontalCenter="0" y="80">
-                <e:Group horizontalCenter="0" y="110">
+                <e:Group horizontalCenter="0" y="140">
                     <e:Label text="{tips}" size="55" maxWidth="820" width="1200" horizontalCenter="0" textColor="0xffffff"/>
                 </e:Group>
                 <e:Group horizontalCenter="-4" width="1280">
@@ -34,17 +34,17 @@
                     </e:ToggleButton>
                 </e:Group>
             </e:Group>
-            <e:Group horizontalCenter="0" y="475">
+            <e:Group horizontalCenter="0" y="500" height="190">
                 <e:List id="textInputList" horizontalCenter="0" verticalCenter="0">
                     <e:layout>
-                        <e:TileLayout id="listTileLayout" orientation="columns" requestedColumnCount="7" verticalGap="10" horizontalGap="55" />
+                        <e:TileLayout id="listTileLayout" orientation="rows" requestedColumnCount="7" verticalGap="10" horizontalGap="55" />
                     </e:layout>
                 </e:List>
-                <e:TextInput id="textInput" alpha="0" height="120" width="100%" horizontalCenter="5"/>
+                <e:TextInput id="textInput" alpha="0" height="150" width="100%" horizontalCenter="5" verticalCenter="0"/>
                 
             </e:Group>
             
-            <e:Button id="btnConfirm" horizontalCenter="0" y="680">
+            <e:Button id="btnConfirm" horizontalCenter="0" y="720">
                 <e:Skin>
                     <e:Image source="btn-submit" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>

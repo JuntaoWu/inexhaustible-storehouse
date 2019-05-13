@@ -12,27 +12,33 @@
         <!--<e:Image horizontalCenter="0" y="30" source="{titleRes}"/>-->
 
         <e:Group y="240" height="540" width="430">
-            <e:ToggleButton id="btnCatalog" selected="{showCatalog}" top="0" horizontalCenter="0">
-                <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-catalog" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
-                    <e:Image source="menu-catalog-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:ToggleButton>
-            <e:ToggleButton id="btnCollect" selected="{showCollect}" verticalCenter="0" horizontalCenter="0">
-                <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-collect" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
-                    <e:Image source="menu-collect-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:ToggleButton>
-            <e:ToggleButton id="btnSetting" selected="{showSetting}" bottom="0" horizontalCenter="0">
-                <e:Skin states="up,upAndSelected">
-                    <e:Image source="menu-setting" includeIn="up" horizontalCenter="0" verticalCenter="0" />
-                    <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
-                    <e:Image source="menu-setting-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:ToggleButton>
+            <e:Group top="0" horizontalCenter="0" height="180">
+                <e:ToggleButton id="btnCatalog" selected="{showCatalog}" verticalCenter="0">
+                    <e:Skin states="up,upAndSelected">
+                        <e:Image source="menu-catalog" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
+                        <e:Image source="menu-catalog-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:ToggleButton>
+            </e:Group>
+            <e:Group verticalCenter="0" horizontalCenter="0" height="180">
+                <e:ToggleButton id="btnCollect" selected="{showCollect}" verticalCenter="0">
+                    <e:Skin states="up,upAndSelected">
+                        <e:Image source="menu-collect" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
+                        <e:Image source="menu-collect-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:ToggleButton>
+            </e:Group>
+            <e:Group bottom="0" horizontalCenter="0" height="180">
+                <e:ToggleButton id="btnSetting" selected="{showSetting}" verticalCenter="0">
+                    <e:Skin states="up,upAndSelected">
+                        <e:Image source="menu-setting" includeIn="up" horizontalCenter="0" verticalCenter="0" />
+                        <!--<e:Image source="menu-active-bg" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />-->
+                        <e:Image source="menu-setting-active" includeIn="upAndSelected" horizontalCenter="0" verticalCenter="0" />
+                    </e:Skin>
+                </e:ToggleButton>
+            </e:Group>
         </e:Group>
 		<e:Group visible="{showCatalog}" left="440" right="40" top="120" bottom="20">
             <e:Scroller id="catalogScroller" scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0" top="0" bottom="100">

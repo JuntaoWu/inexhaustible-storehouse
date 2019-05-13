@@ -6,6 +6,7 @@ namespace ies {
         // public collectList: eui.List;
         public title: string = '目录';
         public progressWidth: number;
+        public showHiddenCollect: boolean = false;
 
         public progressTitle: eui.BitmapLabel;
         public collectRate1: eui.BitmapLabel;

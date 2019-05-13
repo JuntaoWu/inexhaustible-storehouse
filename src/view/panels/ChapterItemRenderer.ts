@@ -28,14 +28,20 @@ namespace ies {
         private isPlayed2: boolean;
         private isPlayedCloud: boolean;
 
+        private btnExtra: eui.Button;
+        private tapTime: number;
+        private tapStartTime: number;
+
         protected async dataChanged() {
             super.dataChanged();
             if (this.data.isDragonBone) {
                 if (!this.dragonBone) {
                     this.dragonBone = DragonBones.createDragonBone("senceAll", this.data.armature);
-                    this.dragonBone.scaleX = 2;
-                    this.dragonBone.scaleY = 2;
-                    this.dragonBone && this.dragonBoneGroup.addChild(this.dragonBone);
+                    if (this.dragonBone) {
+                        this.dragonBone.scaleX = 2;
+                        this.dragonBone.scaleY = 2;
+                        this.dragonBone && this.dragonBoneGroup.addChild(this.dragonBone);
+                    }
                 }
                 if (this.data.answeredNum == 0) {
                     this.dragonBone.animation.play("011", 0);
@@ -68,6 +74,31 @@ namespace ies {
                         this.dragonBone.animation.play("015", 0);
                     }, this, 1500);
                 }
+            }
+            else if (this.data.showExtra) {
+                if (!this.btnExtra.visible) {
+                    this.btnExtra.visible = true;
+                    this.btnExtra.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnExtraClick, this);
+                }
+                
+            }
+        }
+
+        private btnExtraClick(event: egret.TouchEvent) {
+            console.log(this.tapTime);
+            if (!this.tapStartTime) {
+                this.tapStartTime = new Date().getTime();
+                this.tapTime = 0;
+                egret.setTimeout(() => {
+                    this.tapStartTime = null;
+                }, this, 1000);
+            }
+            this.tapTime += 1;
+            if (this.tapTime >= 5) {
+                const question = { ...this.proxy.questionMap.get((0).toString()) };
+                question.isAnswered = this.proxy.isAnswered(0);
+                this.proxy.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
+                this.proxy.showHiddenCollect();
             }
         }
     }
