@@ -143,10 +143,15 @@ namespace ies {
             try {
 
                 if (platform.name != "native") {
-                    const checkVersionResult: any = await AccountAdapter.checkForUpdate();
+                    try {
+                        const checkVersionResult: any = await AccountAdapter.checkForUpdate();
 
-                    if (checkVersionResult.hasUpdate) {
-                        platform.applyUpdate(checkVersionResult.version);
+                        if (checkVersionResult.hasUpdate) {
+                            platform.applyUpdate(checkVersionResult.version);
+                        }
+                    }
+                    catch (e) {
+                        console.log(e);
                     }
                 }
 

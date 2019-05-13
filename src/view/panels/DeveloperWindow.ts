@@ -29,7 +29,6 @@ namespace ies {
         private tapTime: number;
         private tapStartTime: number;
         private btnExtraClick(event: egret.TouchEvent) {
-            console.log(this.tapTime);
             if (!this.tapStartTime) {
                 this.tapStartTime = new Date().getTime();
                 this.tapTime = 0;

@@ -34,6 +34,7 @@ namespace ies {
 
         protected async dataChanged() {
             super.dataChanged();
+            this.width = 1880;
             if (this.data.isDragonBone) {
                 if (!this.dragonBone) {
                     this.dragonBone = DragonBones.createDragonBone("senceAll", this.data.armature);
@@ -80,12 +81,13 @@ namespace ies {
                     this.btnExtra.visible = true;
                     this.btnExtra.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnExtraClick, this);
                 }
-                
+            }
+            else {
+                this.width = 1600;
             }
         }
 
         private btnExtraClick(event: egret.TouchEvent) {
-            console.log(this.tapTime);
             if (!this.tapStartTime) {
                 this.tapStartTime = new Date().getTime();
                 this.tapTime = 0;

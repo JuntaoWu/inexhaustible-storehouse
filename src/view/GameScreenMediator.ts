@@ -257,13 +257,12 @@ namespace ies {
         }
 
         public moveToTargetIndex(targetIndex: number) {
-            let targetScrollH = (Constants.contentWidth + Constants.listGap) * targetIndex ;
-            targetScrollH = Math.max(0, targetScrollH);
+            let targetScrollH = (Constants.contentWidth * 0.85 + Constants.listGap) * targetIndex ;
             
             if (this.gameScreen.scrollerCrowd.visible) {
-                targetScrollH = targetScrollH - Constants.contentWidth * 0.9;
+                targetScrollH = targetScrollH - Constants.contentWidth * 0.8;
                 const maxScrollH = this.gameScreen.scrollerCrowd.viewport.contentWidth - this.gameScreen.scrollerCrowd.width;
-                targetScrollH = Math.min(maxScrollH, targetScrollH);
+                targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
                 egret.Tween.get(this.gameScreen.listCrowd).to({ scrollH: targetScrollH }, 200).call(() => {
                     this.chapterCrowdIndex = targetIndex;
                     this.proxy.playEffect("crowd-change_mp3");
@@ -271,7 +270,7 @@ namespace ies {
             }
             else {
                 const maxScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
-                targetScrollH = Math.min(maxScrollH, targetScrollH);
+                targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
                 egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 200).call(() => {
                     this.chapterIndex = targetIndex;
                     this.proxy.playEffect("scroller-change_mp3");
@@ -291,6 +290,7 @@ namespace ies {
             else {
                 const currentIndex = this.chapterCrowdIndex;
                 if (currentIndex <= 1) {
+                    this.showCrowdfunding(false);
                     return;
                 }
                 this.moveToTargetIndex(currentIndex - 1);
@@ -302,6 +302,7 @@ namespace ies {
             if (!this.gameScreen.scrollerCrowd.visible) {
                 const currentIndex = this.chapterIndex;
                 if (currentIndex >= (this.gameScreen.listChapter.numElements - 1)) {
+                    this.showCrowdfunding();
                     return;
                 }
                 this.moveToTargetIndex(currentIndex + 1);
@@ -332,7 +333,7 @@ namespace ies {
         public scrollCrowdChange(event: eui.UIEvent) {
             const scrollH = event.target.viewport.scrollH;
             const lowerBound = Math.floor((scrollH - Constants.coverWidth) / (Constants.contentWidth + Constants.listGap));
-            let higherBound = Math.floor((scrollH + Constants.contentWidth * 1.5 + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            let higherBound = Math.floor((scrollH + Constants.contentWidth * 1.2  + Constants.listGap) / (Constants.contentWidth * 0.8 + Constants.listGap));
             higherBound = Math.max(1, Math.min(this.gameScreen.listCrowd.numElements, higherBound));
             if (this.chapterCrowdIndex != higherBound && this.gameScreen.scrollerCrowd.visible) {
                 this.chapterCrowdIndex = higherBound;
