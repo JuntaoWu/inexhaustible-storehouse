@@ -25,10 +25,11 @@ namespace ies {
             ];
             const collectList = [[],[],[]];
             for (let i = 1; i <= 22; i++) {
-                // const v = this.proxy.questionMap.get(i.toString());
                 collectList[0][i - 1] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
             }
-            collectList[1] = collectList[0].slice(0, 6);
+            for (let i = 23; i <= 28; i++) {
+                collectList[1][i - 23] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
+            }
 
             this.pageView.showHiddenCollect = this.proxy.playerInfo.showHiddenCollect; //显示隐藏收藏
             let totalCollect = 0, collected = 0;

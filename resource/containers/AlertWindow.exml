@@ -20,12 +20,12 @@
             </e:Button>
         </e:Group>
         <e:Group id="btnLabel" horizontalCenter="0" y="400">
-            <e:Button id="closeButton" label="{cancelLabel}">
+            <e:Button id="btnCloseLabel" label="{cancelLabel}">
                 <!--<e:Skin>
                     <e:Image source="btn-cancel" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>-->
             </e:Button>
-            <e:Button id="btnConfirm" x="360" label="{confirmLabel}">
+            <e:Button id="btnConfirm1" x="360" label="{confirmLabel}">
                 <!--<e:Skin>
                     <e:Image source="btn-alert-confirm" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>-->

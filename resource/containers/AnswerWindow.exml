@@ -5,7 +5,7 @@
     <e:Group id="container" horizontalCenter="0">
         <e:Group horizontalCenter="0" top="80">
             <e:Image source="answer-title" horizontalCenter="0"></e:Image>
-            <e:Image horizontalCenter="0" y="149" source="input-screen-bg" height="550"></e:Image>
+            <e:Image horizontalCenter="0" y="145" source="input-screen-bg" height="550"></e:Image>
             <e:Group horizontalCenter="0" y="80">
                 <e:Group horizontalCenter="0" y="140">
                     <e:Label text="{tips}" size="55" maxWidth="820" width="1200" horizontalCenter="0" textColor="0xffffff"/>
@@ -56,6 +56,5 @@
                 <e:Image source="btn-close" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
-    </e:Group>
-    
+    </e:Group>    
 </e:Skin>

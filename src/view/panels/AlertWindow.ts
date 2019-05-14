@@ -9,10 +9,6 @@ namespace ies {
             this.name = "alertWindow";
             this.skinName = "skins.ies.AlertWindow";
             this.addEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
-            this.btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-                this.close();
-                this.cbk && this.cbk();
-            },this);
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
@@ -20,12 +16,24 @@ namespace ies {
             // this.scaleX = this.stage.stageWidth / 1920;
 
             this.removeEventListener(eui.UIEvent.CREATION_COMPLETE, this.createCompleteEvent, this);
+            this.btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
+                this.close();
+                this.cbk && this.cbk();
+            },this);
+            this.btnConfirm1.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
+                this.close();
+                this.cbk && this.cbk();
+            },this);
+            this.btnCloseLabel.addEventListener(egret.TouchEvent.TOUCH_TAP, this.close ,this);
         }
 
         public btnCommon: eui.Group;
         public btnLabel: eui.Group;
 
         public btnConfirm: eui.Button;
+        public btnConfirm1: eui.Button;
+        public btnCloseLabel: eui.Button;
+
         public msg: string;
         public confirmLabel: string;
         public cancelLabel: string;

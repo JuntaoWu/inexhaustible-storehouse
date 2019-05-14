@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-7,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,senceAll_tex_png,senceAll_ske_json,senceAll_tex_json,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,collect-min_json,lazy-load-sprite_json,btn-cancel",
+			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,card-back,card-front,exclusive-4,exclusive-5,exclusive-6,exclusive-3,exclusive-2,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,senceAll_tex_png,senceAll_ske_json,senceAll_tex_json,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,lazy-load-sprite_json,btn-cancel,exclusive-1,collect-23,collect-24,collect-25,collect-26,collect-27,collect-28,collect-min_json",
 			"name": "preload"
 		},
 		{
@@ -120,11 +120,6 @@
 			"url": "assets/cards-game/exclusive-3.png",
 			"type": "image",
 			"name": "exclusive-3"
-		},
-		{
-			"url": "assets/cards-game/exclusive-7.png",
-			"type": "image",
-			"name": "exclusive-7"
 		},
 		{
 			"url": "assets/cards-game/exclusive-2.png",
@@ -454,12 +449,6 @@
 			"name": "btn-alert-confirm"
 		},
 		{
-			"url": "assets/collect/min/collect-min.json",
-			"type": "sheet",
-			"name": "collect-min_json",
-			"subkeys": "collect-min-1,collect-min-10,collect-min-11,collect-min-12,collect-min-13,collect-min-14,collect-min-15,collect-min-16,collect-min-17,collect-min-18,collect-min-19,collect-min-2,collect-min-20,collect-min-21,collect-min-22,collect-min-3,collect-min-4,collect-min-5,collect-min-6,collect-min-7,collect-min-8,collect-min-9"
-		},
-		{
 			"url": "assets/background/loading.png",
 			"type": "image",
 			"name": "loading"
@@ -474,6 +463,47 @@
 			"url": "assets/button/btn-cancel.png",
 			"type": "image",
 			"name": "btn-cancel"
+		},
+		{
+			"url": "assets/cards-game/exclusive-1.png",
+			"type": "image",
+			"name": "exclusive-1"
+		},
+		{
+			"url": "assets/collect/collect-23.png",
+			"type": "image",
+			"name": "collect-23"
+		},
+		{
+			"url": "assets/collect/collect-24.png",
+			"type": "image",
+			"name": "collect-24"
+		},
+		{
+			"url": "assets/collect/collect-25.png",
+			"type": "image",
+			"name": "collect-25"
+		},
+		{
+			"url": "assets/collect/collect-26.png",
+			"type": "image",
+			"name": "collect-26"
+		},
+		{
+			"url": "assets/collect/collect-27.png",
+			"type": "image",
+			"name": "collect-27"
+		},
+		{
+			"url": "assets/collect/collect-28.png",
+			"type": "image",
+			"name": "collect-28"
+		},
+		{
+			"url": "assets/collect/min/collect-min.json",
+			"type": "sheet",
+			"name": "collect-min_json",
+			"subkeys": "collect-min-1,collect-min-10,collect-min-11,collect-min-12,collect-min-13,collect-min-14,collect-min-15,collect-min-16,collect-min-17,collect-min-18,collect-min-19,collect-min-2,collect-min-20,collect-min-21,collect-min-22,collect-min-23,collect-min-24,collect-min-25,collect-min-26,collect-min-27,collect-min-28,collect-min-3,collect-min-4,collect-min-5,collect-min-6,collect-min-7,collect-min-8,collect-min-9"
 		}
 	]
 }
