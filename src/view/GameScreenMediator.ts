@@ -53,32 +53,22 @@ namespace ies {
             const sources = [];
             const exclusiveList = [];
             this.chapterIndex = 0;
-            this.proxy.questionMap.forEach(v => {
-                // const res = (v.id && this.proxy.isAnswered(v.id)) ? `${v.res}-revealed` : v.res.toString();
-                if (v.type == "common") {
-                    if (v.id == 0) {
-                        sources[0] = {
-                            res: v.res,
-                            showExtra: true
-                        };
-                    }
-                    else if (v.id % 2 == 0) {
-                        const res = `${v.res}-revealed`;
-                        const answeredNum = (this.proxy.isAnswered(v.id) ? 1 : 0) + (this.proxy.isAnswered(+v.id - 1) ? 1 : 0);
-                        sources[v.id / 2] = {
-                            isDragonBone: true,
-                            armature: v.id > 19 ? `S${v.id / 2}` : `S0${v.id / 2}`,
-                            answeredNum: answeredNum
-                        };
-                    }
-                }
-                else {
-                    exclusiveList.push({res: v.res});
-                }
-            });
-            // if (!this.proxy.isShowFinalTowQuestion()) {
-                sources.splice(11, 1);
-            // }
+            sources[0] = {
+                res: "logo-with-bg",
+                showExtra: true
+            };
+            for (let i = 1; i <= 10; i++) {
+                const answeredNum = (this.proxy.isAnswered(i * 2) ? 1 : 0) + (this.proxy.isAnswered(i * 2 - 1) ? 1 : 0);
+                const armatureName = i == 10 ? `S${i}` : `S0${i}`;
+                sources[i] = {
+                    isDragonBone: true,
+                    armature: armatureName,
+                    answeredNum: answeredNum
+                };
+            }
+            for (let i = 23; i <= 28; i++) {
+                exclusiveList.push({res: this.proxy.questionMap.get((i).toString()).res});
+            }
             this.arrCollection = new eui.ArrayCollection(sources);
             this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listChapter.dataProvider = this.arrCollection;

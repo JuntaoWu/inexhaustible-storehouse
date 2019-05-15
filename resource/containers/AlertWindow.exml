@@ -19,13 +19,13 @@
                 </e:Skin>
             </e:Button>
         </e:Group>
-        <e:Group id="btnLabel" horizontalCenter="0" y="400">
-            <e:Button id="btnCloseLabel" label="{cancelLabel}">
+        <e:Group id="btnLabel" horizontalCenter="0" y="400" width="677" height="144">
+            <e:Button id="btnCloseLabel" label="{cancelLabel}" width="300" height="100" verticalCenter="0">
                 <!--<e:Skin>
                     <e:Image source="btn-cancel" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>-->
             </e:Button>
-            <e:Button id="btnConfirm1" x="360" label="{confirmLabel}">
+            <e:Button id="btnConfirm1" x="360" label="{confirmLabel}" width="300" height="100" verticalCenter="0">
                 <!--<e:Skin>
                     <e:Image source="btn-alert-confirm" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>-->

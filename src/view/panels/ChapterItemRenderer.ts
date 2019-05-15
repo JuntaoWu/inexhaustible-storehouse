@@ -97,10 +97,9 @@ namespace ies {
             }
             this.tapTime += 1;
             if (this.tapTime >= 5) {
-                const question = { ...this.proxy.questionMap.get((0).toString()) };
-                question.isAnswered = this.proxy.isAnswered(0);
+                const question = { ...this.proxy.questionMap.get((29).toString()) };
+                question.isAnswered = this.proxy.isAnswered(29);
                 this.proxy.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
-                this.proxy.showHiddenCollect();
             }
         }
     }

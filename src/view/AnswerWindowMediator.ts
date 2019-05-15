@@ -58,6 +58,9 @@ namespace ies {
         private isConfirm: boolean;
         public confirmClick(event: egret.TouchEvent) {
             if (this.pageView.textInput.text == this.pageView.answerText) {
+                if (this.pageView.question.type == "hidden" && !this.proxy.playerInfo.showHiddenCollect) {
+                    this.proxy.showHiddenCollect();
+                }
                 this.proxy.addAnswered(this.pageView.question.id);
                 this.sendNotification(GameProxy.ANSWERED, this.pageView.question.id);
                 this.pageView.close();

@@ -18,17 +18,15 @@ namespace ies {
         }
 
         public async initData() {
-            const titleList = [
-                'main-task', 
-                'crowdfunding-task',
-                ''
-            ];
             const collectList = [[],[],[]];
             for (let i = 1; i <= 22; i++) {
                 collectList[0][i - 1] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
             }
             for (let i = 23; i <= 28; i++) {
                 collectList[1][i - 23] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
+            }
+            for (let i = 29; i <= 30; i++) {
+                collectList[2][i - 29] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
             }
 
             this.pageView.showHiddenCollect = this.proxy.playerInfo.showHiddenCollect; //显示隐藏收藏

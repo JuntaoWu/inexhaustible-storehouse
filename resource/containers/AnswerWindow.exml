@@ -8,7 +8,7 @@
             <e:Image horizontalCenter="0" y="145" source="input-screen-bg" height="550"></e:Image>
             <e:Group horizontalCenter="0" y="80">
                 <e:Group horizontalCenter="0" y="140">
-                    <e:Label text="{tips}" size="55" maxWidth="820" width="1200" horizontalCenter="0" textColor="0xffffff"/>
+                    <e:Label text="{tips}" size="45" maxWidth="820" width="1200" horizontalCenter="0" textColor="0xffffff"/>
                 </e:Group>
                 <e:Group horizontalCenter="-4" width="1280">
                     <e:ToggleButton id="btnTips1">
