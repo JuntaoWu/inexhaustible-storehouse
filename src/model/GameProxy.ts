@@ -39,7 +39,6 @@ namespace ies {
 			volumeBGM: 0.5,
 			firstShowTutorial: true,
 			showEntryCardsGameTips: true,
-			showHiddenCollect: false,
 		}
 
 		public isShowFinalTowQuestion() {
@@ -138,13 +137,6 @@ namespace ies {
 					src = `${Constants.ResourceEndpoint}resource/assets/sound/${soundName.replace('_mp3', '')}.mp3`;
 				}			
 				platform.createInnerAudio(src, this.playerInfo.volumeEffect);
-			}
-		}
-
-		public showHiddenCollect() {
-			if (!this.playerInfo.showHiddenCollect) {
-				this.playerInfo.showHiddenCollect = true;
-				this.savePlayerInfoToStorage();
 			}
 		}
 	}

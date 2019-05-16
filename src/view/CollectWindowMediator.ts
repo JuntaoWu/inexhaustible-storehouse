@@ -29,15 +29,20 @@ namespace ies {
                 collectList[2][i - 29] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
             }
 
-            this.pageView.showHiddenCollect = this.proxy.playerInfo.showHiddenCollect; //显示隐藏收藏
+            this.pageView.showHiddenCollect = !!collectList[2].filter(i => i).length; //显示隐藏收藏
             let totalCollect = 0, collected = 0;
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 2; i++) {
                 totalCollect += collectList[i].length;
                 collected += collectList[i].filter(i => i).length;
                 
                 this.pageView[`listImage${i+1}`].dataProvider = new eui.ArrayCollection(collectList[i]);
                 this.pageView[`listImage${i+1}`].itemRenderer = CollectImageItemRenderer;
                 this.pageView[`collectRate${i+1}`].text = collectList[i].length ? `${collectList[i].filter(i => i).length}/${collectList[i].length}` : '';
+            }
+            if (this.pageView.showHiddenCollect) {
+                this.pageView.listImage3.dataProvider = new eui.ArrayCollection(collectList[2]);
+                this.pageView.listImage3.itemRenderer = CollectImageItemRenderer;
+                this.pageView.collectRate3.text = collectList[2].length ? `${collectList[2].filter(i => i).length}/${collectList[2].length}` : '';
             }
             const capsNums = ['十', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
             const percent = Math.floor((collected / (totalCollect + 4)) * 100);
