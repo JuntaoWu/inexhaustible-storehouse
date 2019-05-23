@@ -45,7 +45,7 @@ namespace ies {
                     }
                 }
                 if (this.data.answeredNum == 0) {
-                    this.dragonBone.animation.play("011", 0);
+                    this.dragonBone.animation.play("1", 0);
                     if (!this.cloud) {
                         this.cloud = DragonBones.createDragonBone("masks", "cloude");
                         this.cloud && this.cloudGroup.addChild(this.cloud);
@@ -58,21 +58,21 @@ namespace ies {
                     }
                     if (!this.isPlayed1) {
                         this.proxy.playEffect("change12_mp3");
-                        this.dragonBone.animation.play("012", 1);
+                        this.dragonBone.animation.play("2", 1);
                         this.isPlayed1 = true;
                     }
                     egret.setTimeout(() => {
-                        this.dragonBone.animation.play("013", 0);
+                        this.dragonBone.animation.play("3", 0);
                     }, this, 1500);
                 }
                 else {
                     if (!this.isPlayed2) {
                         this.proxy.playEffect("change23_mp3");
-                        this.dragonBone.animation.play("014", 1);
+                        this.dragonBone.animation.play("4", 1);
                         this.isPlayed2 = true;
                     }
                     egret.setTimeout(() => {
-                        this.dragonBone.animation.play("015", 0);
+                        this.dragonBone.animation.play("5", 0);
                     }, this, 1500);
                 }
             }
