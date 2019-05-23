@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,lazy-load-sprite_json,btn-cancel,collect-23,collect-24,collect-25,collect-26,collect-27,collect-28,collect-min_json,collect-29,collect-30,collect-min-29,collect-min-30,SenceAll_ske_json,SenceAll_tex_0_json,SenceAll_tex_0_png,SenceAll_tex_1_json,SenceAll_tex_1_png,SenceAll_tex_2_json,SenceAll_tex_2_png,SenceAll_tex_3_json,SenceAll_tex_3_png,SenceAll_tex_4_json,SenceAll_tex_4_png,SenceAll_tex_5_json,SenceAll_tex_5_png,SenceAll_tex_6_json,SenceAll_tex_6_png,SenceAll_tex_7_json,SenceAll_tex_7_png,SenceAll_tex_8_json,SenceAll_tex_8_png,SenceAll_tex_9_json,SenceAll_tex_9_png,SenceAll_tex_10_json,SenceAll_tex_10_png,card-game-img7,card-game-img1,card-game-img2,card-game-img3,card-game-img4,card-game-img5,card-game-img6,exclusive-6,exclusive-1,exclusive-2,exclusive-3,exclusive-4,exclusive-5,cardgame-title_json,card-scroll-bar,senceAll_tex_png,senceAll_ske_json,senceAll_tex_json",
+			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,lazy-load-sprite_json,btn-cancel,collect-23,collect-24,collect-25,collect-26,collect-27,collect-28,collect-min_json,collect-29,collect-30,collect-min-29,collect-min-30,SenceAll_ske_json,SenceAll_tex_0_json,SenceAll_tex_0_png,SenceAll_tex_1_json,SenceAll_tex_1_png,SenceAll_tex_2_json,SenceAll_tex_2_png,SenceAll_tex_3_json,SenceAll_tex_3_png,SenceAll_tex_4_json,SenceAll_tex_4_png,SenceAll_tex_5_json,SenceAll_tex_5_png,SenceAll_tex_6_json,SenceAll_tex_6_png,SenceAll_tex_7_json,SenceAll_tex_7_png,SenceAll_tex_8_json,SenceAll_tex_8_png,SenceAll_tex_9_json,SenceAll_tex_9_png,SenceAll_tex_10_json,SenceAll_tex_10_png,card-game-img7,card-game-img1,card-game-img2,card-game-img3,card-game-img4,card-game-img5,card-game-img6,exclusive-6,exclusive-1,exclusive-2,exclusive-3,exclusive-4,exclusive-5,cardgame-title_json,card-scroll-bar",
 			"name": "preload"
 		},
 		{
@@ -660,21 +660,6 @@
 			"url": "assets/cards-game/card-scroll-bar.png",
 			"type": "image",
 			"name": "card-scroll-bar"
-		},
-		{
-			"name": "senceAll_tex_png",
-			"type": "image",
-			"url": "assets/dragon-bones/senceAll_tex.png"
-		},
-		{
-			"name": "senceAll_ske_json",
-			"type": "json",
-			"url": "assets/dragon-bones/senceAll_ske.json"
-		},
-		{
-			"name": "senceAll_tex_json",
-			"type": "json",
-			"url": "assets/dragon-bones/senceAll_tex.json"
 		}
 	]
 }

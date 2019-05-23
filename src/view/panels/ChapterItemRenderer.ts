@@ -37,7 +37,7 @@ namespace ies {
             this.width = 1880;
             if (this.data.isDragonBone) {
                 if (!this.dragonBone) {
-                    this.dragonBone = DragonBones.createDragonBone("senceAll", this.data.armature);
+                    this.dragonBone = DragonBones.createDragonBone("SenceAll", this.data.armature);
                     if (this.dragonBone) {
                         this.dragonBone.scaleX = 2;
                         this.dragonBone.scaleY = 2;
