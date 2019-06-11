@@ -45,6 +45,7 @@ namespace ies {
         public static listGap = 0;
         public static coverWidth = 234;
         public static contentWidth = 1880;
+        public static contentCrowdWidth = 1600;
     }
 
 }

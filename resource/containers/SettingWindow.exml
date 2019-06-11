@@ -6,9 +6,9 @@
             <e:Image source="sound-effect" verticalCenter="0" />
             <e:HSlider id="btnVolumeEffect" verticalCenter="0" x="300">
                 <e:Skin>
-                    <e:Image id="track" source="volume-line-bg" width="760" verticalCenter="0"/>
+                    <e:Image id="track" source="volume-line-bg_png" width="760" verticalCenter="0"/>
                     <e:Image id="trackHighlight" source="volume-line" width="760" verticalCenter="0"/>
-                    <e:Image id="thumb" source="btn-slider" verticalCenter="0"/>
+                    <e:Image id="thumb" source="btn-slider_png" verticalCenter="0"/>
                 </e:Skin>
             </e:HSlider>
             <e:ToggleButton id="switchEffect" verticalCenter="0" x="1120">
@@ -22,9 +22,9 @@
             <e:Image source="sound-bg" verticalCenter="0"/>
             <e:HSlider id="btnVolumeBGM" verticalCenter="0" x="300">
                 <e:Skin>
-                    <e:Image id="track" source="volume-line-bg" width="760" verticalCenter="0"/>
+                    <e:Image id="track" source="volume-line-bg_png" width="760" verticalCenter="0"/>
                     <e:Image id="trackHighlight" source="volume-line" width="760" verticalCenter="0"/>
-                    <e:Image id="thumb" source="btn-slider" verticalCenter="0"/>
+                    <e:Image id="thumb" source="btn-slider_png" verticalCenter="0"/>
                 </e:Skin>
             </e:HSlider>
             <e:ToggleButton id="switchBG" verticalCenter="0" x="1120">

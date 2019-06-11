@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skins.ies.CardsGameWindow" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skins.ies.CardsGameRuleWindow" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*" >
     <e:Group id="container" width="100%" height="100%">
         <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>

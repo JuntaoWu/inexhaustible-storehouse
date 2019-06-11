@@ -151,11 +151,50 @@ namespace ies {
             if (this.gameScreen.listChapter.dataProvider) {
                 const item = this.gameScreen.listChapter.dataProvider.getItemAt(v);
                 if (item) {
+                    const isAnsweredAll = this.proxy.isAnsweredAll();
                     item.answeredNum = answeredNum;
+                    item.isAnsweredAll = isAnsweredAll;
                 }
                 this.arrCollection.itemUpdated(item);
             }
             this.bgColorChange(answeredNum);
+        }
+
+        private timeoutId = [];
+        playFinalAnimation() {
+            console.log('play final animation.');
+            this.timeoutId.forEach(i => {
+                if (i) {
+                    egret.clearTimeout(i);
+                }
+            });
+            this.moveToTargetIndex(1);
+            for (let i = 2; i <= 10; i++) {
+                this.timeoutId[i] = egret.setTimeout(() => {
+                    let targetScrollH = (Constants.contentWidth + Constants.listGap) * i + (this.gameScreen.scrollerCrowd.width - Constants.contentWidth) / 2;
+                    const maxScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
+                    targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
+                    egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 1000).call(() => {
+                        this.chapterIndex = i;
+                    });
+                }, this, 4000*(i-1)); 
+            }
+            // this.timeoutId[0] = egret.setInterval(() => {
+            //     let scrollH = this.gameScreen.scroller.viewport.scrollH;
+            //     scrollH += (Constants.contentWidth / 450);
+            //     const maxScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
+            //     scrollH = Math.max(0, Math.min(maxScrollH, scrollH));
+            //     this.gameScreen.scroller.viewport.scrollH = scrollH;
+            //     if (maxScrollH == scrollH) {
+            //         console.log('stop interval.');
+            //         egret.clearInterval(this.timeoutId[0]);
+            //     }
+            //     let higherBound = Math.floor((scrollH + this.gameScreen.width * 0.5 + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
+            //     higherBound = Math.max(0, Math.min(this.gameScreen.listChapter.numElements - 1, higherBound));      
+            //     if (this.chapterIndex != higherBound && this.gameScreen.scroller.visible) {
+            //         this.chapterIndex = higherBound;
+            //     }
+            // }, this, 10); 
         }
 
         private _chapterCrowdIndex: number;
@@ -172,6 +211,7 @@ namespace ies {
             return [
                 GameProxy.ANSWERED,
                 GameProxy.CHANGE_INDEX,
+                GameProxy.PLAY_FINAL,
             ];
         }
 
@@ -184,7 +224,8 @@ namespace ies {
                             this.initData();
                             this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW);
                         }
-                        this.chapterIndex = this.chapterIndex;
+                        this.moveToTargetIndex(this.chapterIndex);
+                        // this.chapterIndex = this.chapterIndex;
                     }
                     break;
                 }
@@ -199,6 +240,18 @@ namespace ies {
                     }
                     else {
                         this.moveToTargetIndex(chapterIndex);
+                    }
+                    break;
+                }
+                case GameProxy.PLAY_FINAL: {
+                    if (this.gameScreen.scrollerCrowd.visible) {
+                        this.showCrowdfunding(false);
+                        egret.setTimeout(() => {
+                            this.playFinalAnimation();
+                        }, this, 750);
+                    }
+                    else {
+                        this.playFinalAnimation();
                     }
                     break;
                 }
@@ -247,10 +300,8 @@ namespace ies {
         }
 
         public moveToTargetIndex(targetIndex: number) {
-            let targetScrollH = (Constants.contentWidth * 0.85 + Constants.listGap) * targetIndex ;
-            
             if (this.gameScreen.scrollerCrowd.visible) {
-                targetScrollH = targetScrollH - Constants.contentWidth * 0.8;
+                let targetScrollH = (Constants.contentCrowdWidth + Constants.listGap) * (targetIndex - 1) + (this.gameScreen.scrollerCrowd.width - Constants.contentCrowdWidth) / 2;
                 const maxScrollH = this.gameScreen.scrollerCrowd.viewport.contentWidth - this.gameScreen.scrollerCrowd.width;
                 targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
                 egret.Tween.get(this.gameScreen.listCrowd).to({ scrollH: targetScrollH }, 200).call(() => {
@@ -259,9 +310,10 @@ namespace ies {
                 });
             }
             else {
+                let targetScrollH = (Constants.contentWidth + Constants.listGap) * targetIndex + (this.gameScreen.scrollerCrowd.width - Constants.contentWidth) / 2;
                 const maxScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
                 targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
-                egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 200).call(() => {
+                egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 500).call(() => {
                     this.chapterIndex = targetIndex;
                     this.proxy.playEffect("scroller-change_mp3");
                 });

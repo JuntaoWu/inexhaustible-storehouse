@@ -48,6 +48,7 @@
 		"bin-debug/view/panels/AlertWindow.js",
 		"bin-debug/view/panels/AnswerWindow.js",
 		"bin-debug/AccountAdapter.js",
+		"bin-debug/view/panels/CardsGameRuleWindow.js",
 		"bin-debug/view/panels/CardsGameWindow.js",
 		"bin-debug/view/panels/CatalogWindow.js",
 		"bin-debug/view/panels/ChapterItemRenderer.js",

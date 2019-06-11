@@ -22,6 +22,7 @@ namespace ies {
 
 		public static ANSWERED: string = "answered";
 		public static CHANGE_INDEX: string = "change_index";
+		public static PLAY_FINAL: string = "play_final";
 		
 		private _questionMap: Map<string, Question>;
 		public get questionMap(): Map<string, Question> {
@@ -47,6 +48,10 @@ namespace ies {
 
 		public isAnswered(qId) {
 			return this.playerInfo.answeredList.includes(qId);
+		}
+
+		public isAnsweredAll() {
+			return this.playerInfo.answeredList.filter(i => i <= 22).length === 22;
 		}
 
 		public addAnswered(qId) {

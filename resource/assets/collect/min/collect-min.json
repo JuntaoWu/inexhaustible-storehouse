@@ -1,7 +1,7 @@
 {"file":"collect-min.png","frames":{
 "collect-min-1":{"x":314,"y":538,"w":125,"h":175,"offX":32,"offY":19,"sourceW":190,"sourceH":194},
-"collect-min-2":{"x":744,"y":390,"w":159,"h":176,"offX":15,"offY":18,"sourceW":190,"sourceH":194},
-"collect-min-3":{"x":573,"y":196,"w":189,"h":173,"offX":0,"offY":21,"sourceW":190,"sourceH":194},
+"collect-min-2":{"x":573,"y":196,"w":189,"h":173,"offX":0,"offY":21,"sourceW":190,"sourceH":194},
+"collect-min-3":{"x":744,"y":390,"w":159,"h":176,"offX":15,"offY":18,"sourceW":190,"sourceH":194},
 "collect-min-4":{"x":607,"y":568,"w":165,"h":119,"offX":12,"offY":75,"sourceW":190,"sourceH":194},
 "collect-min-5":{"x":576,"y":0,"w":190,"h":194,"offX":0,"offY":0,"sourceW":190,"sourceH":194},
 "collect-min-6":{"x":191,"y":528,"w":121,"h":187,"offX":34,"offY":7,"sourceW":190,"sourceH":194},

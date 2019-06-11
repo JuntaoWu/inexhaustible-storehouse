@@ -27,18 +27,16 @@ namespace ies {
                 const replaceText = v.sentence.match(/【(.+?)】/)[1];
                 catalogList[i] = {
                     sentence: v.sentence.replace(/【(.+?)】/, replaceText),
-                    sideIcon: '',
+                    sideIcon: v.sideRes,
                     index: i
                 }
                 if (!this.proxy.isAnswered(v.id)) {
                     const emptyText = replaceText.split('').map(i => ' ').join('');
                     catalogList[i].sentence = v.sentence.replace(/【(.+?)】/, emptyText);
-                    catalogList[i].sideIcon = v.sideRes;
+                    // catalogList[i].sideIcon = v.sideRes;
                 }
             }
             if (this.proxy.isShowFinalTowQuestion()) {
-                
-                    console.log(catalogList);
                 let showFinalButton = true;
                 this.pageView.showFinalTow = false;
                 [20, 21].forEach(i => {
@@ -53,7 +51,6 @@ namespace ies {
                         catalogList[i].sideRes = v.sideRes;
                         showFinalButton = false;
                     }
-                    console.log(catalogList);
                 });
                 this.pageView.btnFinal.visible = showFinalButton;
                 this.pageView.showFinalTow = !showFinalButton;
@@ -81,6 +78,8 @@ namespace ies {
 
         public finalClick(e: egret.TouchEvent) {
             this.proxy.playEffect("btn-final_mp3");
+            this.pageView.close();
+            this.sendNotification(GameProxy.PLAY_FINAL);
         }
 
         public get pageView(): CatalogWindow {

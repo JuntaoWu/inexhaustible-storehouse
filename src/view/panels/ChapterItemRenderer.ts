@@ -34,13 +34,12 @@ namespace ies {
 
         protected async dataChanged() {
             super.dataChanged();
-            this.width = 1880;
+            this.width = Constants.contentWidth;
             if (this.data.isDragonBone) {
                 if (!this.dragonBone) {
-                    this.dragonBone = DragonBones.createDragonBone("SenceAll", this.data.armature);
+                    const num = +this.data.armature.replace('S', '');
+                    this.dragonBone = DragonBones.createDragonBone(`SenceAll_${num}`, this.data.armature);
                     if (this.dragonBone) {
-                        this.dragonBone.scaleX = 2;
-                        this.dragonBone.scaleY = 2;
                         this.dragonBone && this.dragonBoneGroup.addChild(this.dragonBone);
                     }
                 }
@@ -66,14 +65,19 @@ namespace ies {
                     }, this, 1500);
                 }
                 else {
-                    if (!this.isPlayed2) {
-                        this.proxy.playEffect("change23_mp3");
-                        this.dragonBone.animation.play("4", 1);
-                        this.isPlayed2 = true;
+                    if (this.data.isAnsweredAll) {
+                        this.dragonBone.animation.play("6", 0);
                     }
-                    egret.setTimeout(() => {
-                        this.dragonBone.animation.play("5", 0);
-                    }, this, 1500);
+                    else {
+                        if (!this.isPlayed2) {
+                            this.proxy.playEffect("change23_mp3");
+                            this.dragonBone.animation.play("4", 1);
+                            this.isPlayed2 = true;
+                        }
+                        egret.setTimeout(() => {
+                            this.dragonBone.animation.play("5", 0);
+                        }, this, 1500);   
+                    }
                 }
             }
             else if (this.data.showExtra) {
@@ -83,7 +87,7 @@ namespace ies {
                 }
             }
             else {
-                this.width = 1600;
+                this.width = Constants.contentCrowdWidth;
             }
         }
 

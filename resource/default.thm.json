@@ -24,6 +24,7 @@
 		"resource/components/WordItemRenderer.exml",
 		"resource/containers/AlertWindow.exml",
 		"resource/containers/AnswerWindow.exml",
+		"resource/containers/CardsGameRuleWindow.exml",
 		"resource/containers/CardsGameWindow.exml",
 		"resource/containers/CatalogWindow.exml",
 		"resource/containers/CollectWindow.exml",
