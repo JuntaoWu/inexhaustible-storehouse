@@ -27,6 +27,7 @@
 		"resource/containers/AnswerWindow.exml",
 		"resource/containers/CardsGameRuleWindow.exml",
 		"resource/containers/CardsGameWindow.exml",
+		"resource/containers/CardsWindow.exml",
 		"resource/containers/CatalogWindow.exml",
 		"resource/containers/CollectWindow.exml",
 		"resource/containers/DeveloperWindow.exml",

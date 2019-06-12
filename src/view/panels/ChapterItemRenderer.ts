@@ -65,7 +65,7 @@ namespace ies {
                     }, this, 1500);
                 }
                 else {
-                    if (this.data.isAnsweredAll) {
+                    if (this.data.isPlayFinal) {
                         this.dragonBone.animation.play("6", 0);
                     }
                     else {

@@ -47,6 +47,7 @@ namespace ies {
 
             egret.lifecycle.onPause = () => {
                 egret.ticker.pause();
+                console.log("egret pause");
                 const proxy = ApplicationFacade.getInstance().retrieveProxy(GameProxy.NAME) as GameProxy;
                 if (proxy) {
                     proxy.getBGMPosition();

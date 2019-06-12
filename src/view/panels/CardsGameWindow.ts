@@ -3,13 +3,11 @@ namespace ies {
 
     export class CardsGameWindow extends BasePanel {
 
-        public btnGame: eui.Button;
         public gameGroup: eui.Group;
         public cardsList: eui.List;
         public buttonGroup: eui.Group;
         public btnResult: eui.Button;
         public btnConfirm: eui.Button;
-        public btnRule: eui.Button;
         public tips: string;
 
         public constructor() {

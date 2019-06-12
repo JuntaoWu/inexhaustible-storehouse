@@ -12,29 +12,14 @@ namespace ies {
             
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
+            this.initData();
 
-            this.pageView.btnGame.addEventListener(egret.TouchEvent.TOUCH_TAP, this.runGame, this);
-            this.pageView.btnRule.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showRule, this);
             this.pageView.btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, this.confirmSelected, this);
             this.pageView.btnResult.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showResult, this);
         }
 
         public async initData() {
-            if (!this.shouldReset) return;
-            this.pageView.buttonGroup.visible = true;
-            this.pageView.gameGroup.visible = false;
-        }
-
-        public showRule() {
-            this.sendNotification(SceneCommand.SHOW_CARDSGAMERULE_WINDOW);
-        }
-
-        private shouldReset: boolean;
-        private cardsList: Array<any>;
-        private showCardsList: Array<any>;
-        public runGame() {
-            this.pageView.gameGroup.visible = true;
-            this.pageView.buttonGroup.visible = false;
+            if (this.isStarted) return;
             this.cardsList = [];
             // ["", "", ""].map(i => {});
             for(let i = 1; i <= 3; i++) {
@@ -47,14 +32,19 @@ namespace ies {
                 this.cardsList.push(o);
             }
             this.showCardsList = [ ...this.cardsList ];
+            console.log(this.cardsList);
             this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
             this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
             this.pageView.cardsList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.selectCard, this);
             this.pageView.btnConfirm.visible = true;
             this.pageView.tips = "请项子远玩家从九张标记卡中随机抽一张查看并暗置一旁，然后从下方选出与抽到的标记卡同组的画卷卡，此卡在游戏中代表真品";
-            this.shouldReset = false;
+            this.isStarted = true;
             this.isLastConfirm = false;
         }
+
+        private isStarted: boolean;
+        private cardsList: Array<any>;
+        private showCardsList: Array<any>;
 
         private selectedItem: any;
         selectCard(event: eui.ItemTapEvent) {
@@ -126,7 +116,7 @@ namespace ies {
             this.cardsList.forEach(i => i.isBack = false);
             this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
             this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.cardsList);
-            this.shouldReset = true;
+            this.isStarted = false;
         }
 
         public get pageView(): CardsGameWindow {

@@ -10,19 +10,7 @@
             </e:Skin>
         </e:Button>
         <e:Label text="众筹专属卡牌游戏" size="55" horizontalCenter="0" y="30"/>
-        <e:Group id="buttonGroup" horizontalCenter="0" verticalCenter="0">
-            <e:Button id="btnRule" horizontalCenter="0">
-                <e:Skin>
-                    <e:Image source="btn-rule" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:Button>
-            <e:Button id="btnGame" horizontalCenter="0" y="300">
-                <e:Skin>
-                    <e:Image source="btn-run" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:Button>
-        </e:Group>
-        <e:Group id="gameGroup" visible="false" y="150" horizontalCenter="0">
+        <e:Group id="gameGroup" y="150" horizontalCenter="0">
             
             <e:List id="cardsList" horizontalCenter="0" y="200">
                 <e:layout>

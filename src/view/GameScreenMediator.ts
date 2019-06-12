@@ -153,41 +153,34 @@ namespace ies {
                 if (item) {
                     const isAnsweredAll = this.proxy.isAnsweredAll();
                     item.answeredNum = answeredNum;
-                    item.isAnsweredAll = isAnsweredAll;
+                    item.isPlayFinal = this.isPlayFinal;
                 }
                 this.arrCollection.itemUpdated(item);
             }
             this.bgColorChange(answeredNum);
         }
 
-        private timeoutId = [];
+        private isPlayFinal = false;
+        private timeoutId: number;
         playFinalAnimation() {
             console.log('play final animation.');
-            this.timeoutId.forEach(i => {
-                if (i) {
-                    egret.clearTimeout(i);
-                }
-            });
+            if (this.timeoutId) {
+                egret.clearTimeout(this.timeoutId);
+            }
             this.moveToTargetIndex(1);
-            // for (let i = 2; i <= 10; i++) {
-            //     this.timeoutId[i] = egret.setTimeout(() => {
-            //         let targetScrollH = (Constants.contentWidth + Constants.listGap) * i + (this.gameScreen.scrollerCrowd.width - Constants.contentWidth) / 2;
-            //         const maxScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
-            //         targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
-            //         egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 1000).call(() => {
-            //             this.chapterIndex = i;
-            //         });
-            //     }, this, 4000*(i-1)); 
-            // }
-            this.timeoutId[0] = egret.setInterval(() => {
+            this.isPlayFinal = true;
+            this.timeoutId = egret.setInterval(() => {
                 let scrollH = this.gameScreen.scroller.viewport.scrollH;
-                scrollH += (Constants.contentWidth / 450);
+                scrollH += (Constants.contentWidth / 400);
                 const maxScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
                 scrollH = Math.max(0, Math.min(maxScrollH, scrollH));
                 this.gameScreen.scroller.viewport.scrollH = scrollH;
                 if (maxScrollH == scrollH) {
                     console.log('stop interval.');
-                    egret.clearInterval(this.timeoutId[0]);
+                    egret.clearInterval(this.timeoutId);
+                    this.timeoutId = null;
+                    this.isPlayFinal = false;
+                    this.chapterIndex = 10;
                 }
                 let higherBound = Math.floor((scrollH + this.gameScreen.width * 0.5 + Constants.listGap) / (Constants.contentWidth + Constants.listGap));
                 higherBound = Math.max(0, Math.min(this.gameScreen.listChapter.numElements - 1, higherBound));      
@@ -271,7 +264,7 @@ namespace ies {
         public cardsGameClick(event?: egret.TouchEvent) {
             this.proxy.playEffect("btn-card_mp3");
             if (!this.proxy.playerInfo.showEntryCardsGameTips) {
-                this.sendNotification(SceneCommand.SHOW_CARDSGAME_WINDOW);
+                this.sendNotification(SceneCommand.SHOW_CARDS_WINDOW);
                 return;
             }
             this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
@@ -284,7 +277,7 @@ namespace ies {
                         confirmLabel: "无需多言",
                         cancelLabel: "浪子回头",
                         cbk: () => {
-                            this.sendNotification(SceneCommand.SHOW_CARDSGAME_WINDOW);
+                            this.sendNotification(SceneCommand.SHOW_CARDS_WINDOW);
                             this.proxy.playerInfo.showEntryCardsGameTips = false;
                             this.proxy.savePlayerInfoToStorage();
                         }

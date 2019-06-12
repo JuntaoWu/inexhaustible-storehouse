@@ -90,6 +90,15 @@ namespace ies {
             this.applyGameScreenFilter();
         }
 
+        public cardsWindow: CardsWindow;
+        public showCardsWindow(): void {
+            if (!this.cardsWindow) {
+                this.cardsWindow = new CardsWindow();
+            }
+            this.addChild(this.cardsWindow);
+            this.cardsWindow.show();
+        }
+
         public cardsGameWindow: CardsGameWindow;
         public showCardsGameWindow(): void {
             if (!this.cardsGameWindow) {

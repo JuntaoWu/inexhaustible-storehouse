@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ies.CardsWindow" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*" >
+    <e:Group id="container" width="100%" height="100%">
+        <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
+
+        <e:Button id="closeButton" left="22" y="2">
+            <e:Skin>
+                <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
+        </e:Button>
+        <e:Label text="众筹专属卡牌游戏" size="55" horizontalCenter="0" y="30"/>
+        <e:Group id="buttonGroup" horizontalCenter="0" verticalCenter="0">
+            <e:Button id="btnRule" horizontalCenter="0">
+                <e:Skin>
+                    <e:Image source="btn-rule" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:Button>
+            <e:Button id="btnGame" horizontalCenter="0" y="300">
+                <e:Skin>
+                    <e:Image source="btn-run" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:Button>
+        </e:Group>
+    </e:Group>
+    
+</e:Skin>
