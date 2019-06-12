@@ -14,15 +14,11 @@
         <e:Scroller id="scroller" scrollPolicyH="on" scrollPolicyV="off"
                     left="160" right="0" height="680" verticalCenter="0">
             <e:viewport>
-                <e:Group verticalCenter="0">
-                    <e:List id="listChapter" useVirtualLayout="false" verticalCenter="0">
-                        <e:layout>
-                            <e:HorizontalLayout gap="0"></e:HorizontalLayout>
-                        </e:layout>
-                    </e:List>
-                    <e:Group verticalCenter="0" width="200">
-                    </e:Group>
-                </e:Group>
+                <e:List id="listChapter" useVirtualLayout="false" verticalCenter="0">
+                    <e:layout>
+                        <e:HorizontalLayout gap="0"></e:HorizontalLayout>
+                    </e:layout>
+                </e:List>
             </e:viewport>
         </e:Scroller>
         <e:Scroller id="scrollerCrowd" visible="false" scrollPolicyH="on" scrollPolicyV="off"

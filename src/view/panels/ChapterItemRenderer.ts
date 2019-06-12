@@ -88,6 +88,9 @@ namespace ies {
             }
             else {
                 this.width = Constants.contentCrowdWidth;
+                if (this.data.res.replace('exclusive-', '') == '6') {
+                    this.width = Constants.contentWidth;
+                }
             }
         }
 
