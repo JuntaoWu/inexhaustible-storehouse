@@ -3,72 +3,46 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ies="ies.*" >
     <e:Group id="container" width="100%" height="100%">
         <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
+
         <e:Button id="closeButton" left="22" y="2">
             <e:Skin>
                 <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
-        <e:Group y="180" x="45">
-            <e:Button id="cardTitle1" height="70">
+        <e:Label text="众筹专属卡牌游戏" size="55" horizontalCenter="0" y="30"/>
+        <e:Group id="buttonGroup" horizontalCenter="0" verticalCenter="0">
+            <e:Button id="btnRule" horizontalCenter="0">
                 <e:Skin>
-                    <e:Image source="card-title1" horizontalCenter="0" verticalCenter="0"/>
+                    <e:Image source="btn-rule" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:Button>
-            <e:Button id="cardTitle2" height="70" y="70">
+            <e:Button id="btnGame" horizontalCenter="0" y="300">
                 <e:Skin>
-                    <e:Image source="card-title2" horizontalCenter="0" verticalCenter="0"/>
-                </e:Skin>
-            </e:Button>
-            <e:Button id="cardTitle3" height="70" y="140">
-                <e:Skin>
-                    <e:Image source="card-title3" horizontalCenter="0" verticalCenter="0"/>
-                </e:Skin>
-            </e:Button>
-            <e:Button id="cardTitle4" height="70" y="210">
-                <e:Skin>
-                    <e:Image source="card-title4" horizontalCenter="0" verticalCenter="0"/>
-                </e:Skin>
-            </e:Button>
-            <e:Button id="cardTitle41" height="70" y="280" x="40">
-                <e:Skin>
-                    <e:Image source="card-title4-1" horizontalCenter="0" verticalCenter="0"/>
-                </e:Skin>
-            </e:Button>
-            <e:Button id="cardTitle42" height="70" y="350" x="40">
-                <e:Skin>
-                    <e:Image source="card-title4-2" horizontalCenter="0" verticalCenter="0"/>
-                </e:Skin>
-            </e:Button>
-            <e:Button id="cardTitle43" height="70" y="420" x="40">
-                <e:Skin>
-                    <e:Image source="card-title4-3" horizontalCenter="0" verticalCenter="0"/>
-                </e:Skin>
-            </e:Button>
-            <e:Button id="cardTitle5" height="70" y="490">
-                <e:Skin>
-                    <e:Image source="card-title5" horizontalCenter="0" verticalCenter="0"/>
+                    <e:Image source="btn-run" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:Button>
         </e:Group>
-        <e:Scroller id="scroller" scrollPolicyH="off" scrollPolicyV="on"
-                    left="260" right="100" height="950" verticalCenter="0">
-            <e:viewport>
-                <e:Group horizontalCenter="0">
-                    <e:Image source="card-game-img1" horizontalCenter="0"/>
-                    <e:Image source="card-game-img2" horizontalCenter="0" y="720"/>
-                    <e:Image source="card-game-img3" horizontalCenter="0" y="1530"/>
-                    <e:Image source="card-game-img4" horizontalCenter="0" y="2290"/>
-                    <e:Image source="card-game-img5" horizontalCenter="0" y="3350"/>
-                    <e:Image source="card-game-img6" horizontalCenter="0" y="4220"/>
-                    <e:Image source="card-game-img7" horizontalCenter="0" y="4840"/>
-                </e:Group>
-            </e:viewport>
-        </e:Scroller>
-        <e:VSlider id="btnScollBar" verticalCenter="0" right="80">
-            <e:Skin>
-                <e:Image id="track" source="card-scroll-bar" height="950" horizontalCenter="0"/>
-                <e:Image id="thumb" source="btn-slider_png" horizontalCenter="0"/>
-            </e:Skin>
-        </e:VSlider>
+        <e:Group id="gameGroup" visible="false" y="150" horizontalCenter="0">
+            
+            <e:List id="cardsList" horizontalCenter="0" y="200">
+                <e:layout>
+                    <e:TileLayout orientation="columns" requestedColumnCount="3" verticalGap="50" paddingTop="20"/>
+                </e:layout>
+            </e:List>
+            <e:Label text="{tips}" size="50" textColor="0x050505" horizontalCenter="0" width="1200" textAlign="center"/>
+            <e:Button id="btnConfirm" horizontalCenter="0" y="600" width="300" height="150">
+                <e:Skin>
+                    <e:Image source="btn-confirm" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:Button>
+            <e:Button id="btnResult" visible="false" label="揭示真相" horizontalCenter="0" y="600" width="300" height="150">
+                <!--<e:Skin>
+                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>-->
+            </e:Button>
+        </e:Group>
+
+
     </e:Group>
+    
 </e:Skin>

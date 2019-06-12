@@ -5,6 +5,7 @@ namespace ies {
         
         public titleList: eui.List;
         public tipsLabel: eui.Label;
+        public btnNext: eui.Button;
         public btnSkip: eui.Button;
         public tutorialGroup: eui.Group;
 
@@ -32,6 +33,8 @@ namespace ies {
         public collectWindow: CollectWindow;
         public settingWindow: SettingWindow;
 
+        public viewScaleX: number;
+
         public constructor() {
             super();
 
@@ -41,8 +44,8 @@ namespace ies {
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
-            // this.width = this.stage.stageWidth;
-            this.scaleX = this.stage.stageWidth / 1920;
+            this.width = this.stage.stageWidth;
+            this.viewScaleX = this.stage.stageWidth / 1920;
 
             const textList = "北平砚兄   ".split("");
             this.textInputList.dataProvider = new eui.ArrayCollection(textList);

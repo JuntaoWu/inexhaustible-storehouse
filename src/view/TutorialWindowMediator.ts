@@ -35,31 +35,32 @@ namespace ies {
         
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
+            this.pageView.btnNext.addEventListener(egret.TouchEvent.TOUCH_TAP, this.nextOne, this);
             this.pageView.btnSkip.addEventListener(egret.TouchEvent.TOUCH_TAP, this.endTutorial, this);
-            this.pageView.tutorialGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-                this.canGoNext && this.nextOne();
-            }, this);
-
-            this.pageView.titleGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
-                if (this.tutorialJson[this.nowIndex].action == "wait") {
-                    this.reSetUI();
-                    this.pageView.answerGroup.visible = true;
-                    this.nextOne();
-                }
-            }, this);
-            this.pageView.closeAnswerGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
-                if (this.tutorialJson[this.nowIndex].action == "wait") {
-                    this.reSetUI();
-                    this.nextOne();
-                }
-            }, this);
-            this.pageView.btnCatalogGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
-                if (this.tutorialJson[this.nowIndex].action == "wait") {
-                    this.reSetUI();
-                    this.pageView.catalogGroup.visible = true;
-                    this.nextOne();
-                }
-            }, this);
+            // this.pageView.tutorialGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
+            //     this.canGoNext && this.nextOne();
+            // }, this);
+            // this.pageView.titleGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
+            //     console.log(this.tutorialJson[this.nowIndex]);
+            //     if (this.tutorialJson[this.nowIndex].action == "wait") {
+            //         this.reSetUI();
+            //         this.pageView.answerGroup.visible = true;
+            //         this.nextOne();
+            //     }
+            // }, this);
+            // this.pageView.closeAnswerGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
+            //     if (this.tutorialJson[this.nowIndex].action == "wait") {
+            //         this.reSetUI();
+            //         this.nextOne();
+            //     }
+            // }, this);
+            // this.pageView.btnCatalogGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
+            //     if (this.tutorialJson[this.nowIndex].action == "wait") {
+            //         this.reSetUI();
+            //         this.pageView.catalogGroup.visible = true;
+            //         this.nextOne();
+            //     }
+            // }, this);
         }
 
         public async initData() {
@@ -179,6 +180,15 @@ namespace ies {
         }
 
         public nextOne() {
+            if (this.tutorialJson[this.nowIndex].action == "change") {
+                this.reSetUI();
+                if (this.tutorialJson[this.nowIndex].target == 'btnCatalogGroup') {
+                    this.pageView.catalogGroup.visible = true;
+                }
+                else if (this.tutorialJson[this.nowIndex].target == 'titleGroup') {
+                    this.pageView.answerGroup.visible = true;
+                }
+            }
             this.nowIndex++;
             this.showTips();
         }

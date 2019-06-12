@@ -16,6 +16,7 @@
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
+		"resource/components/CardsGameItemRenderer.exml",
 		"resource/components/ChapterItemRenderer.exml",
 		"resource/components/CollectImageItemRenderer.exml",
 		"resource/components/SentenceRenderer.exml",

@@ -99,5 +99,14 @@ namespace ies {
             this.cardsGameWindow.show();
         }
 
+        public cardsGameRuleWindow: CardsGameRuleWindow;
+        public showCardsGameRuleWindow(): void {
+            if (!this.cardsGameRuleWindow) {
+                this.cardsGameRuleWindow = new CardsGameRuleWindow();
+            }
+            this.addChild(this.cardsGameRuleWindow);
+            this.cardsGameRuleWindow.show();
+        }
+
     }
 }
