@@ -49,7 +49,7 @@ namespace ies {
 
         public tipsClick(index: number) {
             this.proxy.playEffect("crowd-change_mp3");
-            this.pageView.tips = this.pageView.question[`tips${index}`] || "";
+            this.pageView.tips = this.pageView.question[`tips${index}`] || "此题无提示";
             [1, 2, 3].forEach(v => {
                 this.pageView[`btnTips${v}`].selected = v == index ? true : false;
             });

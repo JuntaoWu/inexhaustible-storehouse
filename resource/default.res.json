@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,title-side-icon_json,tutorial_json,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,final-sentence-stamps_json,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,lazy-load-sprite_json,btn-cancel,collect-23,collect-24,collect-25,collect-26,collect-27,collect-28,collect-min_json,collect-29,collect-30,collect-min-29,collect-min-30,card-game-img7,card-game-img1,card-game-img2,card-game-img3,card-game-img4,card-game-img5,card-game-img6,cardgame-title_json,card-scroll-bar,SenceAll_1_ske_json,SenceAll_1_tex_json,SenceAll_1_tex_png,SenceAll_2_ske_json,SenceAll_2_tex_json,SenceAll_2_tex_png,SenceAll_3_ske_json,SenceAll_3_tex_json,SenceAll_3_tex_png,SenceAll_4_ske_json,SenceAll_4_tex_json,SenceAll_4_tex_png,SenceAll_5_ske_json,SenceAll_5_tex_json,SenceAll_5_tex_png,SenceAll_6_ske_json,SenceAll_6_tex_json,SenceAll_6_tex_png,SenceAll_7_ske_json,SenceAll_7_tex_json,SenceAll_7_tex_png,SenceAll_8_ske_json,SenceAll_8_tex_json,SenceAll_8_tex_png,SenceAll_9_ske_json,SenceAll_9_tex_json,SenceAll_9_tex_png,SenceAll_10_ske_json,SenceAll_10_tex_json,SenceAll_10_tex_png,volume-line-bg_png,btn-slider_png,card-front,card-back",
+			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,tutorial_json,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,lazy-load-sprite_json,btn-cancel,collect-23,collect-24,collect-25,collect-26,collect-27,collect-28,collect-min_json,collect-29,collect-30,collect-min-29,collect-min-30,card-game-img7,card-game-img1,card-game-img2,card-game-img3,card-game-img4,card-game-img5,card-game-img6,cardgame-title_json,card-scroll-bar,SenceAll_1_ske_json,SenceAll_1_tex_json,SenceAll_1_tex_png,SenceAll_2_ske_json,SenceAll_2_tex_json,SenceAll_2_tex_png,SenceAll_3_ske_json,SenceAll_3_tex_json,SenceAll_3_tex_png,SenceAll_4_ske_json,SenceAll_4_tex_json,SenceAll_4_tex_png,SenceAll_5_ske_json,SenceAll_5_tex_json,SenceAll_5_tex_png,SenceAll_6_ske_json,SenceAll_6_tex_json,SenceAll_6_tex_png,SenceAll_7_ske_json,SenceAll_7_tex_json,SenceAll_7_tex_png,SenceAll_8_ske_json,SenceAll_8_tex_json,SenceAll_8_tex_png,SenceAll_9_ske_json,SenceAll_9_tex_json,SenceAll_9_tex_png,SenceAll_10_ske_json,SenceAll_10_tex_json,SenceAll_10_tex_png,volume-line-bg_png,btn-slider_png,card-front,card-back,btn-card-tip4,btn-card-tip1,btn-card-tip2,btn-card-tip3,title-side-icon_json",
 			"name": "preload"
 		},
 		{
@@ -81,12 +81,6 @@
 			"name": "logo-with-bg"
 		},
 		{
-			"url": "assets/sprite/title-side-icon.json",
-			"type": "sheet",
-			"name": "title-side-icon_json",
-			"subkeys": "side-icon-01,side-icon-02,side-icon-03,side-icon-04,side-icon-05,side-icon-06,side-icon-07,side-icon-08,side-icon-09,side-icon-10,side-icon-11,side-icon-12,side-icon-13,side-icon-14,side-icon-15-16,side-icon-17,side-icon-18,side-icon-19,side-icon-20"
-		},
-		{
 			"url": "config/tutorial.json",
 			"type": "json",
 			"name": "tutorial_json"
@@ -111,12 +105,6 @@
 			"url": "assets/sprite/sentence.png",
 			"type": "image",
 			"name": "sentence_png"
-		},
-		{
-			"url": "assets/sprite/final-sentence-stamps.json",
-			"type": "sheet",
-			"name": "final-sentence-stamps_json",
-			"subkeys": "stamps_01,stamps_02,stamps_03,stamps_04,stamps_05,stamps_06,stamps_07,stamps_08,stamps_09,stamps_10,stamps_11,stamps_12,stamps_13,stamps_14"
 		},
 		{
 			"url": "assets/dragon-bones/hand_ske.json",
@@ -715,6 +703,32 @@
 			"url": "assets/cards-game/card-back.png",
 			"type": "image",
 			"name": "card-back"
+		},
+		{
+			"url": "assets/button/btn-card-tip4.png",
+			"type": "image",
+			"name": "btn-card-tip4"
+		},
+		{
+			"url": "assets/button/btn-card-tip1.png",
+			"type": "image",
+			"name": "btn-card-tip1"
+		},
+		{
+			"url": "assets/button/btn-card-tip2.png",
+			"type": "image",
+			"name": "btn-card-tip2"
+		},
+		{
+			"url": "assets/button/btn-card-tip3.png",
+			"type": "image",
+			"name": "btn-card-tip3"
+		},
+		{
+			"name": "title-side-icon_json",
+			"type": "sheet",
+			"url": "assets/sprite/title-side-icon.json",
+			"subkeys": "side-icon-04,side-icon-05,side-icon-06,side-icon-07,side-icon-08,side-icon-09,side-icon-10,side-icon-11,side-icon-12,side-icon-13,side-icon-14,side-icon-15-16,side-icon-17,side-icon-18,side-icon-19,side-icon-20,side-icon-01,side-icon-02,side-icon-03"
 		}
 	]
 }

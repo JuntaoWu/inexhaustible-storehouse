@@ -15,12 +15,9 @@ namespace ies {
 
         protected async dataChanged() {
             super.dataChanged();
-            const list = this.data.sentence.split('');
-            this.wordList.dataProvider = new eui.ArrayCollection(list);
-            this.wordList.itemRenderer = WordItemRenderer;
             if(!(this.data.index % 2)) {
                 this.sideIcon.x = 0;
-                this.sentenceX = 90;
+                this.sentenceX = 80;
             }
             else {
                 this.sideIcon.x = 640;
@@ -30,10 +27,15 @@ namespace ies {
                 this.question.visible = false;
                 this.listFinalQuestion.visible = true;
                 const iconList = this.data.sideRes.split(",").map(v => {
-                    return `stamps_${v}`;
+                    return `side-icon-${v}`;
                 })
                 this.listFinalQuestion.itemRenderer = SideIconItemRenderer;
                 this.listFinalQuestion.dataProvider = new eui.ArrayCollection(iconList);
+            }
+            else {
+                const list = this.data.sentence.split('');
+                this.wordList.dataProvider = new eui.ArrayCollection(list);
+                this.wordList.itemRenderer = WordItemRenderer;
             }
         }
     }

@@ -207,7 +207,7 @@
     "tips3": "",
     "sentence": "【赵兄临摹明玉赝】",
     "res": "samwoe-11",
-    "sideRes": "01,02,03,04,05,06,07"
+    "sideRes": "08,14,03,05,02,10,12"
   },
   "22": {
     "id": 22,
@@ -217,7 +217,7 @@
     "tips3": "",
     "sentence": "【卖贼一真才险胜】",
     "res": "samwoe-11",
-    "sideRes": "08,09,10,11,12,13,14"
+    "sideRes": "15-16,04,20,07,18,19,09"
   },
   "23": {
     "id": 23,
@@ -228,7 +228,7 @@
     "sentence": "【熏球】",
     "res": "exclusive-1",
     "sentenceRes": "字谜其一",
-    "sideRes": ""
+    "sideRes": "熏球"
   },
   "24": {
     "id": 24,
@@ -239,7 +239,7 @@
     "sentence": "【虎符】",
     "res": "exclusive-2",
     "sentenceRes": "字谜其二",
-    "sideRes": ""
+    "sideRes": "虎符"
   },
   "25": {
     "id": 25,
@@ -250,7 +250,7 @@
     "sentence": "【壁画】",
     "res": "exclusive-3",
     "sentenceRes": "字谜其三",
-    "sideRes": ""
+    "sideRes": "壁画"
   },
   "26": {
     "id": 26,
@@ -260,8 +260,8 @@
     "tips3": "",
     "sentence": "【孙行者来者行孙假亦真又真亦假】",
     "res": "exclusive-4",
-    "sentenceRes": "卜阴晴",
-    "sideRes": ""
+    "sentenceRes": "众筹解锁谜题其一",
+    "sideRes": "卜阴晴"
   },
   "27": {
     "id": 27,
@@ -271,8 +271,8 @@
     "tips3": "",
     "sentence": "【知者不惑】",
     "res": "exclusive-5",
-    "sentenceRes": "画中意",
-    "sideRes": ""
+    "sentenceRes": "众筹解锁谜题其二",
+    "sideRes": "画中意"
   },
   "28": {
     "id": 28,
@@ -282,8 +282,8 @@
     "tips3": "",
     "sentence": "【地久天长】",
     "res": "exclusive-6",
-    "sentenceRes": "皮影戏",
-    "sideRes": ""
+    "sentenceRes": "双册档专属谜题",
+    "sideRes": "皮影戏"
   },
   "29": {
     "id": 29,

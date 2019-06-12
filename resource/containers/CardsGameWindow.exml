@@ -17,7 +17,7 @@
                     <e:TileLayout orientation="columns" requestedColumnCount="3" verticalGap="50" paddingTop="20"/>
                 </e:layout>
             </e:List>
-            <e:Label text="{tips}" size="50" textColor="0x050505" horizontalCenter="0" width="1200" textAlign="center"/>
+            <e:Label text="{tips}" size="50" horizontalCenter="0" width="1200" textAlign="center"/>
             <e:Button id="btnConfirm" horizontalCenter="0" y="600" width="300" height="150">
                 <e:Skin>
                     <e:Image source="btn-confirm" horizontalCenter="0" verticalCenter="0" />

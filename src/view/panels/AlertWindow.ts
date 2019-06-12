@@ -13,11 +13,6 @@ namespace ies {
                 this.close();
                 this.cbk && this.cbk();
             },this);
-            this.btnConfirm1.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-                this.close();
-                this.cbk && this.cbk();
-            },this);
-            this.btnCloseLabel.addEventListener(egret.TouchEvent.TOUCH_TAP, this.close ,this);
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
@@ -26,32 +21,20 @@ namespace ies {
             this.removeEventListener(eui.UIEvent.CREATION_COMPLETE, this.createCompleteEvent, this);
         }
 
-        public btnCommon: eui.Group;
-        public btnLabel: eui.Group;
-
+        public closeButton: eui.Button;
         public btnConfirm: eui.Button;
-        public btnConfirm1: eui.Button;
-        public btnCloseLabel: eui.Button;
 
         public msg: string;
-        public confirmLabel: string;
-        public cancelLabel: string;
         public cbk: () => {};
 
-        public setWindowMsg(data: { msg: string, cbk?: () => {}, confirmLabel?: string, cancelLabel?: string }) {
+        public setWindowMsg(data: { msg: string, cbk?: () => {}, confirmRes?: string, cancelRes?: string }) {
             console.log(data);
             this.msg = data.msg;
             this.cbk = data.cbk;
-            this.confirmLabel = data.confirmLabel || "确认";
-            this.cancelLabel = data.cancelLabel || "取消";
-            if (!data.confirmLabel) {
-                this.btnLabel.visible = false;
-                this.btnCommon.visible = true;
-            }
-            else {
-                this.btnLabel.visible = true;
-                this.btnCommon.visible = false;
-            }
+            const cancel = this.closeButton.getChildByName('imgRes') as eui.Image;
+            cancel.source = data.cancelRes || "btn-cancel";
+            const comfirm = this.btnConfirm.getChildByName('imgRes') as eui.Image;
+            comfirm.source = data.confirmRes || "btn-alert-confirm";
         } 
     }
 }

@@ -10,7 +10,11 @@ namespace ies {
             super(GameScreenMediator.NAME, viewComponent);
             super.initializeNotifier("ApplicationFacade");
 
-            this.gameScreen.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
+            this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
+            this.gameScreen.addEventListener(egret.Event.ADDED_TO_STAGE, () => {
+                this.initData();
+                this.proxy.playBGM();
+            }, this);
             this.gameScreen.scroller.addEventListener(eui.UIEvent.CHANGE_END, this.scrollChangeEnd, this);
             this.gameScreen.scroller.addEventListener(eui.UIEvent.CHANGE, this.scrollChange, this);
             this.gameScreen.scrollerCrowd.addEventListener(eui.UIEvent.CHANGE, this.scrollCrowdChange, this);
@@ -42,7 +46,6 @@ namespace ies {
         private arrCollection: eui.ArrayCollection;
         public async initData() {
             console.log("GameScreen initData");
-            this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             await this.proxy.initGamesSetting();
 
             if (!this.bgDragonBone) {
@@ -75,7 +78,7 @@ namespace ies {
             
             this.gameScreen.listCrowd.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listCrowd.dataProvider = new eui.ArrayCollection(exclusiveList);
-            console.log(this.arrCollection, this.gameScreen.listChapter.numElements);
+            // console.log(this.arrCollection, this.gameScreen.listChapter.numElements);
             if (this.proxy.playerInfo.firstShowTutorial) {
                 egret.setTimeout(() => {
                     this.tutorialClick();
@@ -130,18 +133,16 @@ namespace ies {
                 const replaceText = v.sentence.match(/【(.+?)】/)[1];
                 titleList[i] = {
                     sentence: v.sentence.replace(/【(.+?)】/, replaceText),
-                    sideIcon: '',
+                    sideIcon: chapterIndex > 20 ? '' : v.sideRes,
                     index: i
                 }
                 if (!this.proxy.isAnswered(v.id)) {
                     if (chapterIndex > 20) {
                         titleList[i].sideRes = v.sideRes;
-                        titleList[i].isGameScreen = true;
                     }
                     else {
                         const emptyText = replaceText.split('').map(i => ' ').join('');
                         titleList[i].sentence = v.sentence.replace(/【(.+?)】/, emptyText);
-                        titleList[i].sideIcon = v.sideRes;
                     }
                 }
             }
@@ -197,7 +198,8 @@ namespace ies {
         public set chapterCrowdIndex(v: number) {
             this._chapterCrowdIndex = v;
             const question = this.proxy.questionMap.get((v + 22).toString());
-            this.gameScreen.titleText = question.sentenceRes;
+
+            this.gameScreen.titleText = this.proxy.isAnswered(v + 22) ? question.sideRes : question.sentenceRes;
         }
 
         public listNotificationInterests(): Array<any> {
@@ -218,7 +220,9 @@ namespace ies {
                             this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW);
                         }
                         this.moveToTargetIndex(this.chapterIndex);
-                        // this.chapterIndex = this.chapterIndex;
+                    }
+                    else {
+                        this.moveToTargetIndex(this.chapterCrowdIndex);
                     }
                     break;
                 }
@@ -269,13 +273,13 @@ namespace ies {
             }
             this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
                 msg: "注意：以下内容将引起剧透，为了您良好的游戏体验，建议通关后再来哦。", 
-                confirmLabel: "我意已决",
-                cancelLabel: "先行告退",
+                confirmRes: "btn-card-tip4",
+                cancelRes: "btn-card-tip1",
                 cbk: () => {
                     this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
                         msg: "您真的确定现在就要开始吗？通关后进行此游戏体验更好哦。", 
-                        confirmLabel: "无需多言",
-                        cancelLabel: "浪子回头",
+                        confirmRes: "btn-card-tip2",
+                        cancelRes: "btn-card-tip3",
                         cbk: () => {
                             this.sendNotification(SceneCommand.SHOW_CARDS_WINDOW);
                             this.proxy.playerInfo.showEntryCardsGameTips = false;
@@ -303,7 +307,7 @@ namespace ies {
                 });
             }
             else {
-                let targetScrollH = (Constants.contentWidth + Constants.listGap) * targetIndex + (this.gameScreen.scrollerCrowd.width - Constants.contentWidth) / 2;
+                let targetScrollH = (Constants.contentWidth + Constants.listGap) * targetIndex + (this.gameScreen.scroller.width - Constants.contentWidth) / 2;
                 const maxScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
                 targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
                 egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 500).call(() => {
@@ -359,7 +363,7 @@ namespace ies {
                 this.chapterIndex = higherBound;
                 this.proxy.playEffect("scroller-change_mp3");
             }
-            if (this.chapterIndex >= (this.gameScreen.listChapter.numElements - 2)
+            if (this.chapterIndex >= (this.gameScreen.listChapter.numElements - 1)
             && event.target.viewport.scrollH + 1600 > this.gameScreen.scroller.viewport.contentWidth) {
                 this.showCrowdfunding();
             }
@@ -423,7 +427,7 @@ namespace ies {
                     this.gameScreen.scrollerCrowd.visible = false;
                     this.gameScreen.bgDragonBoneGroup.visible = true;
                     this.gameScreen.scrollerCrowd.viewport.scrollH = 0;
-                    this.chapterIndex = this.gameScreen.listChapter.numElements - 2;
+                    this.chapterIndex = this.gameScreen.listChapter.numElements - 1;
                 });
             }
         }

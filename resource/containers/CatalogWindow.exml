@@ -51,7 +51,7 @@
                 </e:viewport>
             </e:Scroller>
 
-            <e:Label visible="{showFinalTow}" text="现在解开这最后两道谜题，你就会知道最终真相。。" textColor="0x020202" size="45" horizontalCenter="0" bottom="10"/>
+            <e:Label visible="{showFinalTow}" text="现在解开这最后两句诗，你就会知道最终真相。。" size="45" horizontalCenter="0" bottom="10"/>
             <e:Button id="btnFinal" visible="false" horizontalCenter="0" bottom="0">
                 <e:Skin>
                     <e:Image source="btn-final" horizontalCenter="0" verticalCenter="0" />
