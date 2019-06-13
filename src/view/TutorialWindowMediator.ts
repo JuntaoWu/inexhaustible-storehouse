@@ -26,7 +26,6 @@ namespace ies {
 
         private nowIndex: number;
         private tipsText: string;
-        private canGoNext: boolean;
         private timeoutIds: Array<number>;
 
         public constructor(viewComponent: any) {
@@ -37,64 +36,27 @@ namespace ies {
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
             this.pageView.btnNext.addEventListener(egret.TouchEvent.TOUCH_TAP, this.nextOne, this);
             this.pageView.btnSkip.addEventListener(egret.TouchEvent.TOUCH_TAP, this.endTutorial, this);
-            // this.pageView.tutorialGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-            //     this.canGoNext && this.nextOne();
-            // }, this);
-            // this.pageView.titleGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
-            //     console.log(this.tutorialJson[this.nowIndex]);
-            //     if (this.tutorialJson[this.nowIndex].action == "wait") {
-            //         this.reSetUI();
-            //         this.pageView.answerGroup.visible = true;
-            //         this.nextOne();
-            //     }
-            // }, this);
-            // this.pageView.closeAnswerGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
-            //     if (this.tutorialJson[this.nowIndex].action == "wait") {
-            //         this.reSetUI();
-            //         this.nextOne();
-            //     }
-            // }, this);
-            // this.pageView.btnCatalogGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
-            //     if (this.tutorialJson[this.nowIndex].action == "wait") {
-            //         this.reSetUI();
-            //         this.pageView.catalogGroup.visible = true;
-            //         this.nextOne();
-            //     }
-            // }, this);
         }
 
         public async initData() {
             if (this.timeoutIds) {
                 this.timeoutIds.forEach(i => egret.clearTimeout(i));
             }
-            const catalogList = [];
-            for (let i = 0; i < 20; i++) {
-                const v = this.proxy.questionMap.get((i+1).toString());
-                const replaceText = v.sentence.match(/【(.+?)】/)[1];
-                catalogList[i] = {
-                    sentence: v.sentence.replace(/【(.+?)】/, replaceText),
-                    sideIcon: v.sideRes,
-                    index: i
-                }
-            }
-            this.pageView.catalogList.itemRenderer = SentenceRenderer;
-            this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);
+            // const titleList = [];
+            // for (let i = 0; i < 2; i++) {
+            //     const v = this.proxy.questionMap.get((1 + i).toString());
+            //     const replaceText = v.sentence.match(/【(.+?)】/)[1];
+            //     const emptyText = replaceText.split('').map(i => ' ').join('');
+            //     titleList[i] = {
+            //         sentence: v.sentence.replace(/【(.+?)】/, emptyText),
+            //         sideIcon: v.sideRes,
+            //         index: i
+            //     }
+            // }
+            // this.pageView.titleList.itemRenderer = SentenceRenderer;
+            // this.pageView.titleList.dataProvider = new eui.ArrayCollection(titleList);
 
-            const titleList = [];
-            for (let i = 0; i < 2; i++) {
-                const v = this.proxy.questionMap.get((1 + i).toString());
-                const replaceText = v.sentence.match(/【(.+?)】/)[1];
-                const emptyText = replaceText.split('').map(i => ' ').join('');
-                titleList[i] = {
-                    sentence: v.sentence.replace(/【(.+?)】/, emptyText),
-                    sideIcon: v.sideRes,
-                    index: i
-                }
-            }
-            this.pageView.titleList.itemRenderer = SentenceRenderer;
-            this.pageView.titleList.dataProvider = new eui.ArrayCollection(titleList);
 
-            this.canGoNext = true;
             this.timeoutIds = [];
             this.reSetUI();
             this.nowIndex = 0;
@@ -110,8 +72,7 @@ namespace ies {
                 this.pageView.scrollerGroup, this.pageView.btnCatalogGroup,
                 this.pageView.btnTips1, this.pageView.btnTips2, 
                 this.pageView.btnTips3, this.pageView.inputGroup, 
-                this.pageView.submitAnswerGroup, this.pageView.closeAnswerGroup,
-                this.pageView.answerGroup, this.pageView.catalogGroup
+                this.pageView.submitAnswerGroup, this.pageView.closeAnswerGroup
             ]
             effectUIPool.forEach(i => i.visible = false);
         }
@@ -122,24 +83,16 @@ namespace ies {
                 this.endTutorial();
                 return;
             }
-
-            this.tipsText += nowItem.tips || "";
+            this.pageView.catalogBg = nowItem.bg;
+            console.log(this.pageView.catalogBg);
+            this.tipsText = nowItem.tips;
             const textElements = new egret.HtmlTextParser().parser(this.tipsText);
             this.pageView.tipsLabel.textFlow = textElements;
             this.showEffect(nowItem);
             
-            this.canGoNext = !(nowItem.action == "wait");
-            if (nowItem.action == "meanwhile") {
+            if (nowItem.action == "auto") {
                 this.nextOne();
             }
-            // if (nowItem.action == "next") {
-            //     egret.setTimeout(() => {
-            //         this.nextOne();
-            //     }, this, 2500);
-            // }
-            // else if (nowItem.action == "end") {
-            //     this.endTutorial();
-            // }
         }
 
         public showEffect(nowItem) {
@@ -182,12 +135,6 @@ namespace ies {
         public nextOne() {
             if (this.tutorialJson[this.nowIndex].action == "change") {
                 this.reSetUI();
-                if (this.tutorialJson[this.nowIndex].target == 'btnCatalogGroup') {
-                    this.pageView.catalogGroup.visible = true;
-                }
-                else if (this.tutorialJson[this.nowIndex].target == 'titleGroup') {
-                    this.pageView.answerGroup.visible = true;
-                }
             }
             this.nowIndex++;
             this.showTips();

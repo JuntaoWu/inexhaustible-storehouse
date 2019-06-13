@@ -298,7 +298,7 @@ namespace ies {
 
         public moveToTargetIndex(targetIndex: number) {
             if (this.gameScreen.scrollerCrowd.visible) {
-                let targetScrollH = (Constants.contentCrowdWidth + Constants.listGap) * (targetIndex - 1) + (this.gameScreen.scrollerCrowd.width - Constants.contentCrowdWidth) / 2;
+                let targetScrollH = (Constants.contentCrowdWidth + Constants.listGap) * (targetIndex - 1) + (this.gameScreen.scrollerCrowd.width - Constants.contentCrowdWidth) / 2 - 200;
                 const maxScrollH = this.gameScreen.scrollerCrowd.viewport.contentWidth - this.gameScreen.scrollerCrowd.width;
                 targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
                 egret.Tween.get(this.gameScreen.listCrowd).to({ scrollH: targetScrollH }, 200).call(() => {

@@ -3,7 +3,6 @@ namespace ies {
 
     export class TutorialWindow extends eui.Panel {
         
-        public titleList: eui.List;
         public tipsLabel: eui.Label;
         public btnNext: eui.Button;
         public btnSkip: eui.Button;
@@ -26,13 +25,7 @@ namespace ies {
         public btnSetting: eui.ToggleButton;
         public sentenceGroup: eui.Group;
 
-        public answerGroup: eui.Group;
-        public textInputList: eui.List;
-        public catalogGroup: eui.Group;
-        public catalogList: eui.List;
-        public collectWindow: CollectWindow;
-        public settingWindow: SettingWindow;
-
+        public catalogBg: string;
         public viewScaleX: number;
 
         public constructor() {
@@ -44,12 +37,8 @@ namespace ies {
         }
 
         public createCompleteEvent(event: eui.UIEvent): void {
-            this.width = this.stage.stageWidth;
-            this.viewScaleX = this.stage.stageWidth / 1920;
-
-            const textList = "北平砚兄   ".split("");
-            this.textInputList.dataProvider = new eui.ArrayCollection(textList);
-            this.textInputList.itemRenderer = TextInputItemRenderer;
+            // this.width = this.stage.stageWidth;
+            this.scaleX = this.stage.stageWidth / 1920;
 
             this.removeEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
             ApplicationFacade.getInstance().registerMediator(new TutorialWindowMediator(this));

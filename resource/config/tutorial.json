@@ -1,122 +1,119 @@
 [
   {
     "id": 1,
-    "tips": "画卷上方标题是解谜书中的打油诗，",
+    "tips": "画卷上方标题是解谜书中的打油诗",
     "target": "titleGroup",
     "effect": "show",
-    "effectDescription": "画卷标题亮起并且透明手指图标播放点击动画",
-    "action": "next"
+    "effectDescription": "画卷标题亮起",
+    "action": "next",
+    "bg": "tutorial1"
   },
   {
     "id": 2,
-    "tips": "点击右箭头按钮",
+    "tips": "",
     "target": "btnNextGroup",
     "effect": "play",
     "effectDescription": "右箭头图标亮起",
-    "action": "next"
+    "action": "auto",
+    "bg": "tutorial1"
   },
   {
     "id": 3,
-    "tips": "或向左滑动画卷",
+    "tips": "点击右箭头按钮或向左滑动画卷，可以跳转到下一句诗句",
     "target": "scrollerGroup",
     "effect": "play-hold",
     "effectDescription": "透明手指图标播放向左滑动动画",
-    "action": "next"
+    "action": "and",
+    "bg": "tutorial1"
   },
   {
     "id": 4,
-    "tips": "可以跳转到下一句诗句，请根据<font color=\\\"0xff0000\\\">印章</font>找到<font color=\\\"0xff0000\\\">对应的诗句，</font>并点击<font color=\\\"0xff0000\\\">涂抹处</font>填写答案。",
+    "tips": "请根据<font color='0xff0000'>印章</font>找到<font color='0xff0000'>对应的诗句，</font>并点击<font color='0xff0000'>涂抹处</font>填写答案",
     "target": "titleGroup",
     "effect": "play",
-    "effectDescription": "此时玩家无法进行其他操作，只能点击涂抹处进入下一阶段教程",
-    "action": "change"
+    "effectDescription": "透明手指图标播放点击动画",
+    "action": "change",
+    "bg": "tutorial1"
   },
   {
     "id": 5,
-    "tips": "点击空格处输入正确答案。",
+    "tips": "点击空格处输入正确答案",
     "target": "inputGroup",
     "effect": "play",
     "effectDescription": "透明手指图标播放点击动画",
-    "action": "next"
+    "action": "next",
+    "bg": "tutorial2"
   },
   {
     "id": 6,
-    "tips": "对谜题没有解答思路的话可以点击<font color=\\\"0xff0000\\\">提示按键</font>提示关键信息",
+    "tips": "对谜题没有解答思路的话可以点击<font color='0xff0000'>提示按键</font>提示关键信息",
     "target": "btnTips1,btnTips2,btnTips3",
     "effect": "show",
     "effectDescription": "提示按键依此点亮",
-    "action": "next"
+    "action": "next",
+    "bg": "tutorial2"
   },
   {
     "id": 7,
-    "tips": "输入答案后可点击提交按键检阅对错。",
+    "tips": "输入答案后可点击提交按键检阅对错",
     "target": "submitAnswerGroup",
     "effect": "play",
     "effectDescription": "透明手指图标播放点击动画",
-    "action": "next"
+    "action": "next",
+    "bg": "tutorial2"
   },
   {
     "id": 8,
-    "tips": "点击窗口右上角X号按键可以返回上级界面。",
+    "tips": "点击窗口右上角X号按键可以返回上级界面",
     "target": "closeAnswerGroup",
     "effect": "play",
     "effectDescription": "玩家只能在讲解完成后退出二级界面",
-    "action": "change"
+    "action": "change",
+    "bg": "tutorial2"
   },
   {
     "id": 9,
-    "tips": "如果想要查阅整首诗句或者调整音量请点击目录图标。",
+    "tips": "如果想要查阅整首诗句或者调整音量请点击目录图标",
     "target": "btnCatalogGroup",
     "effect": "play",
     "effectDescription": "目录图标闪烁，播放透明手指点击动画，此时玩家无法进行其他操作，只能点击目录图标进入下一阶段教程",
-    "action": "change"
+    "action": "change",
+    "bg": "tutorial1"
   },
   {
     "id": 10,
-    "tips": "点击目录界面的任意诗句可以直接<font color=\\\"0xff0000\\\">跳转到对应画卷</font>，",
+    "tips": "",
     "target": "btnCatalog",
-    "effect": "switch",
+    "effect": "",
     "effectDescription": "目录按键亮起",
-    "action": "meanwhile"
+    "action": "auto",
+    "bg": "tutorial3"
   },
   {
     "id": 11,
-    "tips": "",
+    "tips": "点击目录界面的任意诗句可以直接<font color='0xff0000'>跳转到对应画卷</font>",
     "target": "sentenceGroup",
     "effect": "play",
     "effectDescription": "诗句亮起，播放透明手指动画",
-    "action": "next"
+    "action": "next",
+    "bg": "tutorial3"
   },
   {
     "id": 12,
-    "tips": "收藏界面可查看已解画卷配图，",
+    "tips": "收藏界面可查看已解画卷配图",
     "target": "btnCollect",
-    "effect": "switch",
+    "effect": "",
     "effectDescription": "收藏按键亮起",
-    "action": "meanwhile"
+    "action": "next",
+    "bg": "tutorial4"
   },
   {
     "id": 13,
-    "tips": "",
-    "target": "collectWindow",
-    "effect": "show",
-    "effectDescription": "",
-    "action": "next"
-  },
-  {
-    "id": 14,
-    "tips": "设置界面可以调整音量大小。",
+    "tips": "设置界面可以调整音量大小",
     "target": "btnSetting",
-    "effect": "switch",
+    "effect": "",
     "effectDescription": "设置按键亮起，教程结束自动跳转到主界面，并且出现教程图标，教程图标被点亮（泼墨",
-    "action": "meanwhile"
-  },
-  {
-    "id": 15,
-    "tips": "",
-    "target": "settingWindow",
-    "effect": "show",
-    "effectDescription": "",
-    "action": "end"
+    "action": "next",
+    "bg": "tutorial5"
   }
 ]

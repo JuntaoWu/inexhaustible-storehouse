@@ -91,7 +91,7 @@
         </e:Button>
         <e:Button id="btnCardsGame" verticalCenter="0" right="50">
             <e:Skin>
-                <e:Image source="btn-card-game" horizontalCenter="0" verticalCenter="0" />
+                <e:Image source="btn-card-game_png" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
     </e:Group>

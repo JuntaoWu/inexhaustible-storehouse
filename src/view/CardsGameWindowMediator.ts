@@ -24,10 +24,8 @@ namespace ies {
             // ["", "", ""].map(i => {});
             for(let i = 1; i <= 3; i++) {
                 const o = {
-                    res: "",
-                    type: "",
-                    isBack: false,
-                    text: i
+                    res: `card-img${i}`,
+                    type: ""
                 }
                 this.cardsList.push(o);
             }
@@ -39,7 +37,6 @@ namespace ies {
             this.pageView.btnConfirm.visible = true;
             this.pageView.tips = "请项子远玩家从九张标记卡中随机抽一张查看并暗置一旁，然后从下方选出与抽到的标记卡同组的画卷卡，此卡在游戏中代表真品";
             this.isStarted = true;
-            this.isLastConfirm = false;
         }
 
         private isStarted: boolean;
@@ -50,7 +47,7 @@ namespace ies {
         selectCard(event: eui.ItemTapEvent) {
             this.selectedItem = event.item;
             this.showCardsList.forEach(i => {
-                if (i.text == event.item.text) {
+                if (i.res == event.item.res) {
                     i.isSelected = true;
                 }
                 else {
@@ -61,26 +58,18 @@ namespace ies {
             this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
         }
 
-        private isLastConfirm: boolean;
         public confirmSelected() {
             this.proxy.playEffect("btn-confirm_mp3");
-            if (this.isLastConfirm) {
-                this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
-                this.pageView.cardsList.dataProvider = new eui.ArrayCollection([]);
-                this.pageView.btnConfirm.visible = false;
-                this.pageView.btnResult.visible = true;
-            }
             if (!this.selectedItem) return;
             if (this.pageView.cardsList.numElements == this.cardsList.length) { //选择真品
                 this.cardsList.forEach(i => {
                     i.isSelected = false;
-                    if (i.text == this.selectedItem.text) {
+                    if (i.res == this.selectedItem.res) {
                         i.type = "真"
                     }
                 });
                 this.showCardsList = [];
                 this.cardsList.forEach(i => {
-                    i.isBack = true;
                     if (!i.type) {
                         this.showCardsList.push(i);
                     }
@@ -91,29 +80,26 @@ namespace ies {
             }
             else { //选择赝品
                 this.pageView.tips = "";
-                this.showCardsList = [];
                 this.cardsList.forEach(i => {
                     i.isSelected = false;
-                    if (i.text == this.selectedItem.text) {
+                    if (i.res == this.selectedItem.res) {
                         i.type = "赝";
-                        i.isBack = false;
-                    }
-                    if (i.type != "真") {
-                        this.showCardsList.push(i);
                     }
                 });
                 this.cardsList.find(i => !i.type).type = "仿";
                 this.pageView.cardsList.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.selectCard, this);
+                
                 this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
-                this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.showCardsList);
-                this.isLastConfirm = true;
+                this.pageView.cardsList.dataProvider = new eui.ArrayCollection([]);
+                this.pageView.btnConfirm.visible = false;
+                this.pageView.btnResult.visible = true;
             }
             this.selectedItem = null;
         }
 
         public showResult() {
             this.pageView.btnResult.visible = false;
-            this.cardsList.forEach(i => i.isBack = false);
+            // this.cardsList.forEach(i => i.isBack = false);
             this.pageView.cardsList.itemRenderer = CardsGameItemRenderer;
             this.pageView.cardsList.dataProvider = new eui.ArrayCollection(this.cardsList);
             this.isStarted = false;

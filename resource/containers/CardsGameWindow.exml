@@ -12,21 +12,21 @@
         <e:Label text="众筹专属卡牌游戏" size="55" horizontalCenter="0" y="30"/>
         <e:Group id="gameGroup" y="150" horizontalCenter="0">
             
-            <e:List id="cardsList" horizontalCenter="0" y="200">
+            <e:List id="cardsList" horizontalCenter="0" y="150">
                 <e:layout>
-                    <e:TileLayout orientation="columns" requestedColumnCount="3" verticalGap="50" paddingTop="20"/>
+                    <e:TileLayout orientation="columns" requestedColumnCount="3" verticalGap="100"/>
                 </e:layout>
             </e:List>
             <e:Label text="{tips}" size="50" horizontalCenter="0" width="1200" textAlign="center"/>
-            <e:Button id="btnConfirm" horizontalCenter="0" y="600" width="300" height="150">
+            <e:Button id="btnConfirm" horizontalCenter="0" y="600">
                 <e:Skin>
                     <e:Image source="btn-confirm" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:Button>
-            <e:Button id="btnResult" visible="false" label="揭示真相" horizontalCenter="0" y="600" width="300" height="150">
-                <!--<e:Skin>
-                    <e:Image source="btn-back" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>-->
+            <e:Button id="btnResult" visible="false" horizontalCenter="0" y="600">
+                <e:Skin>
+                    <e:Image source="btn-card-final" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
             </e:Button>
         </e:Group>
 
