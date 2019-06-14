@@ -298,7 +298,7 @@ namespace ies {
 
         public moveToTargetIndex(targetIndex: number) {
             if (this.gameScreen.scrollerCrowd.visible) {
-                let targetScrollH = (Constants.contentCrowdWidth + Constants.listGap) * (targetIndex - 1) + (this.gameScreen.scrollerCrowd.width - Constants.contentCrowdWidth) / 2 - 200;
+                let targetScrollH = (Constants.contentCrowdWidth + Constants.listGap) * (targetIndex - 1) + (this.gameScreen.scrollerCrowd.width - Constants.contentCrowdWidth) / 2;
                 const maxScrollH = this.gameScreen.scrollerCrowd.viewport.contentWidth - this.gameScreen.scrollerCrowd.width;
                 targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
                 egret.Tween.get(this.gameScreen.listCrowd).to({ scrollH: targetScrollH }, 200).call(() => {
@@ -310,7 +310,7 @@ namespace ies {
                 let targetScrollH = (Constants.contentWidth + Constants.listGap) * targetIndex + (this.gameScreen.scroller.width - Constants.contentWidth) / 2;
                 const maxScrollH = this.gameScreen.scroller.viewport.contentWidth - this.gameScreen.scroller.width;
                 targetScrollH = Math.max(0, Math.min(maxScrollH, targetScrollH));
-                egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 500).call(() => {
+                egret.Tween.get(this.gameScreen.listChapter).to({ scrollH: targetScrollH }, 400).call(() => {
                     this.chapterIndex = targetIndex;
                     this.proxy.playEffect("scroller-change_mp3");
                 });
