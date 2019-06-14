@@ -28,6 +28,11 @@
                     <e:Image source="btn-card-final" horizontalCenter="0" verticalCenter="0" />
                 </e:Skin>
             </e:Button>
+            <e:Button id="btnGame" visible="false" horizontalCenter="0" y="600">
+                <e:Skin>
+                    <e:Image source="btn-run" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:Button>
         </e:Group>
 
 

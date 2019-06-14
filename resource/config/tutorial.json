@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "tips": "请根据<font color='0xff0000'>印章</font>找到<font color='0xff0000'>对应的诗句，</font>并点击<font color='0xff0000'>涂抹处</font>填写答案",
+    "tips": "请根据<font color='0xff0000'>印章</font>找到<font color='0xff0000'>对应的诗句，</font>并点击<font color='0xff0000'>空格处</font>填写答案",
     "target": "titleGroup",
     "effect": "play",
     "effectDescription": "透明手指图标播放点击动画",

@@ -8,6 +8,7 @@ namespace ies {
         public buttonGroup: eui.Group;
         public btnResult: eui.Button;
         public btnConfirm: eui.Button;
+        public btnGame: eui.Button;
         public tips: string;
 
         public constructor() {
