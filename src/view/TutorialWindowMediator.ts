@@ -26,7 +26,6 @@ namespace ies {
 
         private nowIndex: number;
         private tipsText: string;
-        private timeoutIds: Array<number>;
 
         public constructor(viewComponent: any) {
             super(TutorialWindowMediator.NAME, viewComponent);
@@ -39,9 +38,6 @@ namespace ies {
         }
 
         public async initData() {
-            if (this.timeoutIds) {
-                this.timeoutIds.forEach(i => egret.clearTimeout(i));
-            }
             // const titleList = [];
             // for (let i = 0; i < 2; i++) {
             //     const v = this.proxy.questionMap.get((1 + i).toString());
@@ -56,8 +52,6 @@ namespace ies {
             // this.pageView.titleList.itemRenderer = SentenceRenderer;
             // this.pageView.titleList.dataProvider = new eui.ArrayCollection(titleList);
 
-
-            this.timeoutIds = [];
             this.reSetUI();
             this.nowIndex = 0;
             this.showTips();
@@ -65,26 +59,30 @@ namespace ies {
 
         public reSetUI() {
             this.tipsText = "";
-            this.timeoutIds.forEach(i => egret.clearTimeout(i));
-            this.timeoutIds = [];
             const effectUIPool = [
                 this.pageView.titleGroup, this.pageView.btnNextGroup, 
                 this.pageView.scrollerGroup, this.pageView.btnCatalogGroup,
-                this.pageView.btnTips1, this.pageView.btnTips2, 
-                this.pageView.btnTips3, this.pageView.inputGroup, 
-                this.pageView.submitAnswerGroup, this.pageView.closeAnswerGroup
+                this.pageView.tipsGroup, this.pageView.inputGroup, 
+                this.pageView.submitAnswerGroup, this.pageView.closeAnswerGroup,
+                this.pageView.sentenceGroup
             ]
             effectUIPool.forEach(i => i.visible = false);
         }
 
         public showTips() {
             const nowItem = this.tutorialJson[this.nowIndex];
+            console.log(nowItem);
             if (!nowItem) {
                 this.endTutorial();
                 return;
             }
             this.pageView.catalogBg = nowItem.bg;
-            console.log(this.pageView.catalogBg);
+            if (nowItem.bg != 'tutorial1') {
+                this.pageView.tipsLabelGroup.y = 90;
+            }
+            else {
+                this.pageView.tipsLabelGroup.y = 140;
+            }
             this.tipsText = nowItem.tips;
             const textElements = new egret.HtmlTextParser().parser(this.tipsText);
             this.pageView.tipsLabel.textFlow = textElements;
@@ -96,31 +94,35 @@ namespace ies {
         }
 
         public showEffect(nowItem) {
-            this.dragonBoneGroup.parent && this.dragonBoneGroup.parent.removeChild(this.dragonBoneGroup);
             if (this.pageView[nowItem.target]) {
                 this.pageView[nowItem.target].visible = true;
                 if (nowItem.effect == "play") {
+                    if (nowItem.target == "btnNextGroup"){
+                        console.log(111, this.pageView.btnNextGroup.visible);
+                    }
+                    this.dragonBoneGroup.parent && this.dragonBoneGroup.parent.removeChild(this.dragonBoneGroup);
                     this.pageView[nowItem.target].addChild(this.dragonBoneGroup);
                     this.dragonBone.animation.play("hand_touch", 0);
                 }
                 else if (nowItem.effect == "play-hold") {
-                    this.pageView[nowItem.target].addChild(this.dragonBoneGroup);
-                    this.dragonBone.animation.play("hand_hold", 0);
-                }
-                else if (nowItem.effect == "switch") {
-                    ["btnCatalog", "btnCollect", "btnSetting"].forEach(i => this.pageView[i].selected = false);
-                    ["sentenceGroup", "collectWindow", "settingWindow"].forEach(i => this.pageView[i].visible = false);
-                    this.pageView[nowItem.target].selected = true;
-                }
-            }
-            else {
-                nowItem.target.split(",").forEach((item, index) => {
-                    if (this.pageView[item]) {
-                        this.timeoutIds[index] = egret.setTimeout(() => {
-                            this.pageView[item].visible = true;
-                        }, this, index * 600);
+                    console.log(this.pageView.btnNextGroup.visible);
+                    let dragonBone = null;
+                    const dragonBoneGroup = this.pageView[nowItem.target].getChildByName('dragonBoneGroup')
+                    if (dragonBoneGroup) {
+                        dragonBone = dragonBoneGroup.getChildByName('dragonBone');
                     }
-                });
+                    else {
+                        const dragonBoneGroup: eui.Group = new eui.Group();
+                        dragonBoneGroup.name = "dragonBoneGroup";
+                        dragonBone = DragonBones.createDragonBone("hand", "touch");
+                        dragonBone.name = "dragonBone";
+                        dragonBoneGroup.addChild(dragonBone);
+                        dragonBoneGroup.verticalCenter = 0;
+                        dragonBoneGroup.horizontalCenter = 0;
+                        this.pageView[nowItem.target].addChild(dragonBoneGroup);
+                    }
+                    dragonBone && dragonBone.animation.play("hand_hold", 0);
+                }
             }
         }
 
@@ -133,7 +135,7 @@ namespace ies {
         }
 
         public nextOne() {
-            if (this.tutorialJson[this.nowIndex].action == "change") {
+            if (this.tutorialJson[this.nowIndex].action != "auto") {
                 this.reSetUI();
             }
             this.nowIndex++;

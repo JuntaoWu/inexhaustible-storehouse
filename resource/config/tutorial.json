@@ -23,7 +23,7 @@
     "target": "scrollerGroup",
     "effect": "play-hold",
     "effectDescription": "透明手指图标播放向左滑动动画",
-    "action": "and",
+    "action": "next",
     "bg": "tutorial1"
   },
   {
@@ -32,7 +32,7 @@
     "target": "titleGroup",
     "effect": "play",
     "effectDescription": "透明手指图标播放点击动画",
-    "action": "change",
+    "action": "next",
     "bg": "tutorial1"
   },
   {
@@ -47,9 +47,9 @@
   {
     "id": 6,
     "tips": "对谜题没有解答思路的话可以点击<font color='0xff0000'>提示按键</font>提示关键信息",
-    "target": "btnTips1,btnTips2,btnTips3",
-    "effect": "show",
-    "effectDescription": "提示按键依此点亮",
+    "target": "tipsGroup",
+    "effect": "play",
+    "effectDescription": "提示按键",
     "action": "next",
     "bg": "tutorial2"
   },
@@ -68,7 +68,7 @@
     "target": "closeAnswerGroup",
     "effect": "play",
     "effectDescription": "玩家只能在讲解完成后退出二级界面",
-    "action": "change",
+    "action": "next",
     "bg": "tutorial2"
   },
   {
@@ -77,20 +77,11 @@
     "target": "btnCatalogGroup",
     "effect": "play",
     "effectDescription": "目录图标闪烁，播放透明手指点击动画，此时玩家无法进行其他操作，只能点击目录图标进入下一阶段教程",
-    "action": "change",
+    "action": "next",
     "bg": "tutorial1"
   },
   {
     "id": 10,
-    "tips": "",
-    "target": "btnCatalog",
-    "effect": "",
-    "effectDescription": "目录按键亮起",
-    "action": "auto",
-    "bg": "tutorial3"
-  },
-  {
-    "id": 11,
     "tips": "点击目录界面的任意诗句可以直接<font color='0xff0000'>跳转到对应画卷</font>",
     "target": "sentenceGroup",
     "effect": "play",
@@ -99,20 +90,20 @@
     "bg": "tutorial3"
   },
   {
-    "id": 12,
+    "id": 11,
     "tips": "收藏界面可查看已解画卷配图",
-    "target": "btnCollect",
+    "target": "",
     "effect": "",
     "effectDescription": "收藏按键亮起",
     "action": "next",
     "bg": "tutorial4"
   },
   {
-    "id": 13,
+    "id": 12,
     "tips": "设置界面可以调整音量大小",
-    "target": "btnSetting",
+    "target": "",
     "effect": "",
-    "effectDescription": "设置按键亮起，教程结束自动跳转到主界面，并且出现教程图标，教程图标被点亮（泼墨",
+    "effectDescription": "设置按键亮起，教程结束自动跳转到主界面，并且出现教程图标，教程图标被点亮（泼墨）",
     "action": "next",
     "bg": "tutorial5"
   }

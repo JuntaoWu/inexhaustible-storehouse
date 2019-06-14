@@ -6,66 +6,43 @@
     <e:Rect top="0" bottom="0" left="0" right="0" alpha="0.4"/>
 
     <e:Group id="tutorialGroup" left="0" right="0" top="0" bottom="0">
-        <!-- 首页教程 -->
-        <e:Group width="100%" height="180" scaleX="{viewScaleX}">
-            <e:Group horizontalCenter="-40" verticalCenter="0">
-                <e:Group id="titleGroup" verticalCenter="0" left="100" width="50%">
-                </e:Group>
-                <e:Group id="btnNextGroup" visible="false" verticalCenter="0" right="0">
-                </e:Group>
+        <!-- 首页 -->
+        <e:Group width="1500" horizontalCenter="0" y="100">
+            <e:Group id="titleGroup" x="500">
+            </e:Group>
+            <e:Group id="btnNextGroup" right="150">
             </e:Group>
         </e:Group>
-        
         <e:Group id="scrollerGroup" verticalCenter="0" height="400" width="500" horizontalCenter="0">
         </e:Group>
-        <e:Group id="btnCatalogGroup" left="160" bottom="25">
-            <e:Button>
-                <e:Skin>
-                    <e:Image source="btn-catalog" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:Button>
+        <e:Group id="btnCatalogGroup" left="160" bottom="25" width="375" height="165">
         </e:Group>
-        <!-- 答题教程 -->
-        <e:Group verticalCenter="0" horizontalCenter="0">
+        <!-- 答题页 -->
+        <e:Group verticalCenter="0" horizontalCenter="0" width="1500">
             <e:Group horizontalCenter="0" top="160">
-                <e:Group horizontalCenter="-4" width="1280" y="80">
-                    <e:Button id="btnTips1">
-                        <e:Skin>
-                            <e:Image source="tips1-bg" horizontalCenter="0" verticalCenter="0" />
-                            <e:Image source="tips1" horizontalCenter="0" verticalCenter="0" />
-                        </e:Skin>
-                    </e:Button>
-                    <e:Button id="btnTips2" horizontalCenter="-5">
-                        <e:Skin>
-                            <e:Image source="tips2-bg" horizontalCenter="0" verticalCenter="0" />
-                            <e:Image source="tips2" horizontalCenter="0" verticalCenter="0" />
-                        </e:Skin>
-                    </e:Button>
-                    <e:Button id="btnTips3" right="0">
-                        <e:Skin>
-                            <e:Image source="tips3-bg" horizontalCenter="0" verticalCenter="0" />
-                            <e:Image source="tips3" horizontalCenter="0" verticalCenter="0" />
-                        </e:Skin>
-                    </e:Button>
+                <e:Group id="tipsGroup" horizontalCenter="0">
                 </e:Group>
                 <e:Group id="inputGroup" y="475" horizontalCenter="0">
                 </e:Group>
                 <e:Group id="submitAnswerGroup" horizontalCenter="0" y="680">
                 </e:Group>
             </e:Group>
-            <e:Group id="closeAnswerGroup" right="-150">
+            <e:Group id="closeAnswerGroup" right="0" y="50">
             </e:Group>
         </e:Group>
-        <e:Group right="50" y="240">
-            <e:Label id="tipsLabel" width="400" size="45" lineSpacing="15" verticalCenter="0" horizontalCenter="0" />
+        <e:Group id="tipsLabelGroup" y="140" left="20" right="20">
+            <e:Label id="tipsLabel" width="100%" size="45" lineSpacing="15" verticalCenter="0" horizontalCenter="0"  textAlign="center"/>
         </e:Group>
-        
-        <e:Button id="btnNext" right="425" bottom="25">
+        <!-- 目录页 -->
+        <e:Group id="sentenceGroup" verticalCenter="0" height="400" width="500" horizontalCenter="0">
+        </e:Group>
+
+        <e:Button id="btnNext" right="400" bottom="25">
             <e:Skin>
                 <e:Image source="btn-tutorial-next" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
-        <e:Button id="btnSkip" right="50" bottom="25">
+        <e:Button id="btnSkip" right="30" bottom="25">
             <e:Skin>
                 <e:Image source="btn-skip" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>

@@ -11,19 +11,13 @@ namespace ies {
         public titleGroup: eui.Group;
         public btnNextGroup: eui.Group;
         public scrollerGroup: eui.Group;
+        public sentenceGroup: eui.Group;
         public btnCatalogGroup: eui.Group;
-
-        public btnTips1: eui.Button;
-        public btnTips2: eui.Button;
-        public btnTips3: eui.Button;
+        public tipsGroup: eui.Group;
         public inputGroup: eui.Group;
         public submitAnswerGroup: eui.Group;
         public closeAnswerGroup: eui.Group;
-
-        public btnCatalog: eui.ToggleButton;
-        public btnCollect: eui.ToggleButton;
-        public btnSetting: eui.ToggleButton;
-        public sentenceGroup: eui.Group;
+        public tipsLabelGroup: eui.Group;
 
         public catalogBg: string;
         public viewScaleX: number;

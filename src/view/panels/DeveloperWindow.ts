@@ -3,12 +3,15 @@ namespace ies {
 
     export class DeveloperWindow extends eui.Component {
 
+        public appVersion: string;
+
         public constructor() {
             super();
 
             this.name = "developerWindow";
             this.skinName = "skins.ies.DeveloperWindow";
             this.addEventListener(eui.UIEvent.ADDED, this.createCompleteEvent, this);
+            this.appVersion = platform.appVersion;
         }
 
         private proxy: GameProxy;

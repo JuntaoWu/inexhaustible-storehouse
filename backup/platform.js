@@ -8,7 +8,7 @@ class WxgamePlatform {
 
   env = 'prod';
   name = 'wxgame';
-  appVersion = '0.1.8';
+  appVersion = '0.1.12';
   isConnected = true;
   os = 'wxgame';
 
