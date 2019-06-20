@@ -1,56 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skins.ies.DeveloperWindow" xmlns:e="http://ns.egret.com/eui" xmlns:ies="ies.*">
+<e:Skin class="skins.ies.DeveloperWindow" xmlns:e="http://ns.egret.com/eui" xmlns:ies="ies.*" xmlns:w="http://ns.egret.com/wing">
     <e:Button id="btnBack" alpha="0" top="0" bottom="0" left="0" right="0">
     </e:Button>
     <e:Scroller scrollPolicyH="off" id="scrollGroup" horizontalCenter="0" top="0" bottom="20">
         <e:viewport>
             <e:Group horizontalCenter="0">
-                <e:Image anchorOffsetX="0" anchorOffsetY="0" source="logo" horizontalCenter="0"/>
-                <e:Group horizontalCenter="0" y="500">
-                    <e:Label text="版本信息" size="45" horizontalCenter="0" fontFamily="Microsoft YaHei"/>
-                    <e:Label text="{appVersion}" size="45" horizontalCenter="0" y="60" fontFamily="Microsoft YaHei"/>
-                </e:Group>
-                <e:Image id="btnExtra" y="640" anchorOffsetX="0" anchorOffsetY="0"  source="company_logo" horizontalCenter="0"/>
-                <e:Group horizontalCenter="0" y="950">
-                    <e:Group horizontalCenter="0">
-                        <e:Label text="无尽藏制作名单" size="45" horizontalCenter="0" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="作者：冰容" size="45" horizontalCenter="0" y="60" fontFamily="Microsoft YaHei"/>
-                    </e:Group>
-                    <e:Group horizontalCenter="0" y="150">
-                        <e:Label text="制作人：傅韬" size="45" horizontalCenter="0" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="谜题设计：黄一鸣" size="45" horizontalCenter="0" y="60" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="剧情设计：嬴晖" size="45" horizontalCenter="0" y="120" fontFamily="Microsoft YaHei"/>
-                    </e:Group>
-                    <e:Group horizontalCenter="0" y="360">
-                        <e:Label text="实体部分：" size="45" horizontalCenter="0" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="产品经理：段小黑" size="45" horizontalCenter="0" y="60" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="环节设计：黄一鸣、嬴晖" size="45" horizontalCenter="0" y="120" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="策划组：东方遥、袁皓明" size="45" horizontalCenter="0" y="180" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="美术总监：Shoogee Wang" size="45" horizontalCenter="0" y="240" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="包装视觉：Shoogee Wang" size="45" horizontalCenter="0" y="300" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="装帧及配件：段小黑、潘维" size="45" horizontalCenter="0" y="360" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="插画绘制：Dark Bear、段小黑" size="45" horizontalCenter="0" y="420" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="排版设计：Shoogee Wang" size="45" horizontalCenter="0" y="480" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="美术编辑：Roy" size="45" horizontalCenter="0" y="540" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="文本校对：东方遥、袁皓明、刘莉红、CC" size="45" horizontalCenter="0" y="600" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="测试校验：宋宇、小猫" size="45" horizontalCenter="0" y="660" fontFamily="Microsoft YaHei"/>
-                    </e:Group>
-                    <e:Group horizontalCenter="0" y="1110">
-                        <e:Label text="小程序部分：" size="45" horizontalCenter="0" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="产品经理：段小黑" size="45" horizontalCenter="0" y="60" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="主策划：黄一鸣" size="45" horizontalCenter="0" y="120" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="功能设计：东方遥、袁皓明" size="45" horizontalCenter="0" y="180" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="主程序：吴俊涛、罗勇" size="45" horizontalCenter="0" y="240" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="程序组：陈伦森、Roy " size="45" horizontalCenter="0" y="300" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="美术总监：Shoogee Wang" size="45" horizontalCenter="0" y="360" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="UI设计：Shoogee Wang、Roy" size="45" horizontalCenter="0" y="420" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="插画绘制：Dark Bea" size="45" horizontalCenter="0" y="480" fontFamily="Microsoft YaHei"/>
-                        <e:Label text="动画制作：Roy " size="45" horizontalCenter="0" y="540" fontFamily="Microsoft YaHei"/>
-                    </e:Group>
-                    <e:Group horizontalCenter="0" y="1740">
-                        <e:Label text="《乱真》游戏设计：袁皓明" size="45" horizontalCenter="0" fontFamily="Microsoft YaHei"/>
-                    </e:Group>
-                </e:Group>
+                <e:Image anchorOffsetX="0" anchorOffsetY="0" source="logo" horizontalCenter="-77.5" y="20.5"/>
+
+                <e:Image id="btnExtra" y="627" anchorOffsetX="0" anchorOffsetY="0"  source="company_logo" horizontalCenter="-77.5"/>
+							<e:Image id="de_d1" y="1021.5" anchorOffsetX="0" anchorOffsetY="0" source="de_d1" x="148"/>
+							<e:Image id="de_d2" y="1135.8" anchorOffsetX="0" anchorOffsetY="0" source="de_d2" x="389.97"/>
+							<e:Image id="de_d3" y="1262.02" anchorOffsetX="0" anchorOffsetY="0" source="de_d3" x="273.11"/>
+							<e:Image id="de_d4" y="1565.65" anchorOffsetX="0" anchorOffsetY="0" source="de_d4" x="166.02"/>
+							<e:Image id="de_d5" y="3338.08" anchorOffsetX="0" anchorOffsetY="0" source="de_d5" x="244.62"/>
+
+							<e:Image id="de_d6" y="4613.85" anchorOffsetX="0" anchorOffsetY="0" source="de_d6" x="123.94"/>
+							<e:Label text="ver" size="26" y="4697" fontFamily="Microsoft YaHei" x="1130.5"/>
+							<e:Label text="{appVersion}" size="26" y="4697" textAlign="right" fontFamily="Microsoft YaHei" x="1179"/>
+
+
+
+
             </e:Group>
         </e:viewport>
     </e:Scroller>
