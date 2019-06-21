@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,default_json,question_json,scroll-background,mask,scroll-bar,company_logo,logo,logo-with-bg,tutorial_json,main-screen-sprite_json,btn-final,sentence_fnt,sentence_png,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,scroller-close_mp3,scroller-open_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-confirm_mp3,btn-final_mp3,collect-10,collect-11,collect-12,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,lazy-load-sprite_json,btn-cancel,collect-23,collect-24,collect-25,collect-26,collect-27,collect-28,collect-min_json,collect-29,collect-30,collect-min-29,collect-min-30,card-game-img7,card-game-img1,card-game-img2,card-game-img3,card-game-img4,card-game-img5,card-game-img6,cardgame-title_json,card-scroll-bar,SenceAll_1_ske_json,SenceAll_1_tex_json,SenceAll_1_tex_png,SenceAll_2_ske_json,SenceAll_2_tex_json,SenceAll_2_tex_png,SenceAll_3_ske_json,SenceAll_3_tex_json,SenceAll_3_tex_png,SenceAll_4_ske_json,SenceAll_4_tex_json,SenceAll_4_tex_png,SenceAll_5_ske_json,SenceAll_5_tex_json,SenceAll_5_tex_png,SenceAll_6_ske_json,SenceAll_6_tex_json,SenceAll_6_tex_png,SenceAll_7_ske_json,SenceAll_7_tex_json,SenceAll_7_tex_png,SenceAll_8_ske_json,SenceAll_8_tex_json,SenceAll_8_tex_png,SenceAll_9_ske_json,SenceAll_9_tex_json,SenceAll_9_tex_png,SenceAll_10_ske_json,SenceAll_10_tex_json,SenceAll_10_tex_png,volume-line-bg_png,btn-slider_png,btn-card-tip4,btn-card-tip1,btn-card-tip2,btn-card-tip3,title-side-icon_json,card-img1,card-img2,card-img3,btn-cursor,btn-card-game_png,card-back,btn-skip_png",
+			"keys": "description_json,question_json,scroll-background,scroll-bar,company_logo,logo,logo-with-bg,tutorial_json,main-screen-sprite_json,sentence_fnt,sentence_png,hand_ske_json,hand_tex_json,hand_tex_png,masks_tex_png,masks_ske_json,masks_tex_json,percent_png,percent_fnt,word-box,scroll_bg_tex_png,scroll_bg_ske_json,scroll_bg_tex_json,main-background,BGM,btn-catalog_mp3,btn-right_mp3,btn-left_mp3,btn-back_mp3,btn-card_mp3,scroller-change_mp3,SenceAll_1_ske_json,SenceAll_1_tex_json,SenceAll_1_tex_png,SenceAll_2_ske_json,SenceAll_2_tex_json,SenceAll_2_tex_png,SenceAll_3_ske_json,SenceAll_3_tex_json,SenceAll_3_tex_png,title-side-icon_json,btn-skip_png,tutorial1,btn-card-game_png,SenceAll_4_ske_json,SenceAll_4_tex_json,SenceAll_4_tex_png,SenceAll_5_ske_json,SenceAll_5_tex_json,SenceAll_5_tex_png,SenceAll_6_ske_json,SenceAll_6_tex_json,SenceAll_6_tex_png,SenceAll_7_ske_json,SenceAll_7_tex_json,SenceAll_7_tex_png,SenceAll_8_ske_json,SenceAll_8_tex_json,SenceAll_8_tex_png,SenceAll_9_ske_json,SenceAll_9_tex_json,SenceAll_9_tex_png,SenceAll_10_ske_json,SenceAll_10_tex_json,SenceAll_10_tex_png",
 			"name": "preload"
 		},
 		{
@@ -9,12 +9,8 @@
 			"name": "loading"
 		},
 		{
-			"keys": "",
+			"keys": "tutorial5,tutorial4,tutorial3,tutorial2,de_d6,de_d5,de_d4,de_d3,de_d2,de_d1,collect-13,collect-14,collect-15,collect-16,collect-17,collect-18,collect-19,collect-20,collect-21,collect-22,collect-1,collect-2,collect-3,collect-4,collect-5,collect-6,collect-7,collect-8,collect-9,alert-bg,alert-title,btn-alert-confirm,scroller-open_mp3,btn-cancel,collect-23,collect-24,collect-25,collect-26,collect-27,collect-28,collect-min_json,collect-29,collect-30,collect-min-29,collect-min-30,card-game-img7,card-game-img1,card-game-img2,card-game-img3,card-game-img4,card-game-img5,card-game-img6,cardgame-title_json,card-scroll-bar,volume-line-bg_png,btn-slider_png,btn-card-tip4,btn-card-tip1,btn-card-tip2,btn-card-tip3,card-img1,card-img2,card-img3,btn-cursor,card-back,scroller-close_mp3,crowd-change_mp3,change12_mp3,change23_mp3,common-click_mp3,btn-final_mp3,btn-confirm_mp3,collect-12,collect-11,collect-10,exclusive-6,exclusive-5,exclusive-4,exclusive-3,exclusive-2,exclusive-1",
 			"name": "lazyload"
-		},
-		{
-			"keys": "de_d6,de_d5,de_d4,de_d3,de_d2,de_d1",
-			"name": "developers"
 		}
 	],
 	"resources": [
@@ -820,9 +816,9 @@
 			"name": "de_d6"
 		},
 		{
-			"name": "btn-skip_png",
+			"url": "assets/button/btn-skip.png",
 			"type": "image",
-			"url": "assets/button/btn-skip.png"
+			"name": "btn-skip_png"
 		}
 	]
 }

@@ -26,7 +26,7 @@ namespace ies {
                 return {
                     service: "https://ies.hzsdgames.com/api/",
                     localResource: "",
-                    remoteResource: "https://ies.hzsdgames.com/miniGame/",
+                    remoteResource: "https://cdn.hzsdgames.com/miniGame/",
                 };
             }
             if (platform.env == "test") {
