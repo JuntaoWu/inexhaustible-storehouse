@@ -12,11 +12,11 @@
 							<e:Image id="de_d2" y="1135.8" anchorOffsetX="0" anchorOffsetY="0" source="de_d2" x="389.97"/>
 							<e:Image id="de_d3" y="1262.02" anchorOffsetX="0" anchorOffsetY="0" source="de_d3" x="273.11"/>
 							<e:Image id="de_d4" y="1565.65" anchorOffsetX="0" anchorOffsetY="0" source="de_d4" x="166.02"/>
-							<e:Image id="de_d5" y="3338.08" anchorOffsetX="0" anchorOffsetY="0" source="de_d5" x="244.62"/>
+							<e:Image id="de_d5" y="3392.08" anchorOffsetX="0" anchorOffsetY="0" source="de_d5" x="244.62"/>
 
-							<e:Image id="de_d6" y="4613.85" anchorOffsetX="0" anchorOffsetY="0" source="de_d6" x="123.94"/>
-							<e:Label text="ver" size="26" y="4697" fontFamily="Microsoft YaHei" x="1130.5"/>
-							<e:Label text="{appVersion}" size="26" y="4697" textAlign="right" fontFamily="Microsoft YaHei" x="1179"/>
+							<e:Image id="de_d6" y="4649.85" anchorOffsetX="0" anchorOffsetY="0" source="de_d6" x="123.94"/>
+							<e:Label text="ver" size="26" y="4723" fontFamily="Microsoft YaHei" x="1126.5"/>
+							<e:Label text="{appVersion}" size="26" y="4723" textAlign="right" fontFamily="Microsoft YaHei" x="1179"/>
 
 
 
