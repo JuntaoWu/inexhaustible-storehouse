@@ -5,14 +5,12 @@
     <e:Image bottom="0" top="0" left="0" right="0" source="main-background"></e:Image>
     <e:Group verticalCenter="0" left="0" right="0" height="840">
         <e:Image id="scrollBg" source="scroll-background" verticalCenter="0" right="0" left="160"></e:Image>
-        
-        <e:Group id="bgDragonBoneGroup" verticalCenter="0" right="0" left="160">
-        </e:Group>
+        <e:Group id="bgDragonBoneGroup" verticalCenter="0" right="0" left="160"></e:Group>
         <e:Group id="blurFilter1" left="20" verticalCenter="0">
             <e:Image source="scroll-bar"></e:Image>
         </e:Group>
-        <e:Scroller id="scroller" scrollPolicyH="on" scrollPolicyV="off"
-                    left="160" right="0" height="680" verticalCenter="0">
+        <e:Scroller id="scroller" scrollPolicyH="on" scrollPolicyV="off" left="160" right="0" height="680"
+                    verticalCenter="0">
             <e:viewport>
                 <e:List id="listChapter" useVirtualLayout="false" verticalCenter="0">
                     <e:layout>
@@ -21,10 +19,10 @@
                 </e:List>
             </e:viewport>
         </e:Scroller>
-        <e:Scroller id="scrollerCrowd" visible="false" scrollPolicyH="on" scrollPolicyV="off"
-                    left="330" right="0" height="680" verticalCenter="0">
+        <e:Scroller id="scrollerCrowd" visible="false" scrollPolicyH="on" scrollPolicyV="off" left="330" right="0"
+                    height="680" verticalCenter="0">
             <e:viewport>
-                <e:List id="listCrowd" verticalCenter="0">
+                <e:List id="listCrowd" useVirtualLayout="false" verticalCenter="0">
                     <e:layout>
                         <e:HorizontalLayout gap="20"></e:HorizontalLayout>
                     </e:layout>
@@ -45,54 +43,64 @@
             <e:Group verticalCenter="0" left="100" right="100">
                 <e:List id="titleList" verticalCenter="0" scaleX="0.8" scaleY="0.8">
                     <e:layout>
-                        <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="40"/>
+                        <e:TileLayout orientation="rows" requestedColumnCount="2" horizontalGap="40" />
                     </e:layout>
                 </e:List>
                 <!--<e:Group visible="{showFinal}" verticalCenter="0" horizontalCenter="0">
-                    <e:List id="listFinalQuestion" horizontalCenter="0">
-                        <e:layout>
-                            <e:HorizontalLayout gap="0"></e:HorizontalLayout>
-                        </e:layout>
-                    </e:List>
-                </e:Group>-->
+                <e:List id="listFinalQuestion" horizontalCenter="0">
+                    <e:layout>
+                        <e:HorizontalLayout gap="0"></e:HorizontalLayout>
+                    </e:layout>
+                </e:List>
             </e:Group>
-            <e:Button id="btnNext" verticalCenter="0" right="0">
-                <e:Skin>
-                    <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:Button>
+            -->
         </e:Group>
-        <e:Group visible="{showCrowd}" horizontalCenter="0" verticalCenter="0" width="850">
-            <e:Button id="btnPrevious2" verticalCenter="0">
-                <e:Skin>
-                    <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:Button>
-            <e:Group id="titleGroup" verticalCenter="0" horizontalCenter="0">
-                <e:Label text="{titleText}" verticalCenter="0" horizontalCenter="5" size="55"/>
-            </e:Group>
-            <e:Button id="btnNext2" verticalCenter="0" right="0">
-                <e:Skin>
-                    <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
-                </e:Skin>
-            </e:Button>
-        </e:Group>
-    </e:Group>
-    <e:Group id="blurFilter3" bottom="25" left="160" right="-3">
-        <e:Button id="btnCatalog" verticalCenter="0">
+        <e:Button id="btnNext" verticalCenter="0" right="0">
             <e:Skin>
-                <e:Image source="btn-catalog" horizontalCenter="0" verticalCenter="0" />
-            </e:Skin>
-        </e:Button>
-        <e:Button id="btnTutorial" x="350" verticalCenter="0">
-            <e:Skin>
-                <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
-            </e:Skin>
-        </e:Button>
-        <e:Button id="btnCardsGame" verticalCenter="0" right="50">
-            <e:Skin>
-                <e:Image source="btn-card-game_png" horizontalCenter="0" verticalCenter="0" />
+                <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
             </e:Skin>
         </e:Button>
     </e:Group>
+    <e:Group visible="{showCrowd}" horizontalCenter="0" verticalCenter="0" width="850">
+        <e:Button id="btnPrevious2" verticalCenter="0">
+            <e:Skin>
+                <e:Image source="btn-previous" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
+        </e:Button>
+        <e:Group id="titleGroup" verticalCenter="0" horizontalCenter="0">
+            <e:Label text="{titleText}" verticalCenter="0" horizontalCenter="5" size="55" />
+        </e:Group>
+        <e:Button id="btnNext2" verticalCenter="0" right="0">
+            <e:Skin>
+                <e:Image source="btn-next" horizontalCenter="0" verticalCenter="0" />
+            </e:Skin>
+        </e:Button>
+    </e:Group>
+</e:Group>
+<e:Group id="blurFilter3" bottom="25" left="160" right="-3">
+    <e:Button id="btnCatalog" verticalCenter="0">
+        <e:Skin>
+            <e:Image source="btn-catalog" horizontalCenter="0" verticalCenter="0" />
+        </e:Skin>
+    </e:Button>
+    <e:Button id="btnTutorial" x="350" verticalCenter="0">
+        <e:Skin>
+            <e:Image source="btn-course" horizontalCenter="0" verticalCenter="0" />
+        </e:Skin>
+    </e:Button>
+    <e:Button id="btnCardsGame" verticalCenter="0" right="50">
+        <e:Skin>
+            <e:Image name="btnImg" source="btn-card-game_png" horizontalCenter="0" verticalCenter="0" />
+        </e:Skin>
+    </e:Button>
+</e:Group>
+<e:Group id="finalGroup" visible="false" bottom="25" left="160" right="-3">
+    <e:Group id="dragonBoneGroup" verticalCenter="0" horizontalCenter="-100">
+    </e:Group>
+    <e:Button id="btnSkip" verticalCenter="0" right="50">
+        <e:Skin>
+            <e:Image source="btn-skip_png" horizontalCenter="0" verticalCenter="0" />
+        </e:Skin>
+    </e:Button>
+</e:Group>
 </e:Skin>

@@ -32,6 +32,14 @@ namespace ies {
             ApplicationFacade.getInstance().registerMediator(new CatalogWindowMediator(this));
         }
 
+        public toLastScroll() {
+            egret.setTimeout(() => {
+                // const maxScrollV = this.catalogScroller.viewport.contentHeight - this.catalogScroller.height;
+                // console.log(maxScrollV);
+                this.catalogList.scrollV = 520;
+            }, this, 50);
+        }
+
         public close() {
             super.close();
             ApplicationFacade.getInstance().sendNotification(SceneCommand.RESET_FILTER);

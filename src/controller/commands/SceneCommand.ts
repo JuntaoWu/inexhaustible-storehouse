@@ -68,7 +68,7 @@ namespace ies {
                     break;
                 }
                 case SceneCommand.SHOW_CATALOG_WINDOW: {
-                    appMediator.main.showCatalogWindow();
+                    appMediator.main.showCatalogWindow(data);
                     break;
                 }
                 case SceneCommand.SHOW_ALERT_WINDOW: {

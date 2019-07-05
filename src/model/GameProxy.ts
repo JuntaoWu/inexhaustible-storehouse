@@ -15,15 +15,15 @@ namespace ies {
 		}
 
 		public async initialize() {
-			
+
 		}
-		
+
 		public static HIDE_DEV_WINDOW: string = "hide_developer";
 
 		public static ANSWERED: string = "answered";
 		public static CHANGE_INDEX: string = "change_index";
 		public static PLAY_FINAL: string = "play_final";
-		
+
 		private _questionMap: Map<string, Question>;
 		public get questionMap(): Map<string, Question> {
 			if (!this._questionMap) {
@@ -39,11 +39,11 @@ namespace ies {
 			isSoundBGMOn: true,
 			volumeBGM: 0.5,
 			firstShowTutorial: true,
-			showEntryCardsGameTips: true,
+			showEntryCardsGameTips: true
 		}
 
 		public isShowFinalTowQuestion() {
-			return this.playerInfo.answeredList.length >= 20;
+			return this.playerInfo.answeredList.filter(i => i < 21).length == 20;
 		}
 
 		public isAnswered(qId) {
@@ -52,6 +52,10 @@ namespace ies {
 
 		public isAnsweredAll() {
 			return this.playerInfo.answeredList.filter(i => i <= 22).length === 22;
+		}
+
+		public get showLastCrowd(): boolean {
+			return this.isAnswered(21) && this.isAnswered(22);
 		}
 
 		public addAnswered(qId) {
@@ -63,23 +67,23 @@ namespace ies {
 
 		public async getPlayerInfoFromStorage() {
 			try {
-                 let playerInfo = JSON.parse(await platform.getStorageAsync("playerInfo"));
-                 if (playerInfo) {
-					 this.playerInfo = Object.assign(this.playerInfo, playerInfo);
-                 }
-            }
-            catch (error) {
-                console.error("localPlayerInfo is not JSON, skip.");
-            }
+				let playerInfo = JSON.parse(await platform.getStorageAsync("playerInfo"));
+				if (playerInfo) {
+					this.playerInfo = Object.assign(this.playerInfo, playerInfo);
+				}
+			}
+			catch (error) {
+				console.error("localPlayerInfo is not JSON, skip.");
+			}
 		}
-		
+
 		public savePlayerInfoToStorage() {
-            try {
-                platform.setStorageAsync("playerInfo", JSON.stringify(this.playerInfo));
-            }
-            catch (error) {
-                console.error(error);
-            }
+			try {
+				platform.setStorageAsync("playerInfo", JSON.stringify(this.playerInfo));
+			}
+			catch (error) {
+				console.error(error);
+			}
 		}
 
 		public testDeletePlayerInfo() {
@@ -96,25 +100,25 @@ namespace ies {
 			this.playBGM();
 		}
 
-        public setVolume(value: number, type?: string) {
-            if (type == "bgm") {
-                SoundPool.volumeBGM = this.playerInfo.volumeBGM = value;
-            }
-            else {
-                this.playerInfo.volumeEffect = value;
-            }
-            this.savePlayerInfoToStorage();
-        }
+		public setVolume(value: number, type?: string) {
+			if (type == "bgm") {
+				SoundPool.volumeBGM = this.playerInfo.volumeBGM = value;
+			}
+			else {
+				this.playerInfo.volumeEffect = value;
+			}
+			this.savePlayerInfoToStorage();
+		}
 
 		public switchBGM(b: boolean) {
 			this.playerInfo.isSoundBGMOn = b;
 			this.playBGM();
-            this.savePlayerInfoToStorage();
+			this.savePlayerInfoToStorage();
 		}
 
 		public switchEffect(b: boolean) {
-            this.playerInfo.isSoundEffectOn = b;
-            this.savePlayerInfoToStorage();
+			this.playerInfo.isSoundEffectOn = b;
+			this.savePlayerInfoToStorage();
 		}
 
 		public playBGM() {
@@ -141,11 +145,27 @@ namespace ies {
 				let src = soundName;
 				if (platform.os == "wxgame") {
 					src = `${Constants.ResourceEndpoint}resource/assets/sound/${soundName.replace('_mp3', '')}.mp3`;
-				}			
+				}
 				platform.createInnerAudio(src, this.playerInfo.volumeEffect);
+			}
+		}
+
+		private finalSound: any;
+		public playFinalSound() {
+			let src = 'final_mp3';
+			if (platform.os == "wxgame") {
+				src = `${Constants.ResourceEndpoint}resource/assets/sound/final.mp3`;
+			}
+			this.finalSound = platform.createInnerAudio(src, this.playerInfo.volumeEffect || 0.5);
+		}
+
+		public stopFinalSound() {
+			if (this.finalSound) {
+				this.finalSound.stop();
+				this.finalSound = null;
 			}
 		}
 	}
 
-	
+
 }

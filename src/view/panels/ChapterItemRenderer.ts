@@ -39,9 +39,7 @@ namespace ies {
                 if (!this.dragonBone) {
                     const num = +this.data.armature.replace('S', '');
                     this.dragonBone = DragonBones.createDragonBone(`SenceAll_${num}`, this.data.armature);
-                    if (this.dragonBone) {
-                        this.dragonBone && this.dragonBoneGroup.addChild(this.dragonBone);
-                    }
+                    this.dragonBone && this.dragonBoneGroup.addChild(this.dragonBone);
                 }
                 if (this.data.answeredNum == 0) {
                     this.dragonBone.animation.play("1", 0);
@@ -65,6 +63,7 @@ namespace ies {
                     }, this, 1500);
                 }
                 else {
+                    console.log(this.data.isPlayFinal);
                     if (this.data.isPlayFinal) {
                         this.dragonBone.animation.play("6", 0);
                     }
@@ -76,7 +75,7 @@ namespace ies {
                         }
                         egret.setTimeout(() => {
                             this.dragonBone.animation.play("5", 0);
-                        }, this, 1500);   
+                        }, this, 1500);
                     }
                 }
             }
@@ -90,6 +89,19 @@ namespace ies {
                 this.width = Constants.contentCrowdWidth;
                 if (this.data.res.replace('exclusive-', '') == '6') {
                     this.width = Constants.contentWidth;
+                }
+                if (this.data.hasCloud) {
+                    if (!this.cloud) {
+                        this.cloud = DragonBones.createDragonBone("masks", "cloude");
+                        this.cloud && this.cloudGroup.addChild(this.cloud);
+                        this.cloudGroup.scaleX = 0.5;
+                        this.cloudGroup.scaleY = 0.7;
+                        this.cloudGroup.horizontalCenter = -350;
+                    }
+                }
+                else if (this.cloud) {
+                    this.cloud.animation.play("move", 1);
+                    this.cloud = null;
                 }
             }
         }

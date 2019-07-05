@@ -227,7 +227,7 @@ namespace ies {
         }
 
         public createInnerAudio(soundName: string, volume?: number){
-            SoundPool.playSoundEffect(soundName, volume);
+            return SoundPool.playSoundEffect(soundName, volume);
         }
 
         public async showModal(message: string, confirmText?: string, cancelText?: string): Promise<any> {

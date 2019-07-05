@@ -21,7 +21,7 @@ namespace ies {
                 console.error(`playSoundEffect: Unable to load sound: ${soundName}`);
                 return;
             }
-
+            console.log(soundName);
             let soundChannel: egret.SoundChannel = sound.play(0, 1);
             soundChannel.volume = volume;
 

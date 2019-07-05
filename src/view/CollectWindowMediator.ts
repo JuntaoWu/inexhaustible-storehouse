@@ -45,15 +45,17 @@ namespace ies {
                 this.pageView.collectRate3.text = collectList[2].length ? `${collectList[2].filter(i => i).length}/${collectList[2].length}` : '';
             }
             const capsNums = ['十', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
-            const percent = Math.floor((collected / (totalCollect + 4)) * 100);
+            const percent = Math.floor((collected / totalCollect) * 100);
             const num1 = Math.floor(percent / 10);
             const num2 = percent % 10;
             this.pageView.progressTitle.text = `零`;
-            this.pageView.progressWidth = 1240 * percent / 100 * 0.9;
-            if (num1 || num2) {
+            this.pageView.progressWidth = 1240 * percent / 100;
+            if (num1 === 10) {
+                this.pageView.progressTitle.text = "百";
+            }
+            else if (num1 || num2) {
                 this.pageView.progressTitle.text = `${!num1 ? '' : capsNums[num1] + '十'}${!num2 ? '' : capsNums[num2]}`;
             }
-
         }
 
         public tapItem(e: eui.ItemTapEvent) {

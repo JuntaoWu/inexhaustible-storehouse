@@ -9,7 +9,7 @@ namespace ies {
         public constructor(viewComponent: any) {
             super(CatalogWindowMediator.NAME, viewComponent);
             super.initializeNotifier("ApplicationFacade");
-            
+
             this.proxy = this.facade().retrieveProxy(GameProxy.NAME) as GameProxy;
             this.pageView.addEventListener(egret.Event.ADDED_TO_STAGE, this.initData, this);
 
@@ -23,7 +23,7 @@ namespace ies {
         public async initData() {
             const catalogList = [];
             for (let i = 0; i < 20; i++) {
-                const v = this.proxy.questionMap.get((i+1).toString());
+                const v = this.proxy.questionMap.get((i + 1).toString());
                 const replaceText = v.sentence.match(/【(.+?)】/)[1];
                 catalogList[i] = {
                     sentence: v.sentence.replace(/【(.+?)】/, replaceText),
@@ -40,7 +40,7 @@ namespace ies {
                 let showFinalButton = true;
                 this.pageView.showFinalTow = false;
                 [20, 21].forEach(i => {
-                    const v = this.proxy.questionMap.get((i+1).toString());
+                    const v = this.proxy.questionMap.get((i + 1).toString());
                     const replaceText = v.sentence.match(/【(.+?)】/)[1];
                     catalogList[i] = {
                         sentence: v.sentence.replace(/【(.+?)】/, replaceText),
@@ -54,6 +54,23 @@ namespace ies {
                 });
                 this.pageView.btnFinal.visible = showFinalButton;
                 this.pageView.showFinalTow = !showFinalButton;
+            }
+            if (this.proxy.showLastCrowd) {
+                const sentence = ['假易真又真易假', '孙行者来者行孙'];
+                const isAnswered = this.proxy.isAnswered(27);
+                catalogList.push(
+                    ...[0, 1].map(i => {
+                        const obj = {
+                            sentence: sentence[i],
+                            sideRes: '',
+                            index: i
+                        }
+                        if (!isAnswered) {
+                            obj.sentence = obj.sentence.split('').map(i => ' ').join('');
+                        }
+                        return obj;
+                    })
+                );
             }
             this.pageView.catalogList.itemRenderer = SentenceRenderer;
             this.pageView.catalogList.dataProvider = new eui.ArrayCollection(catalogList);

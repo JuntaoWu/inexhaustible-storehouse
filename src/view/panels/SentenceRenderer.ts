@@ -33,7 +33,13 @@ namespace ies {
                 this.listFinalQuestion.dataProvider = new eui.ArrayCollection(iconList);
             }
             else {
-                const list = this.data.sentence.split('');
+                
+                const list = this.data.sentence.split('').map(i => {
+                    return {
+                        text: i,
+                        useWordBox: this.data.useWordBox || false
+                    }
+                });
                 this.wordList.dataProvider = new eui.ArrayCollection(list);
                 this.wordList.itemRenderer = WordItemRenderer;
             }

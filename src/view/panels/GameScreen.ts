@@ -19,7 +19,10 @@ namespace ies {
         public titleList: eui.List;
         public scrollBg: eui.Image;
         public bgDragonBoneGroup: eui.Group;
-        
+        public btnSkip: eui.Button;
+        public finalGroup: eui.Group;
+        public dragonBoneGroup: eui.Group;
+
         public blurFilter1: eui.Group;
         public blurFilter2: eui.Group;
         public blurFilter3: eui.Group;

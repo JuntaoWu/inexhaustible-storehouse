@@ -65,9 +65,9 @@
                     <e:Image source="card-game-img2" horizontalCenter="0" y="720"/>
                     <e:Image source="card-game-img3" horizontalCenter="0" y="1530"/>
                     <e:Image source="card-game-img4" horizontalCenter="0" y="2290"/>
-                    <e:Image source="card-game-img5" horizontalCenter="0" y="3350"/>
-                    <e:Image source="card-game-img6" horizontalCenter="0" y="4220"/>
-                    <e:Image source="card-game-img7" horizontalCenter="0" y="4840"/>
+                    <e:Image source="card-game-img5" horizontalCenter="0" y="3680"/>
+                    <e:Image source="card-game-img6" horizontalCenter="0" y="4570"/>
+                    <e:Image source="card-game-img7" horizontalCenter="0" y="5250"/>
                 </e:Group>
             </e:viewport>
         </e:Scroller>
