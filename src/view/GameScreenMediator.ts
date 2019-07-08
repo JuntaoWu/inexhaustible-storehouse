@@ -32,9 +32,7 @@ namespace ies {
                 if (!event.itemIndex) {
                     chapterIndex -= 1;
                 }
-                this.shouldInitData = this.proxy.playerInfo.answeredList.filter(i => i < 21).length == 19
-                    || (chapterIndex == 21 && this.proxy.isAnswered(22))
-                    || (chapterIndex == 22 && this.proxy.isAnswered(21));
+                this.shouldInitData = this.proxy.playerInfo.answeredList.filter(i => i < 21).length == 19;
                 const question = { ...this.proxy.questionMap.get(chapterIndex.toString()) };
                 question.isAnswered = this.proxy.isAnswered(chapterIndex);
                 this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
@@ -228,13 +226,14 @@ namespace ies {
             console.log('stop interval.');
             egret.clearInterval(this.intervalId);
             this.intervalId = null;
-            this.proxy.stopFinalSound();
             egret.Tween.removeAllTweens();
             this.gameScreen.listChapter.touchEnabled = true;
             this.gameScreen.listChapter.touchChildren = true;
             this.gameScreen.finalGroup.visible = false;
             this.gameScreen.blurFilter3.visible = true;
             this.chapterIndex = this.chapterIndex;
+            this.proxy.isPlayFinalSound = false;
+            this.proxy.stopFinalSound();
         }
 
         private _chapterCrowdIndex: number;
@@ -243,6 +242,12 @@ namespace ies {
         }
         public set chapterCrowdIndex(v: number) {
             this._chapterCrowdIndex = v;
+            if (v >= this.gameScreen.listCrowd.numElements) {
+                this.gameScreen.btnNext2.visible = false;
+            }
+            else {
+                this.gameScreen.btnNext2.visible = true;
+            }
             let qId = v + 22;
             if (v > 4 && !this.proxy.showLastCrowd) {
                 qId = v + 23;
@@ -289,7 +294,7 @@ namespace ies {
                 case GameProxy.CHANGE_INDEX: {
                     const index = Math.floor(data / 2) + 1;
                     let chapterIndex = index == 11 ? 0 : (index > 11 ? 5 : index);
-                    if ((this.gameScreen.scroller.visible && index > 11) || (!this.gameScreen.scroller.visible && index < 11)) {
+                    if ((this.gameScreen.scroller.visible && index > 11) || (!this.gameScreen.scroller.visible && index <= 11)) {
                         this.showCrowdfunding(index > 11);
                         egret.setTimeout(() => {
                             this.moveToTargetIndex(chapterIndex);
@@ -385,7 +390,7 @@ namespace ies {
 
         public previousPage(event: egret.TouchEvent) {
             if (this.gameScreen.finalGroup.visible) return;
-            this.proxy.playEffect("btn-left_mp3");
+            // this.proxy.playEffect("btn-left_mp3");
             if (!this.gameScreen.scrollerCrowd.visible) {
                 const currentIndex = this.chapterIndex;
                 if (currentIndex < 1) {
@@ -405,7 +410,7 @@ namespace ies {
 
         public nextPage(event: egret.TouchEvent) {
             if (this.gameScreen.finalGroup.visible) return;
-            this.proxy.playEffect("btn-right_mp3");
+            // this.proxy.playEffect("btn-right_mp3");
             if (!this.gameScreen.scrollerCrowd.visible) {
                 const currentIndex = this.chapterIndex;
                 if (currentIndex >= (this.gameScreen.listChapter.numElements - 1)) {

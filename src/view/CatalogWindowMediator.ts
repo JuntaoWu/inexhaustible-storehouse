@@ -36,9 +36,10 @@ namespace ies {
                     // catalogList[i].sideIcon = v.sideRes;
                 }
             }
+            this.pageView.showFinalTow = this.pageView.btnFinal.visible = false;
+            this.pageView.btnFinal.y = 1200;
             if (this.proxy.isShowFinalTowQuestion()) {
                 let showFinalButton = true;
-                this.pageView.showFinalTow = false;
                 [20, 21].forEach(i => {
                     const v = this.proxy.questionMap.get((i + 1).toString());
                     const replaceText = v.sentence.match(/【(.+?)】/)[1];
@@ -54,6 +55,9 @@ namespace ies {
                 });
                 this.pageView.btnFinal.visible = showFinalButton;
                 this.pageView.showFinalTow = !showFinalButton;
+                if (showFinalButton) {
+                    this.pageView.btnFinal.y = 1440;
+                }
             }
             if (this.proxy.showLastCrowd) {
                 const sentence = ['假易真又真易假', '孙行者来者行孙'];
@@ -95,6 +99,7 @@ namespace ies {
 
         public finalClick(e: egret.TouchEvent) {
             this.proxy.playEffect("btn-final_mp3");
+            this.proxy.isPlayFinalSound = true;
             this.pageView.close();
             this.sendNotification(GameProxy.PLAY_FINAL);
         }

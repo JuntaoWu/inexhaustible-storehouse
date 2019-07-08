@@ -2,7 +2,7 @@
 <e:Skin class="skins.ies.ChapterItemRenderer" height="660" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<w:Config id="168e5071570"/>
     <e:Image source="{data.res}" verticalCenter="0" left="100"></e:Image>
-    <e:Button id="btnExtra" visible="false" alpha="0" y="345" x="211" width="125" height="140">
+    <e:Button id="btnExtra" visible="false" alpha="0" y="345" x="140" width="160" height="140">
     </e:Button>
     <e:Group id="dragonBoneGroup" verticalCenter="0" horizontalCenter="0">
     </e:Group>

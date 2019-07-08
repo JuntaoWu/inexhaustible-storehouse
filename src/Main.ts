@@ -61,6 +61,7 @@ namespace ies {
                 const proxy = ApplicationFacade.getInstance().retrieveProxy(GameProxy.NAME) as GameProxy;
                 if (proxy) {
                     proxy.playBGM();
+                    proxy.playFinalSound();
                 }
             }
 

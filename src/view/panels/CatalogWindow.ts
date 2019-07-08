@@ -37,6 +37,8 @@ namespace ies {
                 // const maxScrollV = this.catalogScroller.viewport.contentHeight - this.catalogScroller.height;
                 // console.log(maxScrollV);
                 this.catalogList.scrollV = 520;
+                this.showCatalog = true;
+                this.showCollect = this.showSetting = false;
             }, this, 50);
         }
 

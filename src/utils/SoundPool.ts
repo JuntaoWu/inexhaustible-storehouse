@@ -15,7 +15,7 @@ namespace ies {
             }
         }
 
-        public static playSoundEffect(soundName: string, volume: number): egret.SoundChannel {
+        public static playSoundEffect(soundName: string, volume: number, startTime?: number): egret.SoundChannel {
             let sound: egret.Sound = RES.getRes(soundName);
             if (!sound) {
                 console.error(`playSoundEffect: Unable to load sound: ${soundName}`);

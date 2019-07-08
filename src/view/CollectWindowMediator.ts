@@ -18,7 +18,7 @@ namespace ies {
         }
 
         public async initData() {
-            const collectList = [[],[],[]];
+            const collectList = [[], [], []];
             for (let i = 1; i <= 22; i++) {
                 collectList[0][i - 1] = this.proxy.isAnswered(i) ? `collect-min-${i}` : '';
             }
@@ -31,13 +31,15 @@ namespace ies {
 
             this.pageView.showHiddenCollect = !!collectList[2].filter(i => i).length; //显示隐藏收藏
             let totalCollect = 0, collected = 0;
+            totalCollect += collectList[2].length;
+            collected += collectList[2].filter(i => i).length;
             for (let i = 0; i < 2; i++) {
                 totalCollect += collectList[i].length;
                 collected += collectList[i].filter(i => i).length;
-                
-                this.pageView[`listImage${i+1}`].dataProvider = new eui.ArrayCollection(collectList[i]);
-                this.pageView[`listImage${i+1}`].itemRenderer = CollectImageItemRenderer;
-                this.pageView[`collectRate${i+1}`].text = collectList[i].length ? `${collectList[i].filter(i => i).length}/${collectList[i].length}` : '';
+
+                this.pageView[`listImage${i + 1}`].dataProvider = new eui.ArrayCollection(collectList[i]);
+                this.pageView[`listImage${i + 1}`].itemRenderer = CollectImageItemRenderer;
+                this.pageView[`collectRate${i + 1}`].text = collectList[i].length ? `${collectList[i].filter(i => i).length}/${collectList[i].length}` : '';
             }
             if (this.pageView.showHiddenCollect) {
                 this.pageView.listImage3.dataProvider = new eui.ArrayCollection(collectList[2]);

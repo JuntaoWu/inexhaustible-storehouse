@@ -63,7 +63,6 @@ namespace ies {
                     }, this, 1500);
                 }
                 else {
-                    console.log(this.data.isPlayFinal);
                     if (this.data.isPlayFinal) {
                         this.dragonBone.animation.play("6", 0);
                     }
@@ -115,7 +114,7 @@ namespace ies {
                 }, this, 1000);
             }
             this.tapTime += 1;
-            if (this.tapTime >= 5) {
+            if (this.tapTime >= 3) {
                 const question = { ...this.proxy.questionMap.get((29).toString()) };
                 question.isAnswered = this.proxy.isAnswered(29);
                 this.proxy.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);

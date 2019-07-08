@@ -23,6 +23,7 @@ namespace ies {
 		public static ANSWERED: string = "answered";
 		public static CHANGE_INDEX: string = "change_index";
 		public static PLAY_FINAL: string = "play_final";
+		public isPlayFinalSound: boolean;
 
 		private _questionMap: Map<string, Question>;
 		public get questionMap(): Map<string, Question> {
@@ -138,9 +139,13 @@ namespace ies {
 			if (this.bgm) {
 				this.bgmPosition = this.bgm.position;
 			}
+			if (this.finalSound) {
+				this.finalSoundCurrentTime = this.finalSound.currentTime || this.finalSound.position;
+			}
 		}
 
 		public playEffect(soundName: string) {
+			if (this.isPlayFinalSound) return;
 			if (this.playerInfo.isSoundEffectOn) {
 				let src = soundName;
 				if (platform.os == "wxgame") {
@@ -150,22 +155,30 @@ namespace ies {
 			}
 		}
 
-		private finalSound: any;
+		public finalSoundCurrentTime: number = 0;
+		public finalSound: any;
 		public playFinalSound() {
+			console.log(this.isPlayFinalSound, '配音.', this.finalSoundCurrentTime);
+			if (!this.isPlayFinalSound) return;
+			if (this.playerInfo.isSoundBGMOn) {
+				SoundPool.volumeBGM = 0.1;
+			}
 			let src = 'final_mp3';
 			if (platform.os == "wxgame") {
 				src = `${Constants.ResourceEndpoint}resource/assets/sound/final.mp3`;
 			}
-			this.finalSound = platform.createInnerAudio(src, this.playerInfo.volumeEffect || 0.5);
+			this.finalSound = platform.createInnerAudio(src, this.playerInfo.volumeEffect || 0.5, this.finalSoundCurrentTime);
 		}
 
 		public stopFinalSound() {
+			if (this.playerInfo.isSoundBGMOn) {
+				SoundPool.volumeBGM = this.playerInfo.volumeBGM;
+			}
 			if (this.finalSound) {
 				this.finalSound.stop();
 				this.finalSound = null;
 			}
 		}
 	}
-
 
 }

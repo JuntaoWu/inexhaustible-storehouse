@@ -59,7 +59,7 @@ namespace ies {
 
         showPreImage(data: any, index?: any);
 
-        createInnerAudio(src: string, volume?: number);
+        createInnerAudio(src: string, volume?: number, start?: number);
 
         createBannerAd(name: string, adUnitId: string, style: any);
 
@@ -226,8 +226,8 @@ namespace ies {
             
         }
 
-        public createInnerAudio(soundName: string, volume?: number){
-            return SoundPool.playSoundEffect(soundName, volume);
+        public createInnerAudio(soundName: string, volume?: number, start?: number){
+            return SoundPool.playSoundEffect(soundName, volume, start);
         }
 
         public async showModal(message: string, confirmText?: string, cancelText?: string): Promise<any> {
