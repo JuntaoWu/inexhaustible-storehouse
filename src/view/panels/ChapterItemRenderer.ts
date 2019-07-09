@@ -28,6 +28,11 @@ namespace ies {
         private isPlayed2: boolean;
         private isPlayedCloud: boolean;
 
+        private extraCloudGroup1: eui.Group;
+        private extraCloudGroup2: eui.Group;
+        private extraCloudGroup3: eui.Group;
+        public extraCloudList: Array<dragonBones.EgretArmatureDisplay>;
+
         private btnExtra: eui.Button;
         private tapTime: number;
         private tapStartTime: number;
@@ -90,17 +95,19 @@ namespace ies {
                     this.width = Constants.contentWidth;
                 }
                 if (this.data.hasCloud) {
-                    if (!this.cloud) {
-                        this.cloud = DragonBones.createDragonBone("masks", "cloude");
-                        this.cloud && this.cloudGroup.addChild(this.cloud);
-                        this.cloudGroup.scaleX = 0.5;
-                        this.cloudGroup.scaleY = 0.7;
-                        this.cloudGroup.horizontalCenter = -350;
+                    if (!this.extraCloudList) {
+                        this.extraCloudList = [];
+                        for (let i = 0; i < 3; i++) {
+                            this.extraCloudList[i] = DragonBones.createDragonBone("masks", "cloude");
+                            this[`extraCloudGroup${i+1}`].addChild(this.extraCloudList[i]);
+                        }
                     }
                 }
-                else if (this.cloud) {
-                    this.cloud.animation.play("move", 1);
-                    this.cloud = null;
+                else if (!!this.extraCloudList) {
+                    this.extraCloudList.forEach(i => {
+                        i.animation.play("move", 1);
+                    });
+                    this.extraCloudList = null;
                 }
             }
         }
