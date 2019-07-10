@@ -32,7 +32,7 @@ namespace ies {
                 if (!event.itemIndex) {
                     chapterIndex -= 1;
                 }
-                this.shouldInitData = this.proxy.playerInfo.answeredList.filter(i => i < 21).length == 19;
+                this.shouldInitQuestion = this.proxy.playerInfo.answeredList.filter(i => i < 21).length == 19;
                 const question = { ...this.proxy.questionMap.get(chapterIndex.toString()) };
                 question.isAnswered = this.proxy.isAnswered(chapterIndex);
                 this.sendNotification(SceneCommand.SHOW_ANSWER_WINDOW, question);
@@ -41,7 +41,7 @@ namespace ies {
             this.gameScreen.blurFilter1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearData, this);
         }
 
-        private shouldInitData: boolean;
+        private shouldInitQuestion: boolean;
         private tapTime: number;
         private tapStartTime: number;
         private clearData() {
@@ -53,9 +53,14 @@ namespace ies {
                 }, this, 1000);
             }
             this.tapTime += 1;
-            if (this.tapTime >= 3) {
-                this.proxy.testDeletePlayerInfo();
-                this.initData();
+            if (this.tapTime >= 3 && this.proxy.playerInfo.answeredList && this.proxy.playerInfo.answeredList.length) {
+                this.sendNotification(SceneCommand.SHOW_ALERT_WINDOW, {
+                    msg: "点击确定清除答题记录。",
+                    cbk: () => {
+                        this.proxy.testDeletePlayerInfo();
+                        this.initData();
+                    }
+                });
             }
         }
 
@@ -71,9 +76,20 @@ namespace ies {
                 this.bgDragonBone && this.gameScreen.bgDragonBoneGroup.addChild(this.bgDragonBone);
                 this.bgColorStop("grey");
             }
-            const sources = [];
-            const exclusiveList = [];
+            this.getCommonQuestion();
+            this.getExtraQuestion();
             this.chapterIndex = 0;
+            if (this.proxy.playerInfo.firstShowTutorial) {
+                egret.setTimeout(() => {
+                    this.tutorialClick();
+                }, this, 1000);
+            }
+            const btnImg = this.gameScreen.btnCardsGame.getChildByName('btnImg') as eui.Image;
+            btnImg.source = this.proxy.playerInfo.showEntryCardsGameTips && !this.proxy.showLastCrowd ? "btn-card-lock" : "btn-card-game_png";
+        }
+
+        private getCommonQuestion() {
+            const sources = [];
             sources[0] = {
                 res: "logo-with-bg",
                 showExtra: true
@@ -87,6 +103,13 @@ namespace ies {
                     answeredNum: answeredNum
                 };
             }
+            this.arrCollection = new eui.ArrayCollection(sources);
+            this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
+            this.gameScreen.listChapter.dataProvider = this.arrCollection;
+        }
+
+        private getExtraQuestion() {
+            const exclusiveList = [];
             for (let i = 23; i <= 28; i++) {
                 if (i != 27 || this.proxy.showLastCrowd) {
                     exclusiveList.push({
@@ -95,21 +118,9 @@ namespace ies {
                     });
                 }
             }
-            this.arrCollection = new eui.ArrayCollection(sources);
-            this.gameScreen.listChapter.itemRenderer = ChapterItemRenderer;
-            this.gameScreen.listChapter.dataProvider = this.arrCollection;
-
             this.arrCrowdCollection = new eui.ArrayCollection(exclusiveList);
             this.gameScreen.listCrowd.itemRenderer = ChapterItemRenderer;
             this.gameScreen.listCrowd.dataProvider = this.arrCrowdCollection;
-            // console.log(this.arrCollection, this.gameScreen.listChapter.numElements);
-            if (this.proxy.playerInfo.firstShowTutorial) {
-                egret.setTimeout(() => {
-                    this.tutorialClick();
-                }, this, 1000);
-            }
-            const btnImg = this.gameScreen.btnCardsGame.getChildByName('btnImg') as eui.Image;
-            btnImg.source = this.proxy.playerInfo.showEntryCardsGameTips && !this.proxy.showLastCrowd ? "btn-card-lock" : "btn-card-game_png";
         }
 
         private currentBgColor: string;
@@ -198,13 +209,11 @@ namespace ies {
             this.gameScreen.finalGroup.visible = true;
             this.gameScreen.listChapter.touchEnabled = false;
             this.gameScreen.listChapter.touchChildren = false;
-            this.initData();
             this.gameScreen.listChapter.scrollH = 0;
             this.chapterIndex = 0;
             if (!this.dragonBone) {
                 this.dragonBone = DragonBones.createDragonBone('zimu', 'zimu');
                 this.dragonBone && this.gameScreen.dragonBoneGroup.addChild(this.dragonBone);
-                // this.dragonBone.
             }
             this.dragonBone.animation.play("1", 1);
             this.proxy.playFinalSound();
@@ -280,9 +289,12 @@ namespace ies {
             switch (notification.getName()) {
                 case GameProxy.ANSWERED: {
                     if (this.gameScreen.scroller.visible) {
-                        if (this.shouldInitData) {
-                            this.initData();
+                        if (this.shouldInitQuestion) {
+                            this.getCommonQuestion();
                             this.sendNotification(SceneCommand.SHOW_CATALOG_WINDOW, true);
+                        }
+                        else if (this.proxy.showLastCrowd) {
+                            this.getExtraQuestion();
                         }
                         this.moveToTargetIndex(this.chapterIndex);
                     }

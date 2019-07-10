@@ -38,7 +38,6 @@ namespace ies {
 
         public setQuestion(question) {
             this.question = { ...question };
-            console.log(this.question);
 
             this.answerText = question.sentence.match(/【(.+?)】/)[1];
             const replaceText = this.answerText.split('').map(i => ' ').join('');
